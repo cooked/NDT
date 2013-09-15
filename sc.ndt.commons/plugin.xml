@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="sc.ndt.ui.category.nrel"
+            name="NREL">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="sc.ndt.commons.ui.preferences.NRELPreferencePage"
+            id="sc.nrel.ui.preferences.NRELPreferencePage"
+            name="NREL">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="sc.ndt.commons.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               icon="icons/icon_wind.png"
+               label="NREL">
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="sc.ndt.commons.nwtc.ui.category.view"
+            name="NWTC">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.console.consoleFactories">
+      <consoleFactory
+            class="sc.ndt.commons.ui.console.ConsoleFactoryFAST"
+            icon="icons/cog_go.png"
+            label="FAST">
+      </consoleFactory>
+   </extension>
+
+</plugin>

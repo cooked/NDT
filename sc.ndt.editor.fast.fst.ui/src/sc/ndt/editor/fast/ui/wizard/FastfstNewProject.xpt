@@ -1,0 +1,28 @@
+«IMPORT sc::ndt::editor::fast::ui::wizard»
+
+«DEFINE main FOR FastfstProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR FastfstProjectInfo»
+«FILE "src/model/Model.fst"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR FastfstProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.FastfstGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»

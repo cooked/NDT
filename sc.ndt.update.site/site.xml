@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="http://www.stefanocottafavi/eclipse/update/NDT/monitor.html" id="" version="0.0.0.0">
+      <category name="nrel.dev.tools.fast"/>
+   </feature>
+   <feature url="features/sc.ndt.feature.basic_0.3.0.201307141743.jar" id="sc.ndt.feature.basic" version="0.3.0.201307141743">
+      <category name="nrel.dev.tools.fast"/>
+   </feature>
+   <category-def name="nrel.dev.tools.fast" label="NDT - FAST Tools"/>
+   <category-def name="nrel.dev.tools.turbsim" label="NDT - TurbSim Tools"/>
+   <category-def name="nrel.dev.tools.iecwind" label="NDT - IECWind Tools"/>
+   <category-def name="nrel.dev.tools.mcrunch" label="NDT - MCrunch Tools"/>
+   <category-def name="nrel.dev.tools.bmodes" label="NDT - BModes Tools"/>
+</site>

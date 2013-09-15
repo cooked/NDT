@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.ndt.sc/editor/fast/Fastfst" 
+       class = "sc.ndt.editor.fast.fastfst.FastfstPackage"
+       genModel = "sc/ndt/editor/fast/Fastfst.genmodel" /> 
+	
+  </extension>
+  <extension
+        id="product"
+        point="org.eclipse.core.runtime.products">
+     <product
+           application="org.eclipse.e4.ui.workbench.swt.E4Application"
+           name="ndt">
+        <property
+              name="appName"
+              value="ndt">
+        </property>
+     </product>
+  </extension>
+
+
+
+
+</plugin>

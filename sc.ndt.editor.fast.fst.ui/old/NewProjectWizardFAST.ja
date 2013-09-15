@@ -1,0 +1,44 @@
+package sc.ndt.editor.fast.ui.wizard;
+
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.INewWizard;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+
+public class NewProjectWizardFAST extends Wizard implements INewWizard {
+
+	// see
+	// http://cvalcarcel.wordpress.com/2009/07/11/writing-an-eclipse-plug-in-part-2-creating-a-custom-project-in-eclipse-adding-to-the-new-project-wizard/
+	
+	private WizardNewProjectCreationPage _pageOne;
+	
+	public NewProjectWizardFAST() {
+		setWindowTitle("FAST Project");
+	}
+	
+	@Override
+	public void addPages() {
+	    super.addPages();
+	 
+	    _pageOne = new WizardNewProjectCreationPage("From Scratch Project Wizard");
+	    _pageOne.setTitle("From Scratch Project");
+	    _pageOne.setDescription("Create something from scratch.");
+	 
+	    addPage(_pageOne);
+	}
+    
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	@Override
+	public boolean performFinish() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+}

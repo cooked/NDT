@@ -1,0 +1,31 @@
+body {
+	margin:		0px;
+	padding:	0px;
+	width:		100%;
+	
+	font-family:"Verdana";
+	font-size:	9px;
+}
+input {
+	margin: 5px 0px 0px 5px;
+}
+
+#flot1 {
+	width:	auto;
+	height:	300px;
+	margin: 5px;
+}
+.xAxis, .yAxis {
+	font-size: 9px;
+}
+.tickLabel {
+	font-size: 8px;
+}
+table#contents {
+	width:	100%;
+	border: 1px solid #444;
+}
+table#contents th {
+	width:	100%;
+	border: 1px solid #444;
+}

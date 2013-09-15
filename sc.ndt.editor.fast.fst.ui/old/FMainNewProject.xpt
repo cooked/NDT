@@ -1,0 +1,28 @@
+«IMPORT sc::nrel::nwtc::fast::ui::wizard»
+
+«DEFINE main FOR FMainProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR FMainProjectInfo»
+«FILE "src/model/Model.main"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR FMainProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.FMainGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»

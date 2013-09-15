@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+              class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="fst"
+              filenames="primary.fst"
+              icon="icons/text_padding_top.png"
+              id="sc.ndt.editor.fast.Fastfst"
+              name="Fastfst Editor">
+        </editor>
+        <editor
+              class="sc.ndt.editor.fast.ui.mpe.ui.FstMultiPageEditor"
+              default="false"
+              extensions="fst"
+              icon="icons/application_view_detail.png"
+              id="sc.ndt.editor.fast.mpe.editor"
+              name="MPE .fst editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="sc.ndt.editor.fast.Fastfst.validate">
+         <activeWhen>
+            <reference
+                    definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="sc.ndt.editor.fast.Fastfst.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="sc.ndt.editor.fast.Fastfst" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="sc.ndt.editor.fast.Fastfst"
+            name="Fastfst">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+        </page>
+        <page
+            category="sc.ndt.editor.fast.Fastfst"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="sc.ndt.editor.fast.Fastfst.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+        </page>
+        <page
+            category="sc.ndt.editor.fast.Fastfst"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="sc.ndt.editor.fast.Fastfst.templates"
+            name="Templates">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="sc.ndt.editor.fast.Fastfst"
+            name="Fastfst">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="sc.ndt.editor.fast.ui.keyword_Fastfst"
+            label="Fastfst"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="sc.ndt.editor.fast.Fastfst.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="sc.ndt.editor.fast.Fastfst.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="fst">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="fst">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for sc.ndt.editor.fast.Fastfst -->
+    <extension
+            id="fastfst.check.fast"
+            name="Fastfst Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="fastfst.check.normal"
+            name="Fastfst Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="fastfst.check.expensive"
+            name="Fastfst Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="sc.ndt.editor.fast.Fastfst"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="sc.ndt.editor.fast.Fastfst.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="sc.ndt.editor.fast.Fastfst"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="sc.ndt.editor.fast.Fastfst.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for sc.ndt.editor.fast.Fastfst -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="sc.ndt.editor.fast.ui.fastfst.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="sc.ndt.editor.fast.ui.fastfst.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="sc.ndt.editor.fast.ui.fastfst.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+
+   <!--<extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.xtext.projectwiz"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:sc.ndt.editor.fast.ui.wizard.FastfstNewProjectWizard"
+            id="sc.ndt.editor.fast.ui.wizard.FastfstNewProjectWizard"
+            name="FAST Project"
+            project="true">
+      </wizard>
+   </extension>-->
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="sc.ndt.editor.fast.Fastfst.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="sc.ndt.editor.fast.Fastfst"
+	        class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="sc.ndt.editor.fast.Fastfst.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
+	    </page>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="sc.ndt.editor.fast.Fastfst.compare.contentViewers"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="fst">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="sc.ndt.editor.fast.Fastfst.compare.contentMergeViewers"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="fst" label="Fastfst Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="sc.ndt.editor.fast.Fastfst.editors.documentProviders"
+            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="fst">
+    </provider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="sc.ndt.ui.category.nrel"
+           class="sc.ndt.editor.fast.ui.wizard.NewProjectWizardFAST"
+           id="sc.ndt.fast.newproject"
+           name="FAST Project"
+           project="true">
+     </wizard>
+     <wizard
+           class=".FMainExecutableExtensionFactory:sc.nrel.nwtc.fast.ui.wizard.FASTNewFileWizard"
+           id="sc.ndt.editor.fast.fst.ui.wizard1"
+           name="FAST Main File">
+     </wizard>
+     <category
+           id="sc.ndt.editor.fast.fst.ui.category1"
+           name="Analysis"
+           parentCategory="sc.ndt.ui.category.nrel">
+     </category>
+     <wizard
+           category="sc.ndt.editor.fast.fst.ui.category1"
+           class="sc.ndt.editor.fast.fst.ui.NewWizard1"
+           id="sc.ndt.editor.fast.fst.ui.wizard1"
+           name="New Linearization">
+     </wizard>
+     <wizard
+           category="sc.ndt.editor.fast.fst.ui.category1"
+           class="sc.ndt.editor.fast.fst.ui.NewWizard2"
+           id="sc.ndt.editor.fast.fst.ui.wizard2"
+           name="New Campbell Diagram">
+     </wizard>
+     <wizard
+           category="sc.ndt.editor.fast.fst.ui.category1"
+           class="sc.ndt.editor.fast.fst.ui.NewWizard3"
+           id="sc.ndt.editor.fast.fst.ui.wizard3"
+           name="New 61400-1 DLCs study">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="sc.nrel.ui.preferences.NRELPreferencePage"
+           class="sc.ndt.editor.fast.ui.addon.preferences.FASTPreferencePage"
+           id="sc.ndt.editor.fast.fst.ui.preferences.FASTPreferencePage"
+           name="FAST">
+     </page>
+  </extension>
+
+</plugin>

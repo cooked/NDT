@@ -1,0 +1,1 @@
+Consider various FASTTypes (FAST here is equivanlent to VM in java)

@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/sc.ndt.editor.fast.fst/src-gen" editDirectory="/sc.ndt.editor.fast.fst.edit/src"
+    editorDirectory="/sc.ndt.editor.fast.fst.editor/src" modelPluginID="sc.ndt.editor.fast.fst"
+    forceOverwrite="true" modelName="Fastfst" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.fast.fst.edit"
+    editorPluginID="sc.ndt.editor.fast.fst.editor" runtimeVersion="2.8">
+  <genPackages prefix="Fastfst" basePackage="sc.ndt.editor.fast" disposableProviderFactory="true"
+      loadInitialization="true" literalsInterface="false" ecorePackage="Fastfst.ecore#/">
+    <genClasses ecoreClass="Fastfst.ecore#//ModelFastfst">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Echo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/ADAMSPrep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/AnalMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NumBl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TMax"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YCMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TYCOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PCMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPCOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/VSContrl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/VS_RtGnSp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/VS_RtTq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/VS_Rgn2K"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/VS_SlPc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenTiStr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenTiStp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SpdGenOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TimGenOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TimGenOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HSSBrMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/THSSBrDp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TiDynBrk"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TTpBrDp_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TTpBrDp_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TTpBrDp_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TBDepISp_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TBDepISp_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TBDepISp_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TYawManS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TYawManE"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacYawF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManS_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManS_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManS_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManE_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManE_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TPitManE_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitch_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitch_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitch_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitchF_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitchF_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BlPitchF_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Gravity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/FlapDOF1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/FlapDOF2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/EdgeDOF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetDOF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DrTrDOF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenDOF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YawDOF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwFADOF1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwFADOF2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwSSDOF1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwSSDOF2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/CompAero"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/CompNoise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/OoPDefl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/IPDefl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetDefl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Azimuth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/RotSpeed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacYaw"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TTDspFA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TTDspSS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TipRad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HubRad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PSpnElN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/UndSling"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HubCM"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/OverHang"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacCMxn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacCMyn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacCMzn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TowerHt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Twr2Shft"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwrRBHt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/ShftTilt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Delta3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PreCone_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PreCone_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PreCone_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/AzimB1Up"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YawBrMass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacMass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HubMass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TipMass_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TipMass_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TipMass_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NacYIner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenIner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HubIner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GBoxEff"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GenEff"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GBRatio"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/GBRevers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HSSBrTqF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/HSSBrDT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DynBrkFi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DTTorSpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DTTorDmp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SIG_SlPc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SIG_SySp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SIG_RtTq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SIG_PORt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_Freq"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_Npol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_Sres"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_Rres"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_VLL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_SLR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_RLR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TEC_MR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PtfmModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/PtfmFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwrNodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwrFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YawSpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YawDamp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/YawNeut"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/Furling"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/FurlFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetMod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetDmpP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetDmp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetCDmp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetSStP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetHStP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetSSSp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TeetHSSp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TBDrConN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TBDrConD"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TpBrDT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BldFile_1_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BldFile_2_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BldFile_3_"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/ADFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NoiseFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/ADAMSFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/LinFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SumPrint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/OutFileFmt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TabDelim"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/OutFmt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TStart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/DecFact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/SttsTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NcIMUxn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NcIMUyn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NcIMUzn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/ShftGagL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NTwGages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/TwrGagNd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/NBlGages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/BldGagNd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastfst.ecore#//ModelFastfst/OutList"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//Header/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//Section/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bEcho">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bEcho/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bEcho/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iADAMSPrep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iADAMSPrep/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iADAMSPrep/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iAnalMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iAnalMode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iAnalMode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iNumBl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNumBl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNumBl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTMax">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTMax/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTMax/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nDT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDT/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iYCMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iYCMode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iYCMode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTYCOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYCOn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYCOn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iPCMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iPCMode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iPCMode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPCOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPCOn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPCOn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iVSContrl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iVSContrl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iVSContrl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nVS_RtGnSp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_RtGnSp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_RtGnSp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nVS_RtTq">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_RtTq/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_RtTq/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nVS_Rgn2K">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_Rgn2K/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_Rgn2K/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nVS_SlPc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_SlPc/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nVS_SlPc/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iGenModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iGenModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iGenModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bGenTiStr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenTiStr/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenTiStr/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bGenTiStp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenTiStp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenTiStp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSpdGenOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSpdGenOn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSpdGenOn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTimGenOn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTimGenOn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTimGenOn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTimGenOf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTimGenOf/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTimGenOf/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iHSSBrMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iHSSBrMode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iHSSBrMode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTHSSBrDp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTHSSBrDp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTHSSBrDp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTiDynBrk">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTiDynBrk/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTiDynBrk/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTTpBrDp_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTTpBrDp_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTTpBrDp_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTpBrDp_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTBDepISp_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTBDepISp_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTBDepISp_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDepISp_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTYawManS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYawManS/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYawManS/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTYawManE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYawManE/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTYawManE/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacYawF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYawF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYawF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManS_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManS_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManS_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManS_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManE_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManE_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTPitManE_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTPitManE_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitch_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitch_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitch_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitch_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitchF_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitchF_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nBlPitchF_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nBlPitchF_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nGravity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGravity/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGravity/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bFlapDOF1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFlapDOF1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFlapDOF1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bFlapDOF2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFlapDOF2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFlapDOF2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bEdgeDOF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bEdgeDOF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bEdgeDOF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTeetDOF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTeetDOF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTeetDOF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bDrTrDOF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bDrTrDOF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bDrTrDOF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bGenDOF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenDOF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGenDOF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bYawDOF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bYawDOF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bYawDOF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTwFADOF1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwFADOF1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwFADOF1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTwFADOF2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwFADOF2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwFADOF2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTwSSDOF1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwSSDOF1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwSSDOF1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTwSSDOF2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwSSDOF2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTwSSDOF2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bCompAero">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bCompAero/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bCompAero/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bCompNoise">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bCompNoise/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bCompNoise/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nOoPDefl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nOoPDefl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nOoPDefl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nIPDefl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nIPDefl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nIPDefl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetDefl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDefl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDefl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nAzimuth">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nAzimuth/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nAzimuth/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nRotSpeed">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nRotSpeed/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nRotSpeed/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacYaw">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYaw/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYaw/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTTDspFA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTDspFA/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTDspFA/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTTDspSS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTDspSS/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTTDspSS/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTipRad">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipRad/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipRad/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHubRad">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubRad/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubRad/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nPSpnElN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPSpnElN/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPSpnElN/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nUndSling">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nUndSling/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nUndSling/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHubCM">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubCM/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubCM/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nOverHang">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nOverHang/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nOverHang/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacCMxn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMxn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMxn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacCMyn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMyn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMyn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacCMzn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMzn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacCMzn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTowerHt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTowerHt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTowerHt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTwr2Shft">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTwr2Shft/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTwr2Shft/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTwrRBHt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTwrRBHt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTwrRBHt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nShftTilt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nShftTilt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nShftTilt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nDelta3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDelta3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDelta3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nPreCone_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nPreCone_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nPreCone_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nPreCone_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nAzimB1Up">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nAzimB1Up/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nAzimB1Up/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nYawBrMass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawBrMass/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawBrMass/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacMass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacMass/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacMass/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHubMass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubMass/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubMass/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTipMass_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTipMass_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTipMass_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTipMass_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNacYIner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYIner/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNacYIner/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nGenIner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGenIner/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGenIner/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHubIner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubIner/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHubIner/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nGBoxEff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGBoxEff/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGBoxEff/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nGenEff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGenEff/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGenEff/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nGBRatio">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGBRatio/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nGBRatio/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bGBRevers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGBRevers/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bGBRevers/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHSSBrTqF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHSSBrTqF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHSSBrTqF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nHSSBrDT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHSSBrDT/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nHSSBrDT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fDynBrkFi">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fDynBrkFi/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fDynBrkFi/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nDTTorSpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDTTorSpr/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDTTorSpr/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nDTTorDmp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDTTorDmp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nDTTorDmp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSIG_SlPc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_SlPc/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_SlPc/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSIG_SySp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_SySp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_SySp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSIG_RtTq">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_RtTq/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_RtTq/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSIG_PORt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_PORt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSIG_PORt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_Freq">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Freq/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Freq/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_Npol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Npol/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Npol/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_Sres">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Sres/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Sres/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_Rres">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Rres/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_Rres/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_VLL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_VLL/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_VLL/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_SLR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_SLR/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_SLR/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_RLR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_RLR/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_RLR/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTEC_MR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_MR/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTEC_MR/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iPtfmModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iPtfmModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iPtfmModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fPtfmFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fPtfmFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fPtfmFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iTwrNodes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iTwrNodes/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iTwrNodes/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fTwrFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fTwrFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fTwrFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nYawSpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawSpr/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawSpr/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nYawDamp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawDamp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawDamp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nYawNeut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawNeut/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nYawNeut/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bFurling">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFurling/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bFurling/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fFurlFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fFurlFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fFurlFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iTeetMod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iTeetMod/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iTeetMod/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetDmpP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDmpP/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDmpP/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetDmp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDmp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetDmp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetCDmp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetCDmp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetCDmp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetSStP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetSStP/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetSStP/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetHStP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetHStP/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetHStP/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetSSSp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetSSSp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetSSSp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTeetHSSp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetHSSp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTeetHSSp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTBDrConN">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDrConN/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDrConN/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTBDrConD">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDrConD/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTBDrConD/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTpBrDT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTpBrDT/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTpBrDT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fBldFile_1_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_1_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_1_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fBldFile_2_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_2_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_2_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fBldFile_3_">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_3_/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fBldFile_3_/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fADFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fADFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fADFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fNoiseFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fNoiseFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fNoiseFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fADAMSFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fADAMSFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fADAMSFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//fLinFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fLinFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//fLinFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bSumPrint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bSumPrint/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bSumPrint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bOutFileFmt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bOutFileFmt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bOutFileFmt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//bTabDelim">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTabDelim/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//bTabDelim/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//sOutFmt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//sOutFmt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//sOutFmt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nTStart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTStart/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nTStart/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iDecFact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iDecFact/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iDecFact/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nSttsTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSttsTime/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nSttsTime/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNcIMUxn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUxn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUxn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNcIMUyn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUyn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUyn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nNcIMUzn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUzn/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nNcIMUzn/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//nShftGagL">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nShftGagL/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//nShftGagL/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iNTwGages">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNTwGages/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNTwGages/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//aTwrGagNd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//aTwrGagNd/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//aTwrGagNd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//iNBlGages">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNBlGages/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//iNBlGages/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//aBldGagNd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//aBldGagNd/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//aBldGagNd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastfst.ecore#//vOutList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//vOutList/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastfst.ecore#//vOutList/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

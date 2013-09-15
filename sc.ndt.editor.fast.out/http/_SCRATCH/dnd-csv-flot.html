@@ -1,0 +1,194 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>FlotChart</title>
+        
+        <script type="text/javascript" src="lib/jquery/1.9.1/jquery.js"></script>
+        <script type="text/javascript" src="lib/jquery-csv/0.71/jquery.csv.js"></script>
+        <script type="text/javascript" src="lib/flot/0.7/jquery.flot.js"></script>
+        <script type="text/javascript" src="lib/flot/0.7/jquery.flot.navigate.js"></script>
+       
+        <script>
+			
+			// handles dnd files
+			function handleFileSelect(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+			 
+				var files = evt.target.files;
+				
+				// FileList object, take 1st file only
+				var file = files[0];
+
+				// read the file metadata
+				var output = ''
+				output += '<span style="font-weight:bold;">' + escape(file.name) + '</span><br />\n';
+				output += ' - FileType: ' + (file.type || 'n/a') + '<br />\n';
+				output += ' - FileSize: ' + file.size + ' bytes<br />\n';
+				output += ' - LastModified: ' + (file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'n/a') + '<br />\n';
+
+				// read the file contents
+				printTable(file);
+
+				/*// reset the flot dataset
+				flot2.setData([]);
+				for(var i=0, len=files.length; i<len; i++) {
+				flotFileData(files[i], i);
+				}*/
+
+				// post the results
+				$('#list').append(output);
+			}
+
+			function printTable(file) {
+				var reader = new FileReader();
+				reader.readAsText(file);
+				reader.onload = function(event) {
+					var csv = event.target.result;
+					var data = $.csv.toArrays(csv);
+					var html = '';
+					for (var row in data) {
+						html += '<tr>\r\n';
+						for (var item in data[row]) {
+							html += '<td>' + data[row][item] + '</td>\r\n';
+						}
+						html += '</tr>\r\n';
+					}
+					$('#contents').html(html);
+				};
+				reader.onerror = function() {
+					alert('Unable to read ' + file.fileName);
+				};
+			}
+
+			function handleDragOver(evt) {
+			    evt = evt.originalEvent;
+				evt.stopPropagation();
+				evt.preventDefault();
+				evt.dataTransfer.dropEffect = 'copy';
+				// Explicitly show this is a copy.
+			}
+                       
+		</script>
+
+        <script>
+        
+            $(document).ready(function() {
+                if (isAPIAvailable()) {
+                    $('#fileInput').bind('change', handleFileSelect);
+                }
+                
+                flotData();
+
+                //$('#run').bind('click', flotTextData);
+                
+                // Setup the dnd listeners.
+                var dropZone = document.getElementById('drop_zone');
+                //dropZone.addEventListener('dragover', handleDragOver, false);
+                //dropZone.addEventListener('drop', handleFileSelect, false);
+            
+                dropZone.bind('drop', handleFileSelect);
+            });
+
+            // plots the data
+            function flotData() {
+                var options = {
+                    series : {
+                        lines : {
+                            show : true
+                        },
+                        shadowSize : 0
+                    },
+                    xaxis : {
+                        zoomRange : [0.1, 10],
+                        panRange : [-10, 10]
+                    },
+                    yaxis : {
+                        zoomRange : [0.1, 10],
+                        panRange : [-10, 10]
+                    },
+                    zoom : {
+                        interactive : true
+                    },
+                    pan : {
+                        interactive : true
+                    }
+                }
+
+                var data1 = [];
+                data1[0] = $.csv.toArrays($('#textInput').val(), {
+                    onParseValue : $.csv.hooks.castToScalar
+                });
+
+                //flot1 = $.plot($('#flot1'), data1, options);
+                flot1
+                $.plot($("#flot1"), [[[0, 0], [1, 1]]], options);
+
+            }
+
+            // displays a warning if the browser doesn't support the HTML5 File API
+            function isAPIAvailable() {
+                // Check for the various File API support.
+                if (window.File && window.FileReader && window.FileList && window.Blob) {
+                    // Great success! All the File APIs are supported.
+                    return true;
+                } else {
+                    alert("The browser you're using does not currently support\nthe HTML5 File API. As a result the file loading demo\nwon't work properly.");
+                    return false;
+                }
+            }
+            
+            /*function flotFileData(file, i) {
+            var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(event){
+            var csv = event.target.result;
+            var data = flot2.getData();
+            var newData = $.csv.toArrays(csv, {
+            onParseValue:$.csv.hooks.castToScalar
+            });
+            // append to the existing dataset
+            data[i] = newData;
+            flot2.setData(data);
+            flot2.setupGrid();
+            flot2.draw();
+            };
+            reader.onerror = function(){ alert('Unable to read ' + file.fileName); };
+            }*/
+        </script>
+        
+        
+        <style>
+			#drop_zone {
+				border: 2px dashed #BBBBBB;
+				border-radius: 5px 5px 5px 5px;
+				color: #BBBBBB;
+				padding: 25px;
+				text-align: center;
+			}
+			textarea {
+				width: 100%;
+			}
+        </style>
+    </head>
+
+    <body>
+
+        <div id=tabs>
+
+            <input id=fileInput type=file name=files[] multiple />
+
+            <div id=flot1 style="width:600px;height:300px;margin:0 auto;"></div>
+
+            <table border="" style="width:100%; height:400px;" id="contents"></table>
+
+            <div id="drop_zone" style="width:300px,height:100px">
+                Drop files here
+            </div>
+            <output id="list"></output>
+
+    </body>
+</html>

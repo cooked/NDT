@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="fastInstalls" name="FAST Installs" schema="schema/fastInstalls.exsd"/>
+   <extension-point id="fastInstallTypes" name="FAST Install Types" schema="schema/fastInstallTypes.exsd"/>
+   <extension
+         point="sc.ndt.launching.fast.fastInstallTypes">
+      <fastInstallType
+            class="sc.nrel.nwtc.fast.launching.StandardFASTType"
+            id="sc.nrel.nwtc.fast.launching.StandardFASTType">
+      </fastInstallType>
+   </extension>
+<extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="sc.ndt.editor.fast.fst.ui.preferences.FASTPreferencePage"
+            class="sc.nrel.nwtc.fast.internal.debug.fres.FREsPreferencePage"
+            id="sc.nrel.nwtc.fast.internal.debug.ui.fres.FREsPreferencePage"
+            name="Installed FREs">
+      </page>
+   </extension>
+	  <extension
+        point="org.eclipse.debug.ui.launchShortcuts">
+     <shortcut
+           class="sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FASTLaunchShortcut"
+           icon="icons/favico_nrel.png"
+           id="sc.nrel.nwtc.xfast.ui.shortcutFASTMain"
+           label="FAST Simulation"
+           modes="run">
+        <configurationType
+              id="sc.nrel.nwtc.xfast.ui.launchConfigurationTypeFASTMain"></configurationType>
+        <contextualLaunch>
+           <enablement>
+              <with
+                    variable="selection">
+                 <count
+                       value="1">
+                 </count>
+                 <iterate>
+                    <instanceof
+                          value="org.eclipse.core.resources.IFile">
+                    </instanceof>
+                    <test
+                          property="org.eclipse.debug.ui.matchesPattern"
+                          value="*.fst">
+                    </test>
+                 </iterate>
+              </with>
+           </enablement></contextualLaunch>
+     </shortcut>
+  </extension>
+  <extension
+        point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+     <launchConfigurationTabGroup
+           class="sc.nrel.nwtc.fast.internal.debug.ui.launcher.FASTSimulationTabGroup"
+           id="sc.nrel.nwtc.fast.internal.debug.ui.launcher.TabGroupFAST"
+           type="sc.ndt.launching.fast.localFASTApplication">
+        <launchMode
+              mode="run">
+        </launchMode>
+     </launchConfigurationTabGroup>
+  </extension>
+  <extension
+        point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+     <launchConfigurationTypeImage
+           configTypeID="sc.ndt.launching.fast.localFASTApplication"
+           icon="icons/favico_nrel.png"
+           id="sc.nrel.nwtc.xfast.ui.launchConfigurationTypeImageFASTMain">
+     </launchConfigurationTypeImage>
+  </extension>
+  <extension
+        point="org.eclipse.debug.core.launchConfigurationTypes">
+     <launchConfigurationType
+           delegate="sc.ndt.core.externaltools.internal.launchConfigurations.ProgramLaunchDelegate"
+           id="sc.ndt.launching.fast.localFASTApplication"
+           modes="run"
+           name="FAST">
+     </launchConfigurationType>
+  </extension>
+</plugin>
