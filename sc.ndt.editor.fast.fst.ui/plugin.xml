@@ -343,7 +343,7 @@
   <extension
         point="org.eclipse.ui.newWizards">
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:sc.ndt.editor.fast.ui.wizard.FASTNewProjectWizard"
            icon="icons/fan-alt.png"
            id="sc.ndt.fast.newproject"
@@ -357,8 +357,8 @@
            name="FAST Main File">
      </wizard>
      <category
-           id="sc.ndt.editor.fast.fst.ui.category1"
-           name="Analysis"
+           id="sc.ndt.editor.nrel.fast"
+           name="FAST"
            parentCategory="sc.ndt.ui.category.nrel">
      </category>
      <wizard

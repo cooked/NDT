@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="iecwindiec" nsURI="http://www.ndt.sc/editor/iecwind/Iecwindiec"
+    nsPrefix="iecwindiec">
+  <eClassifiers xsi:type="ecore:EClass" name="ModelIecwindiec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Head" eType="#//Header"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SIUnits" eType="#//siUnits"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Start" eType="#//iStart"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IECClass" eType="#//iIECClass"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindTurb" eType="#//sWindTurb"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindSlope" eType="#//nWindSlope"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IECStandard" eType="#//iIECStd"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HubHeight" eType="#//nHubHeight"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RotDiam" eType="#//nRotDiam"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindIn" eType="#//nWindIn"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindNom" eType="#//nWindNom"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindOut" eType="#//nWindOut"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OutList" eType="#//vOutList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Header">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="siUnits">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="iStart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="iIECClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sWindTurb">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nWindSlope">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="iIECStd">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nHubHeight">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nRotDiam">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nWindIn">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nWindNom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="nWindOut">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="vOutList">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,28 @@
+«IMPORT sc::ndt::editor::iecwind::ui::wizard»
+
+«DEFINE main FOR IecwindiecProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR IecwindiecProjectInfo»
+«FILE "src/model/Model.iecwindiec"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR IecwindiecProjectInfo»
+«FILE "src/Generator.mwe2"-»
+module Generator
+
+var targetDir = "src-gen"
+var modelPath = "src/model"
+
+Workflow {
+	component = @workflow.IecwindiecGenerator auto-inject {}
+}
+«ENDFILE»
+«ENDDEFINE»

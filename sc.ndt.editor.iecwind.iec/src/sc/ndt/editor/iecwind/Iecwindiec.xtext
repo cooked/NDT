@@ -1,0 +1,105 @@
+grammar sc.ndt.editor.iecwind.Iecwindiec //with org.eclipse.xtext.common.Terminals
+
+generate iecwindiec "http://www.ndt.sc/editor/iecwind/Iecwindiec"
+
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+
+ModelIecwindiec: 
+	
+	Head 		= Header
+	
+  	sections 	+= Section
+  	SIUnits		= siUnits
+  	Start		= iStart
+  	
+  	sections 	+= Section
+  	IECClass 	= iIECClass
+  	WindTurb	= sWindTurb
+  	WindSlope	= nWindSlope
+  	IECStandard = iIECStd
+  	
+  	sections 	+= Section
+  	HubHeight	= nHubHeight
+  	RotDiam		= nRotDiam
+  	WindIn		= nWindIn
+  	WindNom		= nWindNom
+  	WindOut		= nWindOut
+  	
+  	sections 	+= Section
+	OutList		= vOutList		// The next line(s) contains a list of output parameters.  See OutList.txt for a listing of available output channels.
+  	
+  	(WS|NEWLINE|SL_COMMENT)*	// The word "END" must appear in the first 3 columns of this last line).
+  	
+  	// about EOF
+  	// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
+  
+;
+
+tNUMBER returns ecore::EFloat	: INT | NUMBER;
+tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
+//(('T'|'t')('R'|'r')('U'|'u')('E'|'e')) | //(('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e'));
+
+//from online help: The QualifiedName is a little special. It does not contain any assignments. 
+// Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
+// Package is still of type String. 
+//FILE: ('.'?'.'?)('/'? STRING)*;
+//FILE returns ecore::EString:
+//	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
+ 
+tARRAY_INT returns ecore::EString: INT ( ',' INT )*;
+// OK tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? '"' WS? OUT_CH WS? (',' WS? OUT_CH WS?)* '"' WS? NEWLINE )+;
+tARRAY_OUT returns ecore::EString hidden(SL_COMMENT): (WS? OUT WS? NEWLINE )*;
+
+
+// TERMINALS 
+// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
+// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
+terminal OUT returns ecore::EString: 
+	( "ECD"("-r"|"+r")(("-"|"+")"2.0")? ) |
+	( "EWS"("V"|"H")("-"|"+")(INT+("."INT)?) ) |
+	( "EOG"("i"|("r"(("-"|"+")"2.0")?)|"o") ) |
+	( "EDC"("-r"|"+r")(("-"|"+")"2.0")? ) |
+	( "NWP"(INT+("."INT)? ) );
+
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal NUMBER returns ecore::EFloat:	
+	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
+	(('+'|'-')? INT 		  (('E'|'e')('+'|'-')? INT ) ) |
+	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
+	('-'		INT										 )
+;
+
+// see http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/chap05/format.html
+terminal CLASS		: "A"|"B"|"C";
+terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+
+//terminal SL_COMMENT	: '-' !('0'..'9') !('\r'|'\n'|'\r\n')*;
+//terminal SEC		: "!" !('\r'|'\n'|'\r\n')*;
+terminal SL_COMMENT	: "!" !('\r'|'\n'|'\r\n')*;
+terminal NEWLINE	: '\r'|'\n'|'\r\n';
+terminal WS			: (' '|'\t')+;
+
+	
+Header hidden(): 
+	row=SL_COMMENT NEWLINE ;
+
+Section hidden():
+	name=SL_COMMENT NEWLINE ;
+
+siUnits 	hidden():	WS? value=tBOOL 	WS  SL_COMMENT? NEWLINE;
+iStart 		hidden():	WS? value=tNUMBER 	WS  SL_COMMENT? NEWLINE;
+iIECClass 	hidden():	WS? value=INT		WS  SL_COMMENT? NEWLINE;
+sWindTurb 	hidden():	WS? value=CLASS 	WS	SL_COMMENT? NEWLINE;
+nWindSlope	hidden():	WS? value=tNUMBER 	WS	SL_COMMENT? NEWLINE;
+iIECStd		hidden():	WS? value=INT 		WS	SL_COMMENT? NEWLINE;
+
+nHubHeight	hidden():	WS? value=tNUMBER 	WS 	SL_COMMENT? NEWLINE;
+nRotDiam	hidden():	WS? value=tNUMBER 	WS 	SL_COMMENT? NEWLINE;
+nWindIn		hidden():	WS? value=tNUMBER 	WS 	SL_COMMENT? NEWLINE;
+nWindNom	hidden():	WS? value=tNUMBER 	WS 	SL_COMMENT? NEWLINE;
+nWindOut	hidden():	WS? value=tNUMBER 	WS 	SL_COMMENT? NEWLINE;
+
+vOutList	hidden():	value=tARRAY_OUT;
