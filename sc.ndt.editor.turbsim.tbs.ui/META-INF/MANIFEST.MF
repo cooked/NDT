@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: sc.ndt.editor.turbsim.tbs.ui
+Bundle-Vendor: Stefano Cottafavi
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: sc.ndt.editor.turbsim.tbs.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: sc.ndt.editor.turbsim.tbs;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.xtend,
+ org.eclipse.xpand
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: sc.ndt.editor.ui.quickfix,
+ sc.ndt.editor.ui.contentassist,
+ sc.ndt.editor.ui.contentassist.antlr,
+ sc.ndt.editor.ui.internal
+Bundle-Activator: sc.ndt.editor.ui.internal.TurbsimtbsActivator
