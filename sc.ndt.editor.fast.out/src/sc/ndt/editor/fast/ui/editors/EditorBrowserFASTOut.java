@@ -30,11 +30,8 @@ public class EditorBrowserFASTOut extends FormPage {
 	//public static final String ID = "sc.webui.charting.editors.EditorBrowserFASTOut"; //$NON-NLS-1$
 		
 	public ArrayList<String> 	visibleCh;
-
 	private OutlinePageChGraph 	myOutlinePage;
-
-	private Browser browser;
-
+	private Browser 			browser;
 
 	public EditorBrowserFASTOut(FormEditor editor, String id, String title) {
 		super(editor, id, title);
@@ -92,7 +89,7 @@ public class EditorBrowserFASTOut extends FormPage {
         // 							- https://developer.mozilla.org/en/docs/XULRunner
         // XULRunner Eclipse plugin - http://forge.ispras.ru/projects/xulrunner-eclipse
         // XULRunner vs WebKit 		- http://dottorblaster.it/2011/04/eclipse-sostituire-xulrunner-con-webkit/		
-		browser = new Browser(managedForm.getForm().getBody(), SWT.MOZILLA);
+		browser = new Browser(managedForm.getForm().getBody(), SWT.WEBKIT);
 		browser.setUrl("http://localhost:8888/index.html");
 		//browser.setUrl("http://localhost:8888/dygraph.html");
 		managedForm.getToolkit().adapt(browser);
@@ -101,7 +98,13 @@ public class EditorBrowserFASTOut extends FormPage {
 		browser.addProgressListener(new ProgressListener() {
             @Override
             public void completed(ProgressEvent event) {
-            	// onComplete();
+        		
+            	String name = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsNameString();
+        		String data = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsData();
+        		String vis = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsInvisible();
+        		
+            	browser.evaluate("return setData("+name+","+data+","+vis+");");
+            	
             }
             @Override
             public void changed(ProgressEvent event) {
@@ -111,11 +114,9 @@ public class EditorBrowserFASTOut extends FormPage {
 		browser.addLocationListener(new LocationListener(){
 			@Override
 			public void changing(LocationEvent event) {
-				// do nothing
 			}
 			@Override
 			public void changed(LocationEvent event) {
-				// do nothing
 			}
         	
         });
@@ -178,17 +179,31 @@ public class EditorBrowserFASTOut extends FormPage {
 	}
 
 	public void appendCh(String chName,int plotNr) {
-		String ds = getChDataS(chName);
+		
+		/*String ds = getChDataS(chName);
 		Object res = browser.evaluate(	//, curvedLines: {apply:true,fit: true, fitPointDist: 0.000001}
         		"n"+plotNr+".push({ label: '" + chName + "', data:" + ds + " });" +
         		"return setSWTData"+plotNr+"();" );
+		visibleCh.add(chName);*/
+		
+		//float[][] s = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsData();
+		
+    	
+		//String ds = getChDataS(chName);
+		browser.evaluate("return setSerieVisibility(\""+chName+"\",true);");
 		visibleCh.add(chName);
+
     }
 	
 	public void removeCh(String chName,int plotNr) {
-		int index = visibleCh.indexOf(chName);
+		/*int index = visibleCh.indexOf(chName);
 		Object res = browser.evaluate("n"+plotNr+".splice("+index+",1); return setSWTData"+plotNr+"();");
-		visibleCh.remove(index);
+		visibleCh.remove(index);*/
+		
+		//String ds = getChDataS(chName);
+		browser.evaluate("return setSerieVisibility(\""+chName+"\",false);");
+		visibleCh.add(chName);
+		
     }
 	
 	@Override

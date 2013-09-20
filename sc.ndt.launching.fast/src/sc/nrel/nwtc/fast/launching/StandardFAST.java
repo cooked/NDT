@@ -65,7 +65,7 @@ public class StandardFAST extends AbstractFASTInstall {
      * 
      * @return executable for this VM or <code>null</code> if none
      */
-    File getJavaExecutable() {
+    public File getJavaExecutable() {
     	File installLocation = getInstallLocation();
         if (installLocation != null) {
             return StandardFASTType.findFASTExecutable(installLocation);

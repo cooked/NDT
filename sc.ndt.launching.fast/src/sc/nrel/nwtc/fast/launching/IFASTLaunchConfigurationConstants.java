@@ -151,7 +151,7 @@ public interface IFASTLaunchConfigurationConstants {
 	 * when launching a VM. The attributes in the map are implementation dependent
 	 * and are limited to String keys and values.
 	 */
-	public static final String ATTR_VM_INSTALL_TYPE_SPECIFIC_ATTRS_MAP = LaunchingPlugin.getUniqueIdentifier() + "VM_INSTALL_TYPE_SPECIFIC_ATTRS_MAP"; //$NON-NLS-1$
+	public static final String ATTR_VM_INSTALL_TYPE_SPECIFIC_ATTRS_MAP = LaunchingPlugin.getUniqueIdentifier() + ".VM_INSTALL_TYPE_SPECIFIC_ATTRS_MAP"; //$NON-NLS-1$
 	
 	/**
 	 * Launch configuration attribute key. The value is an identifier of

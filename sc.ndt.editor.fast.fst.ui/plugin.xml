@@ -344,12 +344,14 @@
         point="org.eclipse.ui.newWizards">
      <wizard
            category="sc.ndt.ui.category.nrel"
-           class="sc.ndt.editor.fast.ui.wizard.NewProjectWizardFAST"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:sc.ndt.editor.fast.ui.wizard.FASTNewProjectWizard"
+           icon="icons/fan-alt.png"
            id="sc.ndt.fast.newproject"
            name="FAST Project"
            project="true">
      </wizard>
      <wizard
+           category="sc.ndt.ui.category.nrel"
            class=".FMainExecutableExtensionFactory:sc.nrel.nwtc.fast.ui.wizard.FASTNewFileWizard"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
            name="FAST Main File">
@@ -360,22 +362,22 @@
            parentCategory="sc.ndt.ui.category.nrel">
      </category>
      <wizard
-           category="sc.ndt.editor.fast.fst.ui.category1"
+           category="sc.ndt.ui.category.nrel"
            class="sc.ndt.editor.fast.fst.ui.NewWizard1"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="New Linearization">
+           name="FAST Linearization">
      </wizard>
      <wizard
-           category="sc.ndt.editor.fast.fst.ui.category1"
+           category="sc.ndt.ui.category.nrel"
            class="sc.ndt.editor.fast.fst.ui.NewWizard2"
            id="sc.ndt.editor.fast.fst.ui.wizard2"
-           name="New Campbell Diagram">
+           name="FAST Campbell Diagram">
      </wizard>
      <wizard
-           category="sc.ndt.editor.fast.fst.ui.category1"
+           category="sc.ndt.ui.category.nrel"
            class="sc.ndt.editor.fast.fst.ui.NewWizard3"
            id="sc.ndt.editor.fast.fst.ui.wizard3"
-           name="New 61400-1 DLCs study">
+           name="FAST IEC 61400-1 DLCs study">
      </wizard>
   </extension>
   <extension
@@ -386,6 +388,23 @@
            id="sc.ndt.editor.fast.fst.ui.preferences.FASTPreferencePage"
            name="FAST">
      </page>
+  </extension>
+  <extension
+        id="nature1"
+        point="org.eclipse.core.resources.natures">
+     <runtime>
+        <run
+              class="sc.ndt.editor.fast.ui.addon.nature.FASTProjectNature">
+        </run>
+     </runtime>
+  </extension>
+  <extension
+        point="org.eclipse.ui.ide.projectNatureImages">
+     <image
+           icon="icons/letter_F.gif"
+           id="sc.ndt.editor.fast.fst.ui.image1"
+           natureId="sc.ndt.editor.fast.fst.ui.image1">
+     </image>
   </extension>
 
 </plugin>

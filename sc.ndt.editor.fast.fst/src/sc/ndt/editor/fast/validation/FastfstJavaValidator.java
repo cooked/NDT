@@ -29,7 +29,7 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 	FastfstPackage fp = FastfstPackage.eINSTANCE;
 	private float val;
 	private EAttribute ea;
-
+	
 	private boolean isInt(Float val) {
 		if (val - val.intValue() == 0)
 			return true;
@@ -47,7 +47,13 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 			return true;
 		return false;
 	}
-
+	
+	private boolean isRangeGT(float val, float min, float max) {
+		if (val > min && val <= max)
+			return true;
+		return false;
+	}
+	
 	private boolean isLinearization() {
 		return m.getAnalMode().getValue()==2;
 	}
@@ -65,7 +71,7 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 		if (!isInt(val))
 			error("Value must be an integer.", atr);
 	}
-
+	
 	private void checkPos(Float val, EAttribute atr) {
 		if (!isPositive(val))
 			error("Value cannot be less than 0.", atr);
@@ -87,8 +93,8 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 
 	private void check0100(Float val, EAttribute atr) {
 		int min = 0, max = 100;
-		if (!isRange(val.intValue(), min, max))
-			error("Value must be greater/equal than " + min
+		if (!isRangeGT(val.floatValue(), min, max))
+			error("Value must be greater than " + min
 					+ " and less/equal than " + max + ".", atr);
 	}
 
@@ -369,9 +375,13 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 		val = var.getValue();
 		ea = fp.getnVS_RtTq_Value();
 
-		if(m.getVSContrl().getValue()==1)
+		if(m.getVSContrl().getValue()==1) {
+			
 			checkPos(val, ea);
-		else
+			if (val < m.getVS_Rgn2K().getValue()*Math.pow(m.getVS_RtGnSp().getValue(),2) )
+				error("VS_RtTq must be greater than VS_Rgn2K*VS_RtGnSp^2.", ea);
+			
+		} else
 			checkNotUsed(m.getVSContrl().getName(), ea, " is not 1.");
 	}
 

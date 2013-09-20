@@ -13,12 +13,15 @@ import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.ui.wizard.XtextNewProjectWizard;
 
 import sc.ndt.editor.fast.ui.addon.folding.FastfstFoldingRegionProvider;
 import sc.ndt.editor.fast.ui.addon.hover.FastfstEObjectDocumentationProvider;
 import sc.ndt.editor.fast.ui.addon.hover.FastfstEObjectHoverProvider;
 import sc.ndt.editor.fast.ui.addon.hyperlinking.FastfstEditorOpener;
 import sc.ndt.editor.fast.ui.addon.hyperlinking.FastfstHyperlinkHelper;
+import sc.ndt.editor.fast.ui.wizard.FASTNewProjectWizard;
+import sc.ndt.editor.fast.ui.wizard.FastfstNewProjectWizard;
 
 import com.google.inject.Binder;
 
@@ -66,6 +69,10 @@ public class FastfstUiModule extends sc.ndt.editor.fast.ui.AbstractFastfstUiModu
 	public Class<? extends IFoldingRegionProvider> bindIFoldingRegionProvider() {
 		return FastfstFoldingRegionProvider.class;}
 	
+	// new project wizard
+	public Class<? extends XtextNewProjectWizard> bindXtextNewProjectWizard() {
+			return FASTNewProjectWizard.class;}
+		
 	// hyperlink
 	/* TODO add in release 0.2.0
 	@Override

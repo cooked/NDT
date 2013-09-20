@@ -150,14 +150,7 @@ public class StandardFASTRunner extends AbstractFASTRunner {
 	 */
 	protected String constructProgramString(FASTRunnerConfiguration config) throws CoreException {
 
-		// Look for the user-specified java executable command
 		String command= null;
-		/* TODO 
-		Map map= config.getVMSpecificAttributesMap();
-		if (map != null) {
-			command = (String)map.get(IJavaLaunchConfigurationConstants.ATTR_JAVA_COMMAND);
-		}
-		*/
 		
 		// If no java command was specified, use default executable
 		if (command == null) {
@@ -168,8 +161,7 @@ public class StandardFASTRunner extends AbstractFASTRunner {
 				exe = StandardFASTType.findFASTExecutable(fVMInstance.getInstallLocation());
 			}
 			if (exe == null) {
-				// TODO abort(MessageFormat.format(LaunchingMessages.StandardVMRunner_Unable_to_locate_executable_for__0__1, new String[]{fVMInstance.getName()}), null, IJavaLaunchConfigurationConstants.ERR_INTERNAL_ERROR); 
-				
+				//abort(MessageFormat.format(LaunchingMessages.StandardVMRunner_Unable_to_locate_executable_for__0__1, new String[]{fVMInstance.getName()}), null, IJavaLaunchConfigurationConstants.ERR_INTERNAL_ERROR); 			
 			} else {
 				return exe.getAbsolutePath();
 			}

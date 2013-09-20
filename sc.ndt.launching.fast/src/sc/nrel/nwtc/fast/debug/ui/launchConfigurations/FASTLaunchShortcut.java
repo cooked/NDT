@@ -2,12 +2,12 @@ package sc.nrel.nwtc.fast.debug.ui.launchConfigurations;
 
 //import IType;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.internal.resources.File;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -52,6 +52,8 @@ import sc.nrel.nwtc.fast.launching.IFASTInstall;
 //import sc.nrel.nwtc.fast.ui.internal.FMainActivator;
 //import sc.nrel.nwtc.fast.ui.preferences.PreferenceConstants;
 import sc.nrel.nwtc.fast.launching.IFASTLaunchConfigurationConstants;
+import sc.nrel.nwtc.fast.launching.IFASTRunner;
+import sc.nrel.nwtc.fast.launching.StandardFAST;
 
 public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 
@@ -184,9 +186,10 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 			
 			String fileName= file.getName();
 			
-			// TODO qui devo recuperare il FRE di default
 			IFASTInstall dfi = FASTRuntime.getDefaultFASTInstall();
-			String location = dfi.getInstallLocation().toString() + IPath.SEPARATOR + "FAST.exe";
+			File exe = ((StandardFAST)dfi).getJavaExecutable();
+			
+			String location = exe.getAbsolutePath();
 			
 			if (location.length() == 0) {
 				wc.setAttribute(IExternalToolConstants.ATTR_LOCATION, (String)null);

@@ -1,4 +1,4 @@
-package sc.ndt.editor.fast.ui.wizard.old;
+package sc.ndt.editor.fast.ui.wizard;
 
 import java.io.File;
 
@@ -17,14 +17,14 @@ import org.eclipse.xtext.ui.wizard.XtextNewProjectWizard;
 
 import com.google.inject.Inject;
 
-public class FASTNewProjectWizard extends XtextNewProjectWizard {
+public class FASTNewProjectWizard extends FastfstNewProjectWizard {
 
 	private WizardNewProjectCreationPage mainPage;
 
 	@Inject
 	public FASTNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
-		setWindowTitle("New Project");
+		setWindowTitle("New FAST Project");
 	}
 
 	public void addPages() {
@@ -35,7 +35,7 @@ public class FASTNewProjectWizard extends XtextNewProjectWizard {
 
 	@Override
 	protected IProjectInfo getProjectInfo() {
-		FMainProjectInfo projectInfo = new FMainProjectInfo();
+		FastfstProjectInfo projectInfo = new FastfstProjectInfo();
 		projectInfo.setProjectName(mainPage.getProjectName());
 		return projectInfo;
 	}

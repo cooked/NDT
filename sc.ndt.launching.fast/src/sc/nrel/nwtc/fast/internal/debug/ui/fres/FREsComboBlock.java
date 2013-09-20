@@ -533,10 +533,10 @@ public class FREsComboBlock {
 	 * @return whether the 'use default JRE' button is checked
 	 */
 	public boolean isDefaultJRE() {
-		/*if (fDefaultButton != null) {
+		if (fDefaultButton != null) {
 			return fDefaultButton.getSelection();
-		}*/
-		return true;
+		}
+		return false;
 	}
 	
 	/**

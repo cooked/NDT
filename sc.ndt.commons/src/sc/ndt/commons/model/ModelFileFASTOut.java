@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
@@ -21,6 +22,8 @@ public class ModelFileFASTOut extends FileNRELOutput {
 	public String[] 			channels;
 	public String[] 			units;
 	//public Matrix 				mData;
+	//public String[][]			data;
+	public ArrayList<float[]> 	data = new ArrayList<float[]>();
 	
 	public ArrayList<ArrayList<Float>> 	rowData = new ArrayList<ArrayList<Float>>();
 	public ArrayList<ArrayList<Float>> 	colData = new ArrayList<ArrayList<Float>>(); 
@@ -40,7 +43,44 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		init();
 		
 	}
-				
+		
+	public String[] getChannelsName() {
+		return channels;
+	}
+	public String getChannelsInvisible() {
+		
+		String v = "[";
+		for(int i=0; i<channels.length-2;i++)
+			v = v.concat("false,");
+		v = v.concat("false]");
+		return v;
+		
+	}
+	
+	public String getChannelsNameString() {
+		
+		String names = "[";
+		for(int i=0; i<channels.length-1;i++)
+			names = names.concat("\""+channels[i].toString()+"\",");
+		names = names.concat("\""+channels[channels.length-1].toString()+"\"]");
+		
+		return names;
+	
+	}
+	
+	public String[] getChannelsUnit() {
+		return units;
+	}
+	
+	public String getChannelsData() {
+		float[][] fl2 = data.toArray(new float[0][0]);
+		String s = ArrayUtils.toString(fl2);
+		String t = Arrays.deepToString(fl2);
+		
+		return t;
+	}
+	
+	
 	public float[][] getChannel(String chName) {
 		return xySeries.get(chName);
 	}
@@ -76,6 +116,8 @@ public class ModelFileFASTOut extends FileNRELOutput {
 			String[] nextLine;
 		    while((nextLine = reader.readNext()) != null) {
 		    	
+		    	
+		    	
 		    	ArrayList<Float> row = new ArrayList<Float>();
 		    	
 		    	Iterator<String> 			ilf = Arrays.asList(nextLine).iterator();
@@ -86,7 +128,12 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		    		row.add(f);			// row
 		    	}
 		    	
+		    	Float[] fl = row.toArray(new Float[0]);
+		    	float[] fla = ArrayUtils.toPrimitive(fl);
+		    	data.add(fla);
+		    	
 		    	rowData.add(row);
+		    	
 		    }
 		    
 		    if(reader instanceof CSVReader && reader!=null)
@@ -119,9 +166,6 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		    	for(int i=0; i<ch.length; i++)
 		    		chXY[i] = new float[]{ time[i].floatValue(), ch[i].floatValue() };
 		    
-		    	if(xySeries.containsKey(channels[index]))
-		    		System.out.print("f@ù#@@ck");
-		    	
 		    	xySeries.put(channels[index], chXY);
 		    	index++;
 			}

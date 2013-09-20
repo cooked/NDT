@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.views;bundle-version="3.6.100",
  au.com.bytecode.opencsv;bundle-version="2.3.0",
  com.google.guava;bundle-version="11.0.1",
- org.eclipse.ui.console;bundle-version="3.5.100"
+ org.eclipse.ui.console;bundle-version="3.5.100",
+ org.apache.commons.lang
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.commons.model,
