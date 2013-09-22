@@ -8,212 +8,31 @@ ModelFastadn:
 	
 	Head 		= Header
 	
-  	sections 	+= Section
   	SIUnits		= sUnits
-  	ADAMSPrep	= iADAMSPrep
-  	AnalMode 	= iAnalMode
-  	NumBl		= iNumBl
-  	TMax		= nTMax
-  	DT			= nDT
+  	StallMod	= sStallMod
+  	UseCm 		= sUseCm
+  	InfModel	= sInfModel
+  	IndModel	= sIndModel
+  	Atoler		= nAtoler
+  	TLModel		= sTLModel
+  	HLModel		= sHLModel
   	
-  	sections += Section
-  	YCMode		= iYCMode
-  	TYCOn		= nTYCOn
-  	PCMode		= iPCMode
-  	TPCOn		= nTPCOn
-	VSContrl	= iVSContrl
-	VS_RtGnSp	= nVS_RtGnSp
-	VS_RtTq		= nVS_RtTq
-	VS_Rgn2K	= nVS_Rgn2K
-	VS_SlPc		= nVS_SlPc
-	GenModel	= iGenModel
-	GenTiStr	= bGenTiStr
-	GenTiStp	= bGenTiStp
-	SpdGenOn	= nSpdGenOn
-	TimGenOn	= nTimGenOn
-	TimGenOf	= nTimGenOf
-	HSSBrMode	= iHSSBrMode
-	THSSBrDp	= nTHSSBrDp
-	TiDynBrk	= nTiDynBrk
-	TTpBrDp_1_	= nTTpBrDp_1_
-	TTpBrDp_2_	= nTTpBrDp_2_
-	TTpBrDp_3_	= nTTpBrDp_3_
-	TBDepISp_1_	= nTBDepISp_1_
-	TBDepISp_2_	= nTBDepISp_2_
-	TBDepISp_3_	= nTBDepISp_3_
-	TYawManS	= nTYawManS
-	TYawManE	= nTYawManE
-	NacYawF		= nNacYawF
-	TPitManS_1_	= nTPitManS_1_
-	TPitManS_2_	= nTPitManS_2_
-	TPitManS_3_	= nTPitManS_3_
-	TPitManE_1_	= nTPitManE_1_
-	TPitManE_2_	= nTPitManE_2_
-	TPitManE_3_	= nTPitManE_3_
-	BlPitch_1_  = nBlPitch_1_
-	BlPitch_2_  = nBlPitch_2_
-	BlPitch_3_  = nBlPitch_3_
-	BlPitchF_1_ = nBlPitchF_1_
-	BlPitchF_2_ = nBlPitchF_2_
-	BlPitchF_3_ = nBlPitchF_3_
+  	WindFile	= sWindFile
   	
-  	sections += Section
-  	Gravity		= nGravity
-  	
-  	sections += Section
-  	FlapDOF1	= bFlapDOF1
-	FlapDOF2	= bFlapDOF2
-	EdgeDOF		= bEdgeDOF
-	TeetDOF		= bTeetDOF
-	DrTrDOF		= bDrTrDOF
-	GenDOF		= bGenDOF
-	YawDOF		= bYawDOF
-	TwFADOF1	= bTwFADOF1
-	TwFADOF2	= bTwFADOF2
-	TwSSDOF1	= bTwSSDOF1
-	TwSSDOF2	= bTwSSDOF2
-	CompAero	= bCompAero
-	CompNoise	= bCompNoise
-  	
-  	sections += Section
-  	OoPDefl		= nOoPDefl
-	IPDefl		= nIPDefl
-	TeetDefl	= nTeetDefl
-	Azimuth		= nAzimuth
-	RotSpeed 	= nRotSpeed
-	NacYaw		= nNacYaw
-	TTDspFA		= nTTDspFA
-	TTDspSS		= nTTDspSS
+  	HH			= nHH
+  	TwrShad  	= nTwrShad						
+	ShadHWid 	= nShadHWid					
+	TShadRefPt 	= nTShadRefPt
+	Rho     	= nRho			// Air density (kg/m^3)						
+	KinVisc  	= nKinVisc 		// Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
+	DTAero		= nDTAero 		// Time interval for aerodynamic calculations						(sec)
 	
-	sections += Section
-	TipRad		= nTipRad
-	HubRad		= nHubRad
-	PSpnElN		= nPSpnElN							
-	UndSling	= nUndSling
-	HubCM		= nHubCM
-	OverHang	= nOverHang
-	NacCMxn		= nNacCMxn
-	NacCMyn		= nNacCMyn
-	NacCMzn		= nNacCMzn
-	TowerHt		= nTowerHt
-	Twr2Shft	= nTwr2Shft
-	TwrRBHt		= nTwrRBHt
-	ShftTilt	= nShftTilt
-	Delta3		= nDelta3
-	PreCone_1_	= nPreCone_1_
-	PreCone_2_	= nPreCone_2_
-	PreCone_3_	= nPreCone_3_
-	AzimB1Up	= nAzimB1Up
+	NumFoil		= iNumFoil		// Number of airfoil files (-)
+	FoilNm		= aFoilNm		// Names of the airfoil files [NumFoil lines]					(quoted strings)
+
+	BldNodes	= iBldNodes
+	AirStat		= aAirStat
 	
-	sections += Section
-	YawBrMass	= nYawBrMass	
-	NacMass		= nNacMass 	
-	HubMass		= nHubMass	
-	TipMass_1_	= nTipMass_1_	
-	TipMass_2_	= nTipMass_2_ 	
-	TipMass_3_	= nTipMass_3_	
-	NacYIner	= nNacYIner	
-	GenIner		= nGenIner
-	HubIner		= nHubIner
-	
-	sections += Section
-	GBoxEff		= nGBoxEff	// Gearbox efficiency (%)								
-	GenEff		= nGenEff	// Generator efficiency [ignored by the Thevenin and user-defined generator models] (%)								
-	GBRatio		= nGBRatio	// Gearbox ratio (-)								
-	GBRevers	= bGBRevers	// Gearbox reversal {T: if rotor and generator rotate in opposite directions} (flag)
-	HSSBrTqF	= nHSSBrTqF	// Fully deployed HSS-brake torque (N-m)
-	HSSBrDT		= nHSSBrDT	// Time for HSS-brake to reach full deployment once initiated (sec) [used only when HSSBrMode=1]
-	DynBrkFi	= fDynBrkFi	// File containing a mech-gen-torque vs HSS-speed curve for a dynamic brake [CURRENTLY IGNORED] (quoted string)
-	DTTorSpr	= nDTTorSpr	// Drivetrain torsional spring (N-m/rad)
-	DTTorDmp	= nDTTorDmp	// Drivetrain torsional damper (N-m/s)
-	
-	sections += Section
-	SIG_SlPc	= nSIG_SlPc	// Rated generator slip percentage (%) [used only when VSContrl=0 and GenModel=1]
-	SIG_SySp	= nSIG_SySp	// Synchronous (zero-torque) generator speed (rpm) [used only when VSContrl=0 and GenModel=1]
-	SIG_RtTq	= nSIG_RtTq	// Rated torque (N-m) [used only when VSContrl=0 and GenModel=1]
-	SIG_PORt	= nSIG_PORt	// Pull-out ratio (Tpullout/Trated) (-) [used only when VSContrl=0 and GenModel=1]
-	
-	sections += Section
-	TEC_Freq	= nTEC_Freq	// Line frequency [50 or 60] (Hz) [used only when VSContrl=0 and GenModel=2]
-	TEC_Npol	= nTEC_Npol	// Number of poles [even integer > 0] (-) [used only when VSContrl=0 and GenModel=2]
-	TEC_Sres	= nTEC_Sres	// Stator resistance (ohms) [used only when VSContrl=0 and GenModel=2]
-	TEC_Rres	= nTEC_Rres	// Rotor resistance (ohms) [used only when VSContrl=0 and GenModel=2]
-	TEC_VLL		= nTEC_VLL	// Line-to-line RMS voltage (volts) [used only when VSContrl=0 and GenModel=2]								
-	TEC_SLR		= nTEC_SLR	// Stator leakage reactance (ohms) [used only when VSContrl=0 and GenModel=2]								
-	TEC_RLR		= nTEC_RLR	// Rotor leakage reactance (ohms) [used only when VSContrl=0 and GenModel=2]								
-	TEC_MR		= nTEC_MR	// Magnetizing reactance (ohms) [used only when VSContrl=0 and GenModel=2]
-  	
-  	sections += Section
-  	PtfmModel	= iPtfmModel // Platform model {0: none, 1: onshore, 2: fixed bottom offshore, 3: floating offshore}	(switch)
-	PtfmFile	= fPtfmFile	// Name of file containing platform properties [unused when PtfmModel=0]
-	
-	sections += Section
-	TwrNodes	= iTwrNodes	// Number of tower nodes used for analysis (-)
-	TwrFile		= fTwrFile	// Name of file containing tower properties	(quoted string)
-	
-	sections += Section
-	YawSpr		= nYawSpr	// Nacelle-yaw spring constant (N-m/rad)								
-	YawDamp		= nYawDamp	// Nacelle-yaw damping constant (N-m/rad/s)								
-	YawNeut		= nYawNeut	// Neutral yaw position--yaw spring force is zero at this yaw (degrees)
-	
-	sections += Section
-	Furling		= bFurling	// Read in additional model properties for Furling turbine (flag)								
-	FurlFile	= fFurlFile	// Name of file containing furling properties (quoted string) [unused when Furling=False]
-	
-	sections += Section
-	TeetMod		= iTeetMod	// Rotor-teeter spring/damper model {0: none, 1: standard, 2: user-def routine UserTeet} [unused for 3 blades]								(switch)
-	TeetDmpP	= nTeetDmpP	// Rotor-teeter damper position (degrees) [used only for 2 blades and when TeetMod=1]								
-	TeetDmp		= nTeetDmp	// Rotor-teeter damping constant (N-m/rad/s) [used only for 2 blades and when TeetMod=1]								
-	TeetCDmp	= nTeetCDmp	// Rotor-teeter rate-independent Coulomb-damping moment (N-m) [used only for 2 blades and when TeetMod=1]								
-	TeetSStP	= nTeetSStP	// Rotor-teeter soft-stop position (degrees) [used only for 2 blades and when TeetMod=1]								
-	TeetHStP	= nTeetHStP	// Rotor-teeter hard-stop position (degrees) [used only for 2 blades and when TeetMod=1]								
-	TeetSSSp	= nTeetSSSp	// Rotor-teeter soft-stop linear-spring constant (N-m/rad) [used only for 2 blades and when TeetMod=1]								
-	TeetHSSp	= nTeetHSSp	// Rotor-teeter hard-stop linear-spring constant (N-m/rad) [used only for 2 blades and when TeetMod=1]
-	
-	sections += Section
-	TBDrConN	= nTBDrConN	// Tip-brake drag constant during normal operation, Cd*Area	(m^2)
-	TBDrConD	= nTBDrConD	// Tip-brake drag constant during fully-deployed operation, Cd*Area (m^2)
-	TpBrDT		= nTpBrDT	// Time for Tip-BRAKE to reach full deployment once released (sec)
-	
-	sections += Section
-	BldFile_1_	= fBldFile_1_	// Name of file containing properties for blade 1 (quoted string)
-	BldFile_2_	= fBldFile_2_	// Name of file containing properties for blade 2 (quoted string)
-	BldFile_3_	= fBldFile_3_	// Name of file containing properties for blade 3 [unused for 2 blades]	
-	
-	sections += Section
-	ADFile		= fADFile	// Name of file containing AeroDyn input parameters	(quoted string)
-	
-	sections += Section
-	NoiseFile   = fNoiseFile	// Name of file containing aerodynamic noise input parameters [used only when CompNoise=True] (quoted string)
-	
-	sections += Section
-	ADAMSFile	= fADAMSFile	// Name of file containing ADAMS-specific input parameters (quoted string) [unused when ADAMSPrep=1]
-	
-	sections += Section
-	LinFile		= fLinFile		// Name of file containing FAST linearazation parameters (quoted string) [unused when AnalMode=1]
-	
-	sections += Section
-	SumPrint	= bSumPrint		// Print summary data to "<RootName>.fsm" (flag)
-	(OutFileFmt	= bOutFileFmt)? // Format for tabular (time-marching) output file(s) (1: text file [<RootName>.out], 2: binary file [<RootName>.outb], 3: both) (switch)
-	TabDelim	= bTabDelim		// Generate A tab-delimited tabular Output file. (flag)
-	OutFmt		= sOutFmt		// Format used for tabular output except time.  Resulting field should be 10 characters. [not checked for validity!]								(quoted string)
-	TStart 		= nTStart		// Time to begin tabular Output (s)
-	DecFact		= iDecFact		// Decimation factor for tabular output {1: output every time step} (-)								
-	SttsTime	= nSttsTime		// Amount of time between screen status messages (sec)								
-	NcIMUxn		= nNcIMUxn		// Downwind distance from the tower-top to the nacelle IMU (meters)								
-	NcIMUyn		= nNcIMUyn		// Lateral  distance from the tower-top to the nacelle IMU (meters)								
-	NcIMUzn		= nNcIMUzn		// Vertical distance from the tower-top to the nacelle IMU (meters)								
-	ShftGagL	= nShftGagL		// Distance from rotor apex [3 blades] or teeter pin [2 blades] to shaft strain gages [positive for upwind rotors] (meters)								
-	NTwGages	= iNTwGages		// Number of tower nodes that have strain gages for output [0 to 5]								(-)
-	TwrGagNd	= aTwrGagNd		// List of tower nodes that have strain gages [1 to TwrNodes] [unused if NTwGages=0]								(-)
-	NBlGages	= iNBlGages		// Number of blade nodes that have strain gages for output [0 to 5]								(-)
-	BldGagNd	= aBldGagNd		// List of blade nodes that have strain gages [1 to BldNodes] [unused if NBlGages=0]								(-)
-	OutList		= vOutList		// The next line(s) contains a list of output parameters.  See OutList.txt for a listing of available output channels.
-  	
-  	(WS|NEWLINE|SL_COMMENT)*	// The word "END" must appear in the first 3 columns of this last line).
-  	
-  	END
-  	
   	(WS|NEWLINE|SL_COMMENT)*
   	
   	// about EOF
@@ -222,8 +41,6 @@ ModelFastadn:
 ;
 
 tNUMBER returns ecore::EFloat	: INT | NUMBER;
-tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
-//(('T'|'t')('R'|'r')('U'|'u')('E'|'e')) | //(('F'|'f')('A'|'a')('L'|'l')('S'|'s')('E'|'e'));
 
 //from online help: The QualifiedName is a little special. It does not contain any assignments. 
 // Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
@@ -231,51 +48,10 @@ tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';
 //FILE: ('.'?'.'?)('/'? STRING)*;
 //FILE returns ecore::EString:
 //	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
- 
-tARRAY_INT returns ecore::EString: INT ( ',' INT )*;
-// OK tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? '"' WS? OUT_CH WS? (',' WS? OUT_CH WS?)* '"' WS? NEWLINE )+;
-tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? STRING WS? NEWLINE )*;
-
 
 // TERMINALS 
 // NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
 // NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
-terminal END: 'END' !('\n'|'\r')* NEWLINE;
-terminal OUT_CH returns ecore::EString: 
-	("WindV"("x"|"y"|"z")"i") | (("Tot"|"Hor")"WindV") | (("Hor"|"Ver")"WndDir") |
-	"Azimuth"|"TeetDefl"|"NacYawP"| "RootMOoP1"|"RootMIP1"|
-	('Tip' ((('D'|'AL'|'RD')('x'..'z')('b'|'c'))|'Clrnc') ('1'..'3'))|
-	('Spn'('1'..'9')('AL'|'TD')('x'..'z')'b'('1'..'3'))|
-	(('PtchPMzc')('1'..'3')) |
-	(('Teet')('P'|'V'|'A')('ya'))|
-	(('LSS')('Tip'|'Gag')('P'|'V'|'A')('xa'))|
-	((('HSShft')('V'|'A'))|'TipSpdRat')|
-	(('NcIMU')('T'|'R')('V'|'A')('x'..'z')'s')|
-	(('RotFurl'|'TailFurl')('P'|'V'|'A'))|
-	('TwHt'('1'..'9')(('A'|'M'|'F')'L')('x'..'z')'t')|
-	('TwHt'('1'..'9')('T'|'R')'P'('x'..'z')'i')|
-	('Ptfm'  ( (('T'|'R')('D'|'V'|'A')) | ('F'|'M') ) ('x'..'z')('t'|'i') )|
-	('Spn'('1'..'9')('M'|'F')'L'('x'..'z')'b'('1'..'3')) |
-	('Wave' ('Elev' |(('1'..'9')('V'|'A')('x'..'z')'i') )) |
-	('TwrBs'('F'|'M')('x'..'z')'t') |
-	('Root'('M'|'F')('x'..'z')('b'|'c')('1'..'3')) |
-	('YawBr' ((('F'|'M')('x'..'z')('n'|'p')) | (('T'|'R')('D'|'V'|'A')('x'..'z')('t'|'p') )) ) |
-	('YawBr'('T'|'R')) |
-	('Yaw'('P'|'V'|'A')'zn') |
-	'NacYawErr' |
-	('LSS' (('hft'('F'|'M')('x'..'z')('a'|'s')) | ('GagM'('y'|'z')('a'|'s')) )) |
-	('CThrst'('Azm'|'Rad')) |
-	('Rot'('Pwr'|( 'C'('q'|'p'|'t')))) |
-	('HSS'('BrTq'|('hft'('Tq'|'Pwr'|('C'('q'|'p')))))) |
-	('Gen'('Tq'|'Pwr'|('C'('q'|'p')))) |
-	(('R'|'T')'FrlBrm') |
-	('TFin' (('Alpha'|('C'('Lift'|'Drag'))) | ('DnPrs'|('CPF'('x'|'y'))))) |
-	(('Fair'|'Anch')('1'..'9')('Ten'|'Ang')) |
-	
-	// from FAST 7.02.00d
-	('Q'((('_'|('D''2'?'_'))(('B'('1'..'3')('E1'|('F'('1'|'2'))|'Teet'|'DrTr'|'GeAz'|(('R'|'T')'Frl')|'Yaw'|('T'('FA'|'SS')('1'|'2'))|('S'('g'|'w'))|'Hv'|'R'|'P'|'Y')) ))))
-;
-
 terminal INT returns ecore::EInt: ('0'..'9')+;
 terminal NUMBER returns ecore::EFloat:	
 	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
@@ -283,9 +59,7 @@ terminal NUMBER returns ecore::EFloat:
 	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
 	('-'		INT										 )
 ;
-
-// see http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/chap05/format.html
-terminal FORMAT		: '"'? ('0'..'9'|'I'|'F'|'T'|'E'|'S'|'P'|'N'|'L'|'A'|'B'|'X'|'R'|'Z'|'.'|':')+ '"'?; 
+terminal PRINT		: 'PRINT'|'NOPRINT';
 terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
 					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 terminal NEWLINE	: '\r'|'\n'|'\r\n';
@@ -296,187 +70,35 @@ terminal WS			: (' '|'\t')+;
 	
 	
 Header hidden(): 
-	(rows+=SL_COMMENT  NEWLINE)+
+	name=SL_COMMENT  NEWLINE
 ;
 
-Section hidden():
-	name=SL_COMMENT  	NEWLINE
-;
+sUnits 		hidden():	WS? value='SI' 		WS	name='SysUnits' 	WS? SL_COMMENT? NEWLINE;
+sStallMod 	hidden():	WS? value='BEDDOES' WS	name='StallMod' 	WS? SL_COMMENT? NEWLINE;
+sUseCm 		hidden():	WS? value=('NO_CM'|'USE_CM') 	WS	name='UseCm' 		WS? SL_COMMENT? NEWLINE;
+sInfModel 	hidden():	WS? value=('EQUIL'|'DYNIN') 	WS	name='InfModel' 	WS? SL_COMMENT? NEWLINE;
+sIndModel	hidden():	WS? value='SWIRL' 	WS	name='IndModel'		WS? SL_COMMENT? NEWLINE;
+nAtoler		hidden():	WS? value=tNUMBER 	WS	name=('Atoler'|'AToler')		WS? SL_COMMENT? NEWLINE;
+sTLModel	hidden():	WS? value=('PRANDtl'|'NONE') WS	name='TLModel'		WS? SL_COMMENT? NEWLINE;
+sHLModel	hidden():	WS? value=('PRANDtl'|'NONE') WS	name='HLModel'		WS? SL_COMMENT? NEWLINE;
 
-bEcho 		hidden():	WS? value=tBOOL 	WS	name='Echo'			WS? SL_COMMENT? NEWLINE;
-iADAMSPrep 	hidden():	WS? value=INT 		WS	name='ADAMSPrep' 	WS? SL_COMMENT? NEWLINE;
-iAnalMode 	hidden():	WS? value=INT 		WS	name='AnalMode' 	WS? SL_COMMENT? NEWLINE;
-iNumBl 		hidden():	WS? value=INT 		WS	name='NumBl' 		WS? SL_COMMENT? NEWLINE;
-nTMax		hidden():	WS? value=tNUMBER 	WS	name='TMax'			WS? SL_COMMENT? NEWLINE;
-nDT			hidden():	WS? value=tNUMBER 	WS	name='DT'			WS? SL_COMMENT? NEWLINE;
+sWindFile hidden(): 	WS? value=STRING 	WS	name='WindFile'		WS?	SL_COMMENT? NEWLINE;
 
-iYCMode		hidden():	WS? value=INT 		WS	name='YCMode'		WS? SL_COMMENT? NEWLINE;
-nTYCOn		hidden():	WS? value=tNUMBER 	WS	name='TYCOn'		WS? SL_COMMENT? NEWLINE;
-iPCMode		hidden():	WS? value=INT 		WS	name='PCMode'		WS? SL_COMMENT? NEWLINE;
-nTPCOn		hidden():	WS? value=tNUMBER 	WS	name='TPCOn'		WS? SL_COMMENT? NEWLINE;
-iVSContrl	hidden():	WS? value=INT 		WS	name='VSContrl'		WS? SL_COMMENT? NEWLINE;
-nVS_RtGnSp	hidden():	WS? value=tNUMBER 	WS	name='VS_RtGnSp'	WS? SL_COMMENT? NEWLINE;
-nVS_RtTq	hidden():	WS? value=tNUMBER 	WS	name='VS_RtTq'		WS? SL_COMMENT? NEWLINE;
-nVS_Rgn2K	hidden():	WS? value=tNUMBER 	WS	name='VS_Rgn2K'		WS? SL_COMMENT? NEWLINE;
-nVS_SlPc	hidden():	WS? value=tNUMBER 	WS	name='VS_SlPc'		WS? SL_COMMENT? NEWLINE;
-iGenModel	hidden():	WS? value=INT 		WS	name='GenModel'		WS? SL_COMMENT? NEWLINE;
-bGenTiStr	hidden():	WS? value=tBOOL 	WS	name='GenTiStr'		WS? SL_COMMENT? NEWLINE;
-bGenTiStp	hidden():	WS? value=tBOOL 	WS	name='GenTiStp'		WS? SL_COMMENT? NEWLINE;
-nSpdGenOn	hidden():	WS? value=tNUMBER 	WS	name='SpdGenOn'		WS? SL_COMMENT? NEWLINE;
-nTimGenOn	hidden():	WS? value=tNUMBER 	WS	name='TimGenOn'		WS? SL_COMMENT? NEWLINE;
-nTimGenOf	hidden():	WS? value=tNUMBER 	WS	name='TimGenOf'		WS? SL_COMMENT? NEWLINE;
-iHSSBrMode	hidden():	WS? value=INT 		WS	name='HSSBrMode'	WS? SL_COMMENT? NEWLINE;
-nTHSSBrDp	hidden():	WS? value=tNUMBER 	WS	name='THSSBrDp'		WS? SL_COMMENT? NEWLINE;
-nTiDynBrk	hidden():	WS? value=tNUMBER 	WS	name='TiDynBrk'		WS? SL_COMMENT? NEWLINE;
-nTTpBrDp_1_	hidden():	WS? value=tNUMBER 	WS	name='TTpBrDp(1)'	WS? SL_COMMENT? NEWLINE;
-nTTpBrDp_2_	hidden():	WS? value=tNUMBER 	WS	name='TTpBrDp(2)'	WS? SL_COMMENT? NEWLINE;
-nTTpBrDp_3_	hidden():	WS? value=tNUMBER 	WS	name='TTpBrDp(3)'	WS? SL_COMMENT? NEWLINE;
-nTBDepISp_1_ hidden():	WS? value=tNUMBER 	WS	name='TBDepISp(1)'	WS? SL_COMMENT? NEWLINE;
-nTBDepISp_2_ hidden():	WS? value=tNUMBER 	WS	name='TBDepISp(2)'	WS? SL_COMMENT? NEWLINE;
-nTBDepISp_3_ hidden():	WS? value=tNUMBER 	WS	name='TBDepISp(3)'	WS? SL_COMMENT? NEWLINE;
-nTYawManS	hidden():	WS? value=tNUMBER 	WS	name='TYawManS'		WS? SL_COMMENT? NEWLINE;
-nTYawManE	hidden():	WS? value=tNUMBER 	WS	name='TYawManE'		WS? SL_COMMENT? NEWLINE;
-nNacYawF	hidden():	WS? value=tNUMBER 	WS	name='NacYawF'		WS? SL_COMMENT? NEWLINE;
-nTPitManS_1_ hidden():	WS? value=tNUMBER 	WS	name='TPitManS(1)'	WS? SL_COMMENT? NEWLINE;
-nTPitManS_2_ hidden():	WS? value=tNUMBER 	WS	name='TPitManS(2)'	WS? SL_COMMENT? NEWLINE;
-nTPitManS_3_ hidden():	WS? value=tNUMBER 	WS	name='TPitManS(3)'	WS? SL_COMMENT? NEWLINE;
-nTPitManE_1_ hidden():	WS? value=tNUMBER 	WS	name='TPitManE(1)'	WS? SL_COMMENT? NEWLINE;
-nTPitManE_2_ hidden():	WS? value=tNUMBER 	WS	name='TPitManE(2)'	WS? SL_COMMENT? NEWLINE;
-nTPitManE_3_ hidden():	WS? value=tNUMBER 	WS	name='TPitManE(3)'	WS? SL_COMMENT? NEWLINE;
-nBlPitch_1_	hidden():	WS? value=tNUMBER 	WS	name='BlPitch(1)'	WS? SL_COMMENT? NEWLINE;
-nBlPitch_2_	hidden():	WS? value=tNUMBER 	WS	name='BlPitch(2)'	WS? SL_COMMENT? NEWLINE;
-nBlPitch_3_	hidden():	WS? value=tNUMBER 	WS	name='BlPitch(3)'	WS? SL_COMMENT? NEWLINE;
-nBlPitchF_1_ hidden():	WS? value=tNUMBER 	WS	name='BlPitchF(1)'	WS? SL_COMMENT? NEWLINE;
-nBlPitchF_2_ hidden():	WS? value=tNUMBER 	WS	name='BlPitchF(2)'	WS? SL_COMMENT? NEWLINE;
-nBlPitchF_3_ hidden():	WS? value=tNUMBER 	WS	name='BlPitchF(3)'	WS? SL_COMMENT? NEWLINE;
-  	
-nGravity	hidden():	WS? value=tNUMBER 	WS	name='Gravity'		WS? SL_COMMENT? NEWLINE;
-  	
-bFlapDOF1	hidden():	WS? value=tBOOL 	WS	name='FlapDOF1' 	WS? SL_COMMENT? NEWLINE;
-bFlapDOF2	hidden():	WS? value=tBOOL 	WS	name='FlapDOF2' 	WS? SL_COMMENT? NEWLINE;
-bEdgeDOF	hidden():	WS? value=tBOOL 	WS	name='EdgeDOF' 		WS? SL_COMMENT? NEWLINE;
-bTeetDOF	hidden():	WS? value=tBOOL 	WS	name='TeetDOF' 		WS? SL_COMMENT? NEWLINE;
-bDrTrDOF	hidden():	WS? value=tBOOL 	WS	name='DrTrDOF' 		WS? SL_COMMENT? NEWLINE;
-bGenDOF		hidden():	WS? value=tBOOL 	WS	name='GenDOF' 		WS? SL_COMMENT? NEWLINE;
-bYawDOF		hidden():	WS? value=tBOOL 	WS	name='YawDOF' 		WS? SL_COMMENT? NEWLINE;
-bTwFADOF1	hidden():	WS? value=tBOOL 	WS	name='TwFADOF1' 	WS? SL_COMMENT? NEWLINE;
-bTwFADOF2	hidden():	WS? value=tBOOL 	WS	name='TwFADOF2' 	WS? SL_COMMENT? NEWLINE;
-bTwSSDOF1	hidden():	WS? value=tBOOL 	WS	name='TwSSDOF1' 	WS? SL_COMMENT? NEWLINE;
-bTwSSDOF2	hidden():	WS? value=tBOOL 	WS	name='TwSSDOF2' 	WS? SL_COMMENT? NEWLINE;
-bCompAero	hidden():	WS? value=tBOOL 	WS	name='CompAero' 	WS? SL_COMMENT? NEWLINE;
-bCompNoise	hidden():	WS? value=tBOOL 	WS	name='CompNoise' 	WS? SL_COMMENT? NEWLINE;
-  	
-nOoPDefl	hidden():	WS? value=tNUMBER 	WS	name='OoPDefl'		WS? SL_COMMENT? NEWLINE;
-nIPDefl		hidden():	WS? value=tNUMBER 	WS	name='IPDefl'		WS? SL_COMMENT? NEWLINE;
-nTeetDefl	hidden():	WS? value=tNUMBER 	WS	name='TeetDefl'		WS? SL_COMMENT? NEWLINE;
-nAzimuth	hidden():	WS? value=tNUMBER 	WS	name='Azimuth'		WS? SL_COMMENT? NEWLINE;
-nRotSpeed	hidden():	WS? value=tNUMBER 	WS	name='RotSpeed'		WS? SL_COMMENT? NEWLINE;
-nNacYaw		hidden():	WS? value=tNUMBER 	WS	name='NacYaw'		WS? SL_COMMENT? NEWLINE;
-nTTDspFA	hidden():	WS? value=tNUMBER 	WS	name='TTDspFA'		WS? SL_COMMENT? NEWLINE;
-nTTDspSS	hidden():	WS? value=tNUMBER 	WS	name='TTDspSS'		WS? SL_COMMENT? NEWLINE;
-	
-nTipRad		hidden():	WS? value=tNUMBER 	WS	name='TipRad'		WS? SL_COMMENT? NEWLINE;
-nHubRad		hidden():	WS? value=tNUMBER 	WS	name='HubRad'		WS? SL_COMMENT? NEWLINE;
-nPSpnElN	hidden():	WS? value=INT 		WS	name='PSpnElN'		WS? SL_COMMENT? NEWLINE;						
-nUndSling	hidden():	WS? value=tNUMBER 	WS	name='UndSling'		WS? SL_COMMENT? NEWLINE;
-nHubCM		hidden():	WS? value=tNUMBER 	WS	name='HubCM'		WS? SL_COMMENT? NEWLINE;
-nOverHang	hidden():	WS? value=tNUMBER 	WS	name='OverHang'		WS? SL_COMMENT? NEWLINE;
-nNacCMxn	hidden():	WS? value=tNUMBER 	WS	name='NacCMxn'		WS? SL_COMMENT? NEWLINE;
-nNacCMyn	hidden():	WS? value=tNUMBER 	WS	name='NacCMyn'		WS? SL_COMMENT? NEWLINE;
-nNacCMzn	hidden():	WS? value=tNUMBER 	WS	name='NacCMzn'		WS? SL_COMMENT? NEWLINE;
-nTowerHt	hidden():	WS? value=tNUMBER 	WS	name='TowerHt'		WS? SL_COMMENT? NEWLINE;
-nTwr2Shft	hidden():	WS? value=tNUMBER 	WS	name='Twr2Shft'		WS? SL_COMMENT? NEWLINE;
-nTwrRBHt	hidden():	WS? value=tNUMBER 	WS	name='TwrRBHt'		WS? SL_COMMENT? NEWLINE;
-nShftTilt	hidden():	WS? value=tNUMBER 	WS	name='ShftTilt'		WS? SL_COMMENT? NEWLINE;
-nDelta3		hidden():	WS? value=tNUMBER 	WS	name='Delta3'		WS? SL_COMMENT? NEWLINE;
-nPreCone_1_	hidden():	WS? value=tNUMBER 	WS	name='PreCone(1)'	WS? SL_COMMENT? NEWLINE;
-nPreCone_2_	hidden():	WS? value=tNUMBER 	WS	name='PreCone(2)'	WS? SL_COMMENT? NEWLINE;
-nPreCone_3_	hidden():	WS? value=tNUMBER 	WS	name='PreCone(3)'	WS? SL_COMMENT? NEWLINE;
-nAzimB1Up	hidden():	WS? value=tNUMBER 	WS	name='AzimB1Up'		WS? SL_COMMENT? NEWLINE;
-	
-nYawBrMass	hidden():	WS? value=tNUMBER 	WS	name='YawBrMass'	WS? SL_COMMENT? NEWLINE;
-nNacMass 	hidden():	WS? value=tNUMBER 	WS	name='NacMass'		WS? SL_COMMENT? NEWLINE;
-nHubMass	hidden():	WS? value=tNUMBER 	WS	name='HubMass'		WS? SL_COMMENT? NEWLINE;
-nTipMass_1_	hidden():	WS? value=tNUMBER 	WS	name='TipMass(1)'	WS? SL_COMMENT? NEWLINE;
-nTipMass_2_ hidden():	WS? value=tNUMBER 	WS	name='TipMass(2)'	WS? SL_COMMENT? NEWLINE;	
-nTipMass_3_	hidden():	WS? value=tNUMBER 	WS	name='TipMass(3)'	WS? SL_COMMENT? NEWLINE;
-nNacYIner	hidden():	WS? value=tNUMBER 	WS	name='NacYIner'		WS? SL_COMMENT? NEWLINE;
-nGenIner	hidden():	WS? value=tNUMBER 	WS	name='GenIner'		WS? SL_COMMENT? NEWLINE;
-nHubIner	hidden():	WS? value=tNUMBER 	WS	name='HubIner'		WS? SL_COMMENT? NEWLINE;
+nHH			hidden():	WS? value=tNUMBER 	WS	name='HH'			WS? SL_COMMENT? NEWLINE;
+nTwrShad	hidden():	WS? value=tNUMBER 	WS	name='TwrShad'		WS? SL_COMMENT? NEWLINE;
+nShadHWid	hidden():	WS? value=tNUMBER 	WS	name='ShadHWid'		WS? SL_COMMENT? NEWLINE;
+nTShadRefPt	hidden():	WS? value=tNUMBER 	WS	name='T_Shad_Refpt'	WS? SL_COMMENT? NEWLINE;								
+nRho		hidden():	WS? value=tNUMBER 	WS	name=('Rho'|'AirDens')			WS? SL_COMMENT? NEWLINE;								
+nKinVisc	hidden():	WS? value=tNUMBER 	WS	name='KinVisc'		WS? SL_COMMENT? NEWLINE;								
+nDTAero		hidden():	WS? value=tNUMBER 	WS	name='DTAero'		WS? SL_COMMENT? NEWLINE;								
 
-nGBoxEff	hidden():	WS? value=tNUMBER 	WS	name='GBoxEff'		WS? SL_COMMENT? NEWLINE;						
-nGenEff		hidden():	WS? value=tNUMBER 	WS	name='GenEff'		WS? SL_COMMENT? NEWLINE;
-nGBRatio	hidden():	WS? value=tNUMBER 	WS	name='GBRatio'		WS? SL_COMMENT? NEWLINE;
-bGBRevers	hidden():	WS? value=tBOOL 	WS	name='GBRevers'		WS? SL_COMMENT? NEWLINE;
-nHSSBrTqF	hidden():	WS? value=tNUMBER 	WS	name='HSSBrTqF'		WS? SL_COMMENT? NEWLINE;
-nHSSBrDT	hidden():	WS? value=tNUMBER 	WS	name='HSSBrDT'		WS? SL_COMMENT? NEWLINE;
-fDynBrkFi	hidden():	WS? value=STRING WS	name='DynBrkFi'		WS? SL_COMMENT? NEWLINE;
-nDTTorSpr	hidden():	WS? value=tNUMBER 	WS	name='DTTorSpr'		WS? SL_COMMENT? NEWLINE;
-nDTTorDmp	hidden():	WS? value=tNUMBER 	WS	name='DTTorDmp'		WS? SL_COMMENT? NEWLINE;
-	
-nSIG_SlPc	hidden():	WS? value=tNUMBER 	WS	name='SIG_SlPc'		WS? SL_COMMENT? NEWLINE;
-nSIG_SySp	hidden():	WS? value=tNUMBER 	WS	name='SIG_SySp'		WS? SL_COMMENT? NEWLINE;
-nSIG_RtTq	hidden():	WS? value=tNUMBER 	WS	name='SIG_RtTq'		WS? SL_COMMENT? NEWLINE;
-nSIG_PORt	hidden():	WS? value=tNUMBER 	WS	name='SIG_PORt'		WS? SL_COMMENT? NEWLINE;
+iNumFoil	hidden():	WS? value=INT 		WS	name='NumFoil'		WS? SL_COMMENT? NEWLINE;								
+aFoilNm		hidden():	WS? value+=STRING WS name='FoilNm' WS? SL_COMMENT? NEWLINE
+						(WS? value+=STRING WS? SL_COMMENT? NEWLINE)*;
 
-nTEC_Freq	hidden():	WS? value=tNUMBER 	WS	name='TEC_Freq'		WS? SL_COMMENT? NEWLINE;
-nTEC_Npol	hidden():	WS? value=tNUMBER 	WS	name='TEC_NPol'		WS? SL_COMMENT? NEWLINE;
-nTEC_Sres	hidden():	WS? value=tNUMBER 	WS	name='TEC_SRes'		WS? SL_COMMENT? NEWLINE;
-nTEC_Rres	hidden():	WS? value=tNUMBER 	WS	name='TEC_RRes'		WS? SL_COMMENT? NEWLINE;
-nTEC_VLL	hidden():	WS? value=tNUMBER 	WS	name='TEC_VLL'		WS? SL_COMMENT? NEWLINE;								
-nTEC_SLR	hidden():	WS? value=tNUMBER 	WS	name='TEC_SLR'		WS? SL_COMMENT? NEWLINE;								
-nTEC_RLR	hidden():	WS? value=tNUMBER 	WS	name='TEC_RLR'		WS? SL_COMMENT? NEWLINE;								
-nTEC_MR		hidden():	WS? value=tNUMBER 	WS	name='TEC_MR'		WS? SL_COMMENT? NEWLINE;
-  	
-iPtfmModel	hidden():	WS? value=INT 		WS	name='PtfmModel'	WS? SL_COMMENT? NEWLINE;
-fPtfmFile	hidden():	WS? value=STRING 	WS	name='PtfmFile'		WS? SL_COMMENT? NEWLINE;
-	
-iTwrNodes	hidden():	WS? value=INT 		WS	name='TwrNodes'		WS? SL_COMMENT? NEWLINE;
-fTwrFile	hidden():	WS? value=STRING 	WS	name='TwrFile'		WS? SL_COMMENT? NEWLINE;
-	
-nYawSpr		hidden():	WS? value=tNUMBER 	WS	name='YawSpr'		WS? SL_COMMENT? NEWLINE;								
-nYawDamp	hidden():	WS? value=tNUMBER 	WS	name='YawDamp'		WS? SL_COMMENT? NEWLINE;								
-nYawNeut	hidden():	WS? value=tNUMBER 	WS	name='YawNeut'		WS? SL_COMMENT? NEWLINE;
-	
-bFurling	hidden():	WS? value=tBOOL 	WS	name='Furling'		WS? SL_COMMENT? NEWLINE;								
-fFurlFile	hidden():	WS? value=STRING 		WS	name='FurlFile'		WS? SL_COMMENT? NEWLINE;
-	
-iTeetMod	hidden():	WS? value=INT 		WS	name='TeetMod'		WS? SL_COMMENT? NEWLINE;
-nTeetDmpP	hidden():	WS? value=tNUMBER 	WS	name='TeetDmpP'		WS? SL_COMMENT? NEWLINE;								
-nTeetDmp	hidden():	WS? value=tNUMBER 	WS	name='TeetDmp'		WS? SL_COMMENT? NEWLINE;								
-nTeetCDmp	hidden():	WS? value=tNUMBER 	WS	name='TeetCDmp'		WS? SL_COMMENT? NEWLINE;								
-nTeetSStP	hidden():	WS? value=tNUMBER 	WS	name='TeetSStP'		WS? SL_COMMENT? NEWLINE;								
-nTeetHStP	hidden():	WS? value=tNUMBER 	WS	name='TeetHStP'		WS? SL_COMMENT? NEWLINE;								
-nTeetSSSp	hidden():	WS? value=tNUMBER 	WS	name='TeetSSSp'		WS? SL_COMMENT? NEWLINE;								
-nTeetHSSp	hidden():	WS? value=tNUMBER 	WS	name='TeetHSSp'		WS? SL_COMMENT? NEWLINE;
-nTBDrConN	hidden():	WS? value=tNUMBER 	WS	name='TBDrConN'		WS? SL_COMMENT? NEWLINE;
-nTBDrConD	hidden():	WS? value=tNUMBER 	WS	name='TBDrConD'		WS? SL_COMMENT? NEWLINE;
-nTpBrDT		hidden():	WS? value=tNUMBER 	WS	name='TpBrDT'		WS? SL_COMMENT? NEWLINE;
-fBldFile_1_	hidden():	WS? value=STRING 	WS	name='BldFile(1)'	WS? SL_COMMENT? NEWLINE;
-fBldFile_2_	hidden():	WS? value=STRING 	WS	name='BldFile(2)'	WS? SL_COMMENT? NEWLINE;
-fBldFile_3_	hidden():	WS? value=STRING 	WS	name='BldFile(3)'	WS? SL_COMMENT? NEWLINE;		
-fADFile		hidden():	WS? value=STRING 	WS	name='ADFile'		WS? SL_COMMENT? NEWLINE;
-fNoiseFile	hidden():	WS? value=STRING 	WS	name='NoiseFile'	WS? SL_COMMENT? NEWLINE;
-fADAMSFile	hidden():	WS? value=STRING 	WS	name='ADAMSFile'	WS? SL_COMMENT? NEWLINE;
-fLinFile	hidden():	WS? value=STRING 	WS	name='LinFile'		WS? SL_COMMENT? NEWLINE;
-bSumPrint	hidden():	WS? value=tBOOL 	WS	name='SumPrint'		WS? SL_COMMENT? NEWLINE;
-
-// from FAST 7.02.00a
-bOutFileFmt hidden(): 	WS? value=tNUMBER 	WS	name='OutFileFmt'	WS?	SL_COMMENT? NEWLINE;
-
-bTabDelim	hidden():	WS? value=tBOOL 	WS	name='TabDelim'		WS? SL_COMMENT? NEWLINE;
-sOutFmt		hidden():	WS? value=FORMAT 	WS	name='OutFmt'		WS? SL_COMMENT? NEWLINE;
-nTStart		hidden():	WS? value=tNUMBER 	WS	name='TStart'		WS? SL_COMMENT? NEWLINE;
-iDecFact	hidden():	WS? value=INT 		WS	name='DecFact'		WS? SL_COMMENT? NEWLINE;								
-nSttsTime	hidden():	WS? value=tNUMBER 	WS	name='SttsTime'		WS? SL_COMMENT? NEWLINE;								
-nNcIMUxn	hidden():	WS? value=tNUMBER 	WS	name='NcIMUxn'		WS? SL_COMMENT? NEWLINE;								
-nNcIMUyn	hidden():	WS? value=tNUMBER 	WS	name='NcIMUyn'		WS? SL_COMMENT? NEWLINE;								
-nNcIMUzn	hidden():	WS? value=tNUMBER 	WS	name='NcIMUzn'		WS? SL_COMMENT? NEWLINE;								
-nShftGagL	hidden():	WS? value=tNUMBER 	WS	name='ShftGagL'		WS? SL_COMMENT? NEWLINE;								
-iNTwGages	hidden():	WS? value=INT 		WS	name='NTwGages'		WS? SL_COMMENT? NEWLINE;
-aTwrGagNd	hidden():	WS? value=tARRAY_INT WS	name='TwrGagNd'		WS? SL_COMMENT? NEWLINE;
-iNBlGages	hidden():	WS? value=INT 		WS	name='NBlGages'		WS? SL_COMMENT? NEWLINE;
-aBldGagNd	hidden():	WS? value=tARRAY_INT WS	name='BldGagNd'		WS? SL_COMMENT? NEWLINE;
-vOutList	hidden():	WS?						name='OutList'		WS? SL_COMMENT? NEWLINE
-	value=tARRAY_STR;
+iBldNodes	hidden():	WS? value=INT 		WS	name='BldNodes'		WS? SL_COMMENT? NEWLINE;
+aAirStat	hidden():	
+	WS? 'RNodes' WS	'AeroTwst' WS 'DRNodes'	WS 'Chord' WS 'NFoil' WS 'PrnElm' WS? SL_COMMENT? NEWLINE	
+	(WS? rnodes+=tNUMBER WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+
+;										
 	

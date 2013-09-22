@@ -342,25 +342,26 @@
   </extension>
   <extension
         point="org.eclipse.ui.newWizards">
+     <category
+           id="sc.ndt.ui.category.nrel.fast"
+           name="FAST"
+           parentCategory="sc.ndt.ui.category.nrel">
+     </category>
      <wizard
            category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:sc.ndt.editor.fast.ui.wizard.FASTNewProjectWizard"
-           icon="icons/fan-alt.png"
+           icon="icons/folder.png"
            id="sc.ndt.fast.newproject"
            name="FAST Project"
            project="true">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class=".FMainExecutableExtensionFactory:sc.nrel.nwtc.fast.ui.wizard.FASTNewFileWizard"
+           icon="icons/fan-alt.png"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
            name="FAST Main File">
      </wizard>
-     <category
-           id="sc.ndt.editor.nrel.fast"
-           name="FAST"
-           parentCategory="sc.ndt.ui.category.nrel">
-     </category>
      <wizard
            category="sc.ndt.ui.category.nrel"
            class="sc.ndt.editor.fast.fst.ui.NewWizard1"

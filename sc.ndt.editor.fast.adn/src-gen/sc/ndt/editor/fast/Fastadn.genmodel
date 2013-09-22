@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/sc.ndt.editor.fast.adn/src-gen" editDirectory="/sc.ndt.editor.fast.adn.edit/src"
+    editorDirectory="/sc.ndt.editor.fast.adn.editor/src" modelPluginID="sc.ndt.editor.fast.adn"
+    forceOverwrite="true" modelName="Fastadn" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.fast.adn.edit"
+    editorPluginID="sc.ndt.editor.fast.adn.editor" runtimeVersion="2.9">
+  <genPackages prefix="Fastadn" basePackage="sc.ndt.editor.fast" disposableProviderFactory="true"
+      fileExtensions="adn" ecorePackage="Fastadn.ecore#/">
+    <genClasses ecoreClass="Fastadn.ecore#//ModelFastadn">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/Head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/SIUnits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/StallMod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/UseCm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/InfModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/IndModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/Atoler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/TLModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/HLModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/WindFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/HH"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/TwrShad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/ShadHWid"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/TShadRefPt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/Rho"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/KinVisc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/DTAero"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/NumFoil"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/FoilNm"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/BldNodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fastadn.ecore#//ModelFastadn/AirStat"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//Header/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sUnits">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sUnits/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sUnits/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sStallMod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sStallMod/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sStallMod/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sUseCm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sUseCm/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sUseCm/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sInfModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sInfModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sInfModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sIndModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sIndModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sIndModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nAtoler">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nAtoler/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nAtoler/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sTLModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sTLModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sTLModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sHLModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sHLModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sHLModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//sWindFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sWindFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sWindFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nHH">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nHH/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nHH/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nTwrShad">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTwrShad/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTwrShad/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nShadHWid">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nShadHWid/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nShadHWid/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nTShadRefPt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTShadRefPt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTShadRefPt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nRho">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nRho/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nRho/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nKinVisc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nKinVisc/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nKinVisc/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//nDTAero">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nDTAero/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nDTAero/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//iNumFoil">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iNumFoil/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iNumFoil/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//aFoilNm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aFoilNm/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aFoilNm/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//iBldNodes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iBldNodes/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iBldNodes/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//aAirStat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/rnodes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/aerotwst"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/drnodes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/chord"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/nfoil"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirStat/prnelm"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

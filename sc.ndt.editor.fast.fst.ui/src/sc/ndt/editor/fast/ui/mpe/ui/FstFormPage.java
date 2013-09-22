@@ -449,6 +449,7 @@ public class FstFormPage extends FormPage {
 								lblGravity.setText("Acceleration of gravity");
 								
 										Gravity = new Text(composite_2, SWT.RIGHT);
+										Gravity.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 										Gravity.setText("0.0");
 										GridData gd_Gravity = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 										gd_Gravity.widthHint = 50;
@@ -470,7 +471,7 @@ public class FstFormPage extends FormPage {
 		managedForm.getToolkit().adapt(composite_4);
 		managedForm.getToolkit().paintBordersFor(composite_4);
 		sPlatform.setClient(composite_4);
-		GridLayout gl_composite_4 = new GridLayout(2, false);
+		GridLayout gl_composite_4 = new GridLayout(3, false);
 		gl_composite_4.horizontalSpacing = 10;
 		composite_4.setLayout(gl_composite_4);
 
@@ -481,7 +482,7 @@ public class FstFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel_20, true, true);
 		lblNewLabel_20.setText("Platform model");
 
-		PlatformModel = new CCombo(composite_4, SWT.CENTER);
+		PlatformModel = new CCombo(composite_4, SWT.NONE);
 		PlatformModel.setItems(new String[] {"NONE", "ONSHORE", "OFFSHORE FIXED", "OFFSHORE FLOATING"});
 		GridData gd_PlatformModel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_PlatformModel.widthHint = 150;
@@ -502,17 +503,18 @@ public class FstFormPage extends FormPage {
 			}
 			
 		});
+						new Label(composite_4, SWT.NONE);
 		
 				
 						lblPlatformPropertiesFile = new Label(composite_4, SWT.NONE);
 						lblPlatformPropertiesFile.setEnabled(false);
 						lblPlatformPropertiesFile.setText("Platform property file");
 						GridData gd_lblPlatformPropertiesFile = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-						gd_lblPlatformPropertiesFile.widthHint = 120;
+						gd_lblPlatformPropertiesFile.widthHint = 230;
 						lblPlatformPropertiesFile.setLayoutData(gd_lblPlatformPropertiesFile);
 						managedForm.getToolkit().adapt(lblPlatformPropertiesFile, true, true);
 		
-				PtfmFile = new Text(composite_4, SWT.NONE);
+				PtfmFile = new Text(composite_4, SWT.BORDER);
 				PtfmFile.setEnabled(false);
 				PtfmFile.setToolTipText("PtfmFile");
 				PtfmFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -523,18 +525,22 @@ public class FstFormPage extends FormPage {
 				cdPtfmFile.setMarginWidth(3);
 				cdPtfmFile.setImage(fieldDecERR.getImage());
 				
+				ImageHyperlink mghprlnkNewImagehyperlink = managedForm.getToolkit().createImageHyperlink(composite_4, SWT.NONE);
+				mghprlnkNewImagehyperlink.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink);
+				mghprlnkNewImagehyperlink.setText("");
+				
 		// SECTIOIN - Tower
 		Section sTower = managedForm.getToolkit().createSection(composite_13, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		sTower.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sTower);
 		sTower.setText("Tower");
-		sTower.setExpanded(false);
 
 		Composite composite_17 = new Composite(sTower, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_17);
 		managedForm.getToolkit().paintBordersFor(composite_17);
 		sTower.setClient(composite_17);
-		GridLayout gl_composite_17 = new GridLayout(2, false);
+		GridLayout gl_composite_17 = new GridLayout(3, false);
 		gl_composite_17.horizontalSpacing = 10;
 		composite_17.setLayout(gl_composite_17);
 
@@ -551,6 +557,7 @@ public class FstFormPage extends FormPage {
 		gd_TwrNodes.widthHint = 50;
 		TwrNodes.setLayoutData(gd_TwrNodes);
 		managedForm.getToolkit().adapt(TwrNodes, true, true);
+		new Label(composite_17, SWT.NONE);
 		
 		Label lblTowerPropertiesFile = new Label(composite_17, SWT.NONE);
 		GridData gd_lblTowerPropertiesFile = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
@@ -559,10 +566,15 @@ public class FstFormPage extends FormPage {
 		lblTowerPropertiesFile.setText("Tower properties file");
 		managedForm.getToolkit().adapt(lblTowerPropertiesFile, true, true);
 
-		TwrFile = new Text(composite_17, SWT.NONE);
+		TwrFile = new Text(composite_17, SWT.BORDER);
 		TwrFile.setToolTipText("TwrFile");
 		TwrFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(TwrFile, true, true);
+		
+		ImageHyperlink mghprlnkNewImagehyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_17, SWT.NONE);
+		mghprlnkNewImagehyperlink_1.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+		managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_1);
+		mghprlnkNewImagehyperlink_1.setText("");
 		
 		Section sNacelleYaw = managedForm.getToolkit().createSection(composite_13, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		sNacelleYaw.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));

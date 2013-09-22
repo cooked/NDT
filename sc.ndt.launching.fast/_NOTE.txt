@@ -1,1 +1,6 @@
 Consider various FASTTypes (FAST here is equivanlent to VM in java)
+
+- per ora implementare le serie di simulazioni con Ant build.xml e build.properties
+
+- implementare i vari TABs del run in modo da eseguire pre e post processing, ovvero
+  pagine di IEC e turbsim, poi Crunch, MBC e altri

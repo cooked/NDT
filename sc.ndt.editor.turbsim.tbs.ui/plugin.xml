@@ -401,7 +401,7 @@
      </category>
      <wizard
            category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.turbsim"
-           class="sc.ndt.editor.turbsim.tbs.ui.wizards.TurbSimNewWizard"
+           class="sc.ndt.editor.ui.addon.wizard.TurbSimNewWizard"
            icon="icons/activity.png"
            id="sc.ndt.editor.turbsim.tbs.ui.wizards.TurbSimNewWizard"
            name="TurbSim input file">
