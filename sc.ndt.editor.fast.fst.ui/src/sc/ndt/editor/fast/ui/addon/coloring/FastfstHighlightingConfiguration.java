@@ -45,7 +45,6 @@ public class FastfstHighlightingConfiguration extends DefaultHighlightingConfigu
 		addType(acceptor, NODES, 		0xFF9900, 	SWT.NORMAL);		
 	}
 	
-	@SuppressWarnings("unused")
 	private void addType( IHighlightingConfigurationAcceptor acceptor, String s, int r, int g, int b, int style ) {
 	    TextStyle textStyle = new TextStyle();
 	    textStyle.setBackgroundColor(new RGB(255, 255, 255));

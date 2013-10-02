@@ -8,22 +8,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>aFoil Nm</b></em>'.
+ * A representation of the model object '<em><b>aAirfoil List</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link sc.ndt.editor.fast.fastadn.aFoilNm#getValue <em>Value</em>}</li>
- *   <li>{@link sc.ndt.editor.fast.fastadn.aFoilNm#getName <em>Name</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.aAirfoilList#getValue <em>Value</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.aAirfoilList#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaFoilNm()
+ * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaAirfoilList()
  * @model
  * @generated
  */
-public interface aFoilNm extends EObject
+public interface aAirfoilList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute list.
@@ -35,7 +35,7 @@ public interface aFoilNm extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute list.
-   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaFoilNm_Value()
+   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaAirfoilList_Value()
    * @model unique="false"
    * @generated
    */
@@ -51,14 +51,14 @@ public interface aFoilNm extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaFoilNm_Name()
+   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getaAirfoilList_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.aFoilNm#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.aAirfoilList#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -67,4 +67,4 @@ public interface aFoilNm extends EObject
    */
   void setName(String value);
 
-} // aFoilNm
+} // aAirfoilList

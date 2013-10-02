@@ -74,7 +74,7 @@ public class ModelFileFASTOut extends FileNRELOutput {
 	
 	public String getChannelsData() {
 		float[][] fl2 = data.toArray(new float[0][0]);
-		String s = ArrayUtils.toString(fl2);
+		//String s = ArrayUtils.toString(fl2);
 		String t = Arrays.deepToString(fl2);
 		
 		return t;

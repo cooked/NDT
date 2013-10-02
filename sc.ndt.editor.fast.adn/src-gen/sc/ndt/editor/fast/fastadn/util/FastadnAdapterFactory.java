@@ -125,9 +125,9 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
         return createsHLModelAdapter();
       }
       @Override
-      public Adapter casesWindFile(sWindFile object)
+      public Adapter casefWindFile(fWindFile object)
       {
-        return createsWindFileAdapter();
+        return createfWindFileAdapter();
       }
       @Override
       public Adapter casenHH(nHH object)
@@ -170,9 +170,9 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
         return createiNumFoilAdapter();
       }
       @Override
-      public Adapter caseaFoilNm(aFoilNm object)
+      public Adapter caseaAirfoilList(aAirfoilList object)
       {
-        return createaFoilNmAdapter();
+        return createaAirfoilListAdapter();
       }
       @Override
       public Adapter caseiBldNodes(iBldNodes object)
@@ -357,16 +357,16 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.sWindFile <em>sWind File</em>}'.
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.fWindFile <em>fWind File</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sc.ndt.editor.fast.fastadn.sWindFile
+   * @see sc.ndt.editor.fast.fastadn.fWindFile
    * @generated
    */
-  public Adapter createsWindFileAdapter()
+  public Adapter createfWindFileAdapter()
   {
     return null;
   }
@@ -492,16 +492,16 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.aFoilNm <em>aFoil Nm</em>}'.
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.aAirfoilList <em>aAirfoil List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see sc.ndt.editor.fast.fastadn.aFoilNm
+   * @see sc.ndt.editor.fast.fastadn.aAirfoilList
    * @generated
    */
-  public Adapter createaFoilNmAdapter()
+  public Adapter createaAirfoilListAdapter()
   {
     return null;
   }

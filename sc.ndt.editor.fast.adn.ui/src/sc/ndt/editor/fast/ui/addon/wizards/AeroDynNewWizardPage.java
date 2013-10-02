@@ -1,4 +1,4 @@
-package sc.ndt.editor.ui.addon.wizards;
+package sc.ndt.editor.fast.ui.addon.wizards;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;

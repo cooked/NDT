@@ -25,12 +25,15 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_aAirStat_WSTerminalRuleCall_12_q;
 	protected AbstractElementAlias match_aAirStat_WSTerminalRuleCall_15_0_q;
 	protected AbstractElementAlias match_aAirStat_WSTerminalRuleCall_15_12_q;
-	protected AbstractElementAlias match_aFoilNm_SL_COMMENTTerminalRuleCall_5_q;
-	protected AbstractElementAlias match_aFoilNm_SL_COMMENTTerminalRuleCall_7_3_q;
-	protected AbstractElementAlias match_aFoilNm_WSTerminalRuleCall_0_q;
-	protected AbstractElementAlias match_aFoilNm_WSTerminalRuleCall_4_q;
-	protected AbstractElementAlias match_aFoilNm_WSTerminalRuleCall_7_0_q;
-	protected AbstractElementAlias match_aFoilNm_WSTerminalRuleCall_7_2_q;
+	protected AbstractElementAlias match_aAirfoilList_SL_COMMENTTerminalRuleCall_5_q;
+	protected AbstractElementAlias match_aAirfoilList_SL_COMMENTTerminalRuleCall_7_3_q;
+	protected AbstractElementAlias match_aAirfoilList_WSTerminalRuleCall_0_q;
+	protected AbstractElementAlias match_aAirfoilList_WSTerminalRuleCall_4_q;
+	protected AbstractElementAlias match_aAirfoilList_WSTerminalRuleCall_7_0_q;
+	protected AbstractElementAlias match_aAirfoilList_WSTerminalRuleCall_7_2_q;
+	protected AbstractElementAlias match_fWindFile_SL_COMMENTTerminalRuleCall_5_q;
+	protected AbstractElementAlias match_fWindFile_WSTerminalRuleCall_0_q;
+	protected AbstractElementAlias match_fWindFile_WSTerminalRuleCall_4_q;
 	protected AbstractElementAlias match_iBldNodes_SL_COMMENTTerminalRuleCall_5_q;
 	protected AbstractElementAlias match_iBldNodes_WSTerminalRuleCall_0_q;
 	protected AbstractElementAlias match_iBldNodes_WSTerminalRuleCall_4_q;
@@ -82,9 +85,6 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_sUseCm_SL_COMMENTTerminalRuleCall_5_q;
 	protected AbstractElementAlias match_sUseCm_WSTerminalRuleCall_0_q;
 	protected AbstractElementAlias match_sUseCm_WSTerminalRuleCall_4_q;
-	protected AbstractElementAlias match_sWindFile_SL_COMMENTTerminalRuleCall_5_q;
-	protected AbstractElementAlias match_sWindFile_WSTerminalRuleCall_0_q;
-	protected AbstractElementAlias match_sWindFile_WSTerminalRuleCall_4_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
@@ -96,12 +96,15 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_aAirStat_WSTerminalRuleCall_12_q = new TokenAlias(false, true, grammarAccess.getAAirStatAccess().getWSTerminalRuleCall_12());
 		match_aAirStat_WSTerminalRuleCall_15_0_q = new TokenAlias(false, true, grammarAccess.getAAirStatAccess().getWSTerminalRuleCall_15_0());
 		match_aAirStat_WSTerminalRuleCall_15_12_q = new TokenAlias(false, true, grammarAccess.getAAirStatAccess().getWSTerminalRuleCall_15_12());
-		match_aFoilNm_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getSL_COMMENTTerminalRuleCall_5());
-		match_aFoilNm_SL_COMMENTTerminalRuleCall_7_3_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getSL_COMMENTTerminalRuleCall_7_3());
-		match_aFoilNm_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_0());
-		match_aFoilNm_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_4());
-		match_aFoilNm_WSTerminalRuleCall_7_0_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_7_0());
-		match_aFoilNm_WSTerminalRuleCall_7_2_q = new TokenAlias(false, true, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_7_2());
+		match_aAirfoilList_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getSL_COMMENTTerminalRuleCall_5());
+		match_aAirfoilList_SL_COMMENTTerminalRuleCall_7_3_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getSL_COMMENTTerminalRuleCall_7_3());
+		match_aAirfoilList_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_0());
+		match_aAirfoilList_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_4());
+		match_aAirfoilList_WSTerminalRuleCall_7_0_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_7_0());
+		match_aAirfoilList_WSTerminalRuleCall_7_2_q = new TokenAlias(false, true, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_7_2());
+		match_fWindFile_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getFWindFileAccess().getSL_COMMENTTerminalRuleCall_5());
+		match_fWindFile_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getFWindFileAccess().getWSTerminalRuleCall_0());
+		match_fWindFile_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getFWindFileAccess().getWSTerminalRuleCall_4());
 		match_iBldNodes_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getIBldNodesAccess().getSL_COMMENTTerminalRuleCall_5());
 		match_iBldNodes_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getIBldNodesAccess().getWSTerminalRuleCall_0());
 		match_iBldNodes_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getIBldNodesAccess().getWSTerminalRuleCall_4());
@@ -153,9 +156,6 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_sUseCm_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getSUseCmAccess().getSL_COMMENTTerminalRuleCall_5());
 		match_sUseCm_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getSUseCmAccess().getWSTerminalRuleCall_0());
 		match_sUseCm_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getSUseCmAccess().getWSTerminalRuleCall_4());
-		match_sWindFile_SL_COMMENTTerminalRuleCall_5_q = new TokenAlias(false, true, grammarAccess.getSWindFileAccess().getSL_COMMENTTerminalRuleCall_5());
-		match_sWindFile_WSTerminalRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getSWindFileAccess().getWSTerminalRuleCall_0());
-		match_sWindFile_WSTerminalRuleCall_4_q = new TokenAlias(false, true, grammarAccess.getSWindFileAccess().getWSTerminalRuleCall_4());
 	}
 	
 	@Override
@@ -216,18 +216,24 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_aAirStat_WSTerminalRuleCall_15_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_aAirStat_WSTerminalRuleCall_15_12_q.equals(syntax))
 				emit_aAirStat_WSTerminalRuleCall_15_12_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_SL_COMMENTTerminalRuleCall_5_q.equals(syntax))
-				emit_aFoilNm_SL_COMMENTTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_SL_COMMENTTerminalRuleCall_7_3_q.equals(syntax))
-				emit_aFoilNm_SL_COMMENTTerminalRuleCall_7_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_WSTerminalRuleCall_0_q.equals(syntax))
-				emit_aFoilNm_WSTerminalRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_WSTerminalRuleCall_4_q.equals(syntax))
-				emit_aFoilNm_WSTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_WSTerminalRuleCall_7_0_q.equals(syntax))
-				emit_aFoilNm_WSTerminalRuleCall_7_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_aFoilNm_WSTerminalRuleCall_7_2_q.equals(syntax))
-				emit_aFoilNm_WSTerminalRuleCall_7_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_SL_COMMENTTerminalRuleCall_5_q.equals(syntax))
+				emit_aAirfoilList_SL_COMMENTTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_SL_COMMENTTerminalRuleCall_7_3_q.equals(syntax))
+				emit_aAirfoilList_SL_COMMENTTerminalRuleCall_7_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_WSTerminalRuleCall_0_q.equals(syntax))
+				emit_aAirfoilList_WSTerminalRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_WSTerminalRuleCall_4_q.equals(syntax))
+				emit_aAirfoilList_WSTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_WSTerminalRuleCall_7_0_q.equals(syntax))
+				emit_aAirfoilList_WSTerminalRuleCall_7_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_aAirfoilList_WSTerminalRuleCall_7_2_q.equals(syntax))
+				emit_aAirfoilList_WSTerminalRuleCall_7_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_fWindFile_SL_COMMENTTerminalRuleCall_5_q.equals(syntax))
+				emit_fWindFile_SL_COMMENTTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_fWindFile_WSTerminalRuleCall_0_q.equals(syntax))
+				emit_fWindFile_WSTerminalRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_fWindFile_WSTerminalRuleCall_4_q.equals(syntax))
+				emit_fWindFile_WSTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_iBldNodes_SL_COMMENTTerminalRuleCall_5_q.equals(syntax))
 				emit_iBldNodes_SL_COMMENTTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_iBldNodes_WSTerminalRuleCall_0_q.equals(syntax))
@@ -330,19 +336,13 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_sUseCm_WSTerminalRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_sUseCm_WSTerminalRuleCall_4_q.equals(syntax))
 				emit_sUseCm_WSTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_sWindFile_SL_COMMENTTerminalRuleCall_5_q.equals(syntax))
-				emit_sWindFile_SL_COMMENTTerminalRuleCall_5_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_sWindFile_WSTerminalRuleCall_0_q.equals(syntax))
-				emit_sWindFile_WSTerminalRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_sWindFile_WSTerminalRuleCall_4_q.equals(syntax))
-				emit_sWindFile_WSTerminalRuleCall_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Syntax:
-	 *     (WS | NEWLINE | SL_COMMENT)*
+	 *     (NEWLINE | WS | SL_COMMENT)*
 	 */
 	protected void emit_ModelFastadn___NEWLINETerminalRuleCall_21_1_or_SL_COMMENTTerminalRuleCall_21_2_or_WSTerminalRuleCall_21_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -400,7 +400,7 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     SL_COMMENT?
 	 */
-	protected void emit_aFoilNm_SL_COMMENTTerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_SL_COMMENTTerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -408,7 +408,7 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     SL_COMMENT?
 	 */
-	protected void emit_aFoilNm_SL_COMMENTTerminalRuleCall_7_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_SL_COMMENTTerminalRuleCall_7_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -416,7 +416,7 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     WS?
 	 */
-	protected void emit_aFoilNm_WSTerminalRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_WSTerminalRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -424,7 +424,7 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     WS?
 	 */
-	protected void emit_aFoilNm_WSTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_WSTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -432,7 +432,7 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     WS?
 	 */
-	protected void emit_aFoilNm_WSTerminalRuleCall_7_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_WSTerminalRuleCall_7_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -440,7 +440,31 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * Syntax:
 	 *     WS?
 	 */
-	protected void emit_aFoilNm_WSTerminalRuleCall_7_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_aAirfoilList_WSTerminalRuleCall_7_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     SL_COMMENT?
+	 */
+	protected void emit_fWindFile_SL_COMMENTTerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     WS?
+	 */
+	protected void emit_fWindFile_WSTerminalRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     WS?
+	 */
+	protected void emit_fWindFile_WSTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -849,30 +873,6 @@ public class FastadnSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     WS?
 	 */
 	protected void emit_sUseCm_WSTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     SL_COMMENT?
-	 */
-	protected void emit_sWindFile_SL_COMMENTTerminalRuleCall_5_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     WS?
-	 */
-	protected void emit_sWindFile_WSTerminalRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     WS?
-	 */
-	protected void emit_sWindFile_WSTerminalRuleCall_4_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

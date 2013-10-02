@@ -349,18 +349,12 @@
      </category>
      <wizard
            category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
-           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:sc.ndt.editor.fast.ui.wizard.FASTNewProjectWizard"
+           class="sc.ndt.editor.fast.ui.wizard.project.FASTProjectWizard"
+           finalPerspective="perspective.ndt.fast"
            icon="icons/folder.png"
            id="sc.ndt.fast.newproject"
            name="FAST Project"
            project="true">
-     </wizard>
-     <wizard
-           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
-           class=".FMainExecutableExtensionFactory:sc.nrel.nwtc.fast.ui.wizard.FASTNewFileWizard"
-           icon="icons/fan-alt.png"
-           id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="FAST Main File">
      </wizard>
      <wizard
            category="sc.ndt.ui.category.nrel"
@@ -391,7 +385,7 @@
      </page>
   </extension>
   <extension
-        id="nature1"
+        id="fastNature"
         point="org.eclipse.core.resources.natures">
      <runtime>
         <run
@@ -404,8 +398,17 @@
      <image
            icon="icons/letter_F.gif"
            id="sc.ndt.editor.fast.fst.ui.image1"
-           natureId="sc.ndt.editor.fast.fst.ui.image1">
+           natureId="sc.ndt.editor.fast.fst.ui.fastNature">
      </image>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectives">
+     <perspective
+           class="sc.ndt.editor.fast.fst.ui.addon.perspectives.FASTPerspective"
+           icon="icons/fan-alt.png"
+           id="perspective.ndt.fast"
+           name="FAST Perspective">
+     </perspective>
   </extension>
 
 </plugin>

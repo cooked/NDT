@@ -111,88 +111,91 @@ public class OutList extends HashMap<String,OutCh> {
 	//TODO
 	private ArrayList<String> Blade1LocalSpanLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"Spn1MLxb1","Spn1MLyb1","Spn1MLzb1",
+					"Spn2MLxb1","Spn2MLyb1","Spn2MLzb1",
+					"Spn3MLxb1","Spn3MLyb1","Spn3MLzb1",
+					"Spn4MLxb1","Spn4MLyb1","Spn4MLzb1",
+					"Spn5MLxb1","Spn5MLyb1","Spn5MLzb1",
+					"Spn6MLxb1","Spn6MLyb1","Spn6MLzb1",
+					"Spn7MLxb1","Spn7MLyb1","Spn7MLzb1",
+					"Spn8MLxb1","Spn8MLyb1","Spn8MLzb1",
+					"Spn9MLxb1","Spn9MLyb1","Spn9MLzb1" ) );
 	private ArrayList<String> Blade2LocalSpanLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"Spn1MLxb2","Spn1MLyb2","Spn1MLzb2",
+					"Spn2MLxb2","Spn2MLyb2","Spn2MLzb2",
+					"Spn3MLxb2","Spn3MLyb2","Spn3MLzb2",
+					"Spn4MLxb2","Spn4MLyb2","Spn4MLzb2",
+					"Spn5MLxb2","Spn5MLyb2","Spn5MLzb2",
+					"Spn6MLxb2","Spn6MLyb2","Spn6MLzb2",
+					"Spn7MLxb2","Spn7MLyb2","Spn7MLzb2",
+					"Spn8MLxb2","Spn8MLyb2","Spn8MLzb2",
+					"Spn9MLxb2","Spn9MLyb2","Spn9MLzb2" ) );
 	private ArrayList<String> Blade3LocalSpanLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"Spn1MLxb3","Spn1MLyb3","Spn1MLzb3",
+					"Spn2MLxb3","Spn2MLyb3","Spn2MLzb3",
+					"Spn3MLxb3","Spn3MLyb3","Spn3MLzb3",
+					"Spn4MLxb3","Spn4MLyb3","Spn4MLzb3",
+					"Spn5MLxb3","Spn5MLyb3","Spn5MLzb3",
+					"Spn6MLxb3","Spn6MLyb3","Spn6MLzb3",
+					"Spn7MLxb3","Spn7MLyb3","Spn7MLzb3",
+					"Spn8MLxb3","Spn8MLyb3","Spn8MLzb3",
+					"Spn9MLxb3","Spn9MLyb3","Spn9MLzb3" ) );
 	private ArrayList<String> HubAndRotorLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
-	private ArrayList<String> ShaftStrainGagesLoads 	= new ArrayList<String>( 
+					"LSShftFxa","LSShftFya","LSShftFza",
+					"LSShftFys","LSShftFzs",
+					"LSShftMxa",
+					"LSSTipMya","LSSTipMza",
+					"LSSTipMys","LSSTipMzs",
+					"CThrstAzm","CThrstRad",
+					"RotPwr","RotCq","RotCp","RotCp") );
+	private ArrayList<String> ShaftStrainGageLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"LSSGagMya","LSSGagMza",
+					"LSSGagMys","LSSGagMzs") );
 	private ArrayList<String> GeneratorAndHSSShaftLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"HSShftTq","HSShftPwr","HSShftCq","HSShftCp",
+					"GenTq","GenPwr","GenCq","GenCp","HSSBrTq") );
 	private ArrayList<String> RotorFurlBearingLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"RFrlBrM") );
+	private ArrayList<String> TailFurlBearingLoads 	= new ArrayList<String>( 
+			Lists.newArrayList(
+					"TFrlBrM") );
 	private ArrayList<String> TailFinAerodynamicLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"TFinAlpha","TFinCLift","TFinCDrag",
+					"TFinDnPrs","TFinCPFx","TFinCPFy") );
 	private ArrayList<String> TowerTopYawBearingLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"YawBrFxn","YawBrFyn","YawBrFzn",
+					"YawBrFxp","YawBrFyp",
+					"YawBrMxn","YawBrMyn","YawBrMzn",
+					"YawBrMxp","YawBrMyp") );
 	private ArrayList<String> TowerBaseLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"TwrBsFxt","TwrBsFyt","TwrBsFzt",
+					"TwrBsMxt","TwrBsMyt","TwrBsMzt") );
 	private ArrayList<String> LocalTowerLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"TwHt1MLxt","TwHt1MLyt","TwHt1MLzt",
+					"TwHt2MLxt","TwHt2MLyt","TwHt2MLzt",
+					"TwHt3MLxt","TwHt3MLyt","TwHt3MLzt",
+					"TwHt4MLxt","TwHt4MLyt","TwHt4MLzt",
+					"TwHt5MLxt","TwHt5MLyt","TwHt5MLzt",
+					"TwHt6MLxt","TwHt6MLyt","TwHt6MLzt",
+					"TwHt7MLxt","TwHt7MLyt","TwHt7MLzt",
+					"TwHt8MLxt","TwHt8MLyt","TwHt8MLzt",
+					"TwHt9MLxt","TwHt9MLyt","TwHt9MLzt") );
 	private ArrayList<String> PlatformLoads 	= new ArrayList<String>( 
 			Lists.newArrayList(
-					"RootFxc3","RootFyc3","RootFzc3",
-					"RootFxb3","RootFyb3",
-					
-					"RootMxc3","RootMyc3","RootMzc3",
-					"RootMxb3","RootMyb3") );
+					"PtfmFxt","PtfmFyt","PtfmFzt",
+					"PtfmFxi","PtfmFyi","PtfmFzi",
+					"PtfmMxt","PtfmMyt","PtfmMzt",
+					"PtfmMxi","PtfmMyi","PtfmMzi") );
 	
 	public void setAllSelected(String[] values) {
 		for(int i=0; i<values.length; i++) {
@@ -333,10 +336,28 @@ public class OutList extends HashMap<String,OutCh> {
 		outBlocksMap.put("Tower-Top Yaw Bearing Motions",	TowerTopYawBearingMotions	);
 		outBlocksMap.put("Local Tower Motions",				LocalTowerMotions			);
 		
-		outBlocksMap.put("Platform Motions",				PlatformMotions			);
-		outBlocksMap.put("Blade 1 Root Loads",				Blade1RootLoads		);
-		outBlocksMap.put("Blade 2 Root Loads",				Blade2RootLoads		);
-		outBlocksMap.put("Blade 3 Root Loads",				Blade3RootLoads		);
+		outBlocksMap.put("Platform Motions",				PlatformMotions				);
+		outBlocksMap.put("Blade 1 Root Loads",				Blade1RootLoads				);
+		outBlocksMap.put("Blade 2 Root Loads",				Blade2RootLoads				);
+		outBlocksMap.put("Blade 3 Root Loads",				Blade3RootLoads				);
+		
+		outBlocksMap.put("Blade 1 Local Span Loads",		Blade1LocalSpanLoads		);
+		outBlocksMap.put("Blade 2 Local Span Loads",		Blade2LocalSpanLoads		);
+		outBlocksMap.put("Blade 3 Local Span Loads",		Blade3LocalSpanLoads		);
+		
+		outBlocksMap.put("Hub and Rotor Loads",				HubAndRotorLoads			);
+		outBlocksMap.put("Shaft Strain Gage Loads",			ShaftStrainGageLoads		);
+		outBlocksMap.put("Generator and HSS Loads",			GeneratorAndHSSShaftLoads	);
+		
+		outBlocksMap.put("Rotor-Furl Bearing Loads",		RotorFurlBearingLoads		);
+		outBlocksMap.put("Tail-Furl Bearing Loads",			TailFurlBearingLoads		);
+		outBlocksMap.put("Tail Fin Aerodynamic Loads",		TailFinAerodynamicLoads		);
+		
+		outBlocksMap.put("Tower-Top Yaw Bearing Loads",		TowerTopYawBearingLoads		);
+		outBlocksMap.put("Tower Base Loads",				TowerBaseLoads				);
+		outBlocksMap.put("Local Tower Loads",				LocalTowerLoads				);
+		
+		outBlocksMap.put("Platform Loads",					PlatformLoads				);
 		
 		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		//This table gives the Name(s), Descriptions, Conventions, and Units of all of the available output channels in FAST.

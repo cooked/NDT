@@ -14,6 +14,14 @@
               id="sc.ndt.editor.fast.Fastadn"
               name="Fastadn Editor">
         </editor>
+        <editor
+              class="sc.ndt.editor.fast.ui.addon.mpe.AdnMultiPageEditor"
+              default="false"
+              extensions="adn"
+              icon="icons/games.png"
+              id="sc.ndt.editor.fast.aerodyn.mpe.editor"
+              name="MPE .adn editor">
+        </editor>
     </extension>
     <extension
         point="org.eclipse.ui.handlers">
@@ -402,7 +410,7 @@
      </category>
      <wizard
            category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.aerodyn"
-           class="sc.ndt.editor.ui.addon.wizards.AeroDynNewWizard"
+           class="sc.ndt.editor.fast.ui.addon.wizards.AeroDynNewWizard"
            icon="icons/games.png"
            id="sc.ndt.editor.ui.addon.wizards.AeroDynNewWizard"
            name="AeroDyn input file">

@@ -4,66 +4,69 @@ package sc.ndt.editor.fast.ui.mpe.ui;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.eclipse.swt.widgets.Composite;
-
-import org.eclipse.ui.forms.IManagedForm;
-import org.eclipse.ui.forms.IMessage;
-import org.eclipse.ui.forms.editor.FormEditor;
-import org.eclipse.ui.forms.editor.FormPage;
-import org.eclipse.ui.forms.events.HyperlinkAdapter;
-import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.ui.forms.widgets.ScrolledForm;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.jface.viewers.CheckStateChangedEvent;
-import org.eclipse.jface.viewers.ColumnLabelProvider;
-import org.eclipse.jface.viewers.ColumnWeightData;
-import org.eclipse.jface.viewers.ICheckStateListener;
-import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.jface.viewers.TableLayout;
-import org.eclipse.jface.viewers.TextCellEditor;
-import org.eclipse.jface.viewers.TreeViewerColumn;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Table;
-
-import org.eclipse.ui.forms.widgets.Section;
-
-import org.eclipse.wb.swt.ResourceManager;
-
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.custom.SashForm;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.jface.fieldassist.ControlDecoration;
-import org.eclipse.jface.fieldassist.FieldDecoration;
-import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
-
 import org.eclipse.core.databinding.AggregateValidationStatus;
-import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.ObservablesManager;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.ValidationStatusProvider;
-
-import org.eclipse.core.databinding.observable.AbstractObservable;
-import org.eclipse.core.databinding.observable.Realm;
-import org.eclipse.core.databinding.observable.value.ComputedValue;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.databinding.validation.ValidationStatus;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.databinding.fieldassist.ControlDecorationSupport;
-import org.eclipse.jface.databinding.swt.ISWTObservableValue;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
-
+import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.fieldassist.ControlDecoration;
+import org.eclipse.jface.fieldassist.FieldDecoration;
+import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
+import org.eclipse.jface.viewers.CheckboxTreeViewer;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ICheckStateListener;
+import org.eclipse.jface.viewers.TreeViewerColumn;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.ui.forms.IManagedForm;
+import org.eclipse.ui.forms.IMessage;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ImageHyperlink;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
+import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+import org.eclipse.wb.swt.ResourceManager;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import sc.ndt.commons.model.OutBlock;
 import sc.ndt.commons.model.OutCh;
@@ -74,55 +77,8 @@ import sc.ndt.commons.model.outlist.providers.OutListLabelProvider;
 import sc.ndt.commons.model.outlist.providers.OutListToolTipSupport;
 import sc.ndt.editor.fast.fastfst.FastfstPackage;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
-
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Group;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.jface.viewers.CheckboxTreeViewer;
-import org.eclipse.swt.custom.CTabFolder;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.custom.CTabItem;
-
-import org.eclipse.jface.dialogs.IMessageProvider;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.model.IXtextDocument;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.ui.forms.widgets.ImageHyperlink;
-import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.databinding.FeaturePath;
-
 import ch.vorburger.xtext.databinding.XtextDataBindingContext;
 import ch.vorburger.xtext.databinding.XtextProperties;
-
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.swt.widgets.TreeColumn;
-import org.eclipse.swt.widgets.TabFolder;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.jface.viewers.ComboViewer;
-import org.eclipse.swt.layout.RowData;
-import org.eclipse.swt.dnd.DragSource;
-import org.eclipse.swt.dnd.DND;
-import org.eclipse.swt.dnd.DropTarget;
-import org.eclipse.swt.dnd.Transfer;
-
-
-import org.eclipse.swt.custom.CCombo;
 
 public class FstFormPage extends FormPage {
 
@@ -389,6 +345,7 @@ public class FstFormPage extends FormPage {
 		
 		Action runAction = new Action("Run") { //$NON-NLS-1$
 			public void run() {
+				
 			}
 		};
 		runAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("org.eclipse.jdt.debug.ui", "/icons/full/etool16/run_exc.gif"));
@@ -407,7 +364,7 @@ public class FstFormPage extends FormPage {
 		helpAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("org.eclipse.help.ui", "/icons/etool16/help.gif"));
 		 */
 		
-		//manager.add(runAction);		// run time-marching simulation
+		manager.add(runAction);		// run time-marching simulation
 		//manager.add(linAction);		// run model linearization
 		//manager.add(helpAction);	// open help
 		
@@ -1465,6 +1422,7 @@ public class FstFormPage extends FormPage {
 						sSimulationControl.setDescription("");
 						managedForm.getToolkit().paintBordersFor(sSimulationControl);
 						sSimulationControl.setText("Simulation Control");
+						sSimulationControl.setExpanded(true);
 						
 								Composite composite = managedForm.getToolkit().createComposite(sSimulationControl, SWT.NONE);
 								managedForm.getToolkit().paintBordersFor(composite);
@@ -3085,78 +3043,78 @@ public class FstFormPage extends FormPage {
 						Tree treeTower = checkboxTreeViewer.getTree();
 						treeTower.setHeaderVisible(true);
 						treeTower.setLinesVisible(true);
-						GridData gd_treeTower = new GridData(SWT.FILL, SWT.TOP, true, false,
-								1, 1);
+						GridData gd_treeTower = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
 						gd_treeTower.heightHint = 400;
 						treeTower.setLayoutData(gd_treeTower);
 						managedForm.getToolkit().paintBordersFor(treeTower);
 						
-								TreeViewerColumn column_1 = new TreeViewerColumn(checkboxTreeViewer,SWT.NONE);
-								TreeColumn treeColumn = column_1.getColumn();
-								treeColumn.setResizable(false);
-								column_1.getColumn().setWidth(220);
-								column_1.getColumn().setText("Output Channel");
-								column_1.setLabelProvider(new OutListLabelProvider());
-										TreeViewerColumn column_2 = new TreeViewerColumn(checkboxTreeViewer,SWT.NONE);
-										TreeColumn treeColumn_1 = column_2.getColumn();
-										treeColumn_1.setResizable(false);
-										column_2.getColumn().setWidth(60);
-										column_2.getColumn().setText("Unit");
-										column_2.setLabelProvider(new ColumnLabelProvider() {
-											public String getText(Object element) {
-												if (element instanceof OutCh)
-													return ((OutCh) element).unit;
-												return "";
-											}
+						TreeViewerColumn column_1 = new TreeViewerColumn(checkboxTreeViewer,SWT.NONE);
+						TreeColumn treeColumn = column_1.getColumn();
+						treeColumn.setResizable(false);
+						column_1.getColumn().setWidth(220);
+						column_1.getColumn().setText("Output Channel");
+						column_1.setLabelProvider(new OutListLabelProvider());
+						
+						TreeViewerColumn column_2 = new TreeViewerColumn(checkboxTreeViewer,SWT.NONE);
+						TreeColumn treeColumn_1 = column_2.getColumn();
+						treeColumn_1.setResizable(false);
+						column_2.getColumn().setWidth(60);
+						column_2.getColumn().setText("Unit");
+						column_2.setLabelProvider(new ColumnLabelProvider() {
+							public String getText(Object element) {
+								if (element instanceof OutCh)
+									return ((OutCh) element).unit;
+								return "";
+							}
 
-										});
-										
-												checkboxTreeViewer.setContentProvider(new OutListContentProvider());
-												checkboxTreeViewer.setCheckStateProvider(new OutListCheckStateProvider());
-												checkboxTreeViewer.setInput(outList.getAllOutBlocks());
-												OutListToolTipSupport.enableFor(checkboxTreeViewer);
-												
-														// see
-														// http://www.java2s.com/Code/Java/SWT-JFace-Eclipse/DemonstratesCheckboxTreeViewer.htm
-														checkboxTreeViewer.addCheckStateListener(new ICheckStateListener() {
-															public void checkStateChanged(CheckStateChangedEvent event) {
-																if (event.getChecked()) {
-																	checkboxTreeViewer.setSubtreeChecked(event.getElement(),
-																			true);
-																	Object o = event.getElement();
-																	if (o instanceof OutCh) {
-																		outList.get(((OutCh) o).name).setAvailable(true);
-															
-																	} else if (o instanceof OutBlock)
-																		outList.setBlockSelected((OutBlock) o, true);
-																	
-																} else if (!event.getChecked()) {
-																	checkboxTreeViewer.setSubtreeChecked(event.getElement(),
-																			false);
-																	Object o = event.getElement();
-																	if (o instanceof OutCh)
-																		outList.get(((OutCh) o).name).setAvailable(false);
-																	else if (o instanceof OutBlock)
-																		outList.setBlockSelected((OutBlock) o, false);
-																}
-												
-																// TODO write to xtext model
-																document.modify(new IUnitOfWork.Void<XtextResource>() {
-																	@Override
-																	public void process(XtextResource resource) throws Exception {
-																		ModelFastfst m = (ModelFastfst) resource.getContents().get(0);
-																		if (m != null && m.getOutList() != null)
-																			m.getOutList().setValue(outList.getAllSelectedByBlock());
-																		else
-																			throw new IllegalStateException("Uh uh, no content");
-												
-																	};
-																});
-																
-																checkboxTreeViewer.refresh();
-												
-															}
-														});
+						});
+
+						checkboxTreeViewer.setContentProvider(new OutListContentProvider());
+						checkboxTreeViewer.setCheckStateProvider(new OutListCheckStateProvider());
+						checkboxTreeViewer.setInput(outList.getAllOutBlocks());
+						OutListToolTipSupport.enableFor(checkboxTreeViewer);
+
+						// see
+						// http://www.java2s.com/Code/Java/SWT-JFace-Eclipse/DemonstratesCheckboxTreeViewer.htm
+						checkboxTreeViewer.addCheckStateListener(new ICheckStateListener() {
+							public void checkStateChanged(CheckStateChangedEvent event) {
+								if (event.getChecked()) {
+									checkboxTreeViewer.setSubtreeChecked(event.getElement(),
+											true);
+									Object o = event.getElement();
+									if (o instanceof OutCh) {
+										outList.get(((OutCh) o).name).setAvailable(true);
+
+									} else if (o instanceof OutBlock)
+										outList.setBlockSelected((OutBlock) o, true);
+
+								} else if (!event.getChecked()) {
+									checkboxTreeViewer.setSubtreeChecked(event.getElement(),
+											false);
+									Object o = event.getElement();
+									if (o instanceof OutCh)
+										outList.get(((OutCh) o).name).setAvailable(false);
+									else if (o instanceof OutBlock)
+										outList.setBlockSelected((OutBlock) o, false);
+								}
+
+								// TODO write to xtext model
+								document.modify(new IUnitOfWork.Void<XtextResource>() {
+									@Override
+									public void process(XtextResource resource) throws Exception {
+										ModelFastfst m = (ModelFastfst) resource.getContents().get(0);
+										if (m != null && m.getOutList() != null)
+											m.getOutList().setValue(outList.getAllSelectedByBlock());
+										else
+											throw new IllegalStateException("Uh uh, no content");
+
+									};
+								});
+
+								checkboxTreeViewer.refresh();
+
+							}
+						});
 		//toolkit.decorateFormHeading(form.getForm());
 
 

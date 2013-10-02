@@ -2,7 +2,7 @@
 <feature
       id="sc.ndt.feature.launcher"
       label="NDT Launcher"
-      version="0.1.0.qualifier"
+      version="0.2.0.qualifier"
       provider-name="Stefano Cottafavi">
 
    <description url="http://www.example.com/description">

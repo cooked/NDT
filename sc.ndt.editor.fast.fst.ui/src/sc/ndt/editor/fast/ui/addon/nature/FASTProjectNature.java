@@ -6,6 +6,10 @@ import org.eclipse.core.runtime.CoreException;
 
 public class FASTProjectNature implements IProjectNature {
 
+	public static final String NATURE_ID = "sc.ndt.editor.fast.fst.ui.fastNature"; //$NON-NLS-1$
+	
+	//private IProject project;
+	
 	@Override
 	public void configure() throws CoreException {
 		// TODO Auto-generated method stub
@@ -20,14 +24,13 @@ public class FASTProjectNature implements IProjectNature {
 
 	@Override
 	public IProject getProject() {
-		// TODO Auto-generated method stub
-		return null;
+		return null;//project;
 	}
 
 	@Override
 	public void setProject(IProject project) {
-		// TODO Auto-generated method stub
-
+		//this.project = project;
 	}
 
 }
+

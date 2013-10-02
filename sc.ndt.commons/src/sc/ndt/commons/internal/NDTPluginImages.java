@@ -587,7 +587,7 @@ public class NDTPluginImages {
 	 * or <code>null</code>.
 	 */
 	private static ImageDescriptor create(String prefix, String name, boolean useMissingImageDescriptor) {
-		IPath path= ICONS_PATH.append(prefix).append(name);
+		//IPath path= ICONS_PATH.append(prefix).append(name);
 		return null; // TODO createImageDescriptor(JavaPlugin.getDefault().getBundle(), path, useMissingImageDescriptor);
 	}
 

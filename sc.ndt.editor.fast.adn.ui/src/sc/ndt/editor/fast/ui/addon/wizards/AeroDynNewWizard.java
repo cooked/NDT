@@ -1,4 +1,4 @@
-package sc.ndt.editor.ui.addon.wizards;
+package sc.ndt.editor.fast.ui.addon.wizards;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;

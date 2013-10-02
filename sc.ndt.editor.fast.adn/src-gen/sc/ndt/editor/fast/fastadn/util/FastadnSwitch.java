@@ -142,10 +142,10 @@ public class FastadnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FastadnPackage.SWIND_FILE:
+      case FastadnPackage.FWIND_FILE:
       {
-        sWindFile sWindFile = (sWindFile)theEObject;
-        T result = casesWindFile(sWindFile);
+        fWindFile fWindFile = (fWindFile)theEObject;
+        T result = casefWindFile(fWindFile);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -205,10 +205,10 @@ public class FastadnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FastadnPackage.AFOIL_NM:
+      case FastadnPackage.AAIRFOIL_LIST:
       {
-        aFoilNm aFoilNm = (aFoilNm)theEObject;
-        T result = caseaFoilNm(aFoilNm);
+        aAirfoilList aAirfoilList = (aAirfoilList)theEObject;
+        T result = caseaAirfoilList(aAirfoilList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -391,17 +391,17 @@ public class FastadnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>sWind File</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>fWind File</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>sWind File</em>'.
+   * @return the result of interpreting the object as an instance of '<em>fWind File</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casesWindFile(sWindFile object)
+  public T casefWindFile(fWindFile object)
   {
     return null;
   }
@@ -535,17 +535,17 @@ public class FastadnSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>aFoil Nm</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>aAirfoil List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>aFoil Nm</em>'.
+   * @return the result of interpreting the object as an instance of '<em>aAirfoil List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseaFoilNm(aFoilNm object)
+  public T caseaAirfoilList(aAirfoilList object)
   {
     return null;
   }

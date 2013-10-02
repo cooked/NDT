@@ -14,7 +14,8 @@ import sc.ndt.editor.fast.fastadn.FastadnPackage;
 import sc.ndt.editor.fast.fastadn.Header;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastadn.aAirStat;
-import sc.ndt.editor.fast.fastadn.aFoilNm;
+import sc.ndt.editor.fast.fastadn.aAirfoilList;
+import sc.ndt.editor.fast.fastadn.fWindFile;
 import sc.ndt.editor.fast.fastadn.iBldNodes;
 import sc.ndt.editor.fast.fastadn.iNumFoil;
 import sc.ndt.editor.fast.fastadn.nAtoler;
@@ -32,7 +33,6 @@ import sc.ndt.editor.fast.fastadn.sStallMod;
 import sc.ndt.editor.fast.fastadn.sTLModel;
 import sc.ndt.editor.fast.fastadn.sUnits;
 import sc.ndt.editor.fast.fastadn.sUseCm;
-import sc.ndt.editor.fast.fastadn.sWindFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,7 +117,7 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass sWindFileEClass = null;
+  private EClass fWindFileEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -180,7 +180,7 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass aFoilNmEClass = null;
+  private EClass aAirfoilListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -744,9 +744,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getsWindFile()
+  public EClass getfWindFile()
   {
-    return sWindFileEClass;
+    return fWindFileEClass;
   }
 
   /**
@@ -754,9 +754,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getsWindFile_Value()
+  public EAttribute getfWindFile_Value()
   {
-    return (EAttribute)sWindFileEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)fWindFileEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -764,9 +764,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getsWindFile_Name()
+  public EAttribute getfWindFile_Name()
   {
-    return (EAttribute)sWindFileEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)fWindFileEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1014,9 +1014,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getaFoilNm()
+  public EClass getaAirfoilList()
   {
-    return aFoilNmEClass;
+    return aAirfoilListEClass;
   }
 
   /**
@@ -1024,9 +1024,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getaFoilNm_Value()
+  public EAttribute getaAirfoilList_Value()
   {
-    return (EAttribute)aFoilNmEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)aAirfoilListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1034,9 +1034,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getaFoilNm_Name()
+  public EAttribute getaAirfoilList_Name()
   {
-    return (EAttribute)aFoilNmEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)aAirfoilListEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1227,9 +1227,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     createEAttribute(sHLModelEClass, SHL_MODEL__VALUE);
     createEAttribute(sHLModelEClass, SHL_MODEL__NAME);
 
-    sWindFileEClass = createEClass(SWIND_FILE);
-    createEAttribute(sWindFileEClass, SWIND_FILE__VALUE);
-    createEAttribute(sWindFileEClass, SWIND_FILE__NAME);
+    fWindFileEClass = createEClass(FWIND_FILE);
+    createEAttribute(fWindFileEClass, FWIND_FILE__VALUE);
+    createEAttribute(fWindFileEClass, FWIND_FILE__NAME);
 
     nHHEClass = createEClass(NHH);
     createEAttribute(nHHEClass, NHH__VALUE);
@@ -1263,9 +1263,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     createEAttribute(iNumFoilEClass, INUM_FOIL__VALUE);
     createEAttribute(iNumFoilEClass, INUM_FOIL__NAME);
 
-    aFoilNmEClass = createEClass(AFOIL_NM);
-    createEAttribute(aFoilNmEClass, AFOIL_NM__VALUE);
-    createEAttribute(aFoilNmEClass, AFOIL_NM__NAME);
+    aAirfoilListEClass = createEClass(AAIRFOIL_LIST);
+    createEAttribute(aAirfoilListEClass, AAIRFOIL_LIST__VALUE);
+    createEAttribute(aAirfoilListEClass, AAIRFOIL_LIST__NAME);
 
     iBldNodesEClass = createEClass(IBLD_NODES);
     createEAttribute(iBldNodesEClass, IBLD_NODES__VALUE);
@@ -1321,7 +1321,7 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEReference(getModelFastadn_Atoler(), this.getnAtoler(), null, "Atoler", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_TLModel(), this.getsTLModel(), null, "TLModel", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_HLModel(), this.getsHLModel(), null, "HLModel", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModelFastadn_WindFile(), this.getsWindFile(), null, "WindFile", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelFastadn_WindFile(), this.getfWindFile(), null, "WindFile", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_HH(), this.getnHH(), null, "HH", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_TwrShad(), this.getnTwrShad(), null, "TwrShad", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_ShadHWid(), this.getnShadHWid(), null, "ShadHWid", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1330,7 +1330,7 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEReference(getModelFastadn_KinVisc(), this.getnKinVisc(), null, "KinVisc", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_DTAero(), this.getnDTAero(), null, "DTAero", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_NumFoil(), this.getiNumFoil(), null, "NumFoil", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModelFastadn_FoilNm(), this.getaFoilNm(), null, "FoilNm", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModelFastadn_FoilNm(), this.getaAirfoilList(), null, "FoilNm", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_BldNodes(), this.getiBldNodes(), null, "BldNodes", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModelFastadn_AirStat(), this.getaAirStat(), null, "AirStat", null, 0, 1, ModelFastadn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1369,9 +1369,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEAttribute(getsHLModel_Value(), ecorePackage.getEString(), "value", null, 0, 1, sHLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getsHLModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, sHLModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(sWindFileEClass, sWindFile.class, "sWindFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getsWindFile_Value(), ecorePackage.getEString(), "value", null, 0, 1, sWindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getsWindFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, sWindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(fWindFileEClass, fWindFile.class, "fWindFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getfWindFile_Value(), ecorePackage.getEString(), "value", null, 0, 1, fWindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getfWindFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, fWindFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nHHEClass, nHH.class, "nHH", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getnHH_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, nHH.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1405,9 +1405,9 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEAttribute(getiNumFoil_Value(), ecorePackage.getEInt(), "value", null, 0, 1, iNumFoil.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getiNumFoil_Name(), ecorePackage.getEString(), "name", null, 0, 1, iNumFoil.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(aFoilNmEClass, aFoilNm.class, "aFoilNm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getaFoilNm_Value(), ecorePackage.getEString(), "value", null, 0, -1, aFoilNm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getaFoilNm_Name(), ecorePackage.getEString(), "name", null, 0, 1, aFoilNm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(aAirfoilListEClass, aAirfoilList.class, "aAirfoilList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getaAirfoilList_Value(), ecorePackage.getEString(), "value", null, 0, -1, aAirfoilList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getaAirfoilList_Name(), ecorePackage.getEString(), "name", null, 0, 1, aAirfoilList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(iBldNodesEClass, iBldNodes.class, "iBldNodes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getiBldNodes_Value(), ecorePackage.getEInt(), "value", null, 0, 1, iBldNodes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1418,7 +1418,7 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEAttribute(getaAirStat_Aerotwst(), ecorePackage.getEFloat(), "aerotwst", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaAirStat_Drnodes(), ecorePackage.getEFloat(), "drnodes", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaAirStat_Chord(), ecorePackage.getEFloat(), "chord", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getaAirStat_Nfoil(), ecorePackage.getEFloat(), "nfoil", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getaAirStat_Nfoil(), ecorePackage.getEInt(), "nfoil", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getaAirStat_Prnelm(), ecorePackage.getEString(), "prnelm", null, 0, -1, aAirStat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

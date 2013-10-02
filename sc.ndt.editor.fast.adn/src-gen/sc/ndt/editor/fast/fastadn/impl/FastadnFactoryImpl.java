@@ -74,7 +74,7 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
       case FastadnPackage.NATOLER: return createnAtoler();
       case FastadnPackage.STL_MODEL: return createsTLModel();
       case FastadnPackage.SHL_MODEL: return createsHLModel();
-      case FastadnPackage.SWIND_FILE: return createsWindFile();
+      case FastadnPackage.FWIND_FILE: return createfWindFile();
       case FastadnPackage.NHH: return createnHH();
       case FastadnPackage.NTWR_SHAD: return createnTwrShad();
       case FastadnPackage.NSHAD_HWID: return createnShadHWid();
@@ -83,7 +83,7 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
       case FastadnPackage.NKIN_VISC: return createnKinVisc();
       case FastadnPackage.NDT_AERO: return createnDTAero();
       case FastadnPackage.INUM_FOIL: return createiNumFoil();
-      case FastadnPackage.AFOIL_NM: return createaFoilNm();
+      case FastadnPackage.AAIRFOIL_LIST: return createaAirfoilList();
       case FastadnPackage.IBLD_NODES: return createiBldNodes();
       case FastadnPackage.AAIR_STAT: return createaAirStat();
       default:
@@ -206,10 +206,10 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public sWindFile createsWindFile()
+  public fWindFile createfWindFile()
   {
-    sWindFileImpl sWindFile = new sWindFileImpl();
-    return sWindFile;
+    fWindFileImpl fWindFile = new fWindFileImpl();
+    return fWindFile;
   }
 
   /**
@@ -305,10 +305,10 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public aFoilNm createaFoilNm()
+  public aAirfoilList createaAirfoilList()
   {
-    aFoilNmImpl aFoilNm = new aFoilNmImpl();
-    return aFoilNm;
+    aAirfoilListImpl aAirfoilList = new aAirfoilListImpl();
+    return aAirfoilList;
   }
 
   /**

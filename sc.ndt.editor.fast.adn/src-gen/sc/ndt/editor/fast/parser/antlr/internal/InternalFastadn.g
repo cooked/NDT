@@ -242,9 +242,9 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getWindFileSWindFileParserRuleCall_9_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getWindFileFWindFileParserRuleCall_9_0()); 
 	    }
-		lv_WindFile_9_0=rulesWindFile		{
+		lv_WindFile_9_0=rulefWindFile		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModelFastadnRule());
 	        }
@@ -252,7 +252,7 @@ ruleModelFastadn returns [EObject current=null]
        			$current, 
        			"WindFile",
         		lv_WindFile_9_0, 
-        		"sWindFile");
+        		"fWindFile");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -404,9 +404,9 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getFoilNmAFoilNmParserRuleCall_18_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_18_0()); 
 	    }
-		lv_FoilNm_18_0=ruleaFoilNm		{
+		lv_FoilNm_18_0=ruleaAirfoilList		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModelFastadnRule());
 	        }
@@ -414,7 +414,7 @@ ruleModelFastadn returns [EObject current=null]
        			$current, 
        			"FoilNm",
         		lv_FoilNm_18_0, 
-        		"aFoilNm");
+        		"aAirfoilList");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -512,6 +512,8 @@ ruletNUMBER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 
 
 
+
+
 // Entry rule entryRuleHeader
 entryRuleHeader returns [EObject current=null] 
 	@init { 
@@ -592,16 +594,19 @@ rulesUnits returns [EObject current=null]
     }
 )?(
 (
-		lv_value_1_0=	'SI' 
-    {
-        newLeafNode(lv_value_1_0, grammarAccess.getSUnitsAccess().getValueSIKeyword_1_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_UNITS
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSUnitsAccess().getValueUNITSTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSUnitsRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_0, "SI");
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"UNITS");
 	    }
 
 )
@@ -673,16 +678,19 @@ rulesStallMod returns [EObject current=null]
     }
 )?(
 (
-		lv_value_1_0=	'BEDDOES' 
-    {
-        newLeafNode(lv_value_1_0, grammarAccess.getSStallModAccess().getValueBEDDOESKeyword_1_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_STALL
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSStallModAccess().getValueSTALLTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSStallModRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_0, "BEDDOES");
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"STALL");
 	    }
 
 )
@@ -754,32 +762,20 @@ rulesUseCm returns [EObject current=null]
     }
 )?(
 (
-(
-		lv_value_1_1=	'NO_CM' 
-    {
-        newLeafNode(lv_value_1_1, grammarAccess.getSUseCmAccess().getValueNO_CMKeyword_1_0_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_CM
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSUseCmAccess().getValueCMTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSUseCmRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_1, null);
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"CM");
 	    }
-
-    |		lv_value_1_2=	'USE_CM' 
-    {
-        newLeafNode(lv_value_1_2, grammarAccess.getSUseCmAccess().getValueUSE_CMKeyword_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSUseCmRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_1_2, null);
-	    }
-
-)
 
 )
 )this_WS_2=RULE_WS
@@ -850,32 +846,20 @@ rulesInfModel returns [EObject current=null]
     }
 )?(
 (
-(
-		lv_value_1_1=	'EQUIL' 
-    {
-        newLeafNode(lv_value_1_1, grammarAccess.getSInfModelAccess().getValueEQUILKeyword_1_0_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_INFMODEL
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSInfModelAccess().getValueINFMODELTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSInfModelRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_1, null);
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"INFMODEL");
 	    }
-
-    |		lv_value_1_2=	'DYNIN' 
-    {
-        newLeafNode(lv_value_1_2, grammarAccess.getSInfModelAccess().getValueDYNINKeyword_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSInfModelRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_1_2, null);
-	    }
-
-)
 
 )
 )this_WS_2=RULE_WS
@@ -946,16 +930,19 @@ rulesIndModel returns [EObject current=null]
     }
 )?(
 (
-		lv_value_1_0=	'SWIRL' 
-    {
-        newLeafNode(lv_value_1_0, grammarAccess.getSIndModelAccess().getValueSWIRLKeyword_1_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_INDMODEL
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSIndModelAccess().getValueINDMODELTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSIndModelRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_0, "SWIRL");
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"INDMODEL");
 	    }
 
 )
@@ -1126,32 +1113,20 @@ rulesTLModel returns [EObject current=null]
     }
 )?(
 (
-(
-		lv_value_1_1=	'PRANDtl' 
-    {
-        newLeafNode(lv_value_1_1, grammarAccess.getSTLModelAccess().getValuePRANDtlKeyword_1_0_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_PRANDTL
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSTLModelAccess().getValuePRANDTLTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSTLModelRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_1, null);
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"PRANDTL");
 	    }
-
-    |		lv_value_1_2=	'NONE' 
-    {
-        newLeafNode(lv_value_1_2, grammarAccess.getSTLModelAccess().getValueNONEKeyword_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSTLModelRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_1_2, null);
-	    }
-
-)
 
 )
 )this_WS_2=RULE_WS
@@ -1222,32 +1197,20 @@ rulesHLModel returns [EObject current=null]
     }
 )?(
 (
-(
-		lv_value_1_1=	'PRANDtl' 
-    {
-        newLeafNode(lv_value_1_1, grammarAccess.getSHLModelAccess().getValuePRANDtlKeyword_1_0_0());
-    }
- 
-	    {
+		lv_value_1_0=RULE_PRANDTL
+		{
+			newLeafNode(lv_value_1_0, grammarAccess.getSHLModelAccess().getValuePRANDTLTerminalRuleCall_1_0()); 
+		}
+		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSHLModelRule());
 	        }
-       		setWithLastConsumed($current, "value", lv_value_1_1, null);
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_1_0, 
+        		"PRANDTL");
 	    }
-
-    |		lv_value_1_2=	'NONE' 
-    {
-        newLeafNode(lv_value_1_2, grammarAccess.getSHLModelAccess().getValueNONEKeyword_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSHLModelRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_1_2, null);
-	    }
-
-)
 
 )
 )this_WS_2=RULE_WS
@@ -1291,40 +1254,40 @@ finally {
 
 
 
-// Entry rule entryRulesWindFile
-entryRulesWindFile returns [EObject current=null] 
+// Entry rule entryRulefWindFile
+entryRulefWindFile returns [EObject current=null] 
 	@init { 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 	}
 	:
-	{ newCompositeNode(grammarAccess.getSWindFileRule()); }
-	 iv_rulesWindFile=rulesWindFile 
-	 { $current=$iv_rulesWindFile.current; } 
+	{ newCompositeNode(grammarAccess.getFWindFileRule()); }
+	 iv_rulefWindFile=rulefWindFile 
+	 { $current=$iv_rulefWindFile.current; } 
 	 EOF 
 ;
 finally {
 	myHiddenTokenState.restore();
 }
 
-// Rule sWindFile
-rulesWindFile returns [EObject current=null] 
+// Rule fWindFile
+rulefWindFile returns [EObject current=null] 
     @init { enterRule(); 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { leaveRule(); }:
 ((this_WS_0=RULE_WS
     { 
-    newLeafNode(this_WS_0, grammarAccess.getSWindFileAccess().getWSTerminalRuleCall_0()); 
+    newLeafNode(this_WS_0, grammarAccess.getFWindFileAccess().getWSTerminalRuleCall_0()); 
     }
 )?(
 (
 		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_value_1_0, grammarAccess.getSWindFileAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getFWindFileAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSWindFileRule());
+	            $current = createModelElement(grammarAccess.getFWindFileRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1336,18 +1299,18 @@ rulesWindFile returns [EObject current=null]
 )
 )this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getSWindFileAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getFWindFileAccess().getWSTerminalRuleCall_2()); 
     }
 (
 (
 		lv_name_3_0=	'WindFile' 
     {
-        newLeafNode(lv_name_3_0, grammarAccess.getSWindFileAccess().getNameWindFileKeyword_3_0());
+        newLeafNode(lv_name_3_0, grammarAccess.getFWindFileAccess().getNameWindFileKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSWindFileRule());
+	            $current = createModelElement(grammarAccess.getFWindFileRule());
 	        }
        		setWithLastConsumed($current, "name", lv_name_3_0, "WindFile");
 	    }
@@ -1355,15 +1318,15 @@ rulesWindFile returns [EObject current=null]
 )
 )(this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getSWindFileAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_4, grammarAccess.getFWindFileAccess().getWSTerminalRuleCall_4()); 
     }
 )?(this_SL_COMMENT_5=RULE_SL_COMMENT
     { 
-    newLeafNode(this_SL_COMMENT_5, grammarAccess.getSWindFileAccess().getSL_COMMENTTerminalRuleCall_5()); 
+    newLeafNode(this_SL_COMMENT_5, grammarAccess.getFWindFileAccess().getSL_COMMENTTerminalRuleCall_5()); 
     }
 )?this_NEWLINE_6=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_6, grammarAccess.getSWindFileAccess().getNEWLINETerminalRuleCall_6()); 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getFWindFileAccess().getNEWLINETerminalRuleCall_6()); 
     }
 )
 ;
@@ -2062,40 +2025,40 @@ finally {
 
 
 
-// Entry rule entryRuleaFoilNm
-entryRuleaFoilNm returns [EObject current=null] 
+// Entry rule entryRuleaAirfoilList
+entryRuleaAirfoilList returns [EObject current=null] 
 	@init { 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 	}
 	:
-	{ newCompositeNode(grammarAccess.getAFoilNmRule()); }
-	 iv_ruleaFoilNm=ruleaFoilNm 
-	 { $current=$iv_ruleaFoilNm.current; } 
+	{ newCompositeNode(grammarAccess.getAAirfoilListRule()); }
+	 iv_ruleaAirfoilList=ruleaAirfoilList 
+	 { $current=$iv_ruleaAirfoilList.current; } 
 	 EOF 
 ;
 finally {
 	myHiddenTokenState.restore();
 }
 
-// Rule aFoilNm
-ruleaFoilNm returns [EObject current=null] 
+// Rule aAirfoilList
+ruleaAirfoilList returns [EObject current=null] 
     @init { enterRule(); 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { leaveRule(); }:
 ((this_WS_0=RULE_WS
     { 
-    newLeafNode(this_WS_0, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_0()); 
+    newLeafNode(this_WS_0, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_0()); 
     }
 )?(
 (
 		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_value_1_0, grammarAccess.getAFoilNmAccess().getValueSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getAAirfoilListAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAFoilNmRule());
+	            $current = createModelElement(grammarAccess.getAAirfoilListRule());
 	        }
        		addWithLastConsumed(
        			$current, 
@@ -2107,18 +2070,18 @@ ruleaFoilNm returns [EObject current=null]
 )
 )this_WS_2=RULE_WS
     { 
-    newLeafNode(this_WS_2, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_2()); 
+    newLeafNode(this_WS_2, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_2()); 
     }
 (
 (
 		lv_name_3_0=	'FoilNm' 
     {
-        newLeafNode(lv_name_3_0, grammarAccess.getAFoilNmAccess().getNameFoilNmKeyword_3_0());
+        newLeafNode(lv_name_3_0, grammarAccess.getAAirfoilListAccess().getNameFoilNmKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAFoilNmRule());
+	            $current = createModelElement(grammarAccess.getAAirfoilListRule());
 	        }
        		setWithLastConsumed($current, "name", lv_name_3_0, "FoilNm");
 	    }
@@ -2126,29 +2089,29 @@ ruleaFoilNm returns [EObject current=null]
 )
 )(this_WS_4=RULE_WS
     { 
-    newLeafNode(this_WS_4, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_4()); 
+    newLeafNode(this_WS_4, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_4()); 
     }
 )?(this_SL_COMMENT_5=RULE_SL_COMMENT
     { 
-    newLeafNode(this_SL_COMMENT_5, grammarAccess.getAFoilNmAccess().getSL_COMMENTTerminalRuleCall_5()); 
+    newLeafNode(this_SL_COMMENT_5, grammarAccess.getAAirfoilListAccess().getSL_COMMENTTerminalRuleCall_5()); 
     }
 )?this_NEWLINE_6=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_6, grammarAccess.getAFoilNmAccess().getNEWLINETerminalRuleCall_6()); 
+    newLeafNode(this_NEWLINE_6, grammarAccess.getAAirfoilListAccess().getNEWLINETerminalRuleCall_6()); 
     }
 ((this_WS_7=RULE_WS
     { 
-    newLeafNode(this_WS_7, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_7_0()); 
+    newLeafNode(this_WS_7, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_7_0()); 
     }
 )?(
 (
 		lv_value_8_0=RULE_STRING
 		{
-			newLeafNode(lv_value_8_0, grammarAccess.getAFoilNmAccess().getValueSTRINGTerminalRuleCall_7_1_0()); 
+			newLeafNode(lv_value_8_0, grammarAccess.getAAirfoilListAccess().getValueSTRINGTerminalRuleCall_7_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAFoilNmRule());
+	            $current = createModelElement(grammarAccess.getAAirfoilListRule());
 	        }
        		addWithLastConsumed(
        			$current, 
@@ -2160,15 +2123,15 @@ ruleaFoilNm returns [EObject current=null]
 )
 )(this_WS_9=RULE_WS
     { 
-    newLeafNode(this_WS_9, grammarAccess.getAFoilNmAccess().getWSTerminalRuleCall_7_2()); 
+    newLeafNode(this_WS_9, grammarAccess.getAAirfoilListAccess().getWSTerminalRuleCall_7_2()); 
     }
 )?(this_SL_COMMENT_10=RULE_SL_COMMENT
     { 
-    newLeafNode(this_SL_COMMENT_10, grammarAccess.getAFoilNmAccess().getSL_COMMENTTerminalRuleCall_7_3()); 
+    newLeafNode(this_SL_COMMENT_10, grammarAccess.getAAirfoilListAccess().getSL_COMMENTTerminalRuleCall_7_3()); 
     }
 )?this_NEWLINE_11=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_11, grammarAccess.getAFoilNmAccess().getNEWLINETerminalRuleCall_7_4()); 
+    newLeafNode(this_NEWLINE_11, grammarAccess.getAAirfoilListAccess().getNEWLINETerminalRuleCall_7_4()); 
     }
 )*)
 ;
@@ -2439,19 +2402,19 @@ this_WS_10=RULE_WS
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getAAirStatAccess().getNfoilTNUMBERParserRuleCall_15_9_0()); 
-	    }
-		lv_nfoil_24_0=ruletNUMBER		{
+		lv_nfoil_24_0=RULE_INT
+		{
+			newLeafNode(lv_nfoil_24_0, grammarAccess.getAAirStatAccess().getNfoilINTTerminalRuleCall_15_9_0()); 
+		}
+		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAAirStatRule());
+	            $current = createModelElement(grammarAccess.getAAirStatRule());
 	        }
-       		add(
+       		addWithLastConsumed(
        			$current, 
        			"nfoil",
         		lv_nfoil_24_0, 
-        		"tNUMBER");
-	        afterParserOrEnumRuleCall();
+        		"INT");
 	    }
 
 )
@@ -2502,6 +2465,18 @@ finally {
 RULE_INT : ('0'..'9')+;
 
 RULE_NUMBER : (('+'|'-')? RULE_INT '.' RULE_INT? (('E'|'e') ('+'|'-')? RULE_INT)?|('+'|'-')? RULE_INT ('E'|'e') ('+'|'-')? RULE_INT|'.' RULE_INT (('E'|'e') ('+'|'-')? RULE_INT)?|'-' RULE_INT);
+
+RULE_UNITS : 'SI';
+
+RULE_STALL : ('BEDDOES'|'STEADY');
+
+RULE_CM : ('USE_CM'|'NO_CM');
+
+RULE_INFMODEL : ('EQUIL'|'DYNIN');
+
+RULE_INDMODEL : ('NONE'|'WAKE'|'SWIRL');
+
+RULE_PRANDTL : ('PRANDtl'|'NONE');
 
 RULE_PRINT : ('PRINT'|'NOPRINT');
 

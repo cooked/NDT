@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>sWind File</b></em>'.
+ * A representation of the model object '<em><b>fWind File</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link sc.ndt.editor.fast.fastadn.sWindFile#getValue <em>Value</em>}</li>
- *   <li>{@link sc.ndt.editor.fast.fastadn.sWindFile#getName <em>Name</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.fWindFile#getValue <em>Value</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.fWindFile#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getsWindFile()
+ * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getfWindFile()
  * @model
  * @generated
  */
-public interface sWindFile extends EObject
+public interface fWindFile extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface sWindFile extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getsWindFile_Value()
+   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getfWindFile_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.sWindFile#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.fWindFile#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -59,14 +59,14 @@ public interface sWindFile extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getsWindFile_Name()
+   * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getfWindFile_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.sWindFile#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.fWindFile#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -75,4 +75,4 @@ public interface sWindFile extends EObject
    */
   void setName(String value);
 
-} // sWindFile
+} // fWindFile

@@ -589,14 +589,14 @@ public interface FastadnPackage extends EPackage
   int SHL_MODEL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.sWindFileImpl <em>sWind File</em>}' class.
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.fWindFileImpl <em>fWind File</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sc.ndt.editor.fast.fastadn.impl.sWindFileImpl
-   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getsWindFile()
+   * @see sc.ndt.editor.fast.fastadn.impl.fWindFileImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getfWindFile()
    * @generated
    */
-  int SWIND_FILE = 10;
+  int FWIND_FILE = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -605,7 +605,7 @@ public interface FastadnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SWIND_FILE__VALUE = 0;
+  int FWIND_FILE__VALUE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -614,16 +614,16 @@ public interface FastadnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SWIND_FILE__NAME = 1;
+  int FWIND_FILE__NAME = 1;
 
   /**
-   * The number of structural features of the '<em>sWind File</em>' class.
+   * The number of structural features of the '<em>fWind File</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SWIND_FILE_FEATURE_COUNT = 2;
+  int FWIND_FILE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.nHHImpl <em>nHH</em>}' class.
@@ -922,14 +922,14 @@ public interface FastadnPackage extends EPackage
   int INUM_FOIL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl <em>aFoil Nm</em>}' class.
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl <em>aAirfoil List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl
-   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaFoilNm()
+   * @see sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaAirfoilList()
    * @generated
    */
-  int AFOIL_NM = 19;
+  int AAIRFOIL_LIST = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute list.
@@ -938,7 +938,7 @@ public interface FastadnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AFOIL_NM__VALUE = 0;
+  int AAIRFOIL_LIST__VALUE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -947,16 +947,16 @@ public interface FastadnPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AFOIL_NM__NAME = 1;
+  int AAIRFOIL_LIST__NAME = 1;
 
   /**
-   * The number of structural features of the '<em>aFoil Nm</em>' class.
+   * The number of structural features of the '<em>aAirfoil List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AFOIL_NM_FEATURE_COUNT = 2;
+  int AAIRFOIL_LIST_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.iBldNodesImpl <em>iBld Nodes</em>}' class.
@@ -1588,36 +1588,36 @@ public interface FastadnPackage extends EPackage
   EAttribute getsHLModel_Name();
 
   /**
-   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.sWindFile <em>sWind File</em>}'.
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.fWindFile <em>fWind File</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>sWind File</em>'.
-   * @see sc.ndt.editor.fast.fastadn.sWindFile
+   * @return the meta object for class '<em>fWind File</em>'.
+   * @see sc.ndt.editor.fast.fastadn.fWindFile
    * @generated
    */
-  EClass getsWindFile();
+  EClass getfWindFile();
 
   /**
-   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.sWindFile#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.fWindFile#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see sc.ndt.editor.fast.fastadn.sWindFile#getValue()
-   * @see #getsWindFile()
+   * @see sc.ndt.editor.fast.fastadn.fWindFile#getValue()
+   * @see #getfWindFile()
    * @generated
    */
-  EAttribute getsWindFile_Value();
+  EAttribute getfWindFile_Value();
 
   /**
-   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.sWindFile#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.fWindFile#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sc.ndt.editor.fast.fastadn.sWindFile#getName()
-   * @see #getsWindFile()
+   * @see sc.ndt.editor.fast.fastadn.fWindFile#getName()
+   * @see #getfWindFile()
    * @generated
    */
-  EAttribute getsWindFile_Name();
+  EAttribute getfWindFile_Name();
 
   /**
    * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.nHH <em>nHH</em>}'.
@@ -1876,36 +1876,36 @@ public interface FastadnPackage extends EPackage
   EAttribute getiNumFoil_Name();
 
   /**
-   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.aFoilNm <em>aFoil Nm</em>}'.
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.aAirfoilList <em>aAirfoil List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>aFoil Nm</em>'.
-   * @see sc.ndt.editor.fast.fastadn.aFoilNm
+   * @return the meta object for class '<em>aAirfoil List</em>'.
+   * @see sc.ndt.editor.fast.fastadn.aAirfoilList
    * @generated
    */
-  EClass getaFoilNm();
+  EClass getaAirfoilList();
 
   /**
-   * Returns the meta object for the attribute list '{@link sc.ndt.editor.fast.fastadn.aFoilNm#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute list '{@link sc.ndt.editor.fast.fastadn.aAirfoilList#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Value</em>'.
-   * @see sc.ndt.editor.fast.fastadn.aFoilNm#getValue()
-   * @see #getaFoilNm()
+   * @see sc.ndt.editor.fast.fastadn.aAirfoilList#getValue()
+   * @see #getaAirfoilList()
    * @generated
    */
-  EAttribute getaFoilNm_Value();
+  EAttribute getaAirfoilList_Value();
 
   /**
-   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.aFoilNm#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.aAirfoilList#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see sc.ndt.editor.fast.fastadn.aFoilNm#getName()
-   * @see #getaFoilNm()
+   * @see sc.ndt.editor.fast.fastadn.aAirfoilList#getName()
+   * @see #getaAirfoilList()
    * @generated
    */
-  EAttribute getaFoilNm_Name();
+  EAttribute getaAirfoilList_Name();
 
   /**
    * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.iBldNodes <em>iBld Nodes</em>}'.
@@ -2443,14 +2443,14 @@ public interface FastadnPackage extends EPackage
     EAttribute SHL_MODEL__NAME = eINSTANCE.getsHLModel_Name();
 
     /**
-     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.sWindFileImpl <em>sWind File</em>}' class.
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.fWindFileImpl <em>fWind File</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sc.ndt.editor.fast.fastadn.impl.sWindFileImpl
-     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getsWindFile()
+     * @see sc.ndt.editor.fast.fastadn.impl.fWindFileImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getfWindFile()
      * @generated
      */
-    EClass SWIND_FILE = eINSTANCE.getsWindFile();
+    EClass FWIND_FILE = eINSTANCE.getfWindFile();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2458,7 +2458,7 @@ public interface FastadnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SWIND_FILE__VALUE = eINSTANCE.getsWindFile_Value();
+    EAttribute FWIND_FILE__VALUE = eINSTANCE.getfWindFile_Value();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2466,7 +2466,7 @@ public interface FastadnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SWIND_FILE__NAME = eINSTANCE.getsWindFile_Name();
+    EAttribute FWIND_FILE__NAME = eINSTANCE.getfWindFile_Name();
 
     /**
      * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.nHHImpl <em>nHH</em>}' class.
@@ -2677,14 +2677,14 @@ public interface FastadnPackage extends EPackage
     EAttribute INUM_FOIL__NAME = eINSTANCE.getiNumFoil_Name();
 
     /**
-     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl <em>aFoil Nm</em>}' class.
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl <em>aAirfoil List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl
-     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaFoilNm()
+     * @see sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaAirfoilList()
      * @generated
      */
-    EClass AFOIL_NM = eINSTANCE.getaFoilNm();
+    EClass AAIRFOIL_LIST = eINSTANCE.getaAirfoilList();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
@@ -2692,7 +2692,7 @@ public interface FastadnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AFOIL_NM__VALUE = eINSTANCE.getaFoilNm_Value();
+    EAttribute AAIRFOIL_LIST__VALUE = eINSTANCE.getaAirfoilList_Value();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2700,7 +2700,7 @@ public interface FastadnPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AFOIL_NM__NAME = eINSTANCE.getaFoilNm_Name();
+    EAttribute AAIRFOIL_LIST__NAME = eINSTANCE.getaAirfoilList_Name();
 
     /**
      * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.iBldNodesImpl <em>iBld Nodes</em>}' class.

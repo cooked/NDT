@@ -65,9 +65,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sHLModel/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sHLModel/name"/>
     </genClasses>
-    <genClasses ecoreClass="Fastadn.ecore#//sWindFile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sWindFile/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//sWindFile/name"/>
+    <genClasses ecoreClass="Fastadn.ecore#//fWindFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//fWindFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//fWindFile/name"/>
     </genClasses>
     <genClasses ecoreClass="Fastadn.ecore#//nHH">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nHH/value"/>
@@ -101,9 +101,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iNumFoil/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iNumFoil/name"/>
     </genClasses>
-    <genClasses ecoreClass="Fastadn.ecore#//aFoilNm">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aFoilNm/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aFoilNm/name"/>
+    <genClasses ecoreClass="Fastadn.ecore#//aAirfoilList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirfoilList/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//aAirfoilList/name"/>
     </genClasses>
     <genClasses ecoreClass="Fastadn.ecore#//iBldNodes">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//iBldNodes/value"/>

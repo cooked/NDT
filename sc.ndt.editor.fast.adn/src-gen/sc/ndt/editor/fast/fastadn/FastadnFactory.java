@@ -113,13 +113,13 @@ public interface FastadnFactory extends EFactory
   sHLModel createsHLModel();
 
   /**
-   * Returns a new object of class '<em>sWind File</em>'.
+   * Returns a new object of class '<em>fWind File</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>sWind File</em>'.
+   * @return a new object of class '<em>fWind File</em>'.
    * @generated
    */
-  sWindFile createsWindFile();
+  fWindFile createfWindFile();
 
   /**
    * Returns a new object of class '<em>nHH</em>'.
@@ -194,13 +194,13 @@ public interface FastadnFactory extends EFactory
   iNumFoil createiNumFoil();
 
   /**
-   * Returns a new object of class '<em>aFoil Nm</em>'.
+   * Returns a new object of class '<em>aAirfoil List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>aFoil Nm</em>'.
+   * @return a new object of class '<em>aAirfoil List</em>'.
    * @generated
    */
-  aFoilNm createaFoilNm();
+  aAirfoilList createaAirfoilList();
 
   /**
    * Returns a new object of class '<em>iBld Nodes</em>'.

@@ -39,13 +39,10 @@ public class FastadnParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getModelFastadnAccess().getAlternatives_21(), "rule__ModelFastadn__Alternatives_21");
 					put(grammarAccess.getTNUMBERAccess().getAlternatives(), "rule__TNUMBER__Alternatives");
-					put(grammarAccess.getSUseCmAccess().getValueAlternatives_1_0(), "rule__SUseCm__ValueAlternatives_1_0");
-					put(grammarAccess.getSInfModelAccess().getValueAlternatives_1_0(), "rule__SInfModel__ValueAlternatives_1_0");
 					put(grammarAccess.getNAtolerAccess().getNameAlternatives_3_0(), "rule__NAtoler__NameAlternatives_3_0");
-					put(grammarAccess.getSTLModelAccess().getValueAlternatives_1_0(), "rule__STLModel__ValueAlternatives_1_0");
-					put(grammarAccess.getSHLModelAccess().getValueAlternatives_1_0(), "rule__SHLModel__ValueAlternatives_1_0");
 					put(grammarAccess.getNRhoAccess().getNameAlternatives_3_0(), "rule__NRho__NameAlternatives_3_0");
 					put(grammarAccess.getModelFastadnAccess().getGroup(), "rule__ModelFastadn__Group__0");
+					put(grammarAccess.getTARRAY_STRAccess().getGroup(), "rule__TARRAY_STR__Group__0");
 					put(grammarAccess.getHeaderAccess().getGroup(), "rule__Header__Group__0");
 					put(grammarAccess.getSUnitsAccess().getGroup(), "rule__SUnits__Group__0");
 					put(grammarAccess.getSStallModAccess().getGroup(), "rule__SStallMod__Group__0");
@@ -55,7 +52,7 @@ public class FastadnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNAtolerAccess().getGroup(), "rule__NAtoler__Group__0");
 					put(grammarAccess.getSTLModelAccess().getGroup(), "rule__STLModel__Group__0");
 					put(grammarAccess.getSHLModelAccess().getGroup(), "rule__SHLModel__Group__0");
-					put(grammarAccess.getSWindFileAccess().getGroup(), "rule__SWindFile__Group__0");
+					put(grammarAccess.getFWindFileAccess().getGroup(), "rule__FWindFile__Group__0");
 					put(grammarAccess.getNHHAccess().getGroup(), "rule__NHH__Group__0");
 					put(grammarAccess.getNTwrShadAccess().getGroup(), "rule__NTwrShad__Group__0");
 					put(grammarAccess.getNShadHWidAccess().getGroup(), "rule__NShadHWid__Group__0");
@@ -64,8 +61,8 @@ public class FastadnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNKinViscAccess().getGroup(), "rule__NKinVisc__Group__0");
 					put(grammarAccess.getNDTAeroAccess().getGroup(), "rule__NDTAero__Group__0");
 					put(grammarAccess.getINumFoilAccess().getGroup(), "rule__INumFoil__Group__0");
-					put(grammarAccess.getAFoilNmAccess().getGroup(), "rule__AFoilNm__Group__0");
-					put(grammarAccess.getAFoilNmAccess().getGroup_7(), "rule__AFoilNm__Group_7__0");
+					put(grammarAccess.getAAirfoilListAccess().getGroup(), "rule__AAirfoilList__Group__0");
+					put(grammarAccess.getAAirfoilListAccess().getGroup_7(), "rule__AAirfoilList__Group_7__0");
 					put(grammarAccess.getIBldNodesAccess().getGroup(), "rule__IBldNodes__Group__0");
 					put(grammarAccess.getAAirStatAccess().getGroup(), "rule__AAirStat__Group__0");
 					put(grammarAccess.getAAirStatAccess().getGroup_15(), "rule__AAirStat__Group_15__0");
@@ -107,8 +104,8 @@ public class FastadnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSTLModelAccess().getNameAssignment_3(), "rule__STLModel__NameAssignment_3");
 					put(grammarAccess.getSHLModelAccess().getValueAssignment_1(), "rule__SHLModel__ValueAssignment_1");
 					put(grammarAccess.getSHLModelAccess().getNameAssignment_3(), "rule__SHLModel__NameAssignment_3");
-					put(grammarAccess.getSWindFileAccess().getValueAssignment_1(), "rule__SWindFile__ValueAssignment_1");
-					put(grammarAccess.getSWindFileAccess().getNameAssignment_3(), "rule__SWindFile__NameAssignment_3");
+					put(grammarAccess.getFWindFileAccess().getValueAssignment_1(), "rule__FWindFile__ValueAssignment_1");
+					put(grammarAccess.getFWindFileAccess().getNameAssignment_3(), "rule__FWindFile__NameAssignment_3");
 					put(grammarAccess.getNHHAccess().getValueAssignment_1(), "rule__NHH__ValueAssignment_1");
 					put(grammarAccess.getNHHAccess().getNameAssignment_3(), "rule__NHH__NameAssignment_3");
 					put(grammarAccess.getNTwrShadAccess().getValueAssignment_1(), "rule__NTwrShad__ValueAssignment_1");
@@ -125,9 +122,9 @@ public class FastadnParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNDTAeroAccess().getNameAssignment_3(), "rule__NDTAero__NameAssignment_3");
 					put(grammarAccess.getINumFoilAccess().getValueAssignment_1(), "rule__INumFoil__ValueAssignment_1");
 					put(grammarAccess.getINumFoilAccess().getNameAssignment_3(), "rule__INumFoil__NameAssignment_3");
-					put(grammarAccess.getAFoilNmAccess().getValueAssignment_1(), "rule__AFoilNm__ValueAssignment_1");
-					put(grammarAccess.getAFoilNmAccess().getNameAssignment_3(), "rule__AFoilNm__NameAssignment_3");
-					put(grammarAccess.getAFoilNmAccess().getValueAssignment_7_1(), "rule__AFoilNm__ValueAssignment_7_1");
+					put(grammarAccess.getAAirfoilListAccess().getValueAssignment_1(), "rule__AAirfoilList__ValueAssignment_1");
+					put(grammarAccess.getAAirfoilListAccess().getNameAssignment_3(), "rule__AAirfoilList__NameAssignment_3");
+					put(grammarAccess.getAAirfoilListAccess().getValueAssignment_7_1(), "rule__AAirfoilList__ValueAssignment_7_1");
 					put(grammarAccess.getIBldNodesAccess().getValueAssignment_1(), "rule__IBldNodes__ValueAssignment_1");
 					put(grammarAccess.getIBldNodesAccess().getNameAssignment_3(), "rule__IBldNodes__NameAssignment_3");
 					put(grammarAccess.getAAirStatAccess().getRnodesAssignment_15_1(), "rule__AAirStat__RnodesAssignment_15_1");

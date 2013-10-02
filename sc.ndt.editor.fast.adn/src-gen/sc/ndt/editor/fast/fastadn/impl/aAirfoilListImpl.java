@@ -2,51 +2,47 @@
  */
 package sc.ndt.editor.fast.fastadn.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
 import sc.ndt.editor.fast.fastadn.FastadnPackage;
-import sc.ndt.editor.fast.fastadn.sWindFile;
+import sc.ndt.editor.fast.fastadn.aAirfoilList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>sWind File</b></em>'.
+ * An implementation of the model object '<em><b>aAirfoil List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link sc.ndt.editor.fast.fastadn.impl.sWindFileImpl#getValue <em>Value</em>}</li>
- *   <li>{@link sc.ndt.editor.fast.fastadn.impl.sWindFileImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.impl.aAirfoilListImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWindFile
+public class aAirfoilListImpl extends MinimalEObjectImpl.Container implements aAirfoilList
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected EList<String> value;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -73,7 +69,7 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
    * <!-- end-user-doc -->
    * @generated
    */
-  protected sWindFileImpl()
+  protected aAirfoilListImpl()
   {
     super();
   }
@@ -86,7 +82,7 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
   @Override
   protected EClass eStaticClass()
   {
-    return FastadnPackage.Literals.SWIND_FILE;
+    return FastadnPackage.Literals.AAIRFOIL_LIST;
   }
 
   /**
@@ -94,22 +90,13 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public EList<String> getValue()
   {
+    if (value == null)
+    {
+      value = new EDataTypeEList<String>(String.class, this, FastadnPackage.AAIRFOIL_LIST__VALUE);
+    }
     return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.SWIND_FILE__VALUE, oldValue, value));
   }
 
   /**
@@ -132,7 +119,7 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.SWIND_FILE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.AAIRFOIL_LIST__NAME, oldName, name));
   }
 
   /**
@@ -145,9 +132,9 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
   {
     switch (featureID)
     {
-      case FastadnPackage.SWIND_FILE__VALUE:
+      case FastadnPackage.AAIRFOIL_LIST__VALUE:
         return getValue();
-      case FastadnPackage.SWIND_FILE__NAME:
+      case FastadnPackage.AAIRFOIL_LIST__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -158,15 +145,17 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FastadnPackage.SWIND_FILE__VALUE:
-        setValue((String)newValue);
+      case FastadnPackage.AAIRFOIL_LIST__VALUE:
+        getValue().clear();
+        getValue().addAll((Collection<? extends String>)newValue);
         return;
-      case FastadnPackage.SWIND_FILE__NAME:
+      case FastadnPackage.AAIRFOIL_LIST__NAME:
         setName((String)newValue);
         return;
     }
@@ -183,10 +172,10 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
   {
     switch (featureID)
     {
-      case FastadnPackage.SWIND_FILE__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case FastadnPackage.AAIRFOIL_LIST__VALUE:
+        getValue().clear();
         return;
-      case FastadnPackage.SWIND_FILE__NAME:
+      case FastadnPackage.AAIRFOIL_LIST__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -203,9 +192,9 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
   {
     switch (featureID)
     {
-      case FastadnPackage.SWIND_FILE__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case FastadnPackage.SWIND_FILE__NAME:
+      case FastadnPackage.AAIRFOIL_LIST__VALUE:
+        return value != null && !value.isEmpty();
+      case FastadnPackage.AAIRFOIL_LIST__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -230,4 +219,4 @@ public class sWindFileImpl extends MinimalEObjectImpl.Container implements sWind
     return result.toString();
   }
 
-} //sWindFileImpl
+} //aAirfoilListImpl

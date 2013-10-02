@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ant
+Bundle-SymbolicName: sc.ndt.commons.ant;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: sc.ndt.commons.ant.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ant.core;bundle-version="3.2.500"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

@@ -39,7 +39,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cHLModelAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cHLModelSHLModelParserRuleCall_8_0 = (RuleCall)cHLModelAssignment_8.eContents().get(0);
 		private final Assignment cWindFileAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cWindFileSWindFileParserRuleCall_9_0 = (RuleCall)cWindFileAssignment_9.eContents().get(0);
+		private final RuleCall cWindFileFWindFileParserRuleCall_9_0 = (RuleCall)cWindFileAssignment_9.eContents().get(0);
 		private final Assignment cHHAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cHHNHHParserRuleCall_10_0 = (RuleCall)cHHAssignment_10.eContents().get(0);
 		private final Assignment cTwrShadAssignment_11 = (Assignment)cGroup.eContents().get(11);
@@ -57,7 +57,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNumFoilAssignment_17 = (Assignment)cGroup.eContents().get(17);
 		private final RuleCall cNumFoilINumFoilParserRuleCall_17_0 = (RuleCall)cNumFoilAssignment_17.eContents().get(0);
 		private final Assignment cFoilNmAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final RuleCall cFoilNmAFoilNmParserRuleCall_18_0 = (RuleCall)cFoilNmAssignment_18.eContents().get(0);
+		private final RuleCall cFoilNmAAirfoilListParserRuleCall_18_0 = (RuleCall)cFoilNmAssignment_18.eContents().get(0);
 		private final Assignment cBldNodesAssignment_19 = (Assignment)cGroup.eContents().get(19);
 		private final RuleCall cBldNodesIBldNodesParserRuleCall_19_0 = (RuleCall)cBldNodesAssignment_19.eContents().get(0);
 		private final Assignment cAirStatAssignment_20 = (Assignment)cGroup.eContents().get(20);
@@ -71,23 +71,23 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
 		//ModelFastadn:
 		//	Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-		//	TLModel=sTLModel HLModel=sHLModel WindFile=sWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
+		//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
 		//	Rho= // Air density (kg/m^3)						
 		//	nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//	nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 		//	nDTAero NumFoil= // Number of airfoil files (-)
 		//	iNumFoil FoilNm= // Names of the airfoil files [NumFoil lines]					(quoted strings)
-		//	aFoilNm BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*;
+		//	aAirfoilList BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*;
 		public ParserRule getRule() { return rule; }
 
 		//Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-		//TLModel=sTLModel HLModel=sHLModel WindFile=sWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
+		//TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
 		//Rho= // Air density (kg/m^3)						
 		//nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 		//nDTAero NumFoil= // Number of airfoil files (-)
 		//iNumFoil FoilNm= // Names of the airfoil files [NumFoil lines]					(quoted strings)
-		//aFoilNm BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*
+		//aAirfoilList BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*
 		public Group getGroup() { return cGroup; }
 
 		//Head=Header
@@ -144,11 +144,11 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//sHLModel
 		public RuleCall getHLModelSHLModelParserRuleCall_8_0() { return cHLModelSHLModelParserRuleCall_8_0; }
 
-		//WindFile=sWindFile
+		//WindFile=fWindFile
 		public Assignment getWindFileAssignment_9() { return cWindFileAssignment_9; }
 
-		//sWindFile
-		public RuleCall getWindFileSWindFileParserRuleCall_9_0() { return cWindFileSWindFileParserRuleCall_9_0; }
+		//fWindFile
+		public RuleCall getWindFileFWindFileParserRuleCall_9_0() { return cWindFileFWindFileParserRuleCall_9_0; }
 
 		//HH=nHH
 		public Assignment getHHAssignment_10() { return cHHAssignment_10; }
@@ -207,12 +207,12 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNumFoilINumFoilParserRuleCall_17_0() { return cNumFoilINumFoilParserRuleCall_17_0; }
 
 		//FoilNm= // Names of the airfoil files [NumFoil lines]					(quoted strings)
-		//aFoilNm
+		//aAirfoilList
 		public Assignment getFoilNmAssignment_18() { return cFoilNmAssignment_18; }
 
 		//// Names of the airfoil files [NumFoil lines]					(quoted strings)
-		//aFoilNm
-		public RuleCall getFoilNmAFoilNmParserRuleCall_18_0() { return cFoilNmAFoilNmParserRuleCall_18_0; }
+		//aAirfoilList
+		public RuleCall getFoilNmAAirfoilListParserRuleCall_18_0() { return cFoilNmAAirfoilListParserRuleCall_18_0; }
 
 		//BldNodes=iBldNodes
 		public Assignment getBldNodesAssignment_19() { return cBldNodesAssignment_19; }
@@ -259,6 +259,40 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNUMBERTerminalRuleCall_1() { return cNUMBERTerminalRuleCall_1; }
 	}
 
+	public class TARRAY_STRElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tARRAY_STR");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cNEWLINETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		////from online help: The QualifiedName is a little special. It does not contain any assignments. 
+		//// Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
+		//// Package is still of type String. 
+		////FILE: ('.'?'.'?)('/'? STRING)*;
+		////FILE returns ecore::EString:
+		////	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
+		//tARRAY_STR returns ecore::EString hidden(SL_COMMENT):
+		//	(WS? STRING WS? NEWLINE)*;
+		public ParserRule getRule() { return rule; }
+
+		//(WS? STRING WS? NEWLINE)*
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_3() { return cNEWLINETerminalRuleCall_3; }
+	}
+
 	public class HeaderElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -288,7 +322,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cValueSIKeyword_1_0 = (Keyword)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueUNITSTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameSysUnitsKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -297,20 +331,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sUnits hidden():
-		//	WS? value="SI" WS name="SysUnits" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=UNITS WS name="SysUnits" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value="SI" WS name="SysUnits" WS? SL_COMMENT? NEWLINE
+		//WS? value=UNITS WS name="SysUnits" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value="SI"
+		//value=UNITS
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"SI"
-		public Keyword getValueSIKeyword_1_0() { return cValueSIKeyword_1_0; }
+		//UNITS
+		public RuleCall getValueUNITSTerminalRuleCall_1_0() { return cValueUNITSTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -336,7 +370,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cValueBEDDOESKeyword_1_0 = (Keyword)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueSTALLTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameStallModKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -345,20 +379,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sStallMod hidden():
-		//	WS? value="BEDDOES" WS name="StallMod" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=STALL WS name="StallMod" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value="BEDDOES" WS name="StallMod" WS? SL_COMMENT? NEWLINE
+		//WS? value=STALL WS name="StallMod" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value="BEDDOES"
+		//value=STALL
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"BEDDOES"
-		public Keyword getValueBEDDOESKeyword_1_0() { return cValueBEDDOESKeyword_1_0; }
+		//STALL
+		public RuleCall getValueSTALLTerminalRuleCall_1_0() { return cValueSTALLTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -384,9 +418,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
-		private final Keyword cValueNO_CMKeyword_1_0_0 = (Keyword)cValueAlternatives_1_0.eContents().get(0);
-		private final Keyword cValueUSE_CMKeyword_1_0_1 = (Keyword)cValueAlternatives_1_0.eContents().get(1);
+		private final RuleCall cValueCMTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameUseCmKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -395,26 +427,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sUseCm hidden():
-		//	WS? value=("NO_CM" | "USE_CM") WS name="UseCm" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=CM WS name="UseCm" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=("NO_CM" | "USE_CM") WS name="UseCm" WS? SL_COMMENT? NEWLINE
+		//WS? value=CM WS name="UseCm" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value=("NO_CM" | "USE_CM")
+		//value=CM
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"NO_CM" | "USE_CM"
-		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
-
-		//"NO_CM"
-		public Keyword getValueNO_CMKeyword_1_0_0() { return cValueNO_CMKeyword_1_0_0; }
-
-		//"USE_CM"
-		public Keyword getValueUSE_CMKeyword_1_0_1() { return cValueUSE_CMKeyword_1_0_1; }
+		//CM
+		public RuleCall getValueCMTerminalRuleCall_1_0() { return cValueCMTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -440,9 +466,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
-		private final Keyword cValueEQUILKeyword_1_0_0 = (Keyword)cValueAlternatives_1_0.eContents().get(0);
-		private final Keyword cValueDYNINKeyword_1_0_1 = (Keyword)cValueAlternatives_1_0.eContents().get(1);
+		private final RuleCall cValueINFMODELTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameInfModelKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -451,26 +475,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sInfModel hidden():
-		//	WS? value=("EQUIL" | "DYNIN") WS name="InfModel" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=INFMODEL WS name="InfModel" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=("EQUIL" | "DYNIN") WS name="InfModel" WS? SL_COMMENT? NEWLINE
+		//WS? value=INFMODEL WS name="InfModel" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value=("EQUIL" | "DYNIN")
+		//value=INFMODEL
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"EQUIL" | "DYNIN"
-		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
-
-		//"EQUIL"
-		public Keyword getValueEQUILKeyword_1_0_0() { return cValueEQUILKeyword_1_0_0; }
-
-		//"DYNIN"
-		public Keyword getValueDYNINKeyword_1_0_1() { return cValueDYNINKeyword_1_0_1; }
+		//INFMODEL
+		public RuleCall getValueINFMODELTerminalRuleCall_1_0() { return cValueINFMODELTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -496,7 +514,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cValueSWIRLKeyword_1_0 = (Keyword)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueINDMODELTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameIndModelKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -505,20 +523,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sIndModel hidden():
-		//	WS? value="SWIRL" WS name="IndModel" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=INDMODEL WS name="IndModel" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value="SWIRL" WS name="IndModel" WS? SL_COMMENT? NEWLINE
+		//WS? value=INDMODEL WS name="IndModel" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value="SWIRL"
+		//value=INDMODEL
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"SWIRL"
-		public Keyword getValueSWIRLKeyword_1_0() { return cValueSWIRLKeyword_1_0; }
+		//INDMODEL
+		public RuleCall getValueINDMODELTerminalRuleCall_1_0() { return cValueINDMODELTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -600,9 +618,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
-		private final Keyword cValuePRANDtlKeyword_1_0_0 = (Keyword)cValueAlternatives_1_0.eContents().get(0);
-		private final Keyword cValueNONEKeyword_1_0_1 = (Keyword)cValueAlternatives_1_0.eContents().get(1);
+		private final RuleCall cValuePRANDTLTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameTLModelKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -611,26 +627,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sTLModel hidden():
-		//	WS? value=("PRANDtl" | "NONE") WS name="TLModel" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=PRANDTL WS name="TLModel" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=("PRANDtl" | "NONE") WS name="TLModel" WS? SL_COMMENT? NEWLINE
+		//WS? value=PRANDTL WS name="TLModel" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value=("PRANDtl" | "NONE")
+		//value=PRANDTL
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"PRANDtl" | "NONE"
-		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
-
-		//"PRANDtl"
-		public Keyword getValuePRANDtlKeyword_1_0_0() { return cValuePRANDtlKeyword_1_0_0; }
-
-		//"NONE"
-		public Keyword getValueNONEKeyword_1_0_1() { return cValueNONEKeyword_1_0_1; }
+		//PRANDTL
+		public RuleCall getValuePRANDTLTerminalRuleCall_1_0() { return cValuePRANDTLTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -656,9 +666,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
-		private final Keyword cValuePRANDtlKeyword_1_0_0 = (Keyword)cValueAlternatives_1_0.eContents().get(0);
-		private final Keyword cValueNONEKeyword_1_0_1 = (Keyword)cValueAlternatives_1_0.eContents().get(1);
+		private final RuleCall cValuePRANDTLTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final Keyword cNameHLModelKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
@@ -667,26 +675,20 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//sHLModel hidden():
-		//	WS? value=("PRANDtl" | "NONE") WS name="HLModel" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=PRANDTL WS name="HLModel" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=("PRANDtl" | "NONE") WS name="HLModel" WS? SL_COMMENT? NEWLINE
+		//WS? value=PRANDTL WS name="HLModel" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 
-		//value=("PRANDtl" | "NONE")
+		//value=PRANDTL
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//"PRANDtl" | "NONE"
-		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
-
-		//"PRANDtl"
-		public Keyword getValuePRANDtlKeyword_1_0_0() { return cValuePRANDtlKeyword_1_0_0; }
-
-		//"NONE"
-		public Keyword getValueNONEKeyword_1_0_1() { return cValueNONEKeyword_1_0_1; }
+		//PRANDTL
+		public RuleCall getValuePRANDTLTerminalRuleCall_1_0() { return cValuePRANDTLTerminalRuleCall_1_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
@@ -707,8 +709,8 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
 	}
 
-	public class SWindFileElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sWindFile");
+	public class FWindFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fWindFile");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -720,7 +722,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
-		//sWindFile hidden():
+		//fWindFile hidden():
 		//	WS? value=STRING WS name="WindFile" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
@@ -1147,8 +1149,8 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
 	}
 
-	public class AFoilNmElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "aFoilNm");
+	public class AAirfoilListElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "aAirfoilList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1167,7 +1169,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSL_COMMENTTerminalRuleCall_7_3 = (RuleCall)cGroup_7.eContents().get(3);
 		private final RuleCall cNEWLINETerminalRuleCall_7_4 = (RuleCall)cGroup_7.eContents().get(4);
 		
-		//aFoilNm hidden():
+		//aAirfoilList hidden():
 		//	WS? value+=STRING WS name="FoilNm" WS? SL_COMMENT? NEWLINE (WS? value+=STRING WS? SL_COMMENT? NEWLINE)*;
 		public ParserRule getRule() { return rule; }
 
@@ -1304,7 +1306,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cChordTNUMBERParserRuleCall_15_7_0 = (RuleCall)cChordAssignment_15_7.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_15_8 = (RuleCall)cGroup_15.eContents().get(8);
 		private final Assignment cNfoilAssignment_15_9 = (Assignment)cGroup_15.eContents().get(9);
-		private final RuleCall cNfoilTNUMBERParserRuleCall_15_9_0 = (RuleCall)cNfoilAssignment_15_9.eContents().get(0);
+		private final RuleCall cNfoilINTTerminalRuleCall_15_9_0 = (RuleCall)cNfoilAssignment_15_9.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_15_10 = (RuleCall)cGroup_15.eContents().get(10);
 		private final Assignment cPrnelmAssignment_15_11 = (Assignment)cGroup_15.eContents().get(11);
 		private final RuleCall cPrnelmPRINTTerminalRuleCall_15_11_0 = (RuleCall)cPrnelmAssignment_15_11.eContents().get(0);
@@ -1314,12 +1316,11 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//aAirStat hidden():
 		//	WS? "RNodes" WS "AeroTwst" WS "DRNodes" WS "Chord" WS "NFoil" WS "PrnElm" WS? SL_COMMENT? NEWLINE (WS? rnodes+=tNUMBER
-		//	WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS? SL_COMMENT?
-		//	NEWLINE)+;
+		//	WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=INT WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+;
 		public ParserRule getRule() { return rule; }
 
 		//WS? "RNodes" WS "AeroTwst" WS "DRNodes" WS "Chord" WS "NFoil" WS "PrnElm" WS? SL_COMMENT? NEWLINE (WS? rnodes+=tNUMBER
-		//WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+
+		//WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=INT WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+
 		public Group getGroup() { return cGroup; }
 
 		//WS?
@@ -1367,7 +1368,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//NEWLINE
 		public RuleCall getNEWLINETerminalRuleCall_14() { return cNEWLINETerminalRuleCall_14; }
 
-		//(WS? rnodes+=tNUMBER WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS?
+		//(WS? rnodes+=tNUMBER WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=INT WS prnelm+=PRINT WS?
 		//SL_COMMENT? NEWLINE)+
 		public Group getGroup_15() { return cGroup_15; }
 
@@ -1410,11 +1411,11 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//WS
 		public RuleCall getWSTerminalRuleCall_15_8() { return cWSTerminalRuleCall_15_8; }
 
-		//nfoil+=tNUMBER
+		//nfoil+=INT
 		public Assignment getNfoilAssignment_15_9() { return cNfoilAssignment_15_9; }
 
-		//tNUMBER
-		public RuleCall getNfoilTNUMBERParserRuleCall_15_9_0() { return cNfoilTNUMBERParserRuleCall_15_9_0; }
+		//INT
+		public RuleCall getNfoilINTTerminalRuleCall_15_9_0() { return cNfoilINTTerminalRuleCall_15_9_0; }
 
 		//WS
 		public RuleCall getWSTerminalRuleCall_15_10() { return cWSTerminalRuleCall_15_10; }
@@ -1438,8 +1439,15 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private ModelFastadnElements pModelFastadn;
 	private TNUMBERElements pTNUMBER;
+	private TARRAY_STRElements pTARRAY_STR;
 	private TerminalRule tINT;
 	private TerminalRule tNUMBER;
+	private TerminalRule tUNITS;
+	private TerminalRule tSTALL;
+	private TerminalRule tCM;
+	private TerminalRule tINFMODEL;
+	private TerminalRule tINDMODEL;
+	private TerminalRule tPRANDTL;
 	private TerminalRule tPRINT;
 	private TerminalRule tSTRING;
 	private TerminalRule tNEWLINE;
@@ -1454,7 +1462,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	private NAtolerElements pNAtoler;
 	private STLModelElements pSTLModel;
 	private SHLModelElements pSHLModel;
-	private SWindFileElements pSWindFile;
+	private FWindFileElements pFWindFile;
 	private NHHElements pNHH;
 	private NTwrShadElements pNTwrShad;
 	private NShadHWidElements pNShadHWid;
@@ -1463,7 +1471,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	private NKinViscElements pNKinVisc;
 	private NDTAeroElements pNDTAero;
 	private INumFoilElements pINumFoil;
-	private AFoilNmElements pAFoilNm;
+	private AAirfoilListElements pAAirfoilList;
 	private IBldNodesElements pIBldNodes;
 	private AAirStatElements pAAirStat;
 	
@@ -1501,13 +1509,13 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	//// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
 	//ModelFastadn:
 	//	Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-	//	TLModel=sTLModel HLModel=sHLModel WindFile=sWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
+	//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
 	//	Rho= // Air density (kg/m^3)						
 	//	nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 	//	nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 	//	nDTAero NumFoil= // Number of airfoil files (-)
 	//	iNumFoil FoilNm= // Names of the airfoil files [NumFoil lines]					(quoted strings)
-	//	aFoilNm BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*;
+	//	aAirfoilList BldNodes=iBldNodes AirStat=aAirStat (WS | NEWLINE | SL_COMMENT)*;
 	public ModelFastadnElements getModelFastadnAccess() {
 		return (pModelFastadn != null) ? pModelFastadn : (pModelFastadn = new ModelFastadnElements());
 	}
@@ -1532,6 +1540,16 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	////FILE: ('.'?'.'?)('/'? STRING)*;
 	////FILE returns ecore::EString:
 	////	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
+	//tARRAY_STR returns ecore::EString hidden(SL_COMMENT):
+	//	(WS? STRING WS? NEWLINE)*;
+	public TARRAY_STRElements getTARRAY_STRAccess() {
+		return (pTARRAY_STR != null) ? pTARRAY_STR : (pTARRAY_STR = new TARRAY_STRElements());
+	}
+	
+	public ParserRule getTARRAY_STRRule() {
+		return getTARRAY_STRAccess().getRule();
+	}
+
 	//// TERMINALS 
 	//// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
 	//// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
@@ -1546,6 +1564,42 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
 	public TerminalRule getNUMBERRule() {
 		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+	} 
+
+	//terminal UNITS:
+	//	"SI";
+	public TerminalRule getUNITSRule() {
+		return (tUNITS != null) ? tUNITS : (tUNITS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "UNITS"));
+	} 
+
+	//terminal STALL:
+	//	"BEDDOES" | "STEADY";
+	public TerminalRule getSTALLRule() {
+		return (tSTALL != null) ? tSTALL : (tSTALL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STALL"));
+	} 
+
+	//terminal CM:
+	//	"USE_CM" | "NO_CM";
+	public TerminalRule getCMRule() {
+		return (tCM != null) ? tCM : (tCM = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "CM"));
+	} 
+
+	//terminal INFMODEL:
+	//	"EQUIL" | "DYNIN";
+	public TerminalRule getINFMODELRule() {
+		return (tINFMODEL != null) ? tINFMODEL : (tINFMODEL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INFMODEL"));
+	} 
+
+	//terminal INDMODEL:
+	//	"NONE" | "WAKE" | "SWIRL";
+	public TerminalRule getINDMODELRule() {
+		return (tINDMODEL != null) ? tINDMODEL : (tINDMODEL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INDMODEL"));
+	} 
+
+	//terminal PRANDTL:
+	//	"PRANDtl" | "NONE";
+	public TerminalRule getPRANDTLRule() {
+		return (tPRANDTL != null) ? tPRANDTL : (tPRANDTL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PRANDTL"));
 	} 
 
 	//terminal PRINT:
@@ -1590,7 +1644,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sUnits hidden():
-	//	WS? value="SI" WS name="SysUnits" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=UNITS WS name="SysUnits" WS? SL_COMMENT? NEWLINE;
 	public SUnitsElements getSUnitsAccess() {
 		return (pSUnits != null) ? pSUnits : (pSUnits = new SUnitsElements());
 	}
@@ -1600,7 +1654,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sStallMod hidden():
-	//	WS? value="BEDDOES" WS name="StallMod" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=STALL WS name="StallMod" WS? SL_COMMENT? NEWLINE;
 	public SStallModElements getSStallModAccess() {
 		return (pSStallMod != null) ? pSStallMod : (pSStallMod = new SStallModElements());
 	}
@@ -1610,7 +1664,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sUseCm hidden():
-	//	WS? value=("NO_CM" | "USE_CM") WS name="UseCm" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=CM WS name="UseCm" WS? SL_COMMENT? NEWLINE;
 	public SUseCmElements getSUseCmAccess() {
 		return (pSUseCm != null) ? pSUseCm : (pSUseCm = new SUseCmElements());
 	}
@@ -1620,7 +1674,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sInfModel hidden():
-	//	WS? value=("EQUIL" | "DYNIN") WS name="InfModel" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=INFMODEL WS name="InfModel" WS? SL_COMMENT? NEWLINE;
 	public SInfModelElements getSInfModelAccess() {
 		return (pSInfModel != null) ? pSInfModel : (pSInfModel = new SInfModelElements());
 	}
@@ -1630,7 +1684,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sIndModel hidden():
-	//	WS? value="SWIRL" WS name="IndModel" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=INDMODEL WS name="IndModel" WS? SL_COMMENT? NEWLINE;
 	public SIndModelElements getSIndModelAccess() {
 		return (pSIndModel != null) ? pSIndModel : (pSIndModel = new SIndModelElements());
 	}
@@ -1650,7 +1704,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sTLModel hidden():
-	//	WS? value=("PRANDtl" | "NONE") WS name="TLModel" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=PRANDTL WS name="TLModel" WS? SL_COMMENT? NEWLINE;
 	public STLModelElements getSTLModelAccess() {
 		return (pSTLModel != null) ? pSTLModel : (pSTLModel = new STLModelElements());
 	}
@@ -1660,7 +1714,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//sHLModel hidden():
-	//	WS? value=("PRANDtl" | "NONE") WS name="HLModel" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=PRANDTL WS name="HLModel" WS? SL_COMMENT? NEWLINE;
 	public SHLModelElements getSHLModelAccess() {
 		return (pSHLModel != null) ? pSHLModel : (pSHLModel = new SHLModelElements());
 	}
@@ -1669,14 +1723,14 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		return getSHLModelAccess().getRule();
 	}
 
-	//sWindFile hidden():
+	//fWindFile hidden():
 	//	WS? value=STRING WS name="WindFile" WS? SL_COMMENT? NEWLINE;
-	public SWindFileElements getSWindFileAccess() {
-		return (pSWindFile != null) ? pSWindFile : (pSWindFile = new SWindFileElements());
+	public FWindFileElements getFWindFileAccess() {
+		return (pFWindFile != null) ? pFWindFile : (pFWindFile = new FWindFileElements());
 	}
 	
-	public ParserRule getSWindFileRule() {
-		return getSWindFileAccess().getRule();
+	public ParserRule getFWindFileRule() {
+		return getFWindFileAccess().getRule();
 	}
 
 	//nHH hidden():
@@ -1759,14 +1813,14 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		return getINumFoilAccess().getRule();
 	}
 
-	//aFoilNm hidden():
+	//aAirfoilList hidden():
 	//	WS? value+=STRING WS name="FoilNm" WS? SL_COMMENT? NEWLINE (WS? value+=STRING WS? SL_COMMENT? NEWLINE)*;
-	public AFoilNmElements getAFoilNmAccess() {
-		return (pAFoilNm != null) ? pAFoilNm : (pAFoilNm = new AFoilNmElements());
+	public AAirfoilListElements getAAirfoilListAccess() {
+		return (pAAirfoilList != null) ? pAAirfoilList : (pAAirfoilList = new AAirfoilListElements());
 	}
 	
-	public ParserRule getAFoilNmRule() {
-		return getAFoilNmAccess().getRule();
+	public ParserRule getAAirfoilListRule() {
+		return getAAirfoilListAccess().getRule();
 	}
 
 	//iBldNodes hidden():
@@ -1781,8 +1835,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 
 	//aAirStat hidden():
 	//	WS? "RNodes" WS "AeroTwst" WS "DRNodes" WS "Chord" WS "NFoil" WS "PrnElm" WS? SL_COMMENT? NEWLINE (WS? rnodes+=tNUMBER
-	//	WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS? SL_COMMENT?
-	//	NEWLINE)+;
+	//	WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=INT WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+;
 	public AAirStatElements getAAirStatAccess() {
 		return (pAAirStat != null) ? pAAirStat : (pAAirStat = new AAirStatElements());
 	}

@@ -83,7 +83,7 @@ public class aAirStatImpl extends MinimalEObjectImpl.Container implements aAirSt
    * @generated
    * @ordered
    */
-  protected EList<Float> nfoil;
+  protected EList<Integer> nfoil;
 
   /**
    * The cached value of the '{@link #getPrnelm() <em>Prnelm</em>}' attribute list.
@@ -177,11 +177,11 @@ public class aAirStatImpl extends MinimalEObjectImpl.Container implements aAirSt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Float> getNfoil()
+  public EList<Integer> getNfoil()
   {
     if (nfoil == null)
     {
-      nfoil = new EDataTypeEList<Float>(Float.class, this, FastadnPackage.AAIR_STAT__NFOIL);
+      nfoil = new EDataTypeEList<Integer>(Integer.class, this, FastadnPackage.AAIR_STAT__NFOIL);
     }
     return nfoil;
   }
@@ -255,7 +255,7 @@ public class aAirStatImpl extends MinimalEObjectImpl.Container implements aAirSt
         return;
       case FastadnPackage.AAIR_STAT__NFOIL:
         getNfoil().clear();
-        getNfoil().addAll((Collection<? extends Float>)newValue);
+        getNfoil().addAll((Collection<? extends Integer>)newValue);
         return;
       case FastadnPackage.AAIR_STAT__PRNELM:
         getPrnelm().clear();

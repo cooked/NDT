@@ -95,7 +95,7 @@ public interface aAirStat extends EObject
 
   /**
    * Returns the value of the '<em><b>Nfoil</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.Float}.
+   * The list contents are of type {@link java.lang.Integer}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Nfoil</em>' attribute list isn't clear,
@@ -107,7 +107,7 @@ public interface aAirStat extends EObject
    * @model unique="false"
    * @generated
    */
-  EList<Float> getNfoil();
+  EList<Integer> getNfoil();
 
   /**
    * Returns the value of the '<em><b>Prnelm</b></em>' attribute list.

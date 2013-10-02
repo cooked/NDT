@@ -17,7 +17,7 @@ ModelFastadn:
   	TLModel		= sTLModel
   	HLModel		= sHLModel
   	
-  	WindFile	= sWindFile
+  	WindFile	= fWindFile
   	
   	HH			= nHH
   	TwrShad  	= nTwrShad						
@@ -28,7 +28,7 @@ ModelFastadn:
 	DTAero		= nDTAero 		// Time interval for aerodynamic calculations						(sec)
 	
 	NumFoil		= iNumFoil		// Number of airfoil files (-)
-	FoilNm		= aFoilNm		// Names of the airfoil files [NumFoil lines]					(quoted strings)
+	FoilNm		= aAirfoilList		// Names of the airfoil files [NumFoil lines]					(quoted strings)
 
 	BldNodes	= iBldNodes
 	AirStat		= aAirStat
@@ -49,6 +49,8 @@ tNUMBER returns ecore::EFloat	: INT | NUMBER;
 //FILE returns ecore::EString:
 //	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
 
+tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? STRING WS? NEWLINE )*;
+
 // TERMINALS 
 // NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
 // NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
@@ -59,7 +61,13 @@ terminal NUMBER returns ecore::EFloat:
 	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
 	('-'		INT										 )
 ;
-terminal PRINT		: 'PRINT'|'NOPRINT';
+terminal UNITS		: 'SI';
+terminal STALL		: 'BEDDOES'|'STEADY';
+terminal CM			: 'USE_CM'|'NO_CM';
+terminal INFMODEL	: 'EQUIL'|'DYNIN';
+terminal INDMODEL	: 'NONE'|'WAKE'|'SWIRL';
+terminal PRANDTL	: 'PRANDtl'|'NONE';
+terminal PRINT 		: 'PRINT'|'NOPRINT';
 terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
 					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 terminal NEWLINE	: '\r'|'\n'|'\r\n';
@@ -73,32 +81,32 @@ Header hidden():
 	name=SL_COMMENT  NEWLINE
 ;
 
-sUnits 		hidden():	WS? value='SI' 		WS	name='SysUnits' 	WS? SL_COMMENT? NEWLINE;
-sStallMod 	hidden():	WS? value='BEDDOES' WS	name='StallMod' 	WS? SL_COMMENT? NEWLINE;
-sUseCm 		hidden():	WS? value=('NO_CM'|'USE_CM') 	WS	name='UseCm' 		WS? SL_COMMENT? NEWLINE;
-sInfModel 	hidden():	WS? value=('EQUIL'|'DYNIN') 	WS	name='InfModel' 	WS? SL_COMMENT? NEWLINE;
-sIndModel	hidden():	WS? value='SWIRL' 	WS	name='IndModel'		WS? SL_COMMENT? NEWLINE;
-nAtoler		hidden():	WS? value=tNUMBER 	WS	name=('Atoler'|'AToler')		WS? SL_COMMENT? NEWLINE;
-sTLModel	hidden():	WS? value=('PRANDtl'|'NONE') WS	name='TLModel'		WS? SL_COMMENT? NEWLINE;
-sHLModel	hidden():	WS? value=('PRANDtl'|'NONE') WS	name='HLModel'		WS? SL_COMMENT? NEWLINE;
+sUnits 		hidden():	WS? value=UNITS 	WS	name='SysUnits' 	WS? SL_COMMENT? NEWLINE;
+sStallMod 	hidden():	WS? value=STALL 	WS	name='StallMod' 	WS? SL_COMMENT? NEWLINE;
+sUseCm 		hidden():	WS? value=CM 		WS	name='UseCm' 		WS? SL_COMMENT? NEWLINE;
+sInfModel 	hidden():	WS? value=INFMODEL 	WS	name='InfModel' 	WS? SL_COMMENT? NEWLINE;
+sIndModel	hidden():	WS? value=INDMODEL 	WS	name='IndModel'		WS? SL_COMMENT? NEWLINE;
+nAtoler		hidden():	WS? value=tNUMBER 	WS	name=('Atoler'|'AToler') WS? SL_COMMENT? NEWLINE;
+sTLModel	hidden():	WS? value=PRANDTL 	WS	name='TLModel'		WS? SL_COMMENT? NEWLINE;
+sHLModel	hidden():	WS? value=PRANDTL 	WS	name='HLModel'		WS? SL_COMMENT? NEWLINE;
 
-sWindFile hidden(): 	WS? value=STRING 	WS	name='WindFile'		WS?	SL_COMMENT? NEWLINE;
+fWindFile hidden(): 	WS? value=STRING 	WS	name='WindFile'		WS?	SL_COMMENT? NEWLINE;
 
 nHH			hidden():	WS? value=tNUMBER 	WS	name='HH'			WS? SL_COMMENT? NEWLINE;
 nTwrShad	hidden():	WS? value=tNUMBER 	WS	name='TwrShad'		WS? SL_COMMENT? NEWLINE;
 nShadHWid	hidden():	WS? value=tNUMBER 	WS	name='ShadHWid'		WS? SL_COMMENT? NEWLINE;
 nTShadRefPt	hidden():	WS? value=tNUMBER 	WS	name='T_Shad_Refpt'	WS? SL_COMMENT? NEWLINE;								
-nRho		hidden():	WS? value=tNUMBER 	WS	name=('Rho'|'AirDens')			WS? SL_COMMENT? NEWLINE;								
+nRho		hidden():	WS? value=tNUMBER 	WS	name=('Rho'|'AirDens')	WS? SL_COMMENT? NEWLINE;								
 nKinVisc	hidden():	WS? value=tNUMBER 	WS	name='KinVisc'		WS? SL_COMMENT? NEWLINE;								
 nDTAero		hidden():	WS? value=tNUMBER 	WS	name='DTAero'		WS? SL_COMMENT? NEWLINE;								
 
 iNumFoil	hidden():	WS? value=INT 		WS	name='NumFoil'		WS? SL_COMMENT? NEWLINE;								
-aFoilNm		hidden():	WS? value+=STRING WS name='FoilNm' WS? SL_COMMENT? NEWLINE
+aAirfoilList hidden():	WS? value+=STRING 	WS 	name='FoilNm' 		WS? SL_COMMENT? NEWLINE
 						(WS? value+=STRING WS? SL_COMMENT? NEWLINE)*;
 
 iBldNodes	hidden():	WS? value=INT 		WS	name='BldNodes'		WS? SL_COMMENT? NEWLINE;
 aAirStat	hidden():	
 	WS? 'RNodes' WS	'AeroTwst' WS 'DRNodes'	WS 'Chord' WS 'NFoil' WS 'PrnElm' WS? SL_COMMENT? NEWLINE	
-	(WS? rnodes+=tNUMBER WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=tNUMBER WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+
+	(WS? rnodes+=tNUMBER WS aerotwst+=tNUMBER WS drnodes+=tNUMBER WS chord+=tNUMBER WS nfoil+=INT WS prnelm+=PRINT WS? SL_COMMENT? NEWLINE)+
 ;										
 	

@@ -16,6 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.commons.model,
+ sc.ndt.commons.model.airfoillist.providers,
  sc.ndt.commons.model.outlist.providers,
  sc.ndt.commons.ui.preferences,
  sc.ndt.commons.ui.views

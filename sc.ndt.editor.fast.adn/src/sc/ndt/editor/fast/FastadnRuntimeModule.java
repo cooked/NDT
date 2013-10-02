@@ -3,9 +3,36 @@
  */
 package sc.ndt.editor.fast;
 
+import org.eclipse.xtext.conversion.IValueConverterService;
+
+import sc.ndt.editor.fast.addon.valueconverter.FastadnConverterService;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-public class FastadnRuntimeModule extends sc.ndt.editor.fast.AbstractFastadnRuntimeModule {
+public class FastadnRuntimeModule extends
+		sc.ndt.editor.fast.AbstractFastadnRuntimeModule {
+
+	// SC see
+	// http://www.eclipse.org/Xtext/documentation.html#runtimeSetup
+
+	/*
+	 * TODO imported from Cpl public Class<? extends
+	 * org.eclipse.xtext.linking.ILinker> bindILinker() { return
+	 * CplLazyLinker.class; } public Class<? extends ILinkingService>
+	 * bindILinkingService() { return CplLinkingService.class; //
+	 * DefaultLinkingService.class; }
+	 */
+
+	@Override
+	public Class<? extends IValueConverterService> bindIValueConverterService() {
+		return FastadnConverterService.class;
+	}
+
+	// TODO: can broke the binding!!!!!
+	/*@Override
+	public Class<? extends IFormatter> bindIFormatter() {
+		return FastadnFormatter2.class;
+	}*/
 
 }

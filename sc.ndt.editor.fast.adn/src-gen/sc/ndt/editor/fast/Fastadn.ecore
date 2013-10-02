@@ -20,7 +20,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="HLModel" eType="#//sHLModel"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="WindFile" eType="#//sWindFile"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="WindFile" eType="#//fWindFile"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="HH" eType="#//nHH" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TwrShad" eType="#//nTwrShad"
@@ -36,7 +36,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="NumFoil" eType="#//iNumFoil"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="FoilNm" eType="#//aFoilNm"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FoilNm" eType="#//aAirfoilList"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="BldNodes" eType="#//iBldNodes"
         containment="true"/>
@@ -78,7 +78,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="sWindFile">
+  <eClassifiers xsi:type="ecore:EClass" name="fWindFile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -114,7 +114,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="aFoilNm">
+  <eClassifiers xsi:type="ecore:EClass" name="aAirfoilList">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -133,7 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chord" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nfoil" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prnelm" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

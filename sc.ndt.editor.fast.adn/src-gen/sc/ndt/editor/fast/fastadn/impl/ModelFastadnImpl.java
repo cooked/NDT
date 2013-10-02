@@ -15,7 +15,8 @@ import sc.ndt.editor.fast.fastadn.FastadnPackage;
 import sc.ndt.editor.fast.fastadn.Header;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastadn.aAirStat;
-import sc.ndt.editor.fast.fastadn.aFoilNm;
+import sc.ndt.editor.fast.fastadn.aAirfoilList;
+import sc.ndt.editor.fast.fastadn.fWindFile;
 import sc.ndt.editor.fast.fastadn.iBldNodes;
 import sc.ndt.editor.fast.fastadn.iNumFoil;
 import sc.ndt.editor.fast.fastadn.nAtoler;
@@ -33,7 +34,6 @@ import sc.ndt.editor.fast.fastadn.sStallMod;
 import sc.ndt.editor.fast.fastadn.sTLModel;
 import sc.ndt.editor.fast.fastadn.sUnits;
 import sc.ndt.editor.fast.fastadn.sUseCm;
-import sc.ndt.editor.fast.fastadn.sWindFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -168,7 +168,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * @generated
    * @ordered
    */
-  protected sWindFile windFile;
+  protected fWindFile windFile;
 
   /**
    * The cached value of the '{@link #getHH() <em>HH</em>}' containment reference.
@@ -258,7 +258,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * @generated
    * @ordered
    */
-  protected aFoilNm foilNm;
+  protected aAirfoilList foilNm;
 
   /**
    * The cached value of the '{@link #getBldNodes() <em>Bld Nodes</em>}' containment reference.
@@ -738,7 +738,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public sWindFile getWindFile()
+  public fWindFile getWindFile()
   {
     return windFile;
   }
@@ -748,9 +748,9 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetWindFile(sWindFile newWindFile, NotificationChain msgs)
+  public NotificationChain basicSetWindFile(fWindFile newWindFile, NotificationChain msgs)
   {
-    sWindFile oldWindFile = windFile;
+    fWindFile oldWindFile = windFile;
     windFile = newWindFile;
     if (eNotificationRequired())
     {
@@ -765,7 +765,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWindFile(sWindFile newWindFile)
+  public void setWindFile(fWindFile newWindFile)
   {
     if (newWindFile != windFile)
     {
@@ -1170,7 +1170,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public aFoilNm getFoilNm()
+  public aAirfoilList getFoilNm()
   {
     return foilNm;
   }
@@ -1180,9 +1180,9 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFoilNm(aFoilNm newFoilNm, NotificationChain msgs)
+  public NotificationChain basicSetFoilNm(aAirfoilList newFoilNm, NotificationChain msgs)
   {
-    aFoilNm oldFoilNm = foilNm;
+    aAirfoilList oldFoilNm = foilNm;
     foilNm = newFoilNm;
     if (eNotificationRequired())
     {
@@ -1197,7 +1197,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFoilNm(aFoilNm newFoilNm)
+  public void setFoilNm(aAirfoilList newFoilNm)
   {
     if (newFoilNm != foilNm)
     {
@@ -1459,7 +1459,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
         setHLModel((sHLModel)newValue);
         return;
       case FastadnPackage.MODEL_FASTADN__WIND_FILE:
-        setWindFile((sWindFile)newValue);
+        setWindFile((fWindFile)newValue);
         return;
       case FastadnPackage.MODEL_FASTADN__HH:
         setHH((nHH)newValue);
@@ -1486,7 +1486,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
         setNumFoil((iNumFoil)newValue);
         return;
       case FastadnPackage.MODEL_FASTADN__FOIL_NM:
-        setFoilNm((aFoilNm)newValue);
+        setFoilNm((aAirfoilList)newValue);
         return;
       case FastadnPackage.MODEL_FASTADN__BLD_NODES:
         setBldNodes((iBldNodes)newValue);
@@ -1536,7 +1536,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
         setHLModel((sHLModel)null);
         return;
       case FastadnPackage.MODEL_FASTADN__WIND_FILE:
-        setWindFile((sWindFile)null);
+        setWindFile((fWindFile)null);
         return;
       case FastadnPackage.MODEL_FASTADN__HH:
         setHH((nHH)null);
@@ -1563,7 +1563,7 @@ public class ModelFastadnImpl extends MinimalEObjectImpl.Container implements Mo
         setNumFoil((iNumFoil)null);
         return;
       case FastadnPackage.MODEL_FASTADN__FOIL_NM:
-        setFoilNm((aFoilNm)null);
+        setFoilNm((aAirfoilList)null);
         return;
       case FastadnPackage.MODEL_FASTADN__BLD_NODES:
         setBldNodes((iBldNodes)null);

@@ -1,0 +1,55 @@
+---------------------------------------		AeroDyn		FAST AeroDyn file												
+SI				SysUnits	- System of units for used for input and output						(unquoted string)						
+BEDDOES			StallMod	- Dynamic stall included						(unquoted string)						
+USE_CM			UseCm   	- Use aerodynamic pitching moment model?						(unquoted string)						
+EQUIL			InfModel 	- Inflow model						(unquoted string)						
+SWIRL			IndModel 	- Induction-factor model						(unquoted string)						
+0.005			Atoler   	- Induction-factor tolerance (convergence criteria)						(-)						
+PRANDtl			TLModel  	- Tip-loss model (EQUIL only)						(unquoted string)						
+PRANDtl			HLModel  	- Hub-loss model (EQUIL only)						(unquoted string)						
+"05.0ms_0deg.wnd"		WindFile 	- Name of file containing wind data						(quoted string)						
+10				HH      	- Wind reference (hub) height [TowerHt+Twr2Shft+OverHang*SIN(ShftTilt)]						(m)						
+0.000			TwrShad  	- Tower-shadow velocity deficit						(-)						
+1.000			ShadHWid 	- Tower-shadow half width						(m)						
+1.000			T_Shad_Refpt - Tower-shadow reference point						(m)						
+1.225			Rho     	- Air density						(kg/m^3)						
+1.509E-05		KinVisc  	- Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
+0.001			DTAero		- Time interval for aerodynamic calculations						(sec)
+2				NumFoil		- Number of airfoil files						(-)
+"../../DBAirfoil/P250BB/Aero/cylinder.txt"				FoilNm	- Names of the airfoil files [NumFoil lines]					(quoted strings)
+"../../DBAirfoil/P250BB/Aero/AFFA-W3-360MEN.txt"																				
+33			BldNodes	- Number of blade nodes used for analysis (-)						
+RNodes	AeroTwst	DRNodes	Chord	NFoil	PrnElm					
+0.876859375	33.66	0.69571875	0.800	1	PRINT					
+1.274718750	33.05	0.10000000	1.262	2	NOPRINT					
+1.638437500	28.83	0.62743750	1.657	2	PRINT
+2.134015625	23.52	0.36371875	1.541	2	NOPRINT
+2.497734375	20.40	0.36371875	1.447	2	PRINT
+2.861453125	17.75	0.36371875	1.361	3	NOPRINT
+3.225171875	15.50	0.36371875	1.283	3	PRINT
+3.588890625	13.57	0.36371875	1.212	3	NOPRINT
+3.952609375	11.89	0.36371875	1.147	3	PRINT
+4.316328125	10.40	0.36371875	1.089	4	NOPRINT
+4.680046875	9.08	0.36371875	1.036	4	PRINT
+5.043765625	7.90	0.36371875	0.989	4	NOPRINT
+5.407484375	6.84	0.36371875	0.948	4	PRINT
+5.771203125	5.89	0.36371875	0.912	5	NOPRINT
+6.134921875	5.03	0.36371875	0.881	5	PRINT
+6.498640625	4.24	0.36371875	0.854	5	NOPRINT
+6.862359375	3.52	0.36371875	0.832	5	PRINT
+7.226078125	2.92	0.36371875	0.813	6	NOPRINT
+7.589796875	2.45	0.36371875	0.792	6	PRINT			
+7.953515625	2.02	0.36371875	0.765	6	NOPRINT			
+8.317234375	1.63	0.36371875	0.740	6	PRINT			
+8.680953125	1.33	0.36371875	0.718	7	NOPRINT			
+9.044671875	1.12	0.36371875	0.697	7	PRINT			
+9.408390625	0.94	0.36371875	0.679	7	NOPRINT			
+9.772109375	0.77	0.36371875	0.662	7	PRINT			
+10.135828125	0.60	0.36371875	0.646	8	NOPRINT			
+10.499546875	0.42	0.36371875	0.631	8	PRINT			
+10.863265625	0.26	0.36371875	0.618	8	NOPRINT			
+11.226984375	0.08	0.36371875	0.604	8	PRINT			
+11.590703125	-0.26	0.36371875	0.590	9	NOPRINT			
+11.954421875	-0.75	0.36371875	0.576	9	PRINT			
+12.318140625	-1.21	0.36371875	0.562	9	NOPRINT			
+12.800000000	-1.44	0.60000000	0.377	10	PRINT			

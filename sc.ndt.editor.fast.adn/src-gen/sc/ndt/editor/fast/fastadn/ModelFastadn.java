@@ -285,12 +285,12 @@ public interface ModelFastadn extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Wind File</em>' containment reference.
-   * @see #setWindFile(sWindFile)
+   * @see #setWindFile(fWindFile)
    * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getModelFastadn_WindFile()
    * @model containment="true"
    * @generated
    */
-  sWindFile getWindFile();
+  fWindFile getWindFile();
 
   /**
    * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.ModelFastadn#getWindFile <em>Wind File</em>}' containment reference.
@@ -300,7 +300,7 @@ public interface ModelFastadn extends EObject
    * @see #getWindFile()
    * @generated
    */
-  void setWindFile(sWindFile value);
+  void setWindFile(fWindFile value);
 
   /**
    * Returns the value of the '<em><b>HH</b></em>' containment reference.
@@ -519,12 +519,12 @@ public interface ModelFastadn extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Foil Nm</em>' containment reference.
-   * @see #setFoilNm(aFoilNm)
+   * @see #setFoilNm(aAirfoilList)
    * @see sc.ndt.editor.fast.fastadn.FastadnPackage#getModelFastadn_FoilNm()
    * @model containment="true"
    * @generated
    */
-  aFoilNm getFoilNm();
+  aAirfoilList getFoilNm();
 
   /**
    * Sets the value of the '{@link sc.ndt.editor.fast.fastadn.ModelFastadn#getFoilNm <em>Foil Nm</em>}' containment reference.
@@ -534,7 +534,7 @@ public interface ModelFastadn extends EObject
    * @see #getFoilNm()
    * @generated
    */
-  void setFoilNm(aFoilNm value);
+  void setFoilNm(aAirfoilList value);
 
   /**
    * Returns the value of the '<em><b>Bld Nodes</b></em>' containment reference.

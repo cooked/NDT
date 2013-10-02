@@ -17,7 +17,8 @@ import sc.ndt.editor.fast.fastadn.FastadnPackage;
 import sc.ndt.editor.fast.fastadn.Header;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastadn.aAirStat;
-import sc.ndt.editor.fast.fastadn.aFoilNm;
+import sc.ndt.editor.fast.fastadn.aAirfoilList;
+import sc.ndt.editor.fast.fastadn.fWindFile;
 import sc.ndt.editor.fast.fastadn.iBldNodes;
 import sc.ndt.editor.fast.fastadn.iNumFoil;
 import sc.ndt.editor.fast.fastadn.nAtoler;
@@ -35,7 +36,6 @@ import sc.ndt.editor.fast.fastadn.sStallMod;
 import sc.ndt.editor.fast.fastadn.sTLModel;
 import sc.ndt.editor.fast.fastadn.sUnits;
 import sc.ndt.editor.fast.fastadn.sUseCm;
-import sc.ndt.editor.fast.fastadn.sWindFile;
 import sc.ndt.editor.fast.services.FastadnGrammarAccess;
 
 @SuppressWarnings("all")
@@ -64,9 +64,15 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
-			case FastadnPackage.AFOIL_NM:
-				if(context == grammarAccess.getAFoilNmRule()) {
-					sequence_aFoilNm(context, (aFoilNm) semanticObject); 
+			case FastadnPackage.AAIRFOIL_LIST:
+				if(context == grammarAccess.getAAirfoilListRule()) {
+					sequence_aAirfoilList(context, (aAirfoilList) semanticObject); 
+					return; 
+				}
+				else break;
+			case FastadnPackage.FWIND_FILE:
+				if(context == grammarAccess.getFWindFileRule()) {
+					sequence_fWindFile(context, (fWindFile) semanticObject); 
 					return; 
 				}
 				else break;
@@ -172,12 +178,6 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 					return; 
 				}
 				else break;
-			case FastadnPackage.SWIND_FILE:
-				if(context == grammarAccess.getSWindFileRule()) {
-					sequence_sWindFile(context, (sWindFile) semanticObject); 
-					return; 
-				}
-				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -210,7 +210,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         Atoler=nAtoler 
 	 *         TLModel=sTLModel 
 	 *         HLModel=sHLModel 
-	 *         WindFile=sWindFile 
+	 *         WindFile=fWindFile 
 	 *         HH=nHH 
 	 *         TwrShad=nTwrShad 
 	 *         ShadHWid=nShadHWid 
@@ -219,7 +219,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         KinVisc=nKinVisc 
 	 *         DTAero=nDTAero 
 	 *         NumFoil=iNumFoil 
-	 *         FoilNm=aFoilNm 
+	 *         FoilNm=aAirfoilList 
 	 *         BldNodes=iBldNodes 
 	 *         AirStat=aAirStat
 	 *     )
@@ -280,7 +280,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getModelFastadnAccess().getAtolerNAtolerParserRuleCall_6_0(), semanticObject.getAtoler());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getTLModelSTLModelParserRuleCall_7_0(), semanticObject.getTLModel());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getHLModelSHLModelParserRuleCall_8_0(), semanticObject.getHLModel());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getWindFileSWindFileParserRuleCall_9_0(), semanticObject.getWindFile());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getWindFileFWindFileParserRuleCall_9_0(), semanticObject.getWindFile());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getHHNHHParserRuleCall_10_0(), semanticObject.getHH());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getTwrShadNTwrShadParserRuleCall_11_0(), semanticObject.getTwrShad());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getShadHWidNShadHWidParserRuleCall_12_0(), semanticObject.getShadHWid());
@@ -289,7 +289,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getModelFastadnAccess().getKinViscNKinViscParserRuleCall_15_0(), semanticObject.getKinVisc());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getDTAeroNDTAeroParserRuleCall_16_0(), semanticObject.getDTAero());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getNumFoilINumFoilParserRuleCall_17_0(), semanticObject.getNumFoil());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getFoilNmAFoilNmParserRuleCall_18_0(), semanticObject.getFoilNm());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_18_0(), semanticObject.getFoilNm());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getBldNodesIBldNodesParserRuleCall_19_0(), semanticObject.getBldNodes());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getAirStatAAirStatParserRuleCall_20_0(), semanticObject.getAirStat());
 		feeder.finish();
@@ -303,7 +303,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *         aerotwst+=tNUMBER 
 	 *         drnodes+=tNUMBER 
 	 *         chord+=tNUMBER 
-	 *         nfoil+=tNUMBER 
+	 *         nfoil+=INT 
 	 *         prnelm+=PRINT
 	 *     )+
 	 */
@@ -316,8 +316,27 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 * Constraint:
 	 *     (value+=STRING name='FoilNm' value+=STRING*)
 	 */
-	protected void sequence_aFoilNm(EObject context, aFoilNm semanticObject) {
+	protected void sequence_aAirfoilList(EObject context, aAirfoilList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=STRING name='WindFile')
+	 */
+	protected void sequence_fWindFile(EObject context, fWindFile semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.FWIND_FILE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.FWIND_FILE__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.FWIND_FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.FWIND_FILE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFWindFileAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getFWindFileAccess().getNameWindFileKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -493,16 +512,26 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     ((value='PRANDtl' | value='NONE') name='HLModel')
+	 *     (value=PRANDTL name='HLModel')
 	 */
 	protected void sequence_sHLModel(EObject context, sHLModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SHL_MODEL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SHL_MODEL__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SHL_MODEL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SHL_MODEL__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSHLModelAccess().getValuePRANDTLTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSHLModelAccess().getNameHLModelKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (value='SWIRL' name='IndModel')
+	 *     (value=INDMODEL name='IndModel')
 	 */
 	protected void sequence_sIndModel(EObject context, sIndModel semanticObject) {
 		if(errorAcceptor != null) {
@@ -513,7 +542,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSIndModelAccess().getValueSWIRLKeyword_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSIndModelAccess().getValueINDMODELTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getSIndModelAccess().getNameIndModelKeyword_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -521,16 +550,26 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     ((value='EQUIL' | value='DYNIN') name='InfModel')
+	 *     (value=INFMODEL name='InfModel')
 	 */
 	protected void sequence_sInfModel(EObject context, sInfModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SINF_MODEL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SINF_MODEL__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SINF_MODEL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SINF_MODEL__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSInfModelAccess().getValueINFMODELTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSInfModelAccess().getNameInfModelKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (value='BEDDOES' name='StallMod')
+	 *     (value=STALL name='StallMod')
 	 */
 	protected void sequence_sStallMod(EObject context, sStallMod semanticObject) {
 		if(errorAcceptor != null) {
@@ -541,7 +580,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSStallModAccess().getValueBEDDOESKeyword_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSStallModAccess().getValueSTALLTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getSStallModAccess().getNameStallModKeyword_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -549,16 +588,26 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     ((value='PRANDtl' | value='NONE') name='TLModel')
+	 *     (value=PRANDTL name='TLModel')
 	 */
 	protected void sequence_sTLModel(EObject context, sTLModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.STL_MODEL__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.STL_MODEL__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.STL_MODEL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.STL_MODEL__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSTLModelAccess().getValuePRANDTLTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSTLModelAccess().getNameTLModelKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (value='SI' name='SysUnits')
+	 *     (value=UNITS name='SysUnits')
 	 */
 	protected void sequence_sUnits(EObject context, sUnits semanticObject) {
 		if(errorAcceptor != null) {
@@ -569,7 +618,7 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSUnitsAccess().getValueSIKeyword_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSUnitsAccess().getValueUNITSTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.accept(grammarAccess.getSUnitsAccess().getNameSysUnitsKeyword_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -577,28 +626,19 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     ((value='NO_CM' | value='USE_CM') name='UseCm')
+	 *     (value=CM name='UseCm')
 	 */
 	protected void sequence_sUseCm(EObject context, sUseCm semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (value=STRING name='WindFile')
-	 */
-	protected void sequence_sWindFile(EObject context, sWindFile semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SWIND_FILE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SWIND_FILE__VALUE));
-			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SWIND_FILE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SWIND_FILE__NAME));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SUSE_CM__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SUSE_CM__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.SUSE_CM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.SUSE_CM__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getSWindFileAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getSWindFileAccess().getNameWindFileKeyword_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSUseCmAccess().getValueCMTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getSUseCmAccess().getNameUseCmKeyword_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 }

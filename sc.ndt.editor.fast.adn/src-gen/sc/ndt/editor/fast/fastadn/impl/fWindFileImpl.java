@@ -2,47 +2,51 @@
  */
 package sc.ndt.editor.fast.fastadn.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-
 import sc.ndt.editor.fast.fastadn.FastadnPackage;
-import sc.ndt.editor.fast.fastadn.aFoilNm;
+import sc.ndt.editor.fast.fastadn.fWindFile;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>aFoil Nm</b></em>'.
+ * An implementation of the model object '<em><b>fWind File</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl#getValue <em>Value</em>}</li>
- *   <li>{@link sc.ndt.editor.fast.fastadn.impl.aFoilNmImpl#getName <em>Name</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.impl.fWindFileImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link sc.ndt.editor.fast.fastadn.impl.fWindFileImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
+public class fWindFileImpl extends MinimalEObjectImpl.Container implements fWindFile
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected EList<String> value;
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -69,7 +73,7 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
    * <!-- end-user-doc -->
    * @generated
    */
-  protected aFoilNmImpl()
+  protected fWindFileImpl()
   {
     super();
   }
@@ -82,7 +86,7 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
   @Override
   protected EClass eStaticClass()
   {
-    return FastadnPackage.Literals.AFOIL_NM;
+    return FastadnPackage.Literals.FWIND_FILE;
   }
 
   /**
@@ -90,13 +94,22 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getValue()
+  public String getValue()
   {
-    if (value == null)
-    {
-      value = new EDataTypeEList<String>(String.class, this, FastadnPackage.AFOIL_NM__VALUE);
-    }
     return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.FWIND_FILE__VALUE, oldValue, value));
   }
 
   /**
@@ -119,7 +132,7 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.AFOIL_NM__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, FastadnPackage.FWIND_FILE__NAME, oldName, name));
   }
 
   /**
@@ -132,9 +145,9 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
   {
     switch (featureID)
     {
-      case FastadnPackage.AFOIL_NM__VALUE:
+      case FastadnPackage.FWIND_FILE__VALUE:
         return getValue();
-      case FastadnPackage.AFOIL_NM__NAME:
+      case FastadnPackage.FWIND_FILE__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -145,17 +158,15 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FastadnPackage.AFOIL_NM__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends String>)newValue);
+      case FastadnPackage.FWIND_FILE__VALUE:
+        setValue((String)newValue);
         return;
-      case FastadnPackage.AFOIL_NM__NAME:
+      case FastadnPackage.FWIND_FILE__NAME:
         setName((String)newValue);
         return;
     }
@@ -172,10 +183,10 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
   {
     switch (featureID)
     {
-      case FastadnPackage.AFOIL_NM__VALUE:
-        getValue().clear();
+      case FastadnPackage.FWIND_FILE__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
-      case FastadnPackage.AFOIL_NM__NAME:
+      case FastadnPackage.FWIND_FILE__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -192,9 +203,9 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
   {
     switch (featureID)
     {
-      case FastadnPackage.AFOIL_NM__VALUE:
-        return value != null && !value.isEmpty();
-      case FastadnPackage.AFOIL_NM__NAME:
+      case FastadnPackage.FWIND_FILE__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case FastadnPackage.FWIND_FILE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -219,4 +230,4 @@ public class aFoilNmImpl extends MinimalEObjectImpl.Container implements aFoilNm
     return result.toString();
   }
 
-} //aFoilNmImpl
+} //fWindFileImpl

@@ -19,7 +19,6 @@ import org.eclipse.xtext.validation.Check;
 import com.google.inject.Inject;
 
 import sc.ndt.editor.fast.fastfst.*;
-import sc.ndt.editor.fast.fastfst.impl.ModelFastfstImpl;
 
 public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 
