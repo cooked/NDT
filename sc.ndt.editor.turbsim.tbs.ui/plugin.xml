@@ -6,12 +6,21 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="sc.ndt.editor.ui.TurbsimtbsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="tbs"
-            id="sc.ndt.editor.Turbsimtbs"
-            name="Turbsimtbs Editor">
+              class="sc.ndt.editor.ui.TurbsimtbsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="false"
+              extensions="tbs"
+              id="sc.ndt.editor.Turbsimtbs"
+              name="Turbsimtbs">
+        </editor>
+        <editor
+              class="sc.ndt.editor.ui.addon.mpe.TbsMultiPageEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="tbs"
+              icon="icons/weather-clouds.png"
+              id="sc.ndt.editor.MPETurbsimtbs"
+              name="TurbSim">
         </editor>
     </extension>
     <extension
@@ -80,9 +89,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="sc.ndt.editor.ui.TurbsimtbsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="sc.ndt.editor.Turbsimtbs"
-            name="Turbsimtbs">
+              category="sc.ndt.ui.preferences.NREL"
+              class="sc.ndt.editor.ui.TurbsimtbsExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="sc.ndt.editor.Turbsimtbs"
+              name="TurbSim">
             <keywordReference id="sc.ndt.editor.ui.keyword_Turbsimtbs"/>
         </page>
         <page

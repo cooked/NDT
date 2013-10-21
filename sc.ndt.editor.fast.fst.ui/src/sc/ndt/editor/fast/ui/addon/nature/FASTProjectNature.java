@@ -8,7 +8,7 @@ public class FASTProjectNature implements IProjectNature {
 
 	public static final String NATURE_ID = "sc.ndt.editor.fast.fst.ui.fastNature"; //$NON-NLS-1$
 	
-	//private IProject project;
+	private IProject _project;
 	
 	@Override
 	public void configure() throws CoreException {
@@ -24,12 +24,12 @@ public class FASTProjectNature implements IProjectNature {
 
 	@Override
 	public IProject getProject() {
-		return null;//project;
+		return _project;
 	}
 
 	@Override
 	public void setProject(IProject project) {
-		//this.project = project;
+		_project = project;
 	}
 
 }

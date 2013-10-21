@@ -25,7 +25,7 @@ public class TurbsimtbsParser extends org.eclipse.xtext.parser.antlr.AbstractAnt
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "ModelTurbsimtbs";
 	}
 	
 	public TurbsimtbsGrammarAccess getGrammarAccess() {

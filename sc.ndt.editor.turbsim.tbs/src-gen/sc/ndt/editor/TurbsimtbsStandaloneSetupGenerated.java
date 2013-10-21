@@ -40,8 +40,8 @@ public class TurbsimtbsStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.ndt.sc/editor/Turbsimtbs")) {
-		EPackage.Registry.INSTANCE.put("http://www.ndt.sc/editor/Turbsimtbs", sc.ndt.editor.turbsimtbs.TurbsimtbsPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http://www.ndt.sc/editor/turbsim/Turbsimtbs")) {
+		EPackage.Registry.INSTANCE.put("http://www.ndt.sc/editor/turbsim/Turbsimtbs", sc.ndt.editor.turbsimtbs.TurbsimtbsPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

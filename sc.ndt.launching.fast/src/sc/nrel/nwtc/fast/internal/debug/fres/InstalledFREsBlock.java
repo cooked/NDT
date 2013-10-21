@@ -67,6 +67,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
+import sc.nrel.nwtc.fast.internal.debug.ui.fres.EditFASTInstallWizard;
 import sc.nrel.nwtc.fast.launching.AbstractFASTInstall;
 import sc.nrel.nwtc.fast.launching.AbstractFASTInstallType;
 import sc.nrel.nwtc.fast.launching.FASTRuntime;
@@ -622,19 +623,19 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 			// TODO VMDetailsDialog dialog= new VMDetailsDialog(getShell(), vm);
 			//dialog.open();
 		} else {
-			/*EditVMInstallWizard wizard = new EditVMInstallWizard(vm, fVMs.toArray(new IVMInstall[fVMs.size()]));
+			EditFASTInstallWizard wizard = new EditFASTInstallWizard(vm, fFASTs.toArray(new IFASTInstall[fFASTs.size()]));
 			WizardDialog dialog = new WizardDialog(getShell(), wizard);
 			if (dialog.open() == Window.OK) {
-				VMStandin result = wizard.getResult();
+				FASTStandin result = wizard.getResult();
 				if (result != null) {
 					// replace with the edited VM
-					int index = fVMs.indexOf(vm);
-					fVMs.remove(index);
-					fVMs.add(index, result);
+					int index = fFASTs.indexOf(vm);
+					fFASTs.remove(index);
+					fFASTs.add(index, result);
 					fFASTList.refresh();
 					fFASTList.setSelection(new StructuredSelection(result));
 				}
-			}*/
+			}
 		}
 		
 		

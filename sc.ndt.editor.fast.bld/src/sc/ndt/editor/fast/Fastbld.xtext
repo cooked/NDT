@@ -1,0 +1,145 @@
+grammar sc.ndt.editor.fast.Fastbld //with org.eclipse.xtext.common.Terminals
+
+generate fastbld "http://www.ndt.sc/editor/fast/Fastbld"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+ModelFastbld: 
+	
+	Head 		= Header
+	
+	sections 	+= Section
+  	NblInpSt 	= nNblInpSt
+  	CalcBMode 	= bCalcBMode
+	BldFlDmp1 	= nBldFlDmp1
+	BldFlDmp2 	= nBldFlDmp2
+	BldEdDmp1	= nBldEdDmp1	
+
+	sections 	+= Section
+	FlStTunr1	= nFlStTunr1
+	FlStTunr2	= nFlStTunr2	
+	AdjBlMs 	= AdjBlMs	
+	AdjFlSt		= AdjFlSt	
+	AdjEdSt		= AdjEdSt
+
+	sections 	+= Section
+	AirStat 	= aAirStat
+	
+	sections 	+= Section
+	BldFl1Sh2	= nBldFl1Sh2
+	BldFl1Sh3	= nBldFl1Sh3								
+	BldFl1Sh4	= nBldFl1Sh4									
+	BldFl1Sh5	= nBldFl1Sh5									
+	BldFl1Sh6	= nBldFl1Sh6								
+	BldFl2Sh2	= nBldFl2Sh2
+	BldFl2Sh3	= nBldFl2Sh3									
+	BldFl2Sh4	= nBldFl2Sh4								
+	BldFl2Sh5	= nBldFl2Sh5								
+	BldFl2Sh6	= nBldFl2Sh6								
+	BldEdgSh2	= nBldEdgSh2
+	BldEdgSh3	= nBldEdgSh3								
+	BldEdgSh4	= nBldEdgSh4								
+	BldEdgSh5	= nBldEdgSh5								
+	BldEdgSh6	= nBldEdgSh6								
+
+  	(WS|NEWLINE|SL_COMMENT)*
+  	
+  	// about EOF
+  	// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
+  
+;
+
+tNUMBER returns ecore::EFloat	: INT | NUMBER;
+tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
+
+//from online help: The QualifiedName is a little special. It does not contain any assignments. 
+// Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
+// Package is still of type String. 
+//FILE: ('.'?'.'?)('/'? STRING)*;
+//FILE returns ecore::EString:
+//	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
+
+tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? STRING WS? NEWLINE )*;
+
+// TERMINALS 
+// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
+// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal NUMBER returns ecore::EFloat:	
+	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
+	(('+'|'-')? INT 		  (('E'|'e')('+'|'-')? INT ) ) |
+	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
+	('-'		INT										 )
+;
+
+terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+terminal NEWLINE	: '\r'|'\n'|'\r\n';
+terminal SL_COMMENT	: '-' !('0'..'9') !('\r'|'\n'|'\r\n')*;
+terminal WS			: (' '|'\t')+;
+
+
+	
+	
+Header hidden(): 
+	SL_COMMENT  NEWLINE
+	SL_COMMENT  NEWLINE
+	name=SL_COMMENT  NEWLINE
+;
+Section hidden():
+	name=SL_COMMENT  	NEWLINE
+;
+
+nNblInpSt 	hidden():	WS? value=INT 		WS	name='NblInpSt' 	WS? SL_COMMENT? NEWLINE;
+bCalcBMode 	hidden():	WS? value=tBOOL 	WS	name='CalcBMode' 	WS? SL_COMMENT? NEWLINE;
+nBldFlDmp1 	hidden():	WS? value=tNUMBER 	WS	name='BldFlDmp(1)' 	WS? SL_COMMENT? NEWLINE;
+nBldFlDmp2 	hidden():	WS? value=tNUMBER 	WS	name='BldFlDmp(2)' 	WS? SL_COMMENT? NEWLINE;
+nBldEdDmp1	hidden():	WS? value=tNUMBER 	WS	name='BldEdDmp(1)'	WS? SL_COMMENT? NEWLINE;
+
+nFlStTunr1	hidden():	WS? value=tNUMBER 	WS	name='FlStTunr(1)' 	WS? SL_COMMENT? NEWLINE;
+nFlStTunr2	hidden():	WS? value=tNUMBER 	WS	name='FlStTunr(2)'	WS? SL_COMMENT? NEWLINE;
+AdjBlMs 	hidden(): 	WS? value=tNUMBER 	WS	name='AdjBlMs'		WS?	SL_COMMENT? NEWLINE;
+AdjFlSt		hidden():	WS? value=tNUMBER 	WS	name='AdjFlSt'		WS? SL_COMMENT? NEWLINE;
+AdjEdSt		hidden():	WS? value=tNUMBER 	WS	name='AdjEdSt'		WS? SL_COMMENT? NEWLINE;
+
+nBldFl1Sh2	hidden():	WS? value=tNUMBER 	WS	name='BldFl1Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nBldFl1Sh3	hidden():	WS? value=tNUMBER 	WS	name='BldFl1Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl1Sh4	hidden():	WS? value=tNUMBER 	WS	name='BldFl1Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl1Sh5	hidden():	WS? value=tNUMBER 	WS	name='BldFl1Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl1Sh6	hidden():	WS? value=tNUMBER 	WS	name='BldFl1Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+nBldFl2Sh2	hidden():	WS? value=tNUMBER 	WS	name='BldFl2Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nBldFl2Sh3	hidden():	WS? value=tNUMBER 	WS	name='BldFl2Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl2Sh4	hidden():	WS? value=tNUMBER 	WS	name='BldFl2Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl2Sh5	hidden():	WS? value=tNUMBER 	WS	name='BldFl2Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nBldFl2Sh6	hidden():	WS? value=tNUMBER 	WS	name='BldFl2Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+nBldEdgSh2	hidden():	WS? value=tNUMBER 	WS	name='BldEdgSh(2)'	WS? SL_COMMENT? NEWLINE;
+nBldEdgSh3	hidden():	WS? value=tNUMBER 	WS	name='BldEdgSh(3)'	WS? SL_COMMENT? NEWLINE;								
+nBldEdgSh4	hidden():	WS? value=tNUMBER 	WS	name='BldEdgSh(4)'	WS? SL_COMMENT? NEWLINE;								
+nBldEdgSh5	hidden():	WS? value=tNUMBER 	WS	name='BldEdgSh(5)'	WS? SL_COMMENT? NEWLINE;								
+nBldEdgSh6	hidden():	WS? value=tNUMBER 	WS	name='BldEdgSh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+
+aAirStat	hidden():	
+	WS? 'BlFract' WS 'AeroCent' WS 'StrcTwst' WS 'BMassDen' WS 'FlpStff' WS 'EdgStff' WS 'GJStff' WS 'EAStff' WS 'Alpha' WS 'FlpIner' WS 'EdgIner' WS 'PrecrvRef' WS 'PreswpRef' WS	'FlpcgOf' WS 'EdgcgOf' WS 'FlpEAOf' WS 'EdgEAOf' WS? SL_COMMENT? NEWLINE	
+	WS? '(-)' 	  WS '(-)' 	    WS '(deg)' 	  WS '(kg/m)'   WS '(Nm^2)'  WS '(Nm^2)'  WS '(Nm^2)' WS '(N)'    WS '(-)'	 WS '(kg m)'  WS '(kg m)'  WS '(m)'       WS '(m)'       WS	'(m)'     WS '(m)'     WS '(m)'     WS '(m)'     WS? SL_COMMENT? NEWLINE
+	(WS? bldfrac+=tNUMBER WS 
+		AeroCent+=tNUMBER WS 
+		StrcTwst+=tNUMBER WS 
+		BMassDen+=tNUMBER WS 
+		FlpStff+=tNUMBER WS 
+		EdgStff+=tNUMBER WS
+		GJStff+=tNUMBER WS
+		EAStff+=tNUMBER WS
+		Alpha+=tNUMBER WS
+		FlpIner+=tNUMBER WS
+		EdgIner+=tNUMBER WS
+		PrecrvRef+=tNUMBER WS
+		PreswpRef+=tNUMBER WS
+		FlpcgOf+=tNUMBER WS
+		EdgcgOf+=tNUMBER WS
+		FlpEAOf+=tNUMBER WS
+		EdgEAOf+=tNUMBER WS? SL_COMMENT? NEWLINE)+
+;										
+	

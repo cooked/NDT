@@ -1,11 +1,169 @@
 grammar sc.ndt.editor.Turbsimtbs //with org.eclipse.xtext.common.Terminals
 
-generate turbsimtbs "http://www.ndt.sc/editor/Turbsimtbs"
+generate turbsimtbs "http://www.ndt.sc/editor/turbsim/Turbsimtbs"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Model:
-	a = INT
+ModelTurbsimtbs:
+	
+	Head 		= Header
+	
+  	sections 	+= Section
+  	RandSeed1	= nRandSeed1
+  	RandSeed2	= nRandSeed2
+  	WrBHHTP 	= bWrBHHTP
+  	WrFHHTP		= bWrFHHTP
+  	WrADHH		= bWrADHH
+  	WrADFF		= bWrADFF
+  	WrBLFF		= bWrBLFF
+  	WrADTWR		= bWrADTWR
+  	WrFMTFF		= bWrFMTFF
+  	WrACT		= bWrACT
+  	Clockwise	= bClockwise
+  	ScaleIEC	= iScaleIEC
+  	
+  	sections += Section
+  	NumGrid_Z	= iNumGrid_Z
+  	NumGrid_Y	= iNumGrid_Y
+  	TimeStep	= nTimeStep
+  	AnalysisTime= nAnalysisTime
+  	UsableTime 	= nUsableTime
+  	HubHt		= nHubHt
+  	GridHeight	= nGridHeight
+  	GridWidth	= nGridWidth
+  	VFlowAng	= nVFlowAng
+  	HFlowAng	= nHFlowAng
+  	
+  	sections += Section
+  	TurbModel	= sTurbModel
+  	IECstandard = sIECstandard
+  	IECturbc	= sIECturbc
+  	IEC_WindType = sIEC_WindType
+  	ETMc		= sETMc
+  	WindProfileType	= sWindProfileType
+  	RefHt		= nRefHt
+  	Uref		= nUref
+  	ZJetMax		= nZJetMax
+  	PLExp		= nPLExp
+  	Z0			= nZ0
+  	
+  	sections += Section
+  	Location	= nLocation
+  	RICH_NO 	= nRICH_NO
+  	UStar		= nUStar
+  	ZI 			= nZI
+  	PC_UW		= nPC_UW
+  	PC_UV		= nPC_UV
+  	PC_VW		= nPC_VW
+  	IncDec1		= nIncDec1
+  	IncDec2		= nIncDec2
+  	IncDec3		= nIncDec3
+  	CohExp		= nCohExp
+  	
+  	sections += Section
+  	CTEventPath	= sCTEventPath
+  	CTEventFile = sCTEventFile
+	Randomize	= bRandomize
+	DistScl		= nDistScl
+	CTLy		= nCTLy
+	CTLz		= nCTLz
+	CTStartTime	= nCTStartTime
+  	
+  	(WS|NEWLINE|SL_COMMENT)*
+  	
 ;
 
-terminal INT returns ecore::EInt: ('0'..'9')+;
+
+tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
+tNUM 	: 'DEFAULT'|tNUMBER;
+tNUMBER	returns ecore::EFloat: 	INT | NUMBER;
+tSEED1	: INT | NEG;
+tSEED2 	: tSEED1 | 'RANLUX' | 'RNSNLW' ;
+
+terminal INT 	returns ecore::EInt: ('0'..'9')+;
+terminal NEG	returns ecore::EInt: '-'INT;
+
+terminal PROF 	: 'DEFAULT'|'JET'|'LOG'|'PL'|'IEC';
+terminal WIND 	: 'NTM'|(('1'..'3')('ETM'|('EWM'('1'|'50'))));
+terminal TURB 	: 'A'|'B'|'C'|'KHTEST'|INT;
+terminal IEC 	: ('1'..'3')('-ED'('1'..'3'))?;
+
+terminal MODEL 	: 'IECKAI'|'IECVKM'|'GP_LLJ'|'NWTCUP'|'SMOOTH'|'WF_UPW'|'WF_07D'|'WF_14D'|'NONE'; // Kaimal, von Karman,...
+terminal NUMBER returns ecore::EFloat:	
+	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
+	(('+'|'-')? INT 		  (('E'|'e')('+'|'-')? INT ) ) |
+	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
+	('-'		INT										 )
+;
+
+terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+terminal NEWLINE	: '\r'|'\n'|'\r\n';
+terminal SL_COMMENT	: '-' !('0'..'9') !('\r'|'\n'|'\r\n')*;
+terminal WS			: (' '|'\t')+;
+
+
+Header hidden(): 
+	rows=SL_COMMENT  NEWLINE
+;
+
+Section hidden():
+	WS? NEWLINE
+	name=SL_COMMENT  NEWLINE
+;
+
+nRandSeed1 	hidden():	WS? value=tSEED1 WS	name='RandSeed(1)'	WS? SL_COMMENT? NEWLINE;
+nRandSeed2 	hidden():	WS? value=tSEED2 WS	name='RandSeed(2)' 	WS? SL_COMMENT? NEWLINE;
+bWrBHHTP 	hidden():	WS? value=tBOOL WS	name='WrBHHTP' 		WS? SL_COMMENT? NEWLINE;
+bWrFHHTP 	hidden():	WS? value=tBOOL WS	name='WrFHHTP' 		WS? SL_COMMENT? NEWLINE;
+bWrADHH		hidden():	WS? value=tBOOL WS	name='WrADHH'		WS? SL_COMMENT? NEWLINE;
+bWrADFF		hidden():	WS? value=tBOOL WS	name='WrADFF'		WS? SL_COMMENT? NEWLINE;
+bWrBLFF		hidden():	WS? value=tBOOL WS	name='WrBLFF'		WS? SL_COMMENT? NEWLINE;
+bWrADTWR	hidden():	WS? value=tBOOL WS	name='WrADTWR'		WS? SL_COMMENT? NEWLINE;
+bWrFMTFF	hidden():	WS? value=tBOOL WS	name='WrFMTFF'		WS? SL_COMMENT? NEWLINE;
+bWrACT		hidden():	WS? value=tBOOL WS	name='WrACT'		WS? SL_COMMENT? NEWLINE;
+bClockwise	hidden():	WS? value=tBOOL WS	name='Clockwise'	WS? SL_COMMENT? NEWLINE;
+iScaleIEC	hidden():	WS? value=INT 	WS	name='ScaleIEC'		WS? SL_COMMENT? NEWLINE;
+
+iNumGrid_Z 		hidden():	WS? value=INT 	WS	name='NumGrid_Z'	WS? SL_COMMENT? NEWLINE;
+iNumGrid_Y 		hidden():	WS? value=INT 	WS	name='NumGrid_Y' 	WS? SL_COMMENT? NEWLINE;
+nTimeStep 		hidden():	WS? value=tNUMBER WS name='TimeStep' 	WS? SL_COMMENT? NEWLINE;
+nAnalysisTime 	hidden():	WS? value=tNUMBER WS name='AnalysisTime' WS? SL_COMMENT? NEWLINE;
+nUsableTime		hidden():	WS? value=tNUMBER WS name='UsableTime'	WS? SL_COMMENT? NEWLINE;
+nHubHt			hidden():	WS? value=tNUMBER WS name='HubHt'		WS? SL_COMMENT? NEWLINE;
+nGridHeight		hidden():	WS? value=tNUMBER WS name='GridHeight'	WS? SL_COMMENT? NEWLINE;
+nGridWidth		hidden():	WS? value=tNUMBER WS name='GridWidth'	WS? SL_COMMENT? NEWLINE;
+nVFlowAng		hidden():	WS? value=tNUMBER WS name='VFlowAng'		WS? SL_COMMENT? NEWLINE;
+nHFlowAng		hidden():	WS? value=tNUMBER WS name='HFlowAng'		WS? SL_COMMENT? NEWLINE;
+
+sTurbModel 		hidden():	WS? value=MODEL	WS	name='TurbModel'	WS? SL_COMMENT? NEWLINE;
+sIECstandard 	hidden():	WS? value=IEC 	WS	name='IECstandard' 	WS? SL_COMMENT? NEWLINE;
+sIECturbc 		hidden():	WS? value=TURB 	WS	name='IECturbc' 	WS? SL_COMMENT? NEWLINE;
+sIEC_WindType 	hidden():	WS? value=WIND 	WS	name='IEC_WindType' WS? SL_COMMENT? NEWLINE;
+sETMc			hidden():	WS? value=tNUM 	WS	name='ETMc'			WS? SL_COMMENT? NEWLINE;
+sWindProfileType hidden():	WS? value=PROF 	WS	name='WindProfileType'		WS? SL_COMMENT? NEWLINE;
+nRefHt			hidden():	WS? value=tNUMBER WS	name='RefHt'	WS? SL_COMMENT? NEWLINE;
+nUref			hidden():	WS? value=tNUMBER WS	name='Uref'	WS? SL_COMMENT? NEWLINE;
+nZJetMax		hidden():	WS? value=tNUMBER WS	name='ZJetMax'		WS? SL_COMMENT? NEWLINE;
+nPLExp			hidden():	WS? value=tNUM WS	name='PLExp'		WS? SL_COMMENT? NEWLINE;
+nZ0				hidden():	WS? value=tNUM WS	name='Z0'		WS? SL_COMMENT? NEWLINE;
+
+nLocation 		hidden():	WS? value=tNUM		WS	name='Latitude'	WS? SL_COMMENT? NEWLINE;
+nRICH_NO 		hidden():	WS? value=tNUMBER 	WS	name='RICH_NO' 	WS? SL_COMMENT? NEWLINE;
+nUStar 			hidden():	WS? value=tNUM 		WS	name='UStar' 	WS? SL_COMMENT? NEWLINE;
+nZI 			hidden():	WS? value=tNUM 		WS	name='ZI' 		WS? SL_COMMENT? NEWLINE;
+nPC_UW 			hidden():	WS? value=tNUM		WS	name='PC_UW'	WS? SL_COMMENT? NEWLINE;
+nPC_UV 			hidden():	WS? value=tNUM 		WS	name='PC_UV' 	WS? SL_COMMENT? NEWLINE;
+nPC_VW 			hidden():	WS? value=tNUM 		WS	name='PC_VW' 	WS? SL_COMMENT? NEWLINE;
+nIncDec1 		hidden():	WS? value=tNUM		WS	name='IncDec(1)'	WS? SL_COMMENT? NEWLINE;
+nIncDec2 		hidden():	WS? value=tNUM 		WS	name='IncDec(2)' 	WS? SL_COMMENT? NEWLINE;
+nIncDec3 		hidden():	WS? value=tNUM 		WS	name='IncDec(3)' 	WS? SL_COMMENT? NEWLINE;
+nCohExp 		hidden():	WS? value=tNUM 		WS	name='CohExp' 		WS? SL_COMMENT? NEWLINE;
+
+sCTEventPath 	hidden():	WS? value=STRING 	WS	name='CTEventPath' 	WS? SL_COMMENT? NEWLINE;
+sCTEventFile 	hidden():	WS? value=('LES'|'DNS'|'RANDOM') 	WS	name='CTEventFile' 	WS? SL_COMMENT? NEWLINE;
+bRandomize		hidden():	WS? value=tBOOL		WS	name='Randomize' 	WS? SL_COMMENT? NEWLINE;
+nDistScl		hidden():	WS? value=tNUMBER	WS	name='DistScl' 		WS? SL_COMMENT? NEWLINE;
+nCTLy			hidden():	WS? value=tNUMBER	WS	name='CTLy' 		WS? SL_COMMENT? NEWLINE;
+nCTLz			hidden():	WS? value=tNUMBER	WS	name='CTLz' 		WS? SL_COMMENT? NEWLINE;
+nCTStartTime	hidden():	WS? value=tNUMBER	WS	name='CTStartTime' 	WS? SL_COMMENT? NEWLINE;

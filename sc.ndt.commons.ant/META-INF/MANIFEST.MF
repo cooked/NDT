@@ -6,6 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: sc.ndt.commons.ant.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.ant.core;bundle-version="3.2.500"
+ org.eclipse.ant.core;bundle-version="3.2.500",
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

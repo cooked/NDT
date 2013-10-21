@@ -6,12 +6,14 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="sc.ndt.editor.iecwind.ui.IecwindiecExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="iec"
-            id="sc.ndt.editor.iecwind.Iecwindiec"
-            name="Iecwindiec Editor">
+              class="sc.ndt.editor.iecwind.ui.IecwindiecExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="iec"
+              filenames="&quot;IEC.IPT,iec.ipt&quot;"
+              icon="icons/noun_project_614_windsock_h16.png"
+              id="sc.ndt.editor.iecwind.Iecwindiec"
+              name="Iecwindiec Editor">
         </editor>
     </extension>
     <extension
@@ -80,9 +82,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="sc.ndt.editor.iecwind.ui.IecwindiecExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="sc.ndt.editor.iecwind.Iecwindiec"
-            name="Iecwindiec">
+              category="sc.ndt.ui.preferences.NREL"
+              class="sc.ndt.editor.iecwind.ui.IecwindiecExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="sc.ndt.editor.iecwind.Iecwindiec"
+              name="IECWind">
             <keywordReference id="sc.ndt.editor.iecwind.ui.keyword_Iecwindiec"/>
         </page>
         <page

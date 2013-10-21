@@ -12,4 +12,10 @@ public class TurbsimtbsUiModule extends sc.ndt.editor.ui.AbstractTurbsimtbsUiMod
 	public TurbsimtbsUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+
+	// override nature creation
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
+		return sc.ndt.editor.ui.addon.nature.NatureAddingEditorCallback.class;
+	}
 }

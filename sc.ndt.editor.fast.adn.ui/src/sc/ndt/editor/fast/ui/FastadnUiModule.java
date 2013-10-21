@@ -17,6 +17,12 @@ public class FastadnUiModule extends
 		super(plugin);
 	}
 
+	// override nature creation
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
+		return sc.ndt.editor.fast.ui.addon.nature.NatureAddingEditorCallback.class;
+	}
+	
 	/*// coloring
 	public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
 		return sc.ndt.editor.fast.ui.addon.coloring.FastadnHighlightingConfiguration.class;

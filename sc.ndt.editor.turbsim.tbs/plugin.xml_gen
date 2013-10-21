@@ -5,7 +5,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.ndt.sc/editor/Turbsimtbs" 
+       uri = "http://www.ndt.sc/editor/turbsim/Turbsimtbs" 
        class = "sc.ndt.editor.turbsimtbs.TurbsimtbsPackage"
        genModel = "sc/ndt/editor/Turbsimtbs.genmodel" /> 
 	

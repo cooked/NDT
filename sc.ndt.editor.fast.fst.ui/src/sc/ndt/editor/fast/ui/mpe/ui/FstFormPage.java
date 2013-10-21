@@ -14,9 +14,12 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.databinding.validation.ValidationStatus;
+import org.eclipse.core.internal.resources.File;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
@@ -49,10 +52,12 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.IMessage;
 import org.eclipse.ui.forms.editor.FormEditor;
@@ -61,24 +66,33 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import sc.ndt.commons.model.OutBlock;
 import sc.ndt.commons.model.OutCh;
 import sc.ndt.commons.model.OutList;
-import sc.ndt.commons.model.outlist.providers.OutListCheckStateProvider;
-import sc.ndt.commons.model.outlist.providers.OutListContentProvider;
-import sc.ndt.commons.model.outlist.providers.OutListLabelProvider;
-import sc.ndt.commons.model.outlist.providers.OutListToolTipSupport;
+import sc.ndt.commons.model.providers.outlist.OutListCheckStateProvider;
+import sc.ndt.commons.model.providers.outlist.OutListContentProvider;
+import sc.ndt.commons.model.providers.outlist.OutListLabelProvider;
+import sc.ndt.commons.model.providers.outlist.OutListToolTipSupport;
+import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastfst.FastfstPackage;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
 import ch.vorburger.xtext.databinding.XtextDataBindingContext;
 import ch.vorburger.xtext.databinding.XtextProperties;
+
+import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.events.MouseEvent;
+
+import com.google.inject.Injector;
 
 public class FstFormPage extends FormPage {
 
@@ -304,9 +318,11 @@ public class FstFormPage extends FormPage {
 	public FstFormPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 
-		document = ((FstMultiPageEditor)getEditor()).xtextEditorFst.getDocument();
+		if(document==null && getEditor() instanceof IXtextFormEditor) {
+			XtextEditor e = ((IXtextFormEditor)getEditor()).getXtextEditor("fst");
+			document = e.getDocument();
+		}
 
-		// do stuff the first timee (load outList, set uri)
 		list = document.readOnly(new IUnitOfWork<String,XtextResource>() {
 
 			public String exec(XtextResource resource) {
@@ -330,6 +346,8 @@ public class FstFormPage extends FormPage {
 	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
+		managedForm.getForm().setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/fan-alt.png"));
+		managedForm.getToolkit().setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 
 		form = managedForm.getForm();
 		form.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));		
@@ -348,15 +366,17 @@ public class FstFormPage extends FormPage {
 				
 			}
 		};
-		runAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("org.eclipse.jdt.debug.ui", "/icons/full/etool16/run_exc.gif"));
+		runAction.setToolTipText("Run FAST");
+		runAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("sc.ndt.commons", "icons/cog_go.png"));
 
-		/*
+		
 		Action linAction = new Action("Linearize") { //$NON-NLS-1$
 			public void run() {
 			}
 		};
-		linAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("org.eclipse.jdt.debug.ui", "/icons/full/etool16/run_exc.gif"));
+		linAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("sc.ndt.commons", "/icons/table.png"));
 
+		/*
 		Action helpAction = new Action("Help") { //$NON-NLS-1$
 			public void run() {
 			}
@@ -365,7 +385,7 @@ public class FstFormPage extends FormPage {
 		 */
 		
 		manager.add(runAction);		// run time-marching simulation
-		//manager.add(linAction);		// run model linearization
+		manager.add(linAction);		// run model linearization
 		//manager.add(helpAction);	// open help
 		
 		
@@ -406,7 +426,7 @@ public class FstFormPage extends FormPage {
 								lblGravity.setText("Acceleration of gravity");
 								
 										Gravity = new Text(composite_2, SWT.RIGHT);
-										Gravity.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+										Gravity.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 										Gravity.setText("0.0");
 										GridData gd_Gravity = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 										gd_Gravity.widthHint = 50;
@@ -428,7 +448,7 @@ public class FstFormPage extends FormPage {
 		managedForm.getToolkit().adapt(composite_4);
 		managedForm.getToolkit().paintBordersFor(composite_4);
 		sPlatform.setClient(composite_4);
-		GridLayout gl_composite_4 = new GridLayout(3, false);
+		GridLayout gl_composite_4 = new GridLayout(2, false);
 		gl_composite_4.horizontalSpacing = 10;
 		composite_4.setLayout(gl_composite_4);
 
@@ -460,32 +480,62 @@ public class FstFormPage extends FormPage {
 			}
 			
 		});
-						new Label(composite_4, SWT.NONE);
 		
 				
 						lblPlatformPropertiesFile = new Label(composite_4, SWT.NONE);
 						lblPlatformPropertiesFile.setEnabled(false);
 						lblPlatformPropertiesFile.setText("Platform property file");
 						GridData gd_lblPlatformPropertiesFile = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-						gd_lblPlatformPropertiesFile.widthHint = 230;
+						gd_lblPlatformPropertiesFile.widthHint = 150;
 						lblPlatformPropertiesFile.setLayoutData(gd_lblPlatformPropertiesFile);
 						managedForm.getToolkit().adapt(lblPlatformPropertiesFile, true, true);
-		
-				PtfmFile = new Text(composite_4, SWT.BORDER);
-				PtfmFile.setEnabled(false);
-				PtfmFile.setToolTipText("PtfmFile");
-				PtfmFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-				PtfmFile.setBounds(0, 0, 76, 19);
-				managedForm.getToolkit().adapt(PtfmFile, true, true);
 				
-				cdPtfmFile = new ControlDecoration(PtfmFile, SWT.LEFT | SWT.TOP);
-				cdPtfmFile.setMarginWidth(3);
-				cdPtfmFile.setImage(fieldDecERR.getImage());
+				Composite composite_15 = new Composite(composite_4, SWT.NONE);
+				GridLayout gl_composite_15 = new GridLayout(3, false);
+				gl_composite_15.marginHeight = 0;
+				gl_composite_15.marginWidth = 0;
+				composite_15.setLayout(gl_composite_15);
+				composite_15.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+				managedForm.getToolkit().adapt(composite_15);
+				managedForm.getToolkit().paintBordersFor(composite_15);
 				
-				ImageHyperlink mghprlnkNewImagehyperlink = managedForm.getToolkit().createImageHyperlink(composite_4, SWT.NONE);
+						PtfmFile = new Text(composite_15, SWT.NONE);
+						PtfmFile.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+						PtfmFile.setEnabled(false);
+						PtfmFile.setToolTipText("PtfmFile");
+						PtfmFile.setBounds(0, 0, 76, 19);
+						managedForm.getToolkit().adapt(PtfmFile, true, true);
+						
+						cdPtfmFile = new ControlDecoration(PtfmFile, SWT.LEFT | SWT.TOP);
+						cdPtfmFile.setMarginWidth(3);
+						cdPtfmFile.setImage(fieldDecERR.getImage());
+				
+				final ImageHyperlink mghprlnkNewImagehyperlink = managedForm.getToolkit().createImageHyperlink(composite_15, SWT.NONE);
+				mghprlnkNewImagehyperlink.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+							FileDialog dialog = new FileDialog(mghprlnkNewImagehyperlink.getShell(), SWT.OPEN);
+						   dialog.setFilterExtensions(new String [] {"*.pfm","*.*"});
+						   dialog.setFilterPath("input");
+						   String fileName = dialog.open();
+						   
+						   if(fileName!=null) {
+							   IPath file = ((FileEditorInput)getEditor().getEditorInput()).getFile().getParent().getLocation();
+							   IPath path = new Path(fileName);
+							   IPath path_r = path.makeRelativeTo(file);
+						  
+							   PtfmFile.setText(path_r.toOSString());
+						   }
+					}
+				});
 				mghprlnkNewImagehyperlink.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
 				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink);
 				mghprlnkNewImagehyperlink.setText("");
+				
+				ImageHyperlink mghprlnkNewImagehyperlink_2 = managedForm.getToolkit().createImageHyperlink(composite_15, SWT.NONE);
+				mghprlnkNewImagehyperlink_2.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_2);
+				mghprlnkNewImagehyperlink_2.setText("");
 				
 		// SECTIOIN - Tower
 		Section sTower = managedForm.getToolkit().createSection(composite_13, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
@@ -497,41 +547,64 @@ public class FstFormPage extends FormPage {
 		managedForm.getToolkit().adapt(composite_17);
 		managedForm.getToolkit().paintBordersFor(composite_17);
 		sTower.setClient(composite_17);
-		GridLayout gl_composite_17 = new GridLayout(3, false);
+		GridLayout gl_composite_17 = new GridLayout(2, false);
 		gl_composite_17.horizontalSpacing = 10;
 		composite_17.setLayout(gl_composite_17);
 
 		Label lblTowerNodes = new Label(composite_17, SWT.NONE);
-		GridData gd_lblTowerNodes = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblTowerNodes.widthHint = 230;
-		lblTowerNodes.setLayoutData(gd_lblTowerNodes);
 		lblTowerNodes.setText("Tower nodes");
 		managedForm.getToolkit().adapt(lblTowerNodes, true, true);
 
 		TwrNodes = new Text(composite_17, SWT.CENTER);
+		TwrNodes.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		TwrNodes.setToolTipText("TwrNodes");
 		GridData gd_TwrNodes = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_TwrNodes.widthHint = 50;
 		TwrNodes.setLayoutData(gd_TwrNodes);
 		managedForm.getToolkit().adapt(TwrNodes, true, true);
-		new Label(composite_17, SWT.NONE);
 		
 		Label lblTowerPropertiesFile = new Label(composite_17, SWT.NONE);
 		GridData gd_lblTowerPropertiesFile = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblTowerPropertiesFile.widthHint = 230;
+		gd_lblTowerPropertiesFile.widthHint = 150;
 		lblTowerPropertiesFile.setLayoutData(gd_lblTowerPropertiesFile);
 		lblTowerPropertiesFile.setText("Tower properties file");
 		managedForm.getToolkit().adapt(lblTowerPropertiesFile, true, true);
-
-		TwrFile = new Text(composite_17, SWT.BORDER);
-		TwrFile.setToolTipText("TwrFile");
-		TwrFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(TwrFile, true, true);
 		
-		ImageHyperlink mghprlnkNewImagehyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_17, SWT.NONE);
+		Composite composite_16 = new Composite(composite_17, SWT.NONE);
+		composite_16.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_16);
+		managedForm.getToolkit().paintBordersFor(composite_16);
+		GridLayout gl_composite_16 = new GridLayout(4, false);
+		gl_composite_16.marginWidth = 0;
+		gl_composite_16.marginHeight = 0;
+		composite_16.setLayout(gl_composite_16);
+		
+				TwrFile = new Text(composite_16, SWT.NONE);
+				TwrFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				TwrFile.setToolTipText("TwrFile");
+				managedForm.getToolkit().adapt(TwrFile, true, true);
+				
+				ControlDecoration controlDecoration = new ControlDecoration(TwrFile, SWT.LEFT | SWT.TOP);
+				controlDecoration.setMarginWidth(3);
+				controlDecoration.setDescriptionText("Some description");
+		
+		ImageHyperlink mghprlnkNewImagehyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_16, SWT.NONE);
+		GridData gd_mghprlnkNewImagehyperlink_1 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_mghprlnkNewImagehyperlink_1.widthHint = 18;
+		gd_mghprlnkNewImagehyperlink_1.heightHint = 16;
+		mghprlnkNewImagehyperlink_1.setLayoutData(gd_mghprlnkNewImagehyperlink_1);
 		mghprlnkNewImagehyperlink_1.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
 		managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_1);
 		mghprlnkNewImagehyperlink_1.setText("");
+		
+		ImageHyperlink mghprlnkNewImagehyperlink_3 = managedForm.getToolkit().createImageHyperlink(composite_16, SWT.NONE);
+		GridData gd_mghprlnkNewImagehyperlink_3 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_mghprlnkNewImagehyperlink_3.widthHint = 18;
+		mghprlnkNewImagehyperlink_3.setLayoutData(gd_mghprlnkNewImagehyperlink_3);
+		mghprlnkNewImagehyperlink_3.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+		managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_3);
+		mghprlnkNewImagehyperlink_3.setText("");
+		new Label(composite_16, SWT.NONE);
 		
 		Section sNacelleYaw = managedForm.getToolkit().createSection(composite_13, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		sNacelleYaw.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));

@@ -7,8 +7,270 @@
     editorPluginID="sc.ndt.editor.turbsim.tbs.editor" runtimeVersion="2.9">
   <genPackages prefix="Turbsimtbs" basePackage="sc.ndt.editor" disposableProviderFactory="true"
       fileExtensions="tbs" ecorePackage="Turbsimtbs.ecore#/">
-    <genClasses ecoreClass="Turbsimtbs.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//Model/a"/>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//ModelTurbsimtbs">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/RandSeed1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/RandSeed2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrBHHTP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrFHHTP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrADHH"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrADFF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrBLFF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrADTWR"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrFMTFF"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WrACT"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Clockwise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/ScaleIEC"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/NumGrid_Z"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/NumGrid_Y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/TimeStep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/AnalysisTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/UsableTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/HubHt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/GridHeight"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/GridWidth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/VFlowAng"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/HFlowAng"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/TurbModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IECstandard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IECturbc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IEC_WindType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/ETMc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/WindProfileType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/RefHt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Uref"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/ZJetMax"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/PLExp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Z0"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/RICH_NO"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/UStar"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/ZI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/PC_UW"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/PC_UV"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/PC_VW"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IncDec1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IncDec2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/IncDec3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CohExp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CTEventPath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CTEventFile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/Randomize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/DistScl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CTLy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CTLz"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Turbsimtbs.ecore#//ModelTurbsimtbs/CTStartTime"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//Header/rows"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//Section/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nRandSeed1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRandSeed1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRandSeed1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nRandSeed2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRandSeed2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRandSeed2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrBHHTP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrBHHTP/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrBHHTP/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrFHHTP">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrFHHTP/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrFHHTP/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrADHH">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADHH/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADHH/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrADFF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADFF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADFF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrBLFF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrBLFF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrBLFF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrADTWR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADTWR/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrADTWR/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrFMTFF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrFMTFF/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrFMTFF/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bWrACT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrACT/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bWrACT/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bClockwise">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bClockwise/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bClockwise/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//iScaleIEC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iScaleIEC/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iScaleIEC/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//iNumGrid_Z">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iNumGrid_Z/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iNumGrid_Z/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//iNumGrid_Y">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iNumGrid_Y/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//iNumGrid_Y/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nTimeStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nTimeStep/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nTimeStep/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nAnalysisTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nAnalysisTime/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nAnalysisTime/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nUsableTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUsableTime/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUsableTime/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nHubHt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nHubHt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nHubHt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nGridHeight">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nGridHeight/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nGridHeight/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nGridWidth">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nGridWidth/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nGridWidth/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nVFlowAng">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nVFlowAng/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nVFlowAng/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nHFlowAng">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nHFlowAng/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nHFlowAng/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sTurbModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sTurbModel/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sTurbModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sIECstandard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIECstandard/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIECstandard/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sIECturbc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIECturbc/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIECturbc/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sIEC_WindType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIEC_WindType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sIEC_WindType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sETMc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sETMc/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sETMc/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sWindProfileType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sWindProfileType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sWindProfileType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nRefHt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRefHt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRefHt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nUref">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUref/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUref/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nZJetMax">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZJetMax/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZJetMax/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nPLExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPLExp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPLExp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nZ0">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZ0/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZ0/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nLocation/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nLocation/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nRICH_NO">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRICH_NO/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nRICH_NO/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nUStar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUStar/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nUStar/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nZI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZI/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nZI/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nPC_UW">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_UW/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_UW/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nPC_UV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_UV/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_UV/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nPC_VW">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_VW/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nPC_VW/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nIncDec1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nIncDec2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nIncDec3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nIncDec3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nCohExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCohExp/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCohExp/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sCTEventPath">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sCTEventPath/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sCTEventPath/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//sCTEventFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sCTEventFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//sCTEventFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//bRandomize">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bRandomize/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//bRandomize/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nDistScl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nDistScl/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nDistScl/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nCTLy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTLy/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTLy/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nCTLz">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTLz/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTLz/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Turbsimtbs.ecore#//nCTStartTime">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTStartTime/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Turbsimtbs.ecore#//nCTStartTime/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/sc.ndt.editor.fast.twr/src-gen" editDirectory="/sc.ndt.editor.fast.twr.edit/src"
+    editorDirectory="/sc.ndt.editor.fast.twr.editor/src" modelPluginID="sc.ndt.editor.fast.twr"
+    forceOverwrite="true" modelName="Fasttwr" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.fast.twr.edit"
+    editorPluginID="sc.ndt.editor.fast.twr.editor" runtimeVersion="2.9">
+  <genPackages prefix="Fasttwr" basePackage="sc.ndt.editor.fast" disposableProviderFactory="true"
+      fileExtensions="twr" ecorePackage="Fasttwr.ecore#/">
+    <genClasses ecoreClass="Fasttwr.ecore#//ModelFasttwr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/Head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/sections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/NTwInpSt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/CalcTMode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/BldFlDmp1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/BldFlDmp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/BldEdDmp1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/BldEdDmp2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/FAStTunr1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/FAStTunr2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/SSStTunr1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/SSStTunr2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/AdjTwMa"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/AdjFASt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/AdjSSSt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwrStat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM1Sh2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM1Sh3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM1Sh4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM1Sh5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM1Sh6"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM2Sh2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM2Sh3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM2Sh4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM2Sh5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwFAM2Sh6"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM1Sh2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM1Sh3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM1Sh4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM1Sh5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM1Sh6"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM2Sh2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM2Sh3"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM2Sh4"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM2Sh5"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Fasttwr.ecore#//ModelFasttwr/TwSSM2Sh6"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//Header/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//Section">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//Section/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nNTwInpSt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nNTwInpSt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nNTwInpSt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//bCalcTMode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//bCalcTMode/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//bCalcTMode/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwrFADmp1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrFADmp1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrFADmp1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwrFADmp2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrFADmp2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrFADmp2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwrSSDmp1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrSSDmp1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrSSDmp1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwrSSDmp2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrSSDmp2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwrSSDmp2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nFAStTunr1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nFAStTunr1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nFAStTunr1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nFAStTunr2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nFAStTunr2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nFAStTunr2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nSSStTunr1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nSSStTunr1/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nSSStTunr1/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nSSStTunr2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nSSStTunr2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nSSStTunr2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//AdjTwMa">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjTwMa/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjTwMa/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//AdjFASt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjFASt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjFASt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//AdjSSSt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjSSSt/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//AdjSSSt/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM1Sh2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM1Sh3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM1Sh4">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh4/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh4/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM1Sh5">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh5/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh5/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM1Sh6">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh6/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM1Sh6/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM2Sh2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM2Sh3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM2Sh4">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh4/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh4/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM2Sh5">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh5/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh5/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwFAM2Sh6">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh6/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwFAM2Sh6/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM1Sh2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM1Sh3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM1Sh4">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh4/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh4/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM1Sh5">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh5/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh5/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM1Sh6">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh6/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM1Sh6/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM2Sh2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh2/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh2/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM2Sh3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh3/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh3/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM2Sh4">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh4/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh4/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM2Sh5">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh5/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh5/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//nTwSSM2Sh6">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh6/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//nTwSSM2Sh6/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fasttwr.ecore#//aTwrStat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/HtFract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TMassDen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwFAStif"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwSSStif"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwGJStif"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwEAStif"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwFAIner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwSSIner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwFAcgOf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fasttwr.ecore#//aTwrStat/TwSScgOf"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

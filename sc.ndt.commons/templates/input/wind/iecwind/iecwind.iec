@@ -1,0 +1,83 @@
+! HEader
+! Output file parameters
+TRUE	!SI UNITS (True=SI or False=ENGLISH)														
+60		! Time for start of IEC transient condition (before this time the wind is constant) sec														
+! Wind Site parameters																
+3		!"IEC WIND TURBINE CLASS (1, 2 or 3)"														
+A		!"WIND TURBULENCE CATEGORY (A, B or C)"														
+0		!"Slope of the wind inflow (IEC specifies between -8 and +8), deg"														
+1		!IEC standard used for wind shear exponent														
+! Turbine parameters																
+10		!"Wind turbine hub-height, m or ft"														
+10		!"Wind turbine rotor diameter, m or ft"														
+2.0		!"Cut-in wind speed, m/s or ft/s"														
+9.5		!"Rated wind speed, m/s or ft/s "														
+25.0	!"Cut-out wind speed, m/s or ft/s"														
+!List of Conditions to generate (one per line)																
+ECD+r-2.0
+ECD-r-2.0
+ECD+r
+ECD-r
+ECD+r+2.0
+ECD-r+2.0
+EWSV+02.5
+EWSV+05.0
+EWSV+07.7
+EWSV+10.0
+EWSV+15.0
+EWSV+20.0
+EWSV+25.0
+EWSV-02.5
+EWSV-05.0
+EWSV-07.7
+EWSV-10.0
+EWSV-15.0
+EWSV-20.0
+EWSV-25.0
+EWSH+02.5
+EWSH+05.0
+EWSH+07.7
+EWSH+10.0
+EWSH+15.0
+EWSH+20.0
+EWSH+25.0
+EWSH-02.5
+EWSH-05.0
+EWSH-07.7
+EWSH-10.0
+EWSH-15.0
+EWSH-20.0
+EWSH-25.0
+EOGi
+EOGr+2.0
+EOGr-2.0
+EOGo
+EDC+r+2.0
+EDC+r-2.0
+EDC-r+2.0
+EDC-r-2.0
+NWP02.0
+NWP03.0
+NWP04.0
+NWP05.0
+NWP06.0
+NWP07.0
+NWP08.0
+NWP09.0
+NWP10.0
+NWP11.0
+NWP12.0
+NWP13.0
+NWP14.0
+NWP15.0
+NWP16.0
+NWP17.0
+NWP18.0
+NWP19.0
+NWP20.0
+NWP21.0
+NWP22.0
+NWP23.0				
+NWP24.0
+NWP25.0
+NWP26.0			

@@ -9,7 +9,6 @@ import org.eclipse.debug.ui.RefreshTab;
 
 import sc.ndt.ui.externaltools.internal.program.launchConfigurations.ProgramMainTab;
 //import sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FastFRETab;
-import sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FastFRETab;
 
 
 public class FASTSimulationTabGroup extends AbstractLaunchConfigurationTabGroup  {

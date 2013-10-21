@@ -12,7 +12,7 @@
          point="org.eclipse.ui.preferencePages">
       <page
             class="sc.ndt.commons.ui.preferences.NRELPreferencePage"
-            id="sc.nrel.ui.preferences.NRELPreferencePage"
+            id="sc.ndt.ui.preferences.NREL"
             name="NREL">
       </page>
    </extension>

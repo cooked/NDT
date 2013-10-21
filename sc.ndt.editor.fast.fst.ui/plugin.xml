@@ -5,23 +5,22 @@
 
     <extension
             point="org.eclipse.ui.editors">
+       <editor
+             class="sc.ndt.editor.fast.ui.mpe.ui.FstMultiPageEditor"
+             default="true"
+             extensions="fst"
+             icon="icons/fan-alt.png"
+             id="sc.ndt.editor.fast.mpe.editor"
+             name=".fst MP editor">
+       </editor>
         <editor
               class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
               contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-              default="true"
-              extensions="fst"
-              filenames="primary.fst"
-              icon="icons/text_padding_top.png"
-              id="sc.ndt.editor.fast.Fastfst"
-              name="Fastfst Editor">
-        </editor>
-        <editor
-              class="sc.ndt.editor.fast.ui.mpe.ui.FstMultiPageEditor"
               default="false"
               extensions="fst"
-              icon="icons/application_view_detail.png"
-              id="sc.ndt.editor.fast.mpe.editor"
-              name="MPE .fst editor">
+              icon="icons/text_padding_top.png"
+              id="sc.ndt.editor.fast.Fastfst"
+              name=".fst editor">
         </editor>
     </extension>
     <extension
@@ -56,29 +55,6 @@
                 </with>        
             </and>
         </definition>
-    </extension>
-    <extension
-            point="org.eclipse.ui.preferencePages">
-        <page
-            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="sc.ndt.editor.fast.Fastfst"
-            name="Fastfst">
-            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
-        </page>
-        <page
-            category="sc.ndt.editor.fast.Fastfst"
-            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="sc.ndt.editor.fast.Fastfst.coloring"
-            name="Syntax Coloring">
-            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
-        </page>
-        <page
-            category="sc.ndt.editor.fast.Fastfst"
-            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="sc.ndt.editor.fast.Fastfst.templates"
-            name="Templates">
-            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
-        </page>
     </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
@@ -190,16 +166,6 @@
             class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
-   <extension
-            point="org.eclipse.ui.preferencePages">
-        <page
-            category="sc.ndt.editor.fast.Fastfst"
-            class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="sc.ndt.editor.fast.Fastfst.compiler.preferencePage"
-            name="Compiler">
-            <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
-        </page>
-    </extension>
     <extension
             point="org.eclipse.ui.propertyPages">
         <page
@@ -312,15 +278,6 @@
          </command>
       </menuContribution>
    </extension>
-   <extension point="org.eclipse.ui.preferencePages">
-	    <page
-	        category="sc.ndt.editor.fast.Fastfst"
-	        class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-	        id="sc.ndt.editor.fast.Fastfst.refactoring"
-	        name="Refactoring">
-	        <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastfst"/>
-	    </page>
-	</extension>
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="sc.ndt.editor.fast.Fastfst.compare.contentViewers"
@@ -351,14 +308,23 @@
            category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.ui.wizard.project.FASTProjectWizard"
            finalPerspective="perspective.ndt.fast"
-           icon="icons/folder.png"
+           icon="icons/folder_page.png"
            id="sc.ndt.fast.newproject"
            name="FAST Project"
            project="true">
      </wizard>
      <wizard
            category="sc.ndt.ui.category.nrel"
+           class="sc.ndt.editor.fast.ui.wizard.file.FASTMainWizard"
+           finalPerspective="perspective.ndt.fast"
+           icon="icons/fan-alt.png"
+           id="sc.ndt.editor.fast.fst.ui.wizard1"
+           name="FAST">
+     </wizard>
+     <wizard
+           category="sc.ndt.ui.category.nrel"
            class="sc.ndt.editor.fast.fst.ui.NewWizard1"
+           icon="icons/chart_line.png"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
            name="FAST Linearization">
      </wizard>
@@ -378,10 +344,55 @@
   <extension
         point="org.eclipse.ui.preferencePages">
      <page
-           category="sc.nrel.ui.preferences.NRELPreferencePage"
-           class="sc.ndt.editor.fast.ui.addon.preferences.FASTPreferencePage"
-           id="sc.ndt.editor.fast.fst.ui.preferences.FASTPreferencePage"
+           category="sc.ndt.ui.preferences.NREL"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+           id="sc.ndt.ui.preferences.FAST.fst"
            name="FAST">
+        <keywordReference
+              id="sc.ndt.editor.fast.ui.keyword_Fastfst">
+        </keywordReference>
+     </page>
+     <page
+           category="sc.ndt.ui.preferences.FAST.fst"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+           id="sc.ndt.editor.fast.Fastfst.coloring"
+           name="Syntax Coloring">
+        <keywordReference
+              id="sc.ndt.editor.fast.ui.keyword_Fastfst">
+        </keywordReference>
+     </page>
+     <page
+           category="sc.ndt.ui.preferences.FAST.fst"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+           id="sc.ndt.editor.fast.Fastfst.templates"
+           name="Templates">
+        <keywordReference
+              id="sc.ndt.editor.fast.ui.keyword_Fastfst">
+        </keywordReference>
+     </page>
+  </extension>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="sc.ndt.ui.preferences.FAST.fst"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+           id="sc.ndt.editor.fast.Fastfst.compiler.preferencePage"
+           name="Compiler">
+        <keywordReference
+              id="sc.ndt.editor.fast.ui.keyword_Fastfst">
+        </keywordReference>
+     </page>
+  </extension>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           category="sc.ndt.ui.preferences.FAST.fst"
+           class="sc.ndt.editor.fast.ui.FastfstExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+           id="sc.ndt.editor.fast.Fastfst.refactoring"
+           name="Refactoring">
+        <keywordReference
+              id="sc.ndt.editor.fast.ui.keyword_Fastfst">
+        </keywordReference>
      </page>
   </extension>
   <extension
@@ -404,11 +415,44 @@
   <extension
         point="org.eclipse.ui.perspectives">
      <perspective
-           class="sc.ndt.editor.fast.fst.ui.addon.perspectives.FASTPerspective"
-           icon="icons/fan-alt.png"
+           class="sc.ndt.editor.fast.ui.addon.perspectives.FASTPerspective"
+           icon="icons/fan.png"
            id="perspective.ndt.fast"
-           name="FAST Perspective">
+           name="FAST Simulation">
      </perspective>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="perspective.ndt.fast">
+        <view
+              id="org.eclipse.ui.navigator.ProjectExplorer"
+              minimized="false"
+              ratio="0.15"
+              relationship="left"
+              relative="org.eclipse.ui.editorss">
+        </view>
+        <view
+              id="org.eclipse.ui.console.ConsoleView"
+              minimized="false"
+              ratio="0.70"
+              relationship="bottom"
+              relative="org.eclipse.ui.editorss">
+        </view>
+        <view
+              id="org.eclipse.ui.views.ProblemView"
+              minimized="false"
+              relationship="stack"
+              relative="org.eclipse.ui.console.ConsoleView">
+        </view>
+        <view
+              id="org.eclipse.ui.views.ContentOutline"
+              minimized="false"
+              ratio="0.80"
+              relationship="right"
+              relative="org.eclipse.ui.editorss">
+        </view>
+     </perspectiveExtension>
   </extension>
 
 </plugin>

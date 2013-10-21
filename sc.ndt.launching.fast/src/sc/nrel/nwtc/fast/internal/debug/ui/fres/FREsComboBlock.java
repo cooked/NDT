@@ -605,15 +605,16 @@ public class FREsComboBlock {
 	 * @param containerPath
 	 * @return status 
 	 */
+	@SuppressWarnings("unused")
 	public void setPath(IPath containerPath) {
-		/*fErrorPath = null;
+		fErrorPath = null;
 		setStatus(OK_STATUS);
-		if (JavaRuntime.newDefaultJREContainerPath().equals(containerPath)) {
+		if (FASTRuntime.newDefaultJREContainerPath().equals(containerPath)) {
 			setUseDefaultJRE();
 		} else {
-			String envId = JavaRuntime.getExecutionEnvironmentId(containerPath);
+			String envId = null;//FASTRuntime.getExecutionEnvironmentId(containerPath);
 			if (envId != null) {
-				IExecutionEnvironmentsManager manager = JavaRuntime.getExecutionEnvironmentsManager();
+				/*IExecutionEnvironmentsManager manager = FASTRuntime.getExecutionEnvironmentsManager();
 				IExecutionEnvironment environment = manager.getEnvironment(envId);
 				if (environment == null) {
 					fErrorPath = containerPath;
@@ -621,25 +622,25 @@ public class FREsComboBlock {
 					setError(NLS.bind(FREMessages.JREsComboBlock_6, new String[]{envId}));
 				} else {
 					selectEnvironment(environment);
-					IVMInstall[] installs = environment.getCompatibleVMs();
+					IFASTInstall[] installs = environment.getCompatibleVMs();
 					if (installs.length == 0) {
 						setError(NLS.bind(FREMessages.JREsComboBlock_7, new String[]{environment.getId()}));
 					}
-				}
+				}*/
 			} else {
 				IFASTInstall install = FASTRuntime.getFASTInstall(containerPath);
 				if (install == null) {
 					selectFRE(install);
 					fErrorPath = containerPath;
-					String installTypeId = JavaRuntime.getVMInstallTypeId(containerPath);
+					String installTypeId = FASTRuntime.getVMInstallTypeId(containerPath);
 					if (installTypeId == null) {
 						setError(FREMessages.JREsComboBlock_8);
 					} else {
-						IVMInstallType installType = JavaRuntime.getVMInstallType(installTypeId);
+						IFASTInstallType installType = FASTRuntime.getFASTInstallType(installTypeId);
 						if (installType == null) {
 							setError(NLS.bind(FREMessages.JREsComboBlock_9, new String[]{installTypeId}));
 						} else {
-							String installName = JavaRuntime.getVMInstallName(containerPath);
+							String installName = FASTRuntime.getVMInstallName(containerPath);
 							if (installName == null) {
 								setError(NLS.bind(FREMessages.JREsComboBlock_10, new String[]{installType.getName()}));
 							} else {
@@ -657,7 +658,7 @@ public class FREsComboBlock {
 					}							
 				}
 			}
-		}*/
+		}
 	}
 	
 	private void setError(String message) {

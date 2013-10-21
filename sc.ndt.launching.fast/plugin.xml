@@ -13,7 +13,7 @@
 <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            category="sc.ndt.editor.fast.fst.ui.preferences.FASTPreferencePage"
+            category="sc.ndt.ui.preferences.FAST.fst"
             class="sc.nrel.nwtc.fast.internal.debug.fres.FREsPreferencePage"
             id="sc.nrel.nwtc.fast.internal.debug.ui.fres.FREsPreferencePage"
             name="Installed FREs">

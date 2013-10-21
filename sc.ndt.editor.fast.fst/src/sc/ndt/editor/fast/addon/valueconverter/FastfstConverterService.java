@@ -53,12 +53,10 @@ public class FastfstConverterService extends
 
 	public class tNUMBERValueConverter extends DefaultTerminalConverters		implements IValueConverter<Float> {
 
-		@Override
 		public String toString(Float value) {
 			return value.toString();
 		}
 
-		@Override
 		public Float toValue(String string, INode node) {
 			if (string == null)
 				return 0F;

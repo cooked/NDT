@@ -12,12 +12,18 @@ Require-Bundle: org.eclipse.core.runtime,
  au.com.bytecode.opencsv;bundle-version="2.3.0",
  com.google.guava;bundle-version="11.0.1",
  org.eclipse.ui.console;bundle-version="3.5.100",
- org.apache.commons.lang
+ org.apache.commons.lang,
+ org.eclipse.ui.forms;bundle-version="3.6.0",
+ org.eclipse.xtext.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.commons.model,
- sc.ndt.commons.model.airfoillist.providers,
- sc.ndt.commons.model.outlist.providers,
+ sc.ndt.commons.model.providers,
+ sc.ndt.commons.model.providers.airfoils,
+ sc.ndt.commons.model.providers.outlist,
+ sc.ndt.commons.ui.editor,
  sc.ndt.commons.ui.preferences,
  sc.ndt.commons.ui.views
 Bundle-Vendor: Stefano Cottafavi
+Bundle-ClassPath: lib/jscience.jar,
+ .

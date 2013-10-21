@@ -8,7 +8,7 @@
         <editor
               class="sc.ndt.editor.fast.ui.FastadnExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
               contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-              default="true"
+              default="false"
               extensions="adn"
               icon="icons/database_table.png"
               id="sc.ndt.editor.fast.Fastadn"
@@ -16,7 +16,7 @@
         </editor>
         <editor
               class="sc.ndt.editor.fast.ui.addon.mpe.AdnMultiPageEditor"
-              default="false"
+              default="true"
               extensions="adn"
               icon="icons/games.png"
               id="sc.ndt.editor.fast.aerodyn.mpe.editor"
@@ -89,9 +89,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="sc.ndt.editor.fast.ui.FastadnExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="sc.ndt.editor.fast.Fastadn"
-            name="Fastadn">
+              category="sc.ndt.ui.preferences.NREL"
+              class="sc.ndt.editor.fast.ui.FastadnExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="sc.ndt.editor.fast.Fastadn"
+              name="AeroDyn">
             <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fastadn"/>
         </page>
         <page

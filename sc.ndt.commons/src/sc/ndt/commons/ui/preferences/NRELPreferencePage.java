@@ -16,8 +16,8 @@ implements IWorkbenchPreferencePage {
 
 	public NRELPreferencePage() {
 		super(GRID);
-		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription("A demonstration of a preference page implementation");
+		//setPreferenceStore(Activator.getDefault().getPreferenceStore());
+		//setDescription("A demonstration of a preference page implementation");
 	}
 
 	/**
@@ -27,7 +27,7 @@ implements IWorkbenchPreferencePage {
 	 * restore itself.
 	 */
 	public void createFieldEditors() {
-		addField(new DirectoryFieldEditor(PreferenceConstants.P_PATH, 
+		/*addField(new DirectoryFieldEditor(PreferenceConstants.P_PATH, 
 				"&Directory preference:", getFieldEditorParent()));
 		addField(
 				new BooleanFieldEditor(
@@ -44,6 +44,7 @@ implements IWorkbenchPreferencePage {
 				}, getFieldEditorParent()));
 		addField(
 				new StringFieldEditor(PreferenceConstants.P_STRING, "A &text preference:", getFieldEditorParent()));
+		 */
 	}
 
 	/* (non-Javadoc)

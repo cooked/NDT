@@ -3,8 +3,6 @@ package sc.ndt.editor.fast.ui.addon.mpe;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.swt.SWT;
-import org.eclipse.ui.ISizeProvider;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -17,6 +15,7 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.ui.FastadnFactory;
 import sc.ndt.editor.fast.ui.addon.mpe.outline.AdnMultiPageContentOutline;
@@ -26,6 +25,7 @@ import sc.ndt.editor.fast.ui.addon.mpe.outline.AdnMultiPageContentOutline;
 //import sc.nrel.nwtc.fast.aerodyn.ui.internal.FAdynActivator;
 //import sc.nrel.nwtc.fast.aerodyn.ui.editors.*;
 
+
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
@@ -34,7 +34,7 @@ import com.google.inject.Provider;
  * @author Cotta
  *
  */
-public class AdnMultiPageEditor extends FormEditor /*implements ISizeProvider*/ {
+public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 	// see about ISizeprovider
 	// http://www.eclipse.org/forums/index.php/m/706788/
@@ -47,9 +47,8 @@ public class AdnMultiPageEditor extends FormEditor /*implements ISizeProvider*/ 
 	//public Injector				fBldeInjector;
 	
 	// inner source editors
-	@Inject
 	public XtextEditor 			xtextEditorAdn;		// injected here
-	//public XtextEditor 			xtextEditorFAdyn; 	// injected then
+	//public XtextEditor 		xtextEditorFAdyn; 	// injected then
 	
 	// inner form editors
 	public FormPage				formPageMain;
@@ -77,9 +76,18 @@ public class AdnMultiPageEditor extends FormEditor /*implements ISizeProvider*/ 
 		ff 				= new FastadnFactory();
 		fAdynInjector 	= ff.getInjector();
 		xtextEditorAdn 	= fAdynInjector.getInstance(XtextEditor.class);
-		//fAdynInjector = FAdynActivator.getInstance().getInjector(FAdynActivator.SC_NREL_NWTC_FAST_AERODYN_FADYN);
 	}
 
+	@Override
+	public Injector getXtextInjector(String key) {
+		return fAdynInjector;
+	}
+	
+	@Override
+	public XtextEditor getXtextEditor(String key) {
+		return xtextEditorAdn;
+	}
+	
 	/**
 	 * @param editor
 	 * @return
@@ -289,6 +297,8 @@ public class AdnMultiPageEditor extends FormEditor /*implements ISizeProvider*/ 
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
 		fContentOutline.setPageActive(outline);
 	}
+
+	
 
 	/*
 	@Override

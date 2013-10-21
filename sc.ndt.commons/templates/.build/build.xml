@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<project name="FAST Simulation Autopilot" default="dlc" xmlns:ac="antlib:net.sf.antcontrib">
+
+	<!--
+	http://ant.apache.org/manual/using.html
+	http://ant.apache.org/manual/Tasks/replace.html 
+	http://ant.apache.org/manual/Tasks/propertyfile.html
+	-->
+
+	<description>
+		FAST Simulation Control Panel
+	</description>
+
+	<property name="input" 	location="${basedir}/input"/>
+	<property name="output" location="${basedir}/output"/>
+
+	<property file=".build/build.properties" />
+
+
+	<!-- TEST -->
+	<target name="test">
+		<loadfile property="fast.file" srcfile="FAST.fst">
+					<filterchain>
+						<linecontains><contains value="ADFile"/></linecontains>
+						<!--<tokenfilter>
+							<replaceregex match="(.*)" replace="'../../@{file.rel}' WindFile"/>
+						</tokenfilter>-->
+					</filterchain>
+				</loadfile>
+		<echo message="${fast.file}" />
+	</target>
+
+	<!-- SINGLE RUN -->
+	<target name="run">
+
+		<mkdir dir="${output}"/>
+		<loadfile srcfile="Test01.fst" property="TowerHt">
+			<filterchain>
+				<linecontains>
+					<contains value="TowerHt"/>
+				</linecontains>
+				<tokenfilter>
+					<stringtokenizer delims="TowerHt"/>
+				</tokenfilter>
+			</filterchain>
+		</loadfile>
+
+		<dirset id="dist.contents" dir="build/javadoc" includes="*"/>
+
+		<echo>${TowerHt}</echo>
+
+		<!--<exec 
+			executable="/Users/stefanocottafavi/Documents/NREL/FAST/7.02.00d/bin/arch/osx/FAST">
+			<arg value="Test01.fst"/>
+		</exec>-->
+		<move todir="${output}">
+			<fileset dir="${basedir}">
+				<include name="**/*.acf"/>
+				<include name="**/*.adm"/>
+				<include name="**/*.fsm"/>
+				<include name="**/*.opt"/>
+				<include name="**/*.out"/>
+				<!--<exclude name="**/ant.jar"/>-->
+			</fileset>
+		</move>
+
+	</target>
+
+
+	<!-- DLCs RUN -->
+	<target name="dlc" description="Run simulations for all DLCs of the IEC 61400-1">
+
+		<!-- create output structure -->
+		<mkdir dir="${output}/dlc" />
+		<mkdir dir="${output}/dlc/1.1" />
+		
+		<!-- extract AeroDyn file from FAST main file -->
+		<loadfile property="fast.file" srcfile="">
+			<filterchain>
+				<linecontains><contains value="ADFile"/></linecontains>
+				<tokenfilter>
+					<replaceregex match="(.*)" replace="'../../@{file.rel}' WindFile"/>
+				</tokenfilter>
+			</filterchain>
+		</loadfile>
+		<!-- DLC 1.1 - loop NTM wind speed range -->
+		<ac:for param="file">
+			
+			<fileset dir="${output}/wind/NTM">
+				<include name="*.wnd" />
+			</fileset>
+			
+			<sequential>
+
+				<local name="file.rel" />
+				<property name="file.rel" location="@{file}" relative="yes" />
+
+				<replaceregexp
+					file="${input}/aero/aerodyn.adn" 
+									match="(.*)[\s]+WindFile" 
+									replace="'../../@{file.rel}' WindFile" 
+									byline="true" 
+								/>
+					
+				<replaceregexp
+					file="${input}/aero/aerodyn.adn" 
+					match="(.*)[\s]+WindFile" 
+					replace="'../../@{file.rel}' WindFile" 
+					byline="true" 
+				/>
+
+				<exec executable="${loc.fast}">
+					<arg value="${basedir}/fast.fst" />
+				</exec>
+
+				<move todir="${output}/dlc/1.1">
+					<fileset dir="${basedir}">
+						<include name="*.ech" />
+						<include name="*.acf" />
+						<include name="*.adm" />
+						<include name="*.fsm" />
+						<include name="*.opt" />
+						<include name="*.out" />
+						<include name="*.sum" />
+					</fileset>
+					<globmapper from="FAST.*" to="@{file}.*"/>
+				</move>
+
+			</sequential>
+		</ac:for>
+		
+		<!-- restore -->
+		<delete file="${basedir}/FAST.fst"/>
+		<move file="${basedir}/FAST.bak" tofile="${basedir}/FAST.fst"/>
+
+		
+	</target>
+
+
+	<!-- PRE - Create IECWind and TurbSim stuff -->
+	<target name="wind" description="Create IECWind and TurbSim">
+		<loadfile srcfile="Test01.fst" property="URef">
+			<filterchain>
+				<linecontains>
+					<contains value="URef"/>
+				</linecontains>
+				<tokenfilter>
+					<stringtokenizer delims="URef"/>
+				</tokenfilter>
+			</filterchain>
+		</loadfile>
+
+	</target>
+
+
+
+	<target name="wind.NTM" description="">
+
+		<!-- backup -->
+		<copy file="${input}/wind/turbsim/turbsim.tbs" tofile="${input}/wind/turbsim/turbsim.bak" />
+
+		<mkdir dir="${input}/wind/turbsim/NTM" />
+		<mkdir dir="${output}/wind/NTM" />
+
+		<!-- set common parameters -->
+		<replaceregexp file="${input}/wind/turbsim/turbsim.tbs" match="(.*)[\s]+IECturbc" 		replace="${wtg.class.row}	IECturbc" 	byline="true" />
+		<replaceregexp file="${input}/wind/turbsim/turbsim.tbs" match="(.*)[\s]+IEC_WindType" 	replace="NTM	IEC_WindType" 			byline="true" />
+
+		<!-- loop wind speed range -->
+		<ac:for list="${wtg.wind.range}" param="wind.speed">
+			<sequential>
+				<replaceregexp file="${input}/wind/turbsim/turbsim.tbs" match="(.*)[\s]+Uref"  replace="@{wind.speed}	Uref" byline="true" />
+				<copy file="${input}/wind/turbsim/turbsim.tbs" tofile="${input}/wind/turbsim/NTM/ntm@{wind.speed}.tbs"/>
+			</sequential>
+		</ac:for>
+
+		<!-- restore -->
+		<delete file="${input}/wind/turbsim/turbsim.tbs"/>
+		<move file="${input}/wind/turbsim/turbsim.bak" tofile="${input}/wind/turbsim/turbsim.tbs"/>
+
+		<!-- run TurbSim -->
+		<ac:for param="file.tbs">
+			<fileset dir="${input}/wind/turbsim/NTM">
+				<include name="*.tbs" />
+			</fileset>
+			<sequential>
+				<exec executable="${loc.turbsim}">
+					<arg value="@{file.tbs}" />
+				</exec>
+			</sequential>
+		</ac:for>
+		<move todir="${output}/wind/NTM">
+			<fileset dir="${input}/wind/turbsim/NTM">
+				<include name="*.sum" />
+				<include name="*.bin" />
+				<include name="*.dat" />
+				<include name="*.hh" />
+				<include name="*.bts" />
+				<include name="*.wnd" />
+				<include name="*.twr" />
+				<include name="*.u" />
+				<include name="*.v" />
+				<include name="*.w" />
+				<include name="*.cts" />
+			</fileset>
+		</move>
+
+	</target>
+
+
+
+	<target name="wind-turbsim-etm" description="">
+
+		<mkdir dir="${wind}/ETM" />
+		<replaceregexp file="${input}/wind/turbsim.tbs" match="(.*)[\s]+IEC_WindType" replace="${wtg.class.col}ETM IEC_WindType" byline="true" />
+
+	</target>
+
+	<target name="wind-turbsim-ewm" description="">
+	</target>
+
+
+	<!-- PRE - Create IECWind and TurbSim stuff -->
+	<target name="linear" description="Run single linearization">
+	</target>
+	<target name="campbell" description="Run linearized simulations to create Campbell's diagram">
+	</target>
+
+	<!-- CLEAN around -->
+	<target name="clean" description="remove intermediate files">
+		<delete dir="classes"/>
+		<delete file="hello.jar"/>
+	</target>
+
+</project>

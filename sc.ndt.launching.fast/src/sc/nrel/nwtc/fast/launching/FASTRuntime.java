@@ -36,7 +36,6 @@ import org.eclipse.jface.preference.PreferenceStore;
 import org.osgi.service.prefs.BackingStoreException;
 
 // import core.IFASTProject;
-
 import sc.nrel.nwtc.fast.internal.launching.VMListener;
 
 /* TODO 
@@ -1920,11 +1919,12 @@ public final class FASTRuntime {
 	 * @return vm install type identifier or <code>null</code>
 	 * @since 3.2
 	 */
-	/*public static String getVMInstallTypeId(IPath jreContainerPath) {
-		if (JREContainerInitializer.isExecutionEnvironment(jreContainerPath)) {
+	public static String getVMInstallTypeId(IPath jreContainerPath) {
+		/*if (JREContainerInitializer.isExecutionEnvironment(jreContainerPath)) {
 			return null;
 		}
-		return JREContainerInitializer.getVMTypeId(jreContainerPath);
+		return JREContainerInitializer.getVMTypeId(jreContainerPath);*/
+		return null;
 	}
 
 	/**
@@ -1935,11 +1935,12 @@ public final class FASTRuntime {
 	 * @return vm name or <code>null</code>
 	 * @since 3.2
 	 */
-	/*public static String getVMInstallName(IPath jreContainerPath) {
-		if (JREContainerInitializer.isExecutionEnvironment(jreContainerPath)) {
+	public static String getVMInstallName(IPath jreContainerPath) {
+		/*if (JREContainerInitializer.isExecutionEnvironment(jreContainerPath)) {
 			return null;
 		}
-		return JREContainerInitializer.getVMName(jreContainerPath);
+		return JREContainerInitializer.getVMName(jreContainerPath);*/
+		return null;
 	}
 	
 	/**
@@ -1950,8 +1951,8 @@ public final class FASTRuntime {
 	 * @return execution environment identifier or <code>null</code>
 	 * @since 3.2
 	 */
-	/*public static String getExecutionEnvironmentId(IPath jreContainerPath) {
-		return JREContainerInitializer.getExecutionEnvironmentId(jreContainerPath);
+	public static String getExecutionEnvironmentId(IPath jreContainerPath) {
+		return null;//FREContainerInitializer.getExecutionEnvironmentId(jreContainerPath);
 	}
 	
 	/**

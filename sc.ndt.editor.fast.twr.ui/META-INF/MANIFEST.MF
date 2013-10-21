@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: sc.ndt.editor.fast.twr.ui
+Bundle-Vendor: Stefano Cottafavi
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: sc.ndt.editor.fast.twr.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: sc.ndt.editor.fast.twr;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare,
+ org.eclipse.ui.forms,
+ sc.ndt.commons,
+ org.eclipse.core.databinding,
+ ch.vorburger.xtext.databinding,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ sc.ndt.editor.bmodes.bmi,
+ sc.ndt.editor.bmodes.bmi.ui;bundle-version="1.0.0",
+ org.eclipse.core.resources
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: sc.ndt.editor.fast.ui.quickfix,
+ sc.ndt.editor.fast.ui.contentassist,
+ sc.ndt.editor.fast.ui.contentassist.antlr,
+ sc.ndt.editor.fast.ui.internal
+Bundle-Activator: sc.ndt.editor.fast.ui.internal.FasttwrActivator

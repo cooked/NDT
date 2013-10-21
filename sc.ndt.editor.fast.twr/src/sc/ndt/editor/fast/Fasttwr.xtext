@@ -1,0 +1,148 @@
+grammar sc.ndt.editor.fast.Fasttwr //with org.eclipse.xtext.common.Terminals
+
+generate fasttwr "http://www.ndt.sc/editor/fast/Fasttwr"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+ModelFasttwr: 
+	
+	Head 		= Header
+	
+	sections 	+= Section
+  	NTwInpSt 	= nNTwInpSt
+  	CalcTMode 	= bCalcTMode
+	BldFlDmp1 	= nTwrFADmp1
+	BldFlDmp2 	= nTwrFADmp2
+	BldEdDmp1	= nTwrSSDmp1	
+	BldEdDmp2	= nTwrSSDmp2
+
+	sections 	+= Section
+	FAStTunr1	= nFAStTunr1
+	FAStTunr2	= nFAStTunr2
+	SSStTunr1	= nSSStTunr1
+	SSStTunr2	= nSSStTunr2	
+	AdjTwMa 	= AdjTwMa	
+	AdjFASt		= AdjFASt	
+	AdjSSSt		= AdjSSSt
+
+	sections 	+= Section
+	TwrStat 	= aTwrStat
+	
+	sections 	+= Section
+	TwFAM1Sh2	= nTwFAM1Sh2
+	TwFAM1Sh3	= nTwFAM1Sh3								
+	TwFAM1Sh4	= nTwFAM1Sh4									
+	TwFAM1Sh5	= nTwFAM1Sh5									
+	TwFAM1Sh6	= nTwFAM1Sh6
+									
+	TwFAM2Sh2	= nTwFAM2Sh2
+	TwFAM2Sh3	= nTwFAM2Sh3									
+	TwFAM2Sh4	= nTwFAM2Sh4								
+	TwFAM2Sh5	= nTwFAM2Sh5								
+	TwFAM2Sh6	= nTwFAM2Sh6	
+	
+	sections 	+= Section
+	TwSSM1Sh2	= nTwSSM1Sh2
+	TwSSM1Sh3	= nTwSSM1Sh3								
+	TwSSM1Sh4	= nTwSSM1Sh4								
+	TwSSM1Sh5	= nTwSSM1Sh5								
+	TwSSM1Sh6	= nTwSSM1Sh6
+								
+	TwSSM2Sh2	= nTwSSM2Sh2
+	TwSSM2Sh3	= nTwSSM2Sh3								
+	TwSSM2Sh4	= nTwSSM2Sh4								
+	TwSSM2Sh5	= nTwSSM2Sh5								
+	TwSSM2Sh6	= nTwSSM2Sh6								
+
+  	(WS|NEWLINE|SL_COMMENT)*
+;
+  	// about EOF
+  	// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
+ 	
+ 	// TERMINALS 
+// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
+// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal NUMBER returns ecore::EFloat:	
+	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
+	(('+'|'-')? INT 		  (('E'|'e')('+'|'-')? INT ) ) |
+	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
+	('-'		INT										 )
+;
+
+terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+terminal NEWLINE	: '\r'|'\n'|'\r\n';
+terminal SL_COMMENT	: '-' !('0'..'9') !('\r'|'\n'|'\r\n')*;
+terminal WS			: (' '|'\t')+;
+
+
+	
+	
+Header hidden(): 
+	SL_COMMENT  NEWLINE
+	SL_COMMENT  NEWLINE
+	name=SL_COMMENT  NEWLINE
+;
+Section hidden():
+	name=SL_COMMENT  	NEWLINE
+;
+
+tNUMBER returns ecore::EFloat	: INT | NUMBER;
+tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
+
+nNTwInpSt 	hidden():	WS? value=INT 		WS	name='NTwInpSt' 	WS? SL_COMMENT? NEWLINE;
+bCalcTMode 	hidden():	WS? value=tBOOL 	WS	name='CalcTMode' 	WS? SL_COMMENT? NEWLINE;
+nTwrFADmp1 	hidden():	WS? value=tNUMBER 	WS	name='TwrFADmp(1)' 	WS? SL_COMMENT? NEWLINE;
+nTwrFADmp2 	hidden():	WS? value=tNUMBER 	WS	name='TwrFADmp(2)' 	WS? SL_COMMENT? NEWLINE;
+nTwrSSDmp1	hidden():	WS? value=tNUMBER 	WS	name='TwrSSDmp(1)'	WS? SL_COMMENT? NEWLINE;
+nTwrSSDmp2	hidden():	WS? value=tNUMBER 	WS	name='TwrSSDmp(2)'	WS? SL_COMMENT? NEWLINE;
+
+nFAStTunr1	hidden():	WS? value=tNUMBER 	WS	name='FAStTunr(1)' 	WS? SL_COMMENT? NEWLINE;
+nFAStTunr2	hidden():	WS? value=tNUMBER 	WS	name='FAStTunr(2)'	WS? SL_COMMENT? NEWLINE;
+nSSStTunr1	hidden():	WS? value=tNUMBER 	WS	name='SSStTunr(1)' 	WS? SL_COMMENT? NEWLINE;
+nSSStTunr2	hidden():	WS? value=tNUMBER 	WS	name='SSStTunr(2)'	WS? SL_COMMENT? NEWLINE;
+AdjTwMa 	hidden(): 	WS? value=tNUMBER 	WS	name='AdjTwMa'		WS?	SL_COMMENT? NEWLINE;
+AdjFASt		hidden():	WS? value=tNUMBER 	WS	name='AdjFASt'		WS? SL_COMMENT? NEWLINE;
+AdjSSSt		hidden():	WS? value=tNUMBER 	WS	name='AdjSSSt'		WS? SL_COMMENT? NEWLINE;
+
+nTwFAM1Sh2	hidden():	WS? value=tNUMBER 	WS	name='TwFAM1Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nTwFAM1Sh3	hidden():	WS? value=tNUMBER 	WS	name='TwFAM1Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM1Sh4	hidden():	WS? value=tNUMBER 	WS	name='TwFAM1Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM1Sh5	hidden():	WS? value=tNUMBER 	WS	name='TwFAM1Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM1Sh6	hidden():	WS? value=tNUMBER 	WS	name='TwFAM1Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+nTwFAM2Sh2	hidden():	WS? value=tNUMBER 	WS	name='TwFAM2Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nTwFAM2Sh3	hidden():	WS? value=tNUMBER 	WS	name='TwFAM2Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM2Sh4	hidden():	WS? value=tNUMBER 	WS	name='TwFAM2Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM2Sh5	hidden():	WS? value=tNUMBER 	WS	name='TwFAM2Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nTwFAM2Sh6	hidden():	WS? value=tNUMBER 	WS	name='TwFAM2Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+nTwSSM1Sh2	hidden():	WS? value=tNUMBER 	WS	name='TwSSM1Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nTwSSM1Sh3	hidden():	WS? value=tNUMBER 	WS	name='TwSSM1Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM1Sh4	hidden():	WS? value=tNUMBER 	WS	name='TwSSM1Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM1Sh5	hidden():	WS? value=tNUMBER 	WS	name='TwSSM1Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM1Sh6	hidden():	WS? value=tNUMBER 	WS	name='TwSSM1Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+nTwSSM2Sh2	hidden():	WS? value=tNUMBER 	WS	name='TwSSM2Sh(2)'	WS? SL_COMMENT? NEWLINE;
+nTwSSM2Sh3	hidden():	WS? value=tNUMBER 	WS	name='TwSSM2Sh(3)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM2Sh4	hidden():	WS? value=tNUMBER 	WS	name='TwSSM2Sh(4)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM2Sh5	hidden():	WS? value=tNUMBER 	WS	name='TwSSM2Sh(5)'	WS? SL_COMMENT? NEWLINE;								
+nTwSSM2Sh6	hidden():	WS? value=tNUMBER 	WS	name='TwSSM2Sh(6)'	WS? SL_COMMENT? NEWLINE;								
+
+
+aTwrStat	hidden():	
+	WS? 'HtFract' WS 'TMassDen' WS 'TwFAStif' WS 'TwSSStif' WS 'TwGJStif' WS 'TwEAStif' WS 'TwFAIner' WS 'TwSSIner' WS 'TwFAcgOf' WS 'TwSScgOf' WS? SL_COMMENT? NEWLINE	
+	WS? '(-)' 	  WS '(kg/m)' 	WS '(Nm^2)'   WS '(Nm^2)'   WS '(Nm^2)'   WS '(N)'  	WS '(kg m)'   WS '(kg m)'   WS '(m)'	  WS '(m)'  	WS? SL_COMMENT? NEWLINE
+	(WS? HtFract+=tNUMBER WS 
+		TMassDen+=tNUMBER WS 
+		TwFAStif+=tNUMBER WS 
+		TwSSStif+=tNUMBER WS 
+		TwGJStif+=tNUMBER WS 
+		TwEAStif+=tNUMBER WS
+		TwFAIner+=tNUMBER WS
+		TwSSIner+=tNUMBER WS
+		TwFAcgOf+=tNUMBER WS
+		TwSScgOf+=tNUMBER WS? SL_COMMENT? NEWLINE)+
+;
+	

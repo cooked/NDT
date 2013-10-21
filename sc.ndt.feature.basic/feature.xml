@@ -2,7 +2,7 @@
 <feature
       id="sc.ndt.feature.basic"
       label="NDT Basic"
-      version="0.3.0.qualifier"
+      version="0.4.0.qualifier"
       provider-name="Stefano Cottafavi">
 
    <description url="www.stefanocottafavi.com">
@@ -114,13 +114,6 @@ COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQ
          unpack="false"/>
 
    <plugin
-         id="sc.ndt.editor.fast.out"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="sc.ndt.editor.fast.adn"
          download-size="0"
          install-size="0"
@@ -139,5 +132,68 @@ COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQ
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="sc.ndt.commons.ant"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.iecwind.iec"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.iecwind.iec.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.turbsim.tbs"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.turbsim.tbs.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.bld"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.bld.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.twr"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.twr.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

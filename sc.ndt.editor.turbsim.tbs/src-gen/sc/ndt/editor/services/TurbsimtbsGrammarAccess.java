@@ -17,25 +17,3216 @@ import org.eclipse.xtext.service.AbstractElementFinder.*;
 public class TurbsimtbsGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
-		private final Assignment cAAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cAINTTerminalRuleCall_0 = (RuleCall)cAAssignment.eContents().get(0);
+	public class ModelTurbsimtbsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModelTurbsimtbs");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cHeadAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cHeadHeaderParserRuleCall_0_0 = (RuleCall)cHeadAssignment_0.eContents().get(0);
+		private final Assignment cSectionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSectionsSectionParserRuleCall_1_0 = (RuleCall)cSectionsAssignment_1.eContents().get(0);
+		private final Assignment cRandSeed1Assignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRandSeed1NRandSeed1ParserRuleCall_2_0 = (RuleCall)cRandSeed1Assignment_2.eContents().get(0);
+		private final Assignment cRandSeed2Assignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRandSeed2NRandSeed2ParserRuleCall_3_0 = (RuleCall)cRandSeed2Assignment_3.eContents().get(0);
+		private final Assignment cWrBHHTPAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cWrBHHTPBWrBHHTPParserRuleCall_4_0 = (RuleCall)cWrBHHTPAssignment_4.eContents().get(0);
+		private final Assignment cWrFHHTPAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cWrFHHTPBWrFHHTPParserRuleCall_5_0 = (RuleCall)cWrFHHTPAssignment_5.eContents().get(0);
+		private final Assignment cWrADHHAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cWrADHHBWrADHHParserRuleCall_6_0 = (RuleCall)cWrADHHAssignment_6.eContents().get(0);
+		private final Assignment cWrADFFAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cWrADFFBWrADFFParserRuleCall_7_0 = (RuleCall)cWrADFFAssignment_7.eContents().get(0);
+		private final Assignment cWrBLFFAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cWrBLFFBWrBLFFParserRuleCall_8_0 = (RuleCall)cWrBLFFAssignment_8.eContents().get(0);
+		private final Assignment cWrADTWRAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cWrADTWRBWrADTWRParserRuleCall_9_0 = (RuleCall)cWrADTWRAssignment_9.eContents().get(0);
+		private final Assignment cWrFMTFFAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cWrFMTFFBWrFMTFFParserRuleCall_10_0 = (RuleCall)cWrFMTFFAssignment_10.eContents().get(0);
+		private final Assignment cWrACTAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cWrACTBWrACTParserRuleCall_11_0 = (RuleCall)cWrACTAssignment_11.eContents().get(0);
+		private final Assignment cClockwiseAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cClockwiseBClockwiseParserRuleCall_12_0 = (RuleCall)cClockwiseAssignment_12.eContents().get(0);
+		private final Assignment cScaleIECAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cScaleIECIScaleIECParserRuleCall_13_0 = (RuleCall)cScaleIECAssignment_13.eContents().get(0);
+		private final Assignment cSectionsAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cSectionsSectionParserRuleCall_14_0 = (RuleCall)cSectionsAssignment_14.eContents().get(0);
+		private final Assignment cNumGrid_ZAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cNumGrid_ZINumGrid_ZParserRuleCall_15_0 = (RuleCall)cNumGrid_ZAssignment_15.eContents().get(0);
+		private final Assignment cNumGrid_YAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cNumGrid_YINumGrid_YParserRuleCall_16_0 = (RuleCall)cNumGrid_YAssignment_16.eContents().get(0);
+		private final Assignment cTimeStepAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cTimeStepNTimeStepParserRuleCall_17_0 = (RuleCall)cTimeStepAssignment_17.eContents().get(0);
+		private final Assignment cAnalysisTimeAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cAnalysisTimeNAnalysisTimeParserRuleCall_18_0 = (RuleCall)cAnalysisTimeAssignment_18.eContents().get(0);
+		private final Assignment cUsableTimeAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cUsableTimeNUsableTimeParserRuleCall_19_0 = (RuleCall)cUsableTimeAssignment_19.eContents().get(0);
+		private final Assignment cHubHtAssignment_20 = (Assignment)cGroup.eContents().get(20);
+		private final RuleCall cHubHtNHubHtParserRuleCall_20_0 = (RuleCall)cHubHtAssignment_20.eContents().get(0);
+		private final Assignment cGridHeightAssignment_21 = (Assignment)cGroup.eContents().get(21);
+		private final RuleCall cGridHeightNGridHeightParserRuleCall_21_0 = (RuleCall)cGridHeightAssignment_21.eContents().get(0);
+		private final Assignment cGridWidthAssignment_22 = (Assignment)cGroup.eContents().get(22);
+		private final RuleCall cGridWidthNGridWidthParserRuleCall_22_0 = (RuleCall)cGridWidthAssignment_22.eContents().get(0);
+		private final Assignment cVFlowAngAssignment_23 = (Assignment)cGroup.eContents().get(23);
+		private final RuleCall cVFlowAngNVFlowAngParserRuleCall_23_0 = (RuleCall)cVFlowAngAssignment_23.eContents().get(0);
+		private final Assignment cHFlowAngAssignment_24 = (Assignment)cGroup.eContents().get(24);
+		private final RuleCall cHFlowAngNHFlowAngParserRuleCall_24_0 = (RuleCall)cHFlowAngAssignment_24.eContents().get(0);
+		private final Assignment cSectionsAssignment_25 = (Assignment)cGroup.eContents().get(25);
+		private final RuleCall cSectionsSectionParserRuleCall_25_0 = (RuleCall)cSectionsAssignment_25.eContents().get(0);
+		private final Assignment cTurbModelAssignment_26 = (Assignment)cGroup.eContents().get(26);
+		private final RuleCall cTurbModelSTurbModelParserRuleCall_26_0 = (RuleCall)cTurbModelAssignment_26.eContents().get(0);
+		private final Assignment cIECstandardAssignment_27 = (Assignment)cGroup.eContents().get(27);
+		private final RuleCall cIECstandardSIECstandardParserRuleCall_27_0 = (RuleCall)cIECstandardAssignment_27.eContents().get(0);
+		private final Assignment cIECturbcAssignment_28 = (Assignment)cGroup.eContents().get(28);
+		private final RuleCall cIECturbcSIECturbcParserRuleCall_28_0 = (RuleCall)cIECturbcAssignment_28.eContents().get(0);
+		private final Assignment cIEC_WindTypeAssignment_29 = (Assignment)cGroup.eContents().get(29);
+		private final RuleCall cIEC_WindTypeSIEC_WindTypeParserRuleCall_29_0 = (RuleCall)cIEC_WindTypeAssignment_29.eContents().get(0);
+		private final Assignment cETMcAssignment_30 = (Assignment)cGroup.eContents().get(30);
+		private final RuleCall cETMcSETMcParserRuleCall_30_0 = (RuleCall)cETMcAssignment_30.eContents().get(0);
+		private final Assignment cWindProfileTypeAssignment_31 = (Assignment)cGroup.eContents().get(31);
+		private final RuleCall cWindProfileTypeSWindProfileTypeParserRuleCall_31_0 = (RuleCall)cWindProfileTypeAssignment_31.eContents().get(0);
+		private final Assignment cRefHtAssignment_32 = (Assignment)cGroup.eContents().get(32);
+		private final RuleCall cRefHtNRefHtParserRuleCall_32_0 = (RuleCall)cRefHtAssignment_32.eContents().get(0);
+		private final Assignment cUrefAssignment_33 = (Assignment)cGroup.eContents().get(33);
+		private final RuleCall cUrefNUrefParserRuleCall_33_0 = (RuleCall)cUrefAssignment_33.eContents().get(0);
+		private final Assignment cZJetMaxAssignment_34 = (Assignment)cGroup.eContents().get(34);
+		private final RuleCall cZJetMaxNZJetMaxParserRuleCall_34_0 = (RuleCall)cZJetMaxAssignment_34.eContents().get(0);
+		private final Assignment cPLExpAssignment_35 = (Assignment)cGroup.eContents().get(35);
+		private final RuleCall cPLExpNPLExpParserRuleCall_35_0 = (RuleCall)cPLExpAssignment_35.eContents().get(0);
+		private final Assignment cZ0Assignment_36 = (Assignment)cGroup.eContents().get(36);
+		private final RuleCall cZ0NZ0ParserRuleCall_36_0 = (RuleCall)cZ0Assignment_36.eContents().get(0);
+		private final Assignment cSectionsAssignment_37 = (Assignment)cGroup.eContents().get(37);
+		private final RuleCall cSectionsSectionParserRuleCall_37_0 = (RuleCall)cSectionsAssignment_37.eContents().get(0);
+		private final Assignment cLocationAssignment_38 = (Assignment)cGroup.eContents().get(38);
+		private final RuleCall cLocationNLocationParserRuleCall_38_0 = (RuleCall)cLocationAssignment_38.eContents().get(0);
+		private final Assignment cRICH_NOAssignment_39 = (Assignment)cGroup.eContents().get(39);
+		private final RuleCall cRICH_NONRICH_NOParserRuleCall_39_0 = (RuleCall)cRICH_NOAssignment_39.eContents().get(0);
+		private final Assignment cUStarAssignment_40 = (Assignment)cGroup.eContents().get(40);
+		private final RuleCall cUStarNUStarParserRuleCall_40_0 = (RuleCall)cUStarAssignment_40.eContents().get(0);
+		private final Assignment cZIAssignment_41 = (Assignment)cGroup.eContents().get(41);
+		private final RuleCall cZINZIParserRuleCall_41_0 = (RuleCall)cZIAssignment_41.eContents().get(0);
+		private final Assignment cPC_UWAssignment_42 = (Assignment)cGroup.eContents().get(42);
+		private final RuleCall cPC_UWNPC_UWParserRuleCall_42_0 = (RuleCall)cPC_UWAssignment_42.eContents().get(0);
+		private final Assignment cPC_UVAssignment_43 = (Assignment)cGroup.eContents().get(43);
+		private final RuleCall cPC_UVNPC_UVParserRuleCall_43_0 = (RuleCall)cPC_UVAssignment_43.eContents().get(0);
+		private final Assignment cPC_VWAssignment_44 = (Assignment)cGroup.eContents().get(44);
+		private final RuleCall cPC_VWNPC_VWParserRuleCall_44_0 = (RuleCall)cPC_VWAssignment_44.eContents().get(0);
+		private final Assignment cIncDec1Assignment_45 = (Assignment)cGroup.eContents().get(45);
+		private final RuleCall cIncDec1NIncDec1ParserRuleCall_45_0 = (RuleCall)cIncDec1Assignment_45.eContents().get(0);
+		private final Assignment cIncDec2Assignment_46 = (Assignment)cGroup.eContents().get(46);
+		private final RuleCall cIncDec2NIncDec2ParserRuleCall_46_0 = (RuleCall)cIncDec2Assignment_46.eContents().get(0);
+		private final Assignment cIncDec3Assignment_47 = (Assignment)cGroup.eContents().get(47);
+		private final RuleCall cIncDec3NIncDec3ParserRuleCall_47_0 = (RuleCall)cIncDec3Assignment_47.eContents().get(0);
+		private final Assignment cCohExpAssignment_48 = (Assignment)cGroup.eContents().get(48);
+		private final RuleCall cCohExpNCohExpParserRuleCall_48_0 = (RuleCall)cCohExpAssignment_48.eContents().get(0);
+		private final Assignment cSectionsAssignment_49 = (Assignment)cGroup.eContents().get(49);
+		private final RuleCall cSectionsSectionParserRuleCall_49_0 = (RuleCall)cSectionsAssignment_49.eContents().get(0);
+		private final Assignment cCTEventPathAssignment_50 = (Assignment)cGroup.eContents().get(50);
+		private final RuleCall cCTEventPathSCTEventPathParserRuleCall_50_0 = (RuleCall)cCTEventPathAssignment_50.eContents().get(0);
+		private final Assignment cCTEventFileAssignment_51 = (Assignment)cGroup.eContents().get(51);
+		private final RuleCall cCTEventFileSCTEventFileParserRuleCall_51_0 = (RuleCall)cCTEventFileAssignment_51.eContents().get(0);
+		private final Assignment cRandomizeAssignment_52 = (Assignment)cGroup.eContents().get(52);
+		private final RuleCall cRandomizeBRandomizeParserRuleCall_52_0 = (RuleCall)cRandomizeAssignment_52.eContents().get(0);
+		private final Assignment cDistSclAssignment_53 = (Assignment)cGroup.eContents().get(53);
+		private final RuleCall cDistSclNDistSclParserRuleCall_53_0 = (RuleCall)cDistSclAssignment_53.eContents().get(0);
+		private final Assignment cCTLyAssignment_54 = (Assignment)cGroup.eContents().get(54);
+		private final RuleCall cCTLyNCTLyParserRuleCall_54_0 = (RuleCall)cCTLyAssignment_54.eContents().get(0);
+		private final Assignment cCTLzAssignment_55 = (Assignment)cGroup.eContents().get(55);
+		private final RuleCall cCTLzNCTLzParserRuleCall_55_0 = (RuleCall)cCTLzAssignment_55.eContents().get(0);
+		private final Assignment cCTStartTimeAssignment_56 = (Assignment)cGroup.eContents().get(56);
+		private final RuleCall cCTStartTimeNCTStartTimeParserRuleCall_56_0 = (RuleCall)cCTStartTimeAssignment_56.eContents().get(0);
+		private final Alternatives cAlternatives_57 = (Alternatives)cGroup.eContents().get(57);
+		private final RuleCall cWSTerminalRuleCall_57_0 = (RuleCall)cAlternatives_57.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_57_1 = (RuleCall)cAlternatives_57.eContents().get(1);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_57_2 = (RuleCall)cAlternatives_57.eContents().get(2);
 		
-		//Model:
-		//	a=INT;
+		//ModelTurbsimtbs:
+		//	Head=Header sections+=Section RandSeed1=nRandSeed1 RandSeed2=nRandSeed2 WrBHHTP=bWrBHHTP WrFHHTP=bWrFHHTP
+		//	WrADHH=bWrADHH WrADFF=bWrADFF WrBLFF=bWrBLFF WrADTWR=bWrADTWR WrFMTFF=bWrFMTFF WrACT=bWrACT Clockwise=bClockwise
+		//	ScaleIEC=iScaleIEC sections+=Section NumGrid_Z=iNumGrid_Z NumGrid_Y=iNumGrid_Y TimeStep=nTimeStep
+		//	AnalysisTime=nAnalysisTime UsableTime=nUsableTime HubHt=nHubHt GridHeight=nGridHeight GridWidth=nGridWidth
+		//	VFlowAng=nVFlowAng HFlowAng=nHFlowAng sections+=Section TurbModel=sTurbModel IECstandard=sIECstandard
+		//	IECturbc=sIECturbc IEC_WindType=sIEC_WindType ETMc=sETMc WindProfileType=sWindProfileType RefHt=nRefHt Uref=nUref
+		//	ZJetMax=nZJetMax PLExp=nPLExp Z0=nZ0 sections+=Section Location=nLocation RICH_NO=nRICH_NO UStar=nUStar ZI=nZI
+		//	PC_UW=nPC_UW PC_UV=nPC_UV PC_VW=nPC_VW IncDec1=nIncDec1 IncDec2=nIncDec2 IncDec3=nIncDec3 CohExp=nCohExp
+		//	sections+=Section CTEventPath=sCTEventPath CTEventFile=sCTEventFile Randomize=bRandomize DistScl=nDistScl CTLy=nCTLy
+		//	CTLz=nCTLz CTStartTime=nCTStartTime (WS | NEWLINE | SL_COMMENT)*;
 		public ParserRule getRule() { return rule; }
 
-		//a=INT
-		public Assignment getAAssignment() { return cAAssignment; }
+		//Head=Header sections+=Section RandSeed1=nRandSeed1 RandSeed2=nRandSeed2 WrBHHTP=bWrBHHTP WrFHHTP=bWrFHHTP WrADHH=bWrADHH
+		//WrADFF=bWrADFF WrBLFF=bWrBLFF WrADTWR=bWrADTWR WrFMTFF=bWrFMTFF WrACT=bWrACT Clockwise=bClockwise ScaleIEC=iScaleIEC
+		//sections+=Section NumGrid_Z=iNumGrid_Z NumGrid_Y=iNumGrid_Y TimeStep=nTimeStep AnalysisTime=nAnalysisTime
+		//UsableTime=nUsableTime HubHt=nHubHt GridHeight=nGridHeight GridWidth=nGridWidth VFlowAng=nVFlowAng HFlowAng=nHFlowAng
+		//sections+=Section TurbModel=sTurbModel IECstandard=sIECstandard IECturbc=sIECturbc IEC_WindType=sIEC_WindType
+		//ETMc=sETMc WindProfileType=sWindProfileType RefHt=nRefHt Uref=nUref ZJetMax=nZJetMax PLExp=nPLExp Z0=nZ0
+		//sections+=Section Location=nLocation RICH_NO=nRICH_NO UStar=nUStar ZI=nZI PC_UW=nPC_UW PC_UV=nPC_UV PC_VW=nPC_VW
+		//IncDec1=nIncDec1 IncDec2=nIncDec2 IncDec3=nIncDec3 CohExp=nCohExp sections+=Section CTEventPath=sCTEventPath
+		//CTEventFile=sCTEventFile Randomize=bRandomize DistScl=nDistScl CTLy=nCTLy CTLz=nCTLz CTStartTime=nCTStartTime (WS |
+		//NEWLINE | SL_COMMENT)*
+		public Group getGroup() { return cGroup; }
+
+		//Head=Header
+		public Assignment getHeadAssignment_0() { return cHeadAssignment_0; }
+
+		//Header
+		public RuleCall getHeadHeaderParserRuleCall_0_0() { return cHeadHeaderParserRuleCall_0_0; }
+
+		//sections+=Section
+		public Assignment getSectionsAssignment_1() { return cSectionsAssignment_1; }
+
+		//Section
+		public RuleCall getSectionsSectionParserRuleCall_1_0() { return cSectionsSectionParserRuleCall_1_0; }
+
+		//RandSeed1=nRandSeed1
+		public Assignment getRandSeed1Assignment_2() { return cRandSeed1Assignment_2; }
+
+		//nRandSeed1
+		public RuleCall getRandSeed1NRandSeed1ParserRuleCall_2_0() { return cRandSeed1NRandSeed1ParserRuleCall_2_0; }
+
+		//RandSeed2=nRandSeed2
+		public Assignment getRandSeed2Assignment_3() { return cRandSeed2Assignment_3; }
+
+		//nRandSeed2
+		public RuleCall getRandSeed2NRandSeed2ParserRuleCall_3_0() { return cRandSeed2NRandSeed2ParserRuleCall_3_0; }
+
+		//WrBHHTP=bWrBHHTP
+		public Assignment getWrBHHTPAssignment_4() { return cWrBHHTPAssignment_4; }
+
+		//bWrBHHTP
+		public RuleCall getWrBHHTPBWrBHHTPParserRuleCall_4_0() { return cWrBHHTPBWrBHHTPParserRuleCall_4_0; }
+
+		//WrFHHTP=bWrFHHTP
+		public Assignment getWrFHHTPAssignment_5() { return cWrFHHTPAssignment_5; }
+
+		//bWrFHHTP
+		public RuleCall getWrFHHTPBWrFHHTPParserRuleCall_5_0() { return cWrFHHTPBWrFHHTPParserRuleCall_5_0; }
+
+		//WrADHH=bWrADHH
+		public Assignment getWrADHHAssignment_6() { return cWrADHHAssignment_6; }
+
+		//bWrADHH
+		public RuleCall getWrADHHBWrADHHParserRuleCall_6_0() { return cWrADHHBWrADHHParserRuleCall_6_0; }
+
+		//WrADFF=bWrADFF
+		public Assignment getWrADFFAssignment_7() { return cWrADFFAssignment_7; }
+
+		//bWrADFF
+		public RuleCall getWrADFFBWrADFFParserRuleCall_7_0() { return cWrADFFBWrADFFParserRuleCall_7_0; }
+
+		//WrBLFF=bWrBLFF
+		public Assignment getWrBLFFAssignment_8() { return cWrBLFFAssignment_8; }
+
+		//bWrBLFF
+		public RuleCall getWrBLFFBWrBLFFParserRuleCall_8_0() { return cWrBLFFBWrBLFFParserRuleCall_8_0; }
+
+		//WrADTWR=bWrADTWR
+		public Assignment getWrADTWRAssignment_9() { return cWrADTWRAssignment_9; }
+
+		//bWrADTWR
+		public RuleCall getWrADTWRBWrADTWRParserRuleCall_9_0() { return cWrADTWRBWrADTWRParserRuleCall_9_0; }
+
+		//WrFMTFF=bWrFMTFF
+		public Assignment getWrFMTFFAssignment_10() { return cWrFMTFFAssignment_10; }
+
+		//bWrFMTFF
+		public RuleCall getWrFMTFFBWrFMTFFParserRuleCall_10_0() { return cWrFMTFFBWrFMTFFParserRuleCall_10_0; }
+
+		//WrACT=bWrACT
+		public Assignment getWrACTAssignment_11() { return cWrACTAssignment_11; }
+
+		//bWrACT
+		public RuleCall getWrACTBWrACTParserRuleCall_11_0() { return cWrACTBWrACTParserRuleCall_11_0; }
+
+		//Clockwise=bClockwise
+		public Assignment getClockwiseAssignment_12() { return cClockwiseAssignment_12; }
+
+		//bClockwise
+		public RuleCall getClockwiseBClockwiseParserRuleCall_12_0() { return cClockwiseBClockwiseParserRuleCall_12_0; }
+
+		//ScaleIEC=iScaleIEC
+		public Assignment getScaleIECAssignment_13() { return cScaleIECAssignment_13; }
+
+		//iScaleIEC
+		public RuleCall getScaleIECIScaleIECParserRuleCall_13_0() { return cScaleIECIScaleIECParserRuleCall_13_0; }
+
+		//sections+=Section
+		public Assignment getSectionsAssignment_14() { return cSectionsAssignment_14; }
+
+		//Section
+		public RuleCall getSectionsSectionParserRuleCall_14_0() { return cSectionsSectionParserRuleCall_14_0; }
+
+		//NumGrid_Z=iNumGrid_Z
+		public Assignment getNumGrid_ZAssignment_15() { return cNumGrid_ZAssignment_15; }
+
+		//iNumGrid_Z
+		public RuleCall getNumGrid_ZINumGrid_ZParserRuleCall_15_0() { return cNumGrid_ZINumGrid_ZParserRuleCall_15_0; }
+
+		//NumGrid_Y=iNumGrid_Y
+		public Assignment getNumGrid_YAssignment_16() { return cNumGrid_YAssignment_16; }
+
+		//iNumGrid_Y
+		public RuleCall getNumGrid_YINumGrid_YParserRuleCall_16_0() { return cNumGrid_YINumGrid_YParserRuleCall_16_0; }
+
+		//TimeStep=nTimeStep
+		public Assignment getTimeStepAssignment_17() { return cTimeStepAssignment_17; }
+
+		//nTimeStep
+		public RuleCall getTimeStepNTimeStepParserRuleCall_17_0() { return cTimeStepNTimeStepParserRuleCall_17_0; }
+
+		//AnalysisTime=nAnalysisTime
+		public Assignment getAnalysisTimeAssignment_18() { return cAnalysisTimeAssignment_18; }
+
+		//nAnalysisTime
+		public RuleCall getAnalysisTimeNAnalysisTimeParserRuleCall_18_0() { return cAnalysisTimeNAnalysisTimeParserRuleCall_18_0; }
+
+		//UsableTime=nUsableTime
+		public Assignment getUsableTimeAssignment_19() { return cUsableTimeAssignment_19; }
+
+		//nUsableTime
+		public RuleCall getUsableTimeNUsableTimeParserRuleCall_19_0() { return cUsableTimeNUsableTimeParserRuleCall_19_0; }
+
+		//HubHt=nHubHt
+		public Assignment getHubHtAssignment_20() { return cHubHtAssignment_20; }
+
+		//nHubHt
+		public RuleCall getHubHtNHubHtParserRuleCall_20_0() { return cHubHtNHubHtParserRuleCall_20_0; }
+
+		//GridHeight=nGridHeight
+		public Assignment getGridHeightAssignment_21() { return cGridHeightAssignment_21; }
+
+		//nGridHeight
+		public RuleCall getGridHeightNGridHeightParserRuleCall_21_0() { return cGridHeightNGridHeightParserRuleCall_21_0; }
+
+		//GridWidth=nGridWidth
+		public Assignment getGridWidthAssignment_22() { return cGridWidthAssignment_22; }
+
+		//nGridWidth
+		public RuleCall getGridWidthNGridWidthParserRuleCall_22_0() { return cGridWidthNGridWidthParserRuleCall_22_0; }
+
+		//VFlowAng=nVFlowAng
+		public Assignment getVFlowAngAssignment_23() { return cVFlowAngAssignment_23; }
+
+		//nVFlowAng
+		public RuleCall getVFlowAngNVFlowAngParserRuleCall_23_0() { return cVFlowAngNVFlowAngParserRuleCall_23_0; }
+
+		//HFlowAng=nHFlowAng
+		public Assignment getHFlowAngAssignment_24() { return cHFlowAngAssignment_24; }
+
+		//nHFlowAng
+		public RuleCall getHFlowAngNHFlowAngParserRuleCall_24_0() { return cHFlowAngNHFlowAngParserRuleCall_24_0; }
+
+		//sections+=Section
+		public Assignment getSectionsAssignment_25() { return cSectionsAssignment_25; }
+
+		//Section
+		public RuleCall getSectionsSectionParserRuleCall_25_0() { return cSectionsSectionParserRuleCall_25_0; }
+
+		//TurbModel=sTurbModel
+		public Assignment getTurbModelAssignment_26() { return cTurbModelAssignment_26; }
+
+		//sTurbModel
+		public RuleCall getTurbModelSTurbModelParserRuleCall_26_0() { return cTurbModelSTurbModelParserRuleCall_26_0; }
+
+		//IECstandard=sIECstandard
+		public Assignment getIECstandardAssignment_27() { return cIECstandardAssignment_27; }
+
+		//sIECstandard
+		public RuleCall getIECstandardSIECstandardParserRuleCall_27_0() { return cIECstandardSIECstandardParserRuleCall_27_0; }
+
+		//IECturbc=sIECturbc
+		public Assignment getIECturbcAssignment_28() { return cIECturbcAssignment_28; }
+
+		//sIECturbc
+		public RuleCall getIECturbcSIECturbcParserRuleCall_28_0() { return cIECturbcSIECturbcParserRuleCall_28_0; }
+
+		//IEC_WindType=sIEC_WindType
+		public Assignment getIEC_WindTypeAssignment_29() { return cIEC_WindTypeAssignment_29; }
+
+		//sIEC_WindType
+		public RuleCall getIEC_WindTypeSIEC_WindTypeParserRuleCall_29_0() { return cIEC_WindTypeSIEC_WindTypeParserRuleCall_29_0; }
+
+		//ETMc=sETMc
+		public Assignment getETMcAssignment_30() { return cETMcAssignment_30; }
+
+		//sETMc
+		public RuleCall getETMcSETMcParserRuleCall_30_0() { return cETMcSETMcParserRuleCall_30_0; }
+
+		//WindProfileType=sWindProfileType
+		public Assignment getWindProfileTypeAssignment_31() { return cWindProfileTypeAssignment_31; }
+
+		//sWindProfileType
+		public RuleCall getWindProfileTypeSWindProfileTypeParserRuleCall_31_0() { return cWindProfileTypeSWindProfileTypeParserRuleCall_31_0; }
+
+		//RefHt=nRefHt
+		public Assignment getRefHtAssignment_32() { return cRefHtAssignment_32; }
+
+		//nRefHt
+		public RuleCall getRefHtNRefHtParserRuleCall_32_0() { return cRefHtNRefHtParserRuleCall_32_0; }
+
+		//Uref=nUref
+		public Assignment getUrefAssignment_33() { return cUrefAssignment_33; }
+
+		//nUref
+		public RuleCall getUrefNUrefParserRuleCall_33_0() { return cUrefNUrefParserRuleCall_33_0; }
+
+		//ZJetMax=nZJetMax
+		public Assignment getZJetMaxAssignment_34() { return cZJetMaxAssignment_34; }
+
+		//nZJetMax
+		public RuleCall getZJetMaxNZJetMaxParserRuleCall_34_0() { return cZJetMaxNZJetMaxParserRuleCall_34_0; }
+
+		//PLExp=nPLExp
+		public Assignment getPLExpAssignment_35() { return cPLExpAssignment_35; }
+
+		//nPLExp
+		public RuleCall getPLExpNPLExpParserRuleCall_35_0() { return cPLExpNPLExpParserRuleCall_35_0; }
+
+		//Z0=nZ0
+		public Assignment getZ0Assignment_36() { return cZ0Assignment_36; }
+
+		//nZ0
+		public RuleCall getZ0NZ0ParserRuleCall_36_0() { return cZ0NZ0ParserRuleCall_36_0; }
+
+		//sections+=Section
+		public Assignment getSectionsAssignment_37() { return cSectionsAssignment_37; }
+
+		//Section
+		public RuleCall getSectionsSectionParserRuleCall_37_0() { return cSectionsSectionParserRuleCall_37_0; }
+
+		//Location=nLocation
+		public Assignment getLocationAssignment_38() { return cLocationAssignment_38; }
+
+		//nLocation
+		public RuleCall getLocationNLocationParserRuleCall_38_0() { return cLocationNLocationParserRuleCall_38_0; }
+
+		//RICH_NO=nRICH_NO
+		public Assignment getRICH_NOAssignment_39() { return cRICH_NOAssignment_39; }
+
+		//nRICH_NO
+		public RuleCall getRICH_NONRICH_NOParserRuleCall_39_0() { return cRICH_NONRICH_NOParserRuleCall_39_0; }
+
+		//UStar=nUStar
+		public Assignment getUStarAssignment_40() { return cUStarAssignment_40; }
+
+		//nUStar
+		public RuleCall getUStarNUStarParserRuleCall_40_0() { return cUStarNUStarParserRuleCall_40_0; }
+
+		//ZI=nZI
+		public Assignment getZIAssignment_41() { return cZIAssignment_41; }
+
+		//nZI
+		public RuleCall getZINZIParserRuleCall_41_0() { return cZINZIParserRuleCall_41_0; }
+
+		//PC_UW=nPC_UW
+		public Assignment getPC_UWAssignment_42() { return cPC_UWAssignment_42; }
+
+		//nPC_UW
+		public RuleCall getPC_UWNPC_UWParserRuleCall_42_0() { return cPC_UWNPC_UWParserRuleCall_42_0; }
+
+		//PC_UV=nPC_UV
+		public Assignment getPC_UVAssignment_43() { return cPC_UVAssignment_43; }
+
+		//nPC_UV
+		public RuleCall getPC_UVNPC_UVParserRuleCall_43_0() { return cPC_UVNPC_UVParserRuleCall_43_0; }
+
+		//PC_VW=nPC_VW
+		public Assignment getPC_VWAssignment_44() { return cPC_VWAssignment_44; }
+
+		//nPC_VW
+		public RuleCall getPC_VWNPC_VWParserRuleCall_44_0() { return cPC_VWNPC_VWParserRuleCall_44_0; }
+
+		//IncDec1=nIncDec1
+		public Assignment getIncDec1Assignment_45() { return cIncDec1Assignment_45; }
+
+		//nIncDec1
+		public RuleCall getIncDec1NIncDec1ParserRuleCall_45_0() { return cIncDec1NIncDec1ParserRuleCall_45_0; }
+
+		//IncDec2=nIncDec2
+		public Assignment getIncDec2Assignment_46() { return cIncDec2Assignment_46; }
+
+		//nIncDec2
+		public RuleCall getIncDec2NIncDec2ParserRuleCall_46_0() { return cIncDec2NIncDec2ParserRuleCall_46_0; }
+
+		//IncDec3=nIncDec3
+		public Assignment getIncDec3Assignment_47() { return cIncDec3Assignment_47; }
+
+		//nIncDec3
+		public RuleCall getIncDec3NIncDec3ParserRuleCall_47_0() { return cIncDec3NIncDec3ParserRuleCall_47_0; }
+
+		//CohExp=nCohExp
+		public Assignment getCohExpAssignment_48() { return cCohExpAssignment_48; }
+
+		//nCohExp
+		public RuleCall getCohExpNCohExpParserRuleCall_48_0() { return cCohExpNCohExpParserRuleCall_48_0; }
+
+		//sections+=Section
+		public Assignment getSectionsAssignment_49() { return cSectionsAssignment_49; }
+
+		//Section
+		public RuleCall getSectionsSectionParserRuleCall_49_0() { return cSectionsSectionParserRuleCall_49_0; }
+
+		//CTEventPath=sCTEventPath
+		public Assignment getCTEventPathAssignment_50() { return cCTEventPathAssignment_50; }
+
+		//sCTEventPath
+		public RuleCall getCTEventPathSCTEventPathParserRuleCall_50_0() { return cCTEventPathSCTEventPathParserRuleCall_50_0; }
+
+		//CTEventFile=sCTEventFile
+		public Assignment getCTEventFileAssignment_51() { return cCTEventFileAssignment_51; }
+
+		//sCTEventFile
+		public RuleCall getCTEventFileSCTEventFileParserRuleCall_51_0() { return cCTEventFileSCTEventFileParserRuleCall_51_0; }
+
+		//Randomize=bRandomize
+		public Assignment getRandomizeAssignment_52() { return cRandomizeAssignment_52; }
+
+		//bRandomize
+		public RuleCall getRandomizeBRandomizeParserRuleCall_52_0() { return cRandomizeBRandomizeParserRuleCall_52_0; }
+
+		//DistScl=nDistScl
+		public Assignment getDistSclAssignment_53() { return cDistSclAssignment_53; }
+
+		//nDistScl
+		public RuleCall getDistSclNDistSclParserRuleCall_53_0() { return cDistSclNDistSclParserRuleCall_53_0; }
+
+		//CTLy=nCTLy
+		public Assignment getCTLyAssignment_54() { return cCTLyAssignment_54; }
+
+		//nCTLy
+		public RuleCall getCTLyNCTLyParserRuleCall_54_0() { return cCTLyNCTLyParserRuleCall_54_0; }
+
+		//CTLz=nCTLz
+		public Assignment getCTLzAssignment_55() { return cCTLzAssignment_55; }
+
+		//nCTLz
+		public RuleCall getCTLzNCTLzParserRuleCall_55_0() { return cCTLzNCTLzParserRuleCall_55_0; }
+
+		//CTStartTime=nCTStartTime
+		public Assignment getCTStartTimeAssignment_56() { return cCTStartTimeAssignment_56; }
+
+		//nCTStartTime
+		public RuleCall getCTStartTimeNCTStartTimeParserRuleCall_56_0() { return cCTStartTimeNCTStartTimeParserRuleCall_56_0; }
+
+		//(WS | NEWLINE | SL_COMMENT)*
+		public Alternatives getAlternatives_57() { return cAlternatives_57; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_57_0() { return cWSTerminalRuleCall_57_0; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_57_1() { return cNEWLINETerminalRuleCall_57_1; }
+
+		//SL_COMMENT
+		public RuleCall getSL_COMMENTTerminalRuleCall_57_2() { return cSL_COMMENTTerminalRuleCall_57_2; }
+	}
+
+	public class TBOOLElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tBOOL");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTRUEKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cTrueKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cTrueKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cFALSEKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cFalseKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cFalseKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//tBOOL returns ecore::EBoolean:
+		//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
+		public ParserRule getRule() { return rule; }
+
+		//"TRUE" | "True" | "true" | "FALSE" | "False" | "false"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"TRUE"
+		public Keyword getTRUEKeyword_0() { return cTRUEKeyword_0; }
+
+		//"True"
+		public Keyword getTrueKeyword_1() { return cTrueKeyword_1; }
+
+		//"true"
+		public Keyword getTrueKeyword_2() { return cTrueKeyword_2; }
+
+		//"FALSE"
+		public Keyword getFALSEKeyword_3() { return cFALSEKeyword_3; }
+
+		//"False"
+		public Keyword getFalseKeyword_4() { return cFalseKeyword_4; }
+
+		//"false"
+		public Keyword getFalseKeyword_5() { return cFalseKeyword_5; }
+	}
+
+	public class TNUMElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tNUM");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cDEFAULTKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final RuleCall cTNUMBERParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//tNUM:
+		//	"DEFAULT" | tNUMBER;
+		public ParserRule getRule() { return rule; }
+
+		//"DEFAULT" | tNUMBER
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"DEFAULT"
+		public Keyword getDEFAULTKeyword_0() { return cDEFAULTKeyword_0; }
+
+		//tNUMBER
+		public RuleCall getTNUMBERParserRuleCall_1() { return cTNUMBERParserRuleCall_1; }
+	}
+
+	public class TNUMBERElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tNUMBER");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNUMBERTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//tNUMBER returns ecore::EFloat:
+		//	INT | NUMBER;
+		public ParserRule getRule() { return rule; }
+
+		//INT | NUMBER
+		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//INT
-		public RuleCall getAINTTerminalRuleCall_0() { return cAINTTerminalRuleCall_0; }
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+
+		//NUMBER
+		public RuleCall getNUMBERTerminalRuleCall_1() { return cNUMBERTerminalRuleCall_1; }
+	}
+
+	public class TSEED1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tSEED1");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNEGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//tSEED1:
+		//	INT | NEG;
+		public ParserRule getRule() { return rule; }
+
+		//INT | NEG
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+
+		//NEG
+		public RuleCall getNEGTerminalRuleCall_1() { return cNEGTerminalRuleCall_1; }
+	}
+
+	public class TSEED2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tSEED2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTSEED1ParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Keyword cRANLUXKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cRNSNLWKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		
+		//tSEED2:
+		//	tSEED1 | "RANLUX" | "RNSNLW";
+		public ParserRule getRule() { return rule; }
+
+		//tSEED1 | "RANLUX" | "RNSNLW"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//tSEED1
+		public RuleCall getTSEED1ParserRuleCall_0() { return cTSEED1ParserRuleCall_0; }
+
+		//"RANLUX"
+		public Keyword getRANLUXKeyword_1() { return cRANLUXKeyword_1; }
+
+		//"RNSNLW"
+		public Keyword getRNSNLWKeyword_2() { return cRNSNLWKeyword_2; }
+	}
+
+	public class HeaderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Header");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cRowsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cRowsSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cRowsAssignment_0.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//Header hidden():
+		//	rows=SL_COMMENT NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//rows=SL_COMMENT NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//rows=SL_COMMENT
+		public Assignment getRowsAssignment_0() { return cRowsAssignment_0; }
+
+		//SL_COMMENT
+		public RuleCall getRowsSL_COMMENTTerminalRuleCall_0_0() { return cRowsSL_COMMENTTerminalRuleCall_0_0; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_1() { return cNEWLINETerminalRuleCall_1; }
+	}
+
+	public class SectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Section");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameSL_COMMENTTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		
+		//Section hidden():
+		//	WS? NEWLINE name=SL_COMMENT NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? NEWLINE name=SL_COMMENT NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_1() { return cNEWLINETerminalRuleCall_1; }
+
+		//name=SL_COMMENT
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//SL_COMMENT
+		public RuleCall getNameSL_COMMENTTerminalRuleCall_2_0() { return cNameSL_COMMENTTerminalRuleCall_2_0; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_3() { return cNEWLINETerminalRuleCall_3; }
+	}
+
+	public class NRandSeed1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nRandSeed1");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTSEED1ParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameRandSeed1Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nRandSeed1 hidden():
+		//	WS? value=tSEED1 WS name="RandSeed(1)" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tSEED1 WS name="RandSeed(1)" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tSEED1
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tSEED1
+		public RuleCall getValueTSEED1ParserRuleCall_1_0() { return cValueTSEED1ParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="RandSeed(1)"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"RandSeed(1)"
+		public Keyword getNameRandSeed1Keyword_3_0() { return cNameRandSeed1Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NRandSeed2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nRandSeed2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTSEED2ParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameRandSeed2Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nRandSeed2 hidden():
+		//	WS? value=tSEED2 WS name="RandSeed(2)" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tSEED2 WS name="RandSeed(2)" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tSEED2
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tSEED2
+		public RuleCall getValueTSEED2ParserRuleCall_1_0() { return cValueTSEED2ParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="RandSeed(2)"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"RandSeed(2)"
+		public Keyword getNameRandSeed2Keyword_3_0() { return cNameRandSeed2Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrBHHTPElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrBHHTP");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrBHHTPKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrBHHTP hidden():
+		//	WS? value=tBOOL WS name="WrBHHTP" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrBHHTP" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrBHHTP"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrBHHTP"
+		public Keyword getNameWrBHHTPKeyword_3_0() { return cNameWrBHHTPKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrFHHTPElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrFHHTP");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrFHHTPKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrFHHTP hidden():
+		//	WS? value=tBOOL WS name="WrFHHTP" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrFHHTP" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrFHHTP"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrFHHTP"
+		public Keyword getNameWrFHHTPKeyword_3_0() { return cNameWrFHHTPKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrADHHElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrADHH");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrADHHKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrADHH hidden():
+		//	WS? value=tBOOL WS name="WrADHH" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrADHH" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrADHH"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrADHH"
+		public Keyword getNameWrADHHKeyword_3_0() { return cNameWrADHHKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrADFFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrADFF");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrADFFKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrADFF hidden():
+		//	WS? value=tBOOL WS name="WrADFF" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrADFF" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrADFF"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrADFF"
+		public Keyword getNameWrADFFKeyword_3_0() { return cNameWrADFFKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrBLFFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrBLFF");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrBLFFKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrBLFF hidden():
+		//	WS? value=tBOOL WS name="WrBLFF" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrBLFF" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrBLFF"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrBLFF"
+		public Keyword getNameWrBLFFKeyword_3_0() { return cNameWrBLFFKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrADTWRElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrADTWR");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrADTWRKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrADTWR hidden():
+		//	WS? value=tBOOL WS name="WrADTWR" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrADTWR" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrADTWR"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrADTWR"
+		public Keyword getNameWrADTWRKeyword_3_0() { return cNameWrADTWRKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrFMTFFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrFMTFF");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrFMTFFKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrFMTFF hidden():
+		//	WS? value=tBOOL WS name="WrFMTFF" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrFMTFF" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrFMTFF"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrFMTFF"
+		public Keyword getNameWrFMTFFKeyword_3_0() { return cNameWrFMTFFKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BWrACTElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bWrACT");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWrACTKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bWrACT hidden():
+		//	WS? value=tBOOL WS name="WrACT" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="WrACT" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WrACT"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WrACT"
+		public Keyword getNameWrACTKeyword_3_0() { return cNameWrACTKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BClockwiseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bClockwise");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameClockwiseKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bClockwise hidden():
+		//	WS? value=tBOOL WS name="Clockwise" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="Clockwise" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="Clockwise"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"Clockwise"
+		public Keyword getNameClockwiseKeyword_3_0() { return cNameClockwiseKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class IScaleIECElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "iScaleIEC");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameScaleIECKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//iScaleIEC hidden():
+		//	WS? value=INT WS name="ScaleIEC" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=INT WS name="ScaleIEC" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="ScaleIEC"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"ScaleIEC"
+		public Keyword getNameScaleIECKeyword_3_0() { return cNameScaleIECKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class INumGrid_ZElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "iNumGrid_Z");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameNumGrid_ZKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//iNumGrid_Z hidden():
+		//	WS? value=INT WS name="NumGrid_Z" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=INT WS name="NumGrid_Z" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="NumGrid_Z"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"NumGrid_Z"
+		public Keyword getNameNumGrid_ZKeyword_3_0() { return cNameNumGrid_ZKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class INumGrid_YElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "iNumGrid_Y");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameNumGrid_YKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//iNumGrid_Y hidden():
+		//	WS? value=INT WS name="NumGrid_Y" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=INT WS name="NumGrid_Y" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="NumGrid_Y"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"NumGrid_Y"
+		public Keyword getNameNumGrid_YKeyword_3_0() { return cNameNumGrid_YKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NTimeStepElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nTimeStep");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameTimeStepKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nTimeStep hidden():
+		//	WS? value=tNUMBER WS name="TimeStep" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="TimeStep" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="TimeStep"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"TimeStep"
+		public Keyword getNameTimeStepKeyword_3_0() { return cNameTimeStepKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NAnalysisTimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nAnalysisTime");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameAnalysisTimeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nAnalysisTime hidden():
+		//	WS? value=tNUMBER WS name="AnalysisTime" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="AnalysisTime" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="AnalysisTime"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"AnalysisTime"
+		public Keyword getNameAnalysisTimeKeyword_3_0() { return cNameAnalysisTimeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NUsableTimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nUsableTime");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameUsableTimeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nUsableTime hidden():
+		//	WS? value=tNUMBER WS name="UsableTime" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="UsableTime" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="UsableTime"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"UsableTime"
+		public Keyword getNameUsableTimeKeyword_3_0() { return cNameUsableTimeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NHubHtElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nHubHt");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameHubHtKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nHubHt hidden():
+		//	WS? value=tNUMBER WS name="HubHt" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="HubHt" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="HubHt"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"HubHt"
+		public Keyword getNameHubHtKeyword_3_0() { return cNameHubHtKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NGridHeightElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nGridHeight");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameGridHeightKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nGridHeight hidden():
+		//	WS? value=tNUMBER WS name="GridHeight" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="GridHeight" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="GridHeight"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"GridHeight"
+		public Keyword getNameGridHeightKeyword_3_0() { return cNameGridHeightKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NGridWidthElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nGridWidth");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameGridWidthKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nGridWidth hidden():
+		//	WS? value=tNUMBER WS name="GridWidth" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="GridWidth" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="GridWidth"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"GridWidth"
+		public Keyword getNameGridWidthKeyword_3_0() { return cNameGridWidthKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NVFlowAngElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nVFlowAng");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameVFlowAngKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nVFlowAng hidden():
+		//	WS? value=tNUMBER WS name="VFlowAng" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="VFlowAng" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="VFlowAng"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"VFlowAng"
+		public Keyword getNameVFlowAngKeyword_3_0() { return cNameVFlowAngKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NHFlowAngElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nHFlowAng");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameHFlowAngKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nHFlowAng hidden():
+		//	WS? value=tNUMBER WS name="HFlowAng" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="HFlowAng" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="HFlowAng"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"HFlowAng"
+		public Keyword getNameHFlowAngKeyword_3_0() { return cNameHFlowAngKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class STurbModelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sTurbModel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueMODELTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameTurbModelKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sTurbModel hidden():
+		//	WS? value=MODEL WS name="TurbModel" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=MODEL WS name="TurbModel" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=MODEL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//MODEL
+		public RuleCall getValueMODELTerminalRuleCall_1_0() { return cValueMODELTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="TurbModel"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"TurbModel"
+		public Keyword getNameTurbModelKeyword_3_0() { return cNameTurbModelKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SIECstandardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sIECstandard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueIECTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIECstandardKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sIECstandard hidden():
+		//	WS? value=IEC WS name="IECstandard" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=IEC WS name="IECstandard" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=IEC
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//IEC
+		public RuleCall getValueIECTerminalRuleCall_1_0() { return cValueIECTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IECstandard"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IECstandard"
+		public Keyword getNameIECstandardKeyword_3_0() { return cNameIECstandardKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SIECturbcElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sIECturbc");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTURBTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIECturbcKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sIECturbc hidden():
+		//	WS? value=TURB WS name="IECturbc" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=TURB WS name="IECturbc" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=TURB
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//TURB
+		public RuleCall getValueTURBTerminalRuleCall_1_0() { return cValueTURBTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IECturbc"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IECturbc"
+		public Keyword getNameIECturbcKeyword_3_0() { return cNameIECturbcKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SIEC_WindTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sIEC_WindType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueWINDTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIEC_WindTypeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sIEC_WindType hidden():
+		//	WS? value=WIND WS name="IEC_WindType" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=WIND WS name="IEC_WindType" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=WIND
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//WIND
+		public RuleCall getValueWINDTerminalRuleCall_1_0() { return cValueWINDTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IEC_WindType"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IEC_WindType"
+		public Keyword getNameIEC_WindTypeKeyword_3_0() { return cNameIEC_WindTypeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SETMcElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sETMc");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameETMcKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sETMc hidden():
+		//	WS? value=tNUM WS name="ETMc" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="ETMc" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="ETMc"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"ETMc"
+		public Keyword getNameETMcKeyword_3_0() { return cNameETMcKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SWindProfileTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sWindProfileType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValuePROFTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameWindProfileTypeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sWindProfileType hidden():
+		//	WS? value=PROF WS name="WindProfileType" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=PROF WS name="WindProfileType" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=PROF
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//PROF
+		public RuleCall getValuePROFTerminalRuleCall_1_0() { return cValuePROFTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="WindProfileType"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"WindProfileType"
+		public Keyword getNameWindProfileTypeKeyword_3_0() { return cNameWindProfileTypeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NRefHtElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nRefHt");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameRefHtKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nRefHt hidden():
+		//	WS? value=tNUMBER WS name="RefHt" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="RefHt" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="RefHt"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"RefHt"
+		public Keyword getNameRefHtKeyword_3_0() { return cNameRefHtKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NUrefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nUref");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameUrefKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nUref hidden():
+		//	WS? value=tNUMBER WS name="Uref" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="Uref" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="Uref"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"Uref"
+		public Keyword getNameUrefKeyword_3_0() { return cNameUrefKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NZJetMaxElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nZJetMax");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameZJetMaxKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nZJetMax hidden():
+		//	WS? value=tNUMBER WS name="ZJetMax" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="ZJetMax" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="ZJetMax"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"ZJetMax"
+		public Keyword getNameZJetMaxKeyword_3_0() { return cNameZJetMaxKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NPLExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nPLExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNamePLExpKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nPLExp hidden():
+		//	WS? value=tNUM WS name="PLExp" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="PLExp" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="PLExp"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"PLExp"
+		public Keyword getNamePLExpKeyword_3_0() { return cNamePLExpKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NZ0Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nZ0");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameZ0Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nZ0 hidden():
+		//	WS? value=tNUM WS name="Z0" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="Z0" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="Z0"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"Z0"
+		public Keyword getNameZ0Keyword_3_0() { return cNameZ0Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NLocationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nLocation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameLatitudeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nLocation hidden():
+		//	WS? value=tNUM WS name="Latitude" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="Latitude" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="Latitude"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"Latitude"
+		public Keyword getNameLatitudeKeyword_3_0() { return cNameLatitudeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NRICH_NOElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nRICH_NO");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameRICH_NOKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nRICH_NO hidden():
+		//	WS? value=tNUMBER WS name="RICH_NO" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="RICH_NO" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="RICH_NO"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"RICH_NO"
+		public Keyword getNameRICH_NOKeyword_3_0() { return cNameRICH_NOKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NUStarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nUStar");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameUStarKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nUStar hidden():
+		//	WS? value=tNUM WS name="UStar" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="UStar" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="UStar"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"UStar"
+		public Keyword getNameUStarKeyword_3_0() { return cNameUStarKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NZIElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nZI");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameZIKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nZI hidden():
+		//	WS? value=tNUM WS name="ZI" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="ZI" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="ZI"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"ZI"
+		public Keyword getNameZIKeyword_3_0() { return cNameZIKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NPC_UWElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nPC_UW");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNamePC_UWKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nPC_UW hidden():
+		//	WS? value=tNUM WS name="PC_UW" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="PC_UW" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="PC_UW"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"PC_UW"
+		public Keyword getNamePC_UWKeyword_3_0() { return cNamePC_UWKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NPC_UVElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nPC_UV");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNamePC_UVKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nPC_UV hidden():
+		//	WS? value=tNUM WS name="PC_UV" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="PC_UV" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="PC_UV"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"PC_UV"
+		public Keyword getNamePC_UVKeyword_3_0() { return cNamePC_UVKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NPC_VWElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nPC_VW");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNamePC_VWKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nPC_VW hidden():
+		//	WS? value=tNUM WS name="PC_VW" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="PC_VW" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="PC_VW"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"PC_VW"
+		public Keyword getNamePC_VWKeyword_3_0() { return cNamePC_VWKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NIncDec1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nIncDec1");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIncDec1Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nIncDec1 hidden():
+		//	WS? value=tNUM WS name="IncDec(1)" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="IncDec(1)" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IncDec(1)"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IncDec(1)"
+		public Keyword getNameIncDec1Keyword_3_0() { return cNameIncDec1Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NIncDec2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nIncDec2");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIncDec2Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nIncDec2 hidden():
+		//	WS? value=tNUM WS name="IncDec(2)" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="IncDec(2)" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IncDec(2)"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IncDec(2)"
+		public Keyword getNameIncDec2Keyword_3_0() { return cNameIncDec2Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NIncDec3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nIncDec3");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameIncDec3Keyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nIncDec3 hidden():
+		//	WS? value=tNUM WS name="IncDec(3)" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="IncDec(3)" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="IncDec(3)"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"IncDec(3)"
+		public Keyword getNameIncDec3Keyword_3_0() { return cNameIncDec3Keyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NCohExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nCohExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCohExpKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nCohExp hidden():
+		//	WS? value=tNUM WS name="CohExp" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUM WS name="CohExp" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUM
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUM
+		public RuleCall getValueTNUMParserRuleCall_1_0() { return cValueTNUMParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CohExp"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CohExp"
+		public Keyword getNameCohExpKeyword_3_0() { return cNameCohExpKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SCTEventPathElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sCTEventPath");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCTEventPathKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sCTEventPath hidden():
+		//	WS? value=STRING WS name="CTEventPath" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=STRING WS name="CTEventPath" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CTEventPath"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CTEventPath"
+		public Keyword getNameCTEventPathKeyword_3_0() { return cNameCTEventPathKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class SCTEventFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "sCTEventFile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
+		private final Keyword cValueLESKeyword_1_0_0 = (Keyword)cValueAlternatives_1_0.eContents().get(0);
+		private final Keyword cValueDNSKeyword_1_0_1 = (Keyword)cValueAlternatives_1_0.eContents().get(1);
+		private final Keyword cValueRANDOMKeyword_1_0_2 = (Keyword)cValueAlternatives_1_0.eContents().get(2);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCTEventFileKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//sCTEventFile hidden():
+		//	WS? value=("LES" | "DNS" | "RANDOM") WS name="CTEventFile" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=("LES" | "DNS" | "RANDOM") WS name="CTEventFile" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=("LES" | "DNS" | "RANDOM")
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//"LES" | "DNS" | "RANDOM"
+		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
+
+		//"LES"
+		public Keyword getValueLESKeyword_1_0_0() { return cValueLESKeyword_1_0_0; }
+
+		//"DNS"
+		public Keyword getValueDNSKeyword_1_0_1() { return cValueDNSKeyword_1_0_1; }
+
+		//"RANDOM"
+		public Keyword getValueRANDOMKeyword_1_0_2() { return cValueRANDOMKeyword_1_0_2; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CTEventFile"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CTEventFile"
+		public Keyword getNameCTEventFileKeyword_3_0() { return cNameCTEventFileKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BRandomizeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bRandomize");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameRandomizeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bRandomize hidden():
+		//	WS? value=tBOOL WS name="Randomize" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="Randomize" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="Randomize"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"Randomize"
+		public Keyword getNameRandomizeKeyword_3_0() { return cNameRandomizeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NDistSclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nDistScl");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameDistSclKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nDistScl hidden():
+		//	WS? value=tNUMBER WS name="DistScl" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="DistScl" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="DistScl"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"DistScl"
+		public Keyword getNameDistSclKeyword_3_0() { return cNameDistSclKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NCTLyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nCTLy");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCTLyKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nCTLy hidden():
+		//	WS? value=tNUMBER WS name="CTLy" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="CTLy" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CTLy"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CTLy"
+		public Keyword getNameCTLyKeyword_3_0() { return cNameCTLyKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NCTLzElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nCTLz");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCTLzKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nCTLz hidden():
+		//	WS? value=tNUMBER WS name="CTLz" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="CTLz" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CTLz"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CTLz"
+		public Keyword getNameCTLzKeyword_3_0() { return cNameCTLzKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class NCTStartTimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "nCTStartTime");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTNUMBERParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCTStartTimeKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//nCTStartTime hidden():
+		//	WS? value=tNUMBER WS name="CTStartTime" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tNUMBER WS name="CTStartTime" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tNUMBER
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tNUMBER
+		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CTStartTime"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CTStartTime"
+		public Keyword getNameCTStartTimeKeyword_3_0() { return cNameCTStartTimeKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
 	}
 	
 	
-	private ModelElements pModel;
+	private ModelTurbsimtbsElements pModelTurbsimtbs;
+	private TBOOLElements pTBOOL;
+	private TNUMElements pTNUM;
+	private TNUMBERElements pTNUMBER;
+	private TSEED1Elements pTSEED1;
+	private TSEED2Elements pTSEED2;
 	private TerminalRule tINT;
+	private TerminalRule tNEG;
+	private TerminalRule tPROF;
+	private TerminalRule tWIND;
+	private TerminalRule tTURB;
+	private TerminalRule tIEC;
+	private TerminalRule tMODEL;
+	private TerminalRule tNUMBER;
+	private TerminalRule tSTRING;
+	private TerminalRule tNEWLINE;
+	private TerminalRule tSL_COMMENT;
+	private TerminalRule tWS;
+	private HeaderElements pHeader;
+	private SectionElements pSection;
+	private NRandSeed1Elements pNRandSeed1;
+	private NRandSeed2Elements pNRandSeed2;
+	private BWrBHHTPElements pBWrBHHTP;
+	private BWrFHHTPElements pBWrFHHTP;
+	private BWrADHHElements pBWrADHH;
+	private BWrADFFElements pBWrADFF;
+	private BWrBLFFElements pBWrBLFF;
+	private BWrADTWRElements pBWrADTWR;
+	private BWrFMTFFElements pBWrFMTFF;
+	private BWrACTElements pBWrACT;
+	private BClockwiseElements pBClockwise;
+	private IScaleIECElements pIScaleIEC;
+	private INumGrid_ZElements pINumGrid_Z;
+	private INumGrid_YElements pINumGrid_Y;
+	private NTimeStepElements pNTimeStep;
+	private NAnalysisTimeElements pNAnalysisTime;
+	private NUsableTimeElements pNUsableTime;
+	private NHubHtElements pNHubHt;
+	private NGridHeightElements pNGridHeight;
+	private NGridWidthElements pNGridWidth;
+	private NVFlowAngElements pNVFlowAng;
+	private NHFlowAngElements pNHFlowAng;
+	private STurbModelElements pSTurbModel;
+	private SIECstandardElements pSIECstandard;
+	private SIECturbcElements pSIECturbc;
+	private SIEC_WindTypeElements pSIEC_WindType;
+	private SETMcElements pSETMc;
+	private SWindProfileTypeElements pSWindProfileType;
+	private NRefHtElements pNRefHt;
+	private NUrefElements pNUref;
+	private NZJetMaxElements pNZJetMax;
+	private NPLExpElements pNPLExp;
+	private NZ0Elements pNZ0;
+	private NLocationElements pNLocation;
+	private NRICH_NOElements pNRICH_NO;
+	private NUStarElements pNUStar;
+	private NZIElements pNZI;
+	private NPC_UWElements pNPC_UW;
+	private NPC_UVElements pNPC_UV;
+	private NPC_VWElements pNPC_VW;
+	private NIncDec1Elements pNIncDec1;
+	private NIncDec2Elements pNIncDec2;
+	private NIncDec3Elements pNIncDec3;
+	private NCohExpElements pNCohExp;
+	private SCTEventPathElements pSCTEventPath;
+	private SCTEventFileElements pSCTEventFile;
+	private BRandomizeElements pBRandomize;
+	private NDistSclElements pNDistScl;
+	private NCTLyElements pNCTLy;
+	private NCTLzElements pNCTLz;
+	private NCTStartTimeElements pNCTStartTime;
 	
 	private final Grammar grammar;
 
@@ -67,14 +3258,73 @@ public class TurbsimtbsGrammarAccess extends AbstractGrammarElementFinder {
 	
 
 	
-	//Model:
-	//	a=INT;
-	public ModelElements getModelAccess() {
-		return (pModel != null) ? pModel : (pModel = new ModelElements());
+	//ModelTurbsimtbs:
+	//	Head=Header sections+=Section RandSeed1=nRandSeed1 RandSeed2=nRandSeed2 WrBHHTP=bWrBHHTP WrFHHTP=bWrFHHTP
+	//	WrADHH=bWrADHH WrADFF=bWrADFF WrBLFF=bWrBLFF WrADTWR=bWrADTWR WrFMTFF=bWrFMTFF WrACT=bWrACT Clockwise=bClockwise
+	//	ScaleIEC=iScaleIEC sections+=Section NumGrid_Z=iNumGrid_Z NumGrid_Y=iNumGrid_Y TimeStep=nTimeStep
+	//	AnalysisTime=nAnalysisTime UsableTime=nUsableTime HubHt=nHubHt GridHeight=nGridHeight GridWidth=nGridWidth
+	//	VFlowAng=nVFlowAng HFlowAng=nHFlowAng sections+=Section TurbModel=sTurbModel IECstandard=sIECstandard
+	//	IECturbc=sIECturbc IEC_WindType=sIEC_WindType ETMc=sETMc WindProfileType=sWindProfileType RefHt=nRefHt Uref=nUref
+	//	ZJetMax=nZJetMax PLExp=nPLExp Z0=nZ0 sections+=Section Location=nLocation RICH_NO=nRICH_NO UStar=nUStar ZI=nZI
+	//	PC_UW=nPC_UW PC_UV=nPC_UV PC_VW=nPC_VW IncDec1=nIncDec1 IncDec2=nIncDec2 IncDec3=nIncDec3 CohExp=nCohExp
+	//	sections+=Section CTEventPath=sCTEventPath CTEventFile=sCTEventFile Randomize=bRandomize DistScl=nDistScl CTLy=nCTLy
+	//	CTLz=nCTLz CTStartTime=nCTStartTime (WS | NEWLINE | SL_COMMENT)*;
+	public ModelTurbsimtbsElements getModelTurbsimtbsAccess() {
+		return (pModelTurbsimtbs != null) ? pModelTurbsimtbs : (pModelTurbsimtbs = new ModelTurbsimtbsElements());
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getModelTurbsimtbsRule() {
+		return getModelTurbsimtbsAccess().getRule();
+	}
+
+	//tBOOL returns ecore::EBoolean:
+	//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
+	public TBOOLElements getTBOOLAccess() {
+		return (pTBOOL != null) ? pTBOOL : (pTBOOL = new TBOOLElements());
+	}
+	
+	public ParserRule getTBOOLRule() {
+		return getTBOOLAccess().getRule();
+	}
+
+	//tNUM:
+	//	"DEFAULT" | tNUMBER;
+	public TNUMElements getTNUMAccess() {
+		return (pTNUM != null) ? pTNUM : (pTNUM = new TNUMElements());
+	}
+	
+	public ParserRule getTNUMRule() {
+		return getTNUMAccess().getRule();
+	}
+
+	//tNUMBER returns ecore::EFloat:
+	//	INT | NUMBER;
+	public TNUMBERElements getTNUMBERAccess() {
+		return (pTNUMBER != null) ? pTNUMBER : (pTNUMBER = new TNUMBERElements());
+	}
+	
+	public ParserRule getTNUMBERRule() {
+		return getTNUMBERAccess().getRule();
+	}
+
+	//tSEED1:
+	//	INT | NEG;
+	public TSEED1Elements getTSEED1Access() {
+		return (pTSEED1 != null) ? pTSEED1 : (pTSEED1 = new TSEED1Elements());
+	}
+	
+	public ParserRule getTSEED1Rule() {
+		return getTSEED1Access().getRule();
+	}
+
+	//tSEED2:
+	//	tSEED1 | "RANLUX" | "RNSNLW";
+	public TSEED2Elements getTSEED2Access() {
+		return (pTSEED2 != null) ? pTSEED2 : (pTSEED2 = new TSEED2Elements());
+	}
+	
+	public ParserRule getTSEED2Rule() {
+		return getTSEED2Access().getRule();
 	}
 
 	//terminal INT returns ecore::EInt:
@@ -82,4 +3332,603 @@ public class TurbsimtbsGrammarAccess extends AbstractGrammarElementFinder {
 	public TerminalRule getINTRule() {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
+
+	//terminal NEG returns ecore::EInt:
+	//	"-" INT;
+	public TerminalRule getNEGRule() {
+		return (tNEG != null) ? tNEG : (tNEG = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEG"));
+	} 
+
+	//terminal PROF:
+	//	"DEFAULT" | "JET" | "LOG" | "PL" | "IEC";
+	public TerminalRule getPROFRule() {
+		return (tPROF != null) ? tPROF : (tPROF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PROF"));
+	} 
+
+	//terminal WIND:
+	//	"NTM" | "1".."3" ("ETM" | "EWM" ("1" | "50"));
+	public TerminalRule getWINDRule() {
+		return (tWIND != null) ? tWIND : (tWIND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WIND"));
+	} 
+
+	//terminal TURB:
+	//	"A" | "B" | "C" | "KHTEST" | INT;
+	public TerminalRule getTURBRule() {
+		return (tTURB != null) ? tTURB : (tTURB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TURB"));
+	} 
+
+	//terminal IEC:
+	//	"1".."3" ("-ED" "1".."3")?;
+	public TerminalRule getIECRule() {
+		return (tIEC != null) ? tIEC : (tIEC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "IEC"));
+	} 
+
+	//// Kaimal, von Karman,...
+	//terminal MODEL:
+	//	"IECKAI" | "IECVKM" | "GP_LLJ" | "NWTCUP" | "SMOOTH" | "WF_UPW" | "WF_07D" | "WF_14D" | "NONE";
+	public TerminalRule getMODELRule() {
+		return (tMODEL != null) ? tMODEL : (tMODEL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MODEL"));
+	} 
+
+	//terminal NUMBER returns ecore::EFloat:
+	//	("+" | "-")? INT ("." INT?) (("E" | "e") ("+" | "-")? INT)? | ("+" | "-")? INT (("E" | "e") ("+" | "-")? INT) | ("."
+	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
+	public TerminalRule getNUMBERRule() {
+		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+	} 
+
+	//terminal STRING:
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	public TerminalRule getSTRINGRule() {
+		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
+	} 
+
+	//terminal NEWLINE:
+	//	"\r" | "\n" | "\r\n";
+	public TerminalRule getNEWLINERule() {
+		return (tNEWLINE != null) ? tNEWLINE : (tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE"));
+	} 
+
+	//terminal SL_COMMENT:
+	//	"-" !"0".."9" !("\r" | "\n" | "\r\n")*;
+	public TerminalRule getSL_COMMENTRule() {
+		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+	} 
+
+	//terminal WS:
+	//	(" " | "\t")+;
+	public TerminalRule getWSRule() {
+		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+	} 
+
+	//Header hidden():
+	//	rows=SL_COMMENT NEWLINE;
+	public HeaderElements getHeaderAccess() {
+		return (pHeader != null) ? pHeader : (pHeader = new HeaderElements());
+	}
+	
+	public ParserRule getHeaderRule() {
+		return getHeaderAccess().getRule();
+	}
+
+	//Section hidden():
+	//	WS? NEWLINE name=SL_COMMENT NEWLINE;
+	public SectionElements getSectionAccess() {
+		return (pSection != null) ? pSection : (pSection = new SectionElements());
+	}
+	
+	public ParserRule getSectionRule() {
+		return getSectionAccess().getRule();
+	}
+
+	//nRandSeed1 hidden():
+	//	WS? value=tSEED1 WS name="RandSeed(1)" WS? SL_COMMENT? NEWLINE;
+	public NRandSeed1Elements getNRandSeed1Access() {
+		return (pNRandSeed1 != null) ? pNRandSeed1 : (pNRandSeed1 = new NRandSeed1Elements());
+	}
+	
+	public ParserRule getNRandSeed1Rule() {
+		return getNRandSeed1Access().getRule();
+	}
+
+	//nRandSeed2 hidden():
+	//	WS? value=tSEED2 WS name="RandSeed(2)" WS? SL_COMMENT? NEWLINE;
+	public NRandSeed2Elements getNRandSeed2Access() {
+		return (pNRandSeed2 != null) ? pNRandSeed2 : (pNRandSeed2 = new NRandSeed2Elements());
+	}
+	
+	public ParserRule getNRandSeed2Rule() {
+		return getNRandSeed2Access().getRule();
+	}
+
+	//bWrBHHTP hidden():
+	//	WS? value=tBOOL WS name="WrBHHTP" WS? SL_COMMENT? NEWLINE;
+	public BWrBHHTPElements getBWrBHHTPAccess() {
+		return (pBWrBHHTP != null) ? pBWrBHHTP : (pBWrBHHTP = new BWrBHHTPElements());
+	}
+	
+	public ParserRule getBWrBHHTPRule() {
+		return getBWrBHHTPAccess().getRule();
+	}
+
+	//bWrFHHTP hidden():
+	//	WS? value=tBOOL WS name="WrFHHTP" WS? SL_COMMENT? NEWLINE;
+	public BWrFHHTPElements getBWrFHHTPAccess() {
+		return (pBWrFHHTP != null) ? pBWrFHHTP : (pBWrFHHTP = new BWrFHHTPElements());
+	}
+	
+	public ParserRule getBWrFHHTPRule() {
+		return getBWrFHHTPAccess().getRule();
+	}
+
+	//bWrADHH hidden():
+	//	WS? value=tBOOL WS name="WrADHH" WS? SL_COMMENT? NEWLINE;
+	public BWrADHHElements getBWrADHHAccess() {
+		return (pBWrADHH != null) ? pBWrADHH : (pBWrADHH = new BWrADHHElements());
+	}
+	
+	public ParserRule getBWrADHHRule() {
+		return getBWrADHHAccess().getRule();
+	}
+
+	//bWrADFF hidden():
+	//	WS? value=tBOOL WS name="WrADFF" WS? SL_COMMENT? NEWLINE;
+	public BWrADFFElements getBWrADFFAccess() {
+		return (pBWrADFF != null) ? pBWrADFF : (pBWrADFF = new BWrADFFElements());
+	}
+	
+	public ParserRule getBWrADFFRule() {
+		return getBWrADFFAccess().getRule();
+	}
+
+	//bWrBLFF hidden():
+	//	WS? value=tBOOL WS name="WrBLFF" WS? SL_COMMENT? NEWLINE;
+	public BWrBLFFElements getBWrBLFFAccess() {
+		return (pBWrBLFF != null) ? pBWrBLFF : (pBWrBLFF = new BWrBLFFElements());
+	}
+	
+	public ParserRule getBWrBLFFRule() {
+		return getBWrBLFFAccess().getRule();
+	}
+
+	//bWrADTWR hidden():
+	//	WS? value=tBOOL WS name="WrADTWR" WS? SL_COMMENT? NEWLINE;
+	public BWrADTWRElements getBWrADTWRAccess() {
+		return (pBWrADTWR != null) ? pBWrADTWR : (pBWrADTWR = new BWrADTWRElements());
+	}
+	
+	public ParserRule getBWrADTWRRule() {
+		return getBWrADTWRAccess().getRule();
+	}
+
+	//bWrFMTFF hidden():
+	//	WS? value=tBOOL WS name="WrFMTFF" WS? SL_COMMENT? NEWLINE;
+	public BWrFMTFFElements getBWrFMTFFAccess() {
+		return (pBWrFMTFF != null) ? pBWrFMTFF : (pBWrFMTFF = new BWrFMTFFElements());
+	}
+	
+	public ParserRule getBWrFMTFFRule() {
+		return getBWrFMTFFAccess().getRule();
+	}
+
+	//bWrACT hidden():
+	//	WS? value=tBOOL WS name="WrACT" WS? SL_COMMENT? NEWLINE;
+	public BWrACTElements getBWrACTAccess() {
+		return (pBWrACT != null) ? pBWrACT : (pBWrACT = new BWrACTElements());
+	}
+	
+	public ParserRule getBWrACTRule() {
+		return getBWrACTAccess().getRule();
+	}
+
+	//bClockwise hidden():
+	//	WS? value=tBOOL WS name="Clockwise" WS? SL_COMMENT? NEWLINE;
+	public BClockwiseElements getBClockwiseAccess() {
+		return (pBClockwise != null) ? pBClockwise : (pBClockwise = new BClockwiseElements());
+	}
+	
+	public ParserRule getBClockwiseRule() {
+		return getBClockwiseAccess().getRule();
+	}
+
+	//iScaleIEC hidden():
+	//	WS? value=INT WS name="ScaleIEC" WS? SL_COMMENT? NEWLINE;
+	public IScaleIECElements getIScaleIECAccess() {
+		return (pIScaleIEC != null) ? pIScaleIEC : (pIScaleIEC = new IScaleIECElements());
+	}
+	
+	public ParserRule getIScaleIECRule() {
+		return getIScaleIECAccess().getRule();
+	}
+
+	//iNumGrid_Z hidden():
+	//	WS? value=INT WS name="NumGrid_Z" WS? SL_COMMENT? NEWLINE;
+	public INumGrid_ZElements getINumGrid_ZAccess() {
+		return (pINumGrid_Z != null) ? pINumGrid_Z : (pINumGrid_Z = new INumGrid_ZElements());
+	}
+	
+	public ParserRule getINumGrid_ZRule() {
+		return getINumGrid_ZAccess().getRule();
+	}
+
+	//iNumGrid_Y hidden():
+	//	WS? value=INT WS name="NumGrid_Y" WS? SL_COMMENT? NEWLINE;
+	public INumGrid_YElements getINumGrid_YAccess() {
+		return (pINumGrid_Y != null) ? pINumGrid_Y : (pINumGrid_Y = new INumGrid_YElements());
+	}
+	
+	public ParserRule getINumGrid_YRule() {
+		return getINumGrid_YAccess().getRule();
+	}
+
+	//nTimeStep hidden():
+	//	WS? value=tNUMBER WS name="TimeStep" WS? SL_COMMENT? NEWLINE;
+	public NTimeStepElements getNTimeStepAccess() {
+		return (pNTimeStep != null) ? pNTimeStep : (pNTimeStep = new NTimeStepElements());
+	}
+	
+	public ParserRule getNTimeStepRule() {
+		return getNTimeStepAccess().getRule();
+	}
+
+	//nAnalysisTime hidden():
+	//	WS? value=tNUMBER WS name="AnalysisTime" WS? SL_COMMENT? NEWLINE;
+	public NAnalysisTimeElements getNAnalysisTimeAccess() {
+		return (pNAnalysisTime != null) ? pNAnalysisTime : (pNAnalysisTime = new NAnalysisTimeElements());
+	}
+	
+	public ParserRule getNAnalysisTimeRule() {
+		return getNAnalysisTimeAccess().getRule();
+	}
+
+	//nUsableTime hidden():
+	//	WS? value=tNUMBER WS name="UsableTime" WS? SL_COMMENT? NEWLINE;
+	public NUsableTimeElements getNUsableTimeAccess() {
+		return (pNUsableTime != null) ? pNUsableTime : (pNUsableTime = new NUsableTimeElements());
+	}
+	
+	public ParserRule getNUsableTimeRule() {
+		return getNUsableTimeAccess().getRule();
+	}
+
+	//nHubHt hidden():
+	//	WS? value=tNUMBER WS name="HubHt" WS? SL_COMMENT? NEWLINE;
+	public NHubHtElements getNHubHtAccess() {
+		return (pNHubHt != null) ? pNHubHt : (pNHubHt = new NHubHtElements());
+	}
+	
+	public ParserRule getNHubHtRule() {
+		return getNHubHtAccess().getRule();
+	}
+
+	//nGridHeight hidden():
+	//	WS? value=tNUMBER WS name="GridHeight" WS? SL_COMMENT? NEWLINE;
+	public NGridHeightElements getNGridHeightAccess() {
+		return (pNGridHeight != null) ? pNGridHeight : (pNGridHeight = new NGridHeightElements());
+	}
+	
+	public ParserRule getNGridHeightRule() {
+		return getNGridHeightAccess().getRule();
+	}
+
+	//nGridWidth hidden():
+	//	WS? value=tNUMBER WS name="GridWidth" WS? SL_COMMENT? NEWLINE;
+	public NGridWidthElements getNGridWidthAccess() {
+		return (pNGridWidth != null) ? pNGridWidth : (pNGridWidth = new NGridWidthElements());
+	}
+	
+	public ParserRule getNGridWidthRule() {
+		return getNGridWidthAccess().getRule();
+	}
+
+	//nVFlowAng hidden():
+	//	WS? value=tNUMBER WS name="VFlowAng" WS? SL_COMMENT? NEWLINE;
+	public NVFlowAngElements getNVFlowAngAccess() {
+		return (pNVFlowAng != null) ? pNVFlowAng : (pNVFlowAng = new NVFlowAngElements());
+	}
+	
+	public ParserRule getNVFlowAngRule() {
+		return getNVFlowAngAccess().getRule();
+	}
+
+	//nHFlowAng hidden():
+	//	WS? value=tNUMBER WS name="HFlowAng" WS? SL_COMMENT? NEWLINE;
+	public NHFlowAngElements getNHFlowAngAccess() {
+		return (pNHFlowAng != null) ? pNHFlowAng : (pNHFlowAng = new NHFlowAngElements());
+	}
+	
+	public ParserRule getNHFlowAngRule() {
+		return getNHFlowAngAccess().getRule();
+	}
+
+	//sTurbModel hidden():
+	//	WS? value=MODEL WS name="TurbModel" WS? SL_COMMENT? NEWLINE;
+	public STurbModelElements getSTurbModelAccess() {
+		return (pSTurbModel != null) ? pSTurbModel : (pSTurbModel = new STurbModelElements());
+	}
+	
+	public ParserRule getSTurbModelRule() {
+		return getSTurbModelAccess().getRule();
+	}
+
+	//sIECstandard hidden():
+	//	WS? value=IEC WS name="IECstandard" WS? SL_COMMENT? NEWLINE;
+	public SIECstandardElements getSIECstandardAccess() {
+		return (pSIECstandard != null) ? pSIECstandard : (pSIECstandard = new SIECstandardElements());
+	}
+	
+	public ParserRule getSIECstandardRule() {
+		return getSIECstandardAccess().getRule();
+	}
+
+	//sIECturbc hidden():
+	//	WS? value=TURB WS name="IECturbc" WS? SL_COMMENT? NEWLINE;
+	public SIECturbcElements getSIECturbcAccess() {
+		return (pSIECturbc != null) ? pSIECturbc : (pSIECturbc = new SIECturbcElements());
+	}
+	
+	public ParserRule getSIECturbcRule() {
+		return getSIECturbcAccess().getRule();
+	}
+
+	//sIEC_WindType hidden():
+	//	WS? value=WIND WS name="IEC_WindType" WS? SL_COMMENT? NEWLINE;
+	public SIEC_WindTypeElements getSIEC_WindTypeAccess() {
+		return (pSIEC_WindType != null) ? pSIEC_WindType : (pSIEC_WindType = new SIEC_WindTypeElements());
+	}
+	
+	public ParserRule getSIEC_WindTypeRule() {
+		return getSIEC_WindTypeAccess().getRule();
+	}
+
+	//sETMc hidden():
+	//	WS? value=tNUM WS name="ETMc" WS? SL_COMMENT? NEWLINE;
+	public SETMcElements getSETMcAccess() {
+		return (pSETMc != null) ? pSETMc : (pSETMc = new SETMcElements());
+	}
+	
+	public ParserRule getSETMcRule() {
+		return getSETMcAccess().getRule();
+	}
+
+	//sWindProfileType hidden():
+	//	WS? value=PROF WS name="WindProfileType" WS? SL_COMMENT? NEWLINE;
+	public SWindProfileTypeElements getSWindProfileTypeAccess() {
+		return (pSWindProfileType != null) ? pSWindProfileType : (pSWindProfileType = new SWindProfileTypeElements());
+	}
+	
+	public ParserRule getSWindProfileTypeRule() {
+		return getSWindProfileTypeAccess().getRule();
+	}
+
+	//nRefHt hidden():
+	//	WS? value=tNUMBER WS name="RefHt" WS? SL_COMMENT? NEWLINE;
+	public NRefHtElements getNRefHtAccess() {
+		return (pNRefHt != null) ? pNRefHt : (pNRefHt = new NRefHtElements());
+	}
+	
+	public ParserRule getNRefHtRule() {
+		return getNRefHtAccess().getRule();
+	}
+
+	//nUref hidden():
+	//	WS? value=tNUMBER WS name="Uref" WS? SL_COMMENT? NEWLINE;
+	public NUrefElements getNUrefAccess() {
+		return (pNUref != null) ? pNUref : (pNUref = new NUrefElements());
+	}
+	
+	public ParserRule getNUrefRule() {
+		return getNUrefAccess().getRule();
+	}
+
+	//nZJetMax hidden():
+	//	WS? value=tNUMBER WS name="ZJetMax" WS? SL_COMMENT? NEWLINE;
+	public NZJetMaxElements getNZJetMaxAccess() {
+		return (pNZJetMax != null) ? pNZJetMax : (pNZJetMax = new NZJetMaxElements());
+	}
+	
+	public ParserRule getNZJetMaxRule() {
+		return getNZJetMaxAccess().getRule();
+	}
+
+	//nPLExp hidden():
+	//	WS? value=tNUM WS name="PLExp" WS? SL_COMMENT? NEWLINE;
+	public NPLExpElements getNPLExpAccess() {
+		return (pNPLExp != null) ? pNPLExp : (pNPLExp = new NPLExpElements());
+	}
+	
+	public ParserRule getNPLExpRule() {
+		return getNPLExpAccess().getRule();
+	}
+
+	//nZ0 hidden():
+	//	WS? value=tNUM WS name="Z0" WS? SL_COMMENT? NEWLINE;
+	public NZ0Elements getNZ0Access() {
+		return (pNZ0 != null) ? pNZ0 : (pNZ0 = new NZ0Elements());
+	}
+	
+	public ParserRule getNZ0Rule() {
+		return getNZ0Access().getRule();
+	}
+
+	//nLocation hidden():
+	//	WS? value=tNUM WS name="Latitude" WS? SL_COMMENT? NEWLINE;
+	public NLocationElements getNLocationAccess() {
+		return (pNLocation != null) ? pNLocation : (pNLocation = new NLocationElements());
+	}
+	
+	public ParserRule getNLocationRule() {
+		return getNLocationAccess().getRule();
+	}
+
+	//nRICH_NO hidden():
+	//	WS? value=tNUMBER WS name="RICH_NO" WS? SL_COMMENT? NEWLINE;
+	public NRICH_NOElements getNRICH_NOAccess() {
+		return (pNRICH_NO != null) ? pNRICH_NO : (pNRICH_NO = new NRICH_NOElements());
+	}
+	
+	public ParserRule getNRICH_NORule() {
+		return getNRICH_NOAccess().getRule();
+	}
+
+	//nUStar hidden():
+	//	WS? value=tNUM WS name="UStar" WS? SL_COMMENT? NEWLINE;
+	public NUStarElements getNUStarAccess() {
+		return (pNUStar != null) ? pNUStar : (pNUStar = new NUStarElements());
+	}
+	
+	public ParserRule getNUStarRule() {
+		return getNUStarAccess().getRule();
+	}
+
+	//nZI hidden():
+	//	WS? value=tNUM WS name="ZI" WS? SL_COMMENT? NEWLINE;
+	public NZIElements getNZIAccess() {
+		return (pNZI != null) ? pNZI : (pNZI = new NZIElements());
+	}
+	
+	public ParserRule getNZIRule() {
+		return getNZIAccess().getRule();
+	}
+
+	//nPC_UW hidden():
+	//	WS? value=tNUM WS name="PC_UW" WS? SL_COMMENT? NEWLINE;
+	public NPC_UWElements getNPC_UWAccess() {
+		return (pNPC_UW != null) ? pNPC_UW : (pNPC_UW = new NPC_UWElements());
+	}
+	
+	public ParserRule getNPC_UWRule() {
+		return getNPC_UWAccess().getRule();
+	}
+
+	//nPC_UV hidden():
+	//	WS? value=tNUM WS name="PC_UV" WS? SL_COMMENT? NEWLINE;
+	public NPC_UVElements getNPC_UVAccess() {
+		return (pNPC_UV != null) ? pNPC_UV : (pNPC_UV = new NPC_UVElements());
+	}
+	
+	public ParserRule getNPC_UVRule() {
+		return getNPC_UVAccess().getRule();
+	}
+
+	//nPC_VW hidden():
+	//	WS? value=tNUM WS name="PC_VW" WS? SL_COMMENT? NEWLINE;
+	public NPC_VWElements getNPC_VWAccess() {
+		return (pNPC_VW != null) ? pNPC_VW : (pNPC_VW = new NPC_VWElements());
+	}
+	
+	public ParserRule getNPC_VWRule() {
+		return getNPC_VWAccess().getRule();
+	}
+
+	//nIncDec1 hidden():
+	//	WS? value=tNUM WS name="IncDec(1)" WS? SL_COMMENT? NEWLINE;
+	public NIncDec1Elements getNIncDec1Access() {
+		return (pNIncDec1 != null) ? pNIncDec1 : (pNIncDec1 = new NIncDec1Elements());
+	}
+	
+	public ParserRule getNIncDec1Rule() {
+		return getNIncDec1Access().getRule();
+	}
+
+	//nIncDec2 hidden():
+	//	WS? value=tNUM WS name="IncDec(2)" WS? SL_COMMENT? NEWLINE;
+	public NIncDec2Elements getNIncDec2Access() {
+		return (pNIncDec2 != null) ? pNIncDec2 : (pNIncDec2 = new NIncDec2Elements());
+	}
+	
+	public ParserRule getNIncDec2Rule() {
+		return getNIncDec2Access().getRule();
+	}
+
+	//nIncDec3 hidden():
+	//	WS? value=tNUM WS name="IncDec(3)" WS? SL_COMMENT? NEWLINE;
+	public NIncDec3Elements getNIncDec3Access() {
+		return (pNIncDec3 != null) ? pNIncDec3 : (pNIncDec3 = new NIncDec3Elements());
+	}
+	
+	public ParserRule getNIncDec3Rule() {
+		return getNIncDec3Access().getRule();
+	}
+
+	//nCohExp hidden():
+	//	WS? value=tNUM WS name="CohExp" WS? SL_COMMENT? NEWLINE;
+	public NCohExpElements getNCohExpAccess() {
+		return (pNCohExp != null) ? pNCohExp : (pNCohExp = new NCohExpElements());
+	}
+	
+	public ParserRule getNCohExpRule() {
+		return getNCohExpAccess().getRule();
+	}
+
+	//sCTEventPath hidden():
+	//	WS? value=STRING WS name="CTEventPath" WS? SL_COMMENT? NEWLINE;
+	public SCTEventPathElements getSCTEventPathAccess() {
+		return (pSCTEventPath != null) ? pSCTEventPath : (pSCTEventPath = new SCTEventPathElements());
+	}
+	
+	public ParserRule getSCTEventPathRule() {
+		return getSCTEventPathAccess().getRule();
+	}
+
+	//sCTEventFile hidden():
+	//	WS? value=("LES" | "DNS" | "RANDOM") WS name="CTEventFile" WS? SL_COMMENT? NEWLINE;
+	public SCTEventFileElements getSCTEventFileAccess() {
+		return (pSCTEventFile != null) ? pSCTEventFile : (pSCTEventFile = new SCTEventFileElements());
+	}
+	
+	public ParserRule getSCTEventFileRule() {
+		return getSCTEventFileAccess().getRule();
+	}
+
+	//bRandomize hidden():
+	//	WS? value=tBOOL WS name="Randomize" WS? SL_COMMENT? NEWLINE;
+	public BRandomizeElements getBRandomizeAccess() {
+		return (pBRandomize != null) ? pBRandomize : (pBRandomize = new BRandomizeElements());
+	}
+	
+	public ParserRule getBRandomizeRule() {
+		return getBRandomizeAccess().getRule();
+	}
+
+	//nDistScl hidden():
+	//	WS? value=tNUMBER WS name="DistScl" WS? SL_COMMENT? NEWLINE;
+	public NDistSclElements getNDistSclAccess() {
+		return (pNDistScl != null) ? pNDistScl : (pNDistScl = new NDistSclElements());
+	}
+	
+	public ParserRule getNDistSclRule() {
+		return getNDistSclAccess().getRule();
+	}
+
+	//nCTLy hidden():
+	//	WS? value=tNUMBER WS name="CTLy" WS? SL_COMMENT? NEWLINE;
+	public NCTLyElements getNCTLyAccess() {
+		return (pNCTLy != null) ? pNCTLy : (pNCTLy = new NCTLyElements());
+	}
+	
+	public ParserRule getNCTLyRule() {
+		return getNCTLyAccess().getRule();
+	}
+
+	//nCTLz hidden():
+	//	WS? value=tNUMBER WS name="CTLz" WS? SL_COMMENT? NEWLINE;
+	public NCTLzElements getNCTLzAccess() {
+		return (pNCTLz != null) ? pNCTLz : (pNCTLz = new NCTLzElements());
+	}
+	
+	public ParserRule getNCTLzRule() {
+		return getNCTLzAccess().getRule();
+	}
+
+	//nCTStartTime hidden():
+	//	WS? value=tNUMBER WS name="CTStartTime" WS? SL_COMMENT? NEWLINE;
+	public NCTStartTimeElements getNCTStartTimeAccess() {
+		return (pNCTStartTime != null) ? pNCTStartTime : (pNCTStartTime = new NCTStartTimeElements());
+	}
+	
+	public ParserRule getNCTStartTimeRule() {
+		return getNCTStartTimeAccess().getRule();
+	}
 }

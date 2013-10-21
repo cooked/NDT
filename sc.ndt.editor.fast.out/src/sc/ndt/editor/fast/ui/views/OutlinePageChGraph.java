@@ -26,9 +26,8 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import sc.ndt.commons.model.OutBlock;
 import sc.ndt.commons.model.OutCh;
-import sc.ndt.commons.model.outlist.providers.OutListCheckStateProvider;
-import sc.ndt.commons.model.outlist.providers.OutListContentProvider;
-import sc.ndt.commons.model.outlist.providers.OutListLabelProvider;
+import sc.ndt.commons.model.providers.outlist.OutListContentProvider;
+import sc.ndt.commons.model.providers.outlist.OutListLabelProvider;
 import sc.ndt.editor.fast.ui.editors.EditorBrowserFASTOut;
 import sc.ndt.editor.fast.ui.editors.MultiPageFASTOutEditor;
 

@@ -1,5 +1,10 @@
 package sc.ndt.editor.fast.ui.mpe.ui;
 
+import java.util.HashMap;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -15,74 +20,86 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
 import sc.ndt.editor.fast.ui.FastfstFactory;
+import sc.ndt.editor.fast.ui.FastadnFactory;
 import sc.ndt.editor.fast.ui.mpe.outline.FstMultiPageContentOutline;
-
-//import sc.nrel.nwtc.fast.aerodyn.fAdyn.ModelFAdyn;
+import sc.ndt.editor.fast.fastadn.ModelFastadn;
 //import sc.nrel.nwtc.fast.fMain.ModelFMain;
 //import sc.nrel.nwtc.fast.aerodyn.ui.internal.FAdynActivator;
 //import sc.nrel.nwtc.fast.aerodyn.ui.editors.*;
 
+
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.Provider;
 
 /**
  * @author Cotta
  *
  */
-public class FstMultiPageEditor extends FormEditor /*implements ISizeProvider*/ {
+public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 	// see about ISizeprovider
 	// http://www.eclipse.org/forums/index.php/m/706788/
 	
 	//public static final String ID = "sc.nrel.nwtc.fast.editors.FMainFileMultiPageEditor"; //$NON-NLS-1$
-
-	// external injectors
-	public Injector				fFstInjector;
-	public Injector				fAdynInjector;
-	public Injector				fTowrInjector;
-	public Injector				fBldeInjector;
-	
-	// inner source editors
-	@Inject
-	public XtextEditor 			xtextEditorFst;		// injected here
-	public XtextEditor 			xtextEditorFAdyn; 	// injected then
 	
 	// inner form editors
-	public FormPage				formPageMain;
-	public FormPage				formPageAdyn;
-	public FormPage				formPageTowr;
-	public FormPage				formPageBlds;
-	public FormPage				formPagePfrm;
+	public FormPage				formPageFst;
+	public FormPage				formPageAdn;
+	public FormPage				formPageTwr;
+	public FormPage				formPageBld;
+	public FormPage				formPagePfm;
 		
 	// outline view
 	@Inject 
 	public OutlinePage 			outlinePageFMain;
 	public OutlinePage 			outlinePageFAdyn;
-	
-	public Provider<XtextResourceSet> 	resourceSetProviderFAdyn;
 		
-	public ModelFastfst 					modelFst;
-	//public ModelFAdyn 					modelFAdyn;
-	//private XtextResourceSet 	resourceSetFAdyn;
-	//private XtextResource 		resourceFAdyn;
+	public ModelFastfst 		modelFst;
+	public ModelFastadn 		modelAdn;
+	//public ModelFasttwr 		modelTwr;
+	//public ModelFastbld 		modelBld;
 	
 	FastfstFactory ff;
+	FastadnFactory fa;
+	
 	private FstMultiPageContentOutline fContentOutline;
 	
+	// injectors
+	private HashMap<String,Injector>	xtextInjectors;
+	
+	// editors
+	private HashMap<String,XtextEditor>	xtextEditors;
+	
+	//public Provider<XtextResourceSet> resourceSetProviderFAdyn;
+	
 	public FstMultiPageEditor() {
+		
 		ff 				= new FastfstFactory();
-		fFstInjector 	= ff.getInjector();
-		xtextEditorFst 	= fFstInjector.getInstance(XtextEditor.class);
-		//fAdynInjector = FAdynActivator.getInstance().getInjector(FAdynActivator.SC_NREL_NWTC_FAST_AERODYN_FADYN);
+		fa 				= new FastadnFactory();
+		
+		xtextInjectors 	= new HashMap<String,Injector>();
+		xtextInjectors.put("fst", ff.getInjector());
+		xtextInjectors.put("adn", fa.getInjector());
+		
+		xtextEditors 	= new HashMap<String,XtextEditor>();
+		xtextEditors.put("fst",xtextInjectors.get("fst").getInstance(XtextEditor.class));
+		xtextEditors.put("adn",xtextInjectors.get("adn").getInstance(XtextEditor.class));
+
 	}
 
-	/**
-	 * @param editor
-	 * @return
-	 */
+	@Override
+	public Injector getXtextInjector(String key) {
+		return xtextInjectors.get(key);
+	}
+	
+	@Override
+	public XtextEditor getXtextEditor(String key) {
+		return xtextEditors.get(key);
+	}
+	
 	public EObject getModelFromXtextEditor(XtextEditor editor) {
 		
 		EObject out = editor.getDocument().readOnly(
@@ -166,7 +183,7 @@ public class FstMultiPageEditor extends FormEditor /*implements ISizeProvider*/ 
 		// TODO Auto-generated method stub
 		
 		// save Main
-		xtextEditorFst.doSave(monitor);
+		xtextEditors.get("fst").doSave(monitor);
 		
 		// save AeroDyn
 		// save Tower
@@ -178,76 +195,80 @@ public class FstMultiPageEditor extends FormEditor /*implements ISizeProvider*/ 
 
 	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
 		
-		/////
-		xtextEditorFst.doSaveAs();
-		setPageText(0, xtextEditorFst.getTitle());
-		setInput(xtextEditorFst.getEditorInput());
-		/////
+		getXtextEditor("fst").doSaveAs();
+		setPageText(0, xtextEditors.get("fst").getTitle());
+		setInput(xtextEditors.get("fst").getEditorInput());
+
 	}
 
 	@Override
 	protected void addPages() {
 		
+		int index;
+		
 		try {
-					
-			///// Formatted source			
-			int index = addPage(xtextEditorFst, getEditorInput());
-			setPageText(index, getEditorInput().getName());
-						
-			modelFst = xtextEditorFst.getDocument().readOnly(
-				
-					new IUnitOfWork<ModelFastfst, XtextResource>() {
+		
+			///// FAST source		
+			addPage(xtextEditors.get("fst"), getEditorInput());
 
+			modelFst = xtextEditors.get("fst").getDocument().readOnly(
+					new IUnitOfWork<ModelFastfst, XtextResource>() {
 						@Override
 						public ModelFastfst exec(XtextResource res) throws Exception {
-
 							return (ModelFastfst)res.getContents().get(0);
-					
 						}
 					});
 			
-			///// Form
-			formPageMain = new FstFormPage(this,"general","GUI");
-			addPage(0,formPageMain);
-
-			setActivePage(0);
-			
-			
-			// AeroDyn part
-			//String ADFile = modelFst.getADFile().getValue();
-			//URI adynURI = URI.createPlatformResourceURI( ADFile, false);
-
-			/*resourceSetFAdyn = fAdynInjector.getInstance(XtextResourceSet.class);
-			resourceSetFAdyn.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
-			resourceFAdyn = (XtextResource)resourceSetFAdyn.createResource(adynURI);
-			modelFAdyn = (ModelFAdyn)resourceFAdyn.getContents().get(0);
-			*/
-			
-			
-			/* TODO AeroDyn Editor - move on another MPE Project editor
-			xtextEditorFAdyn = fAdynInjector.getInstance(XtextEditor.class);
+			///// FAST Form
+			formPageFst = new FstFormPage(this,"fast","FAST");
+			addPage(0,formPageFst);
 					
-			IFile fileMain = (IFile) xtextEditorFMain.getEditorInput().getAdapter(IFile.class);
+			setPageText(1, getEditorInput().getName());
 			
+
+	/*
+			///// AeroDyn source
+			String ADFile = modelFst.getADFile().getValue();
+
+			IFile fileMain = (IFile) xtextEditors.get("fst").getEditorInput().getAdapter(IFile.class);
 			IPath path = fileMain.getParent().getFullPath().append(ADFile);
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			
-			FileEditorInput fileEditorInputAdyn = new FileEditorInput(file);
-			
-			index = addPage(xtextEditorFAdyn, fileEditorInputAdyn);
-			setPageText(index, fileEditorInputAdyn.getName());
-			
-			//formPageAdyn = new FAdynFileFormPage(this,"aerodynamics","Aerodynamics");
-			//addPage(1,formPageAdyn);
-			 * 
-			*/
 
+			FileEditorInput fileEditorInputAdyn = new FileEditorInput(file);
+
+			index = addPage(xtextEditors.get("adn"), fileEditorInputAdyn);
+			setPageText(index, fileEditorInputAdyn.getName());
+		
+			
+			///// AeroDyn Form
+			formPageAdn = new AdnFormPage(this,"aerodyn","AeroDyn");
+			addPage(formPageAdn);
+
+			setActivePage(0);
+
+
+			
+
+
+			///// Blade source
+			/*String BldFile = modelFst.getBldFile_1_().getValue();
+
+			path = fileMain.getParent().getFullPath().append(BldFile);
+			file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+
+			FileEditorInput fileEditorInputBld = new FileEditorInput(file);
+
+			index = addPage(xtextEditorBld, fileEditorInputBld);
+			setPageText(index, fileEditorInputBld.getName());
+			*/
+			
+			
 		} catch (PartInitException e) {
 			ErrorDialog.openError(getSite().getShell(),
 					"Error creating nested text editor",null,e.getStatus());
 		}
+		
 		
 	}
 	

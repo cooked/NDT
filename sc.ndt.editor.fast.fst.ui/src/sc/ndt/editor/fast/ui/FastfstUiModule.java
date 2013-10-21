@@ -8,6 +8,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.documentation.IEObjectDocumentationProvider;
 import org.eclipse.xtext.ui.LanguageSpecific;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
+import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.folding.IFoldingRegionProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
@@ -42,6 +43,12 @@ public class FastfstUiModule extends sc.ndt.editor.fast.ui.AbstractFastfstUiModu
 				(XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS))).toInstance("\t");
 	}
 	*/
+	
+	// override nature creation
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
+		return sc.ndt.editor.fast.ui.addon.nature.NatureAddingEditorCallback.class;
+	}
 	
 		
 	// coloring

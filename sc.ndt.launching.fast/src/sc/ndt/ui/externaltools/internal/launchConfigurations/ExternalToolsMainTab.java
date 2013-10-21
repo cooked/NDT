@@ -186,16 +186,13 @@ public abstract class ExternalToolsMainTab extends AbstractLaunchConfigurationTa
 	protected ILaunchConfigurationTab getTabForCurrentJRE() {
 		if (!fJREBlock.isDefaultJRE()) {
 			IPath path = fJREBlock.getPath();
-			if (path != null /*
-							 * && FASTRuntime.getExecutionEnvironmentId(path) ==
-							 * null
-							 */) {
-				// IFASTInstall vm = fJREBlock.getFRE();
-				// if (vm != null) {
-				// String vmInstallTypeID = vm.getFASTInstallType().getId();
-				// return
-				// FREIDebugUIPlugin.getDefault().getVMInstallTypePage(vmInstallTypeID);
-				// }
+			FASTRuntime.getExecutionEnvironmentId(path);
+			if (path != null && FASTRuntime.getExecutionEnvironmentId(path) == null) {
+				IFASTInstall vm = fJREBlock.getFRE();
+				if (vm != null) {
+					String vmInstallTypeID = vm.getFASTInstallType().getId();
+					return FREIDebugUIPlugin.getDefault().getVMInstallTypePage(vmInstallTypeID);
+				}
 			}
 		}
 		return null;
@@ -215,7 +212,8 @@ public abstract class ExternalToolsMainTab extends AbstractLaunchConfigurationTa
 
 		if (isUseDynamicJREArea()) {
 			// Retrieve the dynamic UI for the current JRE
-			setDynamicTab(getTabForCurrentJRE());
+			ILaunchConfigurationTab lct = getTabForCurrentJRE();
+			setDynamicTab(lct);
 			if (getDynamicTab() == null) {
 				return;
 			}
