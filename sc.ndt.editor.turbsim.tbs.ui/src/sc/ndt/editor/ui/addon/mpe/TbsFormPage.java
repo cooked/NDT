@@ -66,6 +66,7 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import com.google.inject.Injector;
 
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.layout.RowData;
 
 public class TbsFormPage extends FormPage {
 
@@ -85,24 +86,16 @@ public class TbsFormPage extends FormPage {
 	private FieldDecoration fieldDecERR;
 	private Text NumGrid_Z;
 	private Text TwrShad;
-	private Text ShadHWid;
-	private Text TShadRefPt;
-	private Text Rho;
-	private Text KinVisc;
-	private Text DTAero;
-	private Text NumFoil;
-	private Text BldNodes;
-	private Table table_2;
-
-	private TableViewer tableViewer;
+	private Text TimeStep;
+	private Text AnalysisTime;
+	private Text UsableTime;
+	private Text HubHt;
+	private Text GridHeight;
 
 	private AirfoilList 	al = new AirfoilList();
 	private BladeNodeAeroList 	as = new BladeNodeAeroList();
 	
 	private ModelTurbsimtbs m;
-	private Table table;
-
-	private TableViewer tableViewer_1;
 
 	private Button WrFHHTP;
 
@@ -117,6 +110,9 @@ public class TbsFormPage extends FormPage {
 	private Button WrFMTFF;
 
 	private Button WrACT;
+	private Text GridWidth;
+	private Text HFlowAng;
+	private Text VFlowAng;
 	
 	/**
 	 * Create the form page.
@@ -235,13 +231,15 @@ public class TbsFormPage extends FormPage {
 		Composite composite_2 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
 		managedForm.getToolkit().adapt(composite_2);
 		managedForm.getToolkit().paintBordersFor(composite_2);
-		FillLayout fl_composite_2 = new FillLayout(SWT.HORIZONTAL);
-		fl_composite_2.marginWidth = 5;
-		fl_composite_2.marginHeight = 5;
-		fl_composite_2.spacing = 5;
-		composite_2.setLayout(fl_composite_2);
+		composite_2.setLayout(new GridLayout(2, false));
 		
-		Section sctnNewSection = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
+		Composite composite_4 = new Composite(composite_2, SWT.NONE);
+		composite_4.setLayout(new FillLayout(SWT.VERTICAL));
+		composite_4.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_4);
+		managedForm.getToolkit().paintBordersFor(composite_4);
+		
+		Section sctnNewSection = managedForm.getToolkit().createSection(composite_4, Section.TWISTIE | Section.TITLE_BAR);
 		managedForm.getToolkit().paintBordersFor(sctnNewSection);
 		sctnNewSection.setText("Output");
 		sctnNewSection.setExpanded(true);
@@ -291,7 +289,50 @@ public class TbsFormPage extends FormPage {
 		managedForm.getToolkit().adapt(WrACT, true, true);
 		WrACT.setText("coherent turbulence time-step AeroDyn file (*.cts)");
 		
+		
+		Section sctnOutputList = managedForm.getToolkit().createSection(composite_4, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
+		managedForm.getToolkit().paintBordersFor(sctnOutputList);
+		sctnOutputList.setText("Blade");
+		
+		Composite composite = managedForm.getToolkit().createComposite(sctnOutputList, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite);
+		sctnOutputList.setClient(composite);
+		composite.setLayout(new GridLayout(2, false));
+		
+		Label lblNewLabel_3 = managedForm.getToolkit().createLabel(composite, "New Label", SWT.NONE);
+		lblNewLabel_3.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		
+		Combo combo = new Combo(composite, SWT.NONE);
+		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(combo);
+		managedForm.getToolkit().paintBordersFor(combo);
+		
+		Label lblNewLabel_5 = managedForm.getToolkit().createLabel(composite, "New Label", SWT.NONE);
+		lblNewLabel_5.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		
+		Combo combo_1 = new Combo(composite, SWT.NONE);
+		combo_1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(combo_1);
+		managedForm.getToolkit().paintBordersFor(combo_1);
+		
+		Label lblNewLabel_6 = managedForm.getToolkit().createLabel(composite, "New Label", SWT.NONE);
+		lblNewLabel_6.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		
+		Combo combo_2 = new Combo(composite, SWT.NONE);
+		combo_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(combo_2);
+		managedForm.getToolkit().paintBordersFor(combo_2);
+		
+		Label lblNewLabel_11 = managedForm.getToolkit().createLabel(composite, "New Label", SWT.NONE);
+		lblNewLabel_11.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		
+		Combo combo_3 = new Combo(composite, SWT.NONE);
+		combo_3.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(combo_3);
+		managedForm.getToolkit().paintBordersFor(combo_3);
+		
 		Section sctnNewSection_1 = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
+		sctnNewSection_1.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sctnNewSection_1);
 		sctnNewSection_1.setText("Model");
 		sctnNewSection_1.setExpanded(true);
@@ -340,305 +381,67 @@ public class TbsFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblTowershadowHalfWidth, true, true);
 		lblTowershadowHalfWidth.setText("Timestep");
 		
-		ShadHWid = new Text(composite_3, SWT.BORDER);
-		ShadHWid.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(ShadHWid, true, true);
+		TimeStep = new Text(composite_3, SWT.BORDER);
+		TimeStep.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(TimeStep, true, true);
 		
 		Label lblTowershadowReferencePoint = new Label(composite_3, SWT.NONE);
 		managedForm.getToolkit().adapt(lblTowershadowReferencePoint, true, true);
-		lblTowershadowReferencePoint.setText("Tower-shadow reference point");
+		lblTowershadowReferencePoint.setText("AnalysisTime:");
 		
-		TShadRefPt = new Text(composite_3, SWT.BORDER);
-		TShadRefPt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(TShadRefPt, true, true);
+		AnalysisTime = new Text(composite_3, SWT.BORDER);
+		AnalysisTime.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(AnalysisTime, true, true);
 		
 		Label lblNewLabel_8 = new Label(composite_3, SWT.NONE);
 		managedForm.getToolkit().adapt(lblNewLabel_8, true, true);
-		lblNewLabel_8.setText("Air density");
+		lblNewLabel_8.setText("UsableTime");
 		
-		Rho = new Text(composite_3, SWT.BORDER);
-		Rho.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(Rho, true, true);
+		UsableTime = new Text(composite_3, SWT.BORDER);
+		UsableTime.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(UsableTime, true, true);
 		
 		Label lblNewLabel_9 = new Label(composite_3, SWT.NONE);
 		managedForm.getToolkit().adapt(lblNewLabel_9, true, true);
-		lblNewLabel_9.setText("Kinematic air viscosity");
+		lblNewLabel_9.setText("HubHt");
 		
-		KinVisc = new Text(composite_3, SWT.BORDER);
-		KinVisc.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(KinVisc, true, true);
+		HubHt = new Text(composite_3, SWT.BORDER);
+		HubHt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(HubHt, true, true);
 		
 		Label lblNewLabel_10 = new Label(composite_3, SWT.NONE);
 		managedForm.getToolkit().adapt(lblNewLabel_10, true, true);
-		lblNewLabel_10.setText("Time interval for aerodynamic calculations");
+		lblNewLabel_10.setText("GridHeight");
 		
-		DTAero = new Text(composite_3, SWT.BORDER);
-		DTAero.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(DTAero, true, true);
-		new Label(composite_3, SWT.NONE);
+		GridHeight = new Text(composite_3, SWT.BORDER);
+		GridHeight.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(GridHeight, true, true);
 		
-		// This example will allow text to be dragged
-        //Transfer[] types = new Transfer[] {SectionTransfer.getInstance()};
-
-		Composite composite_14 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
-		managedForm.getToolkit().adapt(composite_14);
-		managedForm.getToolkit().paintBordersFor(composite_14);
-		GridLayout gl_composite_14 = new GridLayout(1, false);
-		gl_composite_14.marginHeight = 0;
-		composite_14.setLayout(gl_composite_14);
+		Label lblNewLabel = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel, true, true);
+		lblNewLabel.setText("GridWidth");
 		
+		GridWidth = new Text(composite_3, SWT.BORDER);
+		GridWidth.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(GridWidth, true, true);
 		
-		Section sctnOutputList = managedForm.getToolkit().createSection(composite_14, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
-		GridData gd_sctnOutputList = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
-		gd_sctnOutputList.heightHint = 413;
-		sctnOutputList.setLayoutData(gd_sctnOutputList);
-		managedForm.getToolkit().paintBordersFor(sctnOutputList);
-		sctnOutputList.setText("Blade");
+		Label lblNewLabel_1 = new Label(composite_3, SWT.NONE);
+		lblNewLabel_1.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(lblNewLabel_1, true, true);
+		lblNewLabel_1.setText("VFlowAng");
 		
-				Composite composite_5 = managedForm.getToolkit().createComposite(sctnOutputList, SWT.NONE);
-				managedForm.getToolkit().paintBordersFor(composite_5);
-				sctnOutputList.setClient(composite_5);
-				GridLayout gl_composite_5 = new GridLayout(1, false);
-				gl_composite_5.horizontalSpacing = 10;
-				composite_5.setLayout(gl_composite_5);
-				
-				SashForm sashForm = new SashForm(composite_5, SWT.NONE);
-				GridData gd_sashForm = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-				gd_sashForm.widthHint = 650;
-				sashForm.setLayoutData(gd_sashForm);
-				managedForm.getToolkit().adapt(sashForm);
-				managedForm.getToolkit().paintBordersFor(sashForm);
-				
-				Composite composite_4 = managedForm.getToolkit().createComposite(sashForm, SWT.NONE);
-				managedForm.getToolkit().paintBordersFor(composite_4);
-				GridLayout gl_composite_4 = new GridLayout(1, false);
-				gl_composite_4.marginWidth = 0;
-				composite_4.setLayout(gl_composite_4);
-				
-				Composite composite_7 = managedForm.getToolkit().createComposite(composite_4, SWT.NONE);
-				composite_7.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-				managedForm.getToolkit().paintBordersFor(composite_7);
-				GridLayout gl_composite_7 = new GridLayout(2, false);
-				gl_composite_7.marginWidth = 0;
-				gl_composite_7.marginHeight = 0;
-				composite_7.setLayout(gl_composite_7);
-				
-				Label lblNewLabel_11 = managedForm.getToolkit().createLabel(composite_7, "Number of airfoil files", SWT.NONE);
-				
-				NumFoil = new Text(composite_7, SWT.BORDER | SWT.CENTER);
-				GridData gd_NumFoil = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-				gd_NumFoil.widthHint = 40;
-				NumFoil.setLayoutData(gd_NumFoil);
-				managedForm.getToolkit().adapt(NumFoil, true, true);
-				
-				
-				
-				
-				tableViewer = new TableViewer(composite_4, SWT.BORDER | SWT.FULL_SELECTION);
-				table_2 = tableViewer.getTable();
-				table_2.setLinesVisible(true);
-				table_2.setHeaderVisible(true);
-				managedForm.getToolkit().paintBordersFor(table_2);
-				
-				TableViewerColumn tableViewerColumnID = new TableViewerColumn(tableViewer, SWT.NONE);
-				TableColumn tableColumnID = tableViewerColumnID.getColumn();
-				tableColumnID.setResizable(false);
-				tableColumnID.setWidth(30);
-				tableColumnID.setText("ID");
-				tableViewerColumnID.setLabelProvider(new AirfoilListLabelProvider()); 
-				tableViewerColumnID.setLabelProvider(new ColumnLabelProvider() {
-					  @Override
-					  public String getText(Object element) {
-					    return Integer.toString(al.indexOf( (AirfoilFile) element));
-					  }
-					});
-				
-				TableViewerColumn tableViewerColumnAirfoil = new TableViewerColumn(tableViewer, SWT.NONE);
-				TableColumn tableColumnAirfoil = tableViewerColumnAirfoil.getColumn();
-				tableColumnAirfoil.setWidth(200);
-				tableColumnAirfoil.setText("Airfoil");
-				tableViewerColumnAirfoil.setLabelProvider(new AirfoilListLabelProvider()); 
-				
-				// this code is placed after the definition of 
-				// the viewer
-
-				// set the content provider
-				tableViewer.setContentProvider(ArrayContentProvider.getInstance());
-
-				// provide the input to the viewer
-				// setInput() calls getElements() on the 
-				// content provider instance
-				
-				tableViewer.setInput(al); 
-				
-				//tableViewer.setContentProvider(new OutListContentProvider());
-				//tableViewer.setInput(outList.getAllOutBlocks());
-				
-				
-				
-				
-				Composite composite_6 = managedForm.getToolkit().createComposite(sashForm, SWT.NONE);
-				managedForm.getToolkit().paintBordersFor(composite_6);
-				composite_6.setLayout(new GridLayout(1, false));
-				
-				Composite composite_8 = new Composite(composite_6, SWT.NONE);
-				composite_8.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-				managedForm.getToolkit().adapt(composite_8);
-				managedForm.getToolkit().paintBordersFor(composite_8);
-				GridLayout gl_composite_8 = new GridLayout(2, false);
-				gl_composite_8.verticalSpacing = 3;
-				gl_composite_8.marginHeight = 0;
-				gl_composite_8.marginWidth = 0;
-				composite_8.setLayout(gl_composite_8);
-				
-				Label lblNewLabel_12 = new Label(composite_8, SWT.NONE);
-				managedForm.getToolkit().adapt(lblNewLabel_12, true, true);
-				lblNewLabel_12.setText("Number of analysis blade nodes");
-				
-				BldNodes = new Text(composite_8, SWT.BORDER | SWT.CENTER);
-				GridData gd_BldNodes = new GridData(SWT.CENTER, SWT.CENTER, false, false, 1, 1);
-				gd_BldNodes.widthHint = 40;
-				BldNodes.setLayoutData(gd_BldNodes);
-				managedForm.getToolkit().adapt(BldNodes, true, true);
-				
-				
-				
-				
-				tableViewer_1 = new TableViewer(composite_6, SWT.BORDER | SWT.FULL_SELECTION);
-				table = tableViewer_1.getTable();
-				table.setLinesVisible(true);
-				table.setHeaderVisible(true);
-				managedForm.getToolkit().paintBordersFor(table);
-				tableViewer_1.getColumnViewerEditor().addEditorActivationListener(
-						new ColumnViewerEditorActivationListener() {
-
-							@Override
-							public void beforeEditorActivated(ColumnViewerEditorActivationEvent event) {
-								// TODO Auto-generated method stub
-								
-							}
-
-							@Override
-							public void afterEditorActivated(final ColumnViewerEditorActivationEvent event) {
-							
-								/*
-								document.modify(new IUnitOfWork.Void<XtextResource>() {
-									@Override
-									public void process(XtextResource resource) throws Exception {
-										ModelTurbsimtbs m = (ModelTurbsimtbs) resource.getContents().get(0);
-										ViewerCell o = (ViewerCell)event.getSource();
-										//tableViewer_1.getCell(new Point(event., y))
-										String t = o.getText();
-										
-										if (m != null && m.getAirStat() != null)
-											m.getAirStat().getPrnelm().set(0, t);//.ge(outList.getAllSelectedByBlock());
-										else
-											throw new IllegalStateException("Uh uh, no content");
-										
-									};
-								});
-								*/
-								
-							}
-
-							@Override
-							public void beforeEditorDeactivated(
-									ColumnViewerEditorDeactivationEvent event) {
-								// TODO Auto-generated method stub
-								
-							}
-
-							@Override
-							public void afterEditorDeactivated(
-									ColumnViewerEditorDeactivationEvent event) {
-								// TODO Auto-generated method stub
-								
-							}
-					
-						});
-				
-				TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				TableColumn tblclmnRm = tableViewerColumn.getColumn();
-				tblclmnRm.setAlignment(SWT.CENTER);
-				tblclmnRm.setWidth(50);
-				tblclmnRm.setText("R [m]");
-				tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return Float.toString( ((BladeNodeAero)element).R );
-					}
-				});
-				
-				TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				TableColumn tblclmnTwistdeg = tableViewerColumn_1.getColumn();
-				tblclmnTwistdeg.setAlignment(SWT.CENTER);
-				tblclmnTwistdeg.setWidth(80);
-				tblclmnTwistdeg.setText("Twist [deg]");
-				tableViewerColumn_1.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return Float.toString( ((BladeNodeAero)element).Twist );
-					}
-				});
-				
-				TableViewerColumn tableViewerColumn_2 = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				TableColumn tblclmnDrm = tableViewerColumn_2.getColumn();
-				tblclmnDrm.setAlignment(SWT.CENTER);
-				tblclmnDrm.setWidth(60);
-				tblclmnDrm.setText("dR [m]");
-				tableViewerColumn_2.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return Float.toString( ((BladeNodeAero)element).dR );
-					}
-				});
-				
-				TableViewerColumn tableViewerColumn_3 = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				//tableViewerColumn_3.setEditingSupport(
-				//		new TextCellEditor(tableViewerColumn_5.getViewer()) );
-				TableColumn tblclmnChordm = tableViewerColumn_3.getColumn();
-				tblclmnChordm.setAlignment(SWT.CENTER);
-				tblclmnChordm.setWidth(80);
-				tblclmnChordm.setText("Chord [m]");
-				tableViewerColumn_3.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return Float.toString( ((BladeNodeAero)element).Chord );
-					}
-				});
-				
-				TableViewerColumn tableViewerColumn_4 = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				TableColumn tblclmnId_1 = tableViewerColumn_4.getColumn();
-				tblclmnId_1.setAlignment(SWT.CENTER);
-				tblclmnId_1.setWidth(50);
-				tblclmnId_1.setText("ID");
-				tableViewerColumn_4.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return Float.toString( ((BladeNodeAero)element).AirfoilID );
-					}
-				});
-				
-				TableViewerColumn tableViewerColumn_5 = new TableViewerColumn(tableViewer_1, SWT.NONE);
-				tableViewerColumn_5.setEditingSupport(
-						new AirfoilCellEditorProvider(tableViewerColumn_5.getViewer()) );
-				TableColumn tblclmnPrint = tableViewerColumn_5.getColumn();
-				tblclmnPrint.setAlignment(SWT.CENTER);
-				tblclmnPrint.setWidth(60);
-				tblclmnPrint.setText("Print");
-				tableViewerColumn_5.setLabelProvider(new ColumnLabelProvider() {
-					@Override
-					public String getText(Object element) {
-					    return ((BladeNodeAero)element).print;
-					}
-				});
-				
-				// set the content provider
-				tableViewer_1.setContentProvider(ArrayContentProvider.getInstance());
-				tableViewer_1.setInput(as);
-				
-				
-				sashForm.setWeights(new int[] {3, 5});
+		VFlowAng = new Text(composite_3, SWT.BORDER);
+		VFlowAng.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(VFlowAng, true, true);
+		
+		Label lblNewLabel_2 = new Label(composite_3, SWT.NONE);
+		lblNewLabel_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(lblNewLabel_2, true, true);
+		lblNewLabel_2.setText("HFlowAng");
+		
+		HFlowAng = new Text(composite_3, SWT.BORDER);
+		HFlowAng.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(HFlowAng, true, true);
 		
 		// VALIDATOR / CONVERTER
 

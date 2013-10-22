@@ -32,7 +32,7 @@ public class ModelFileTowerSec extends FileNREL {
 		nHeadLines = 0;
 		
 		Path path 	= new Path(ifile.getFullPath().toOSString());
-		IPath p2 	= path.removeFileExtension().addFileExtension("sec");
+		IPath p2 	= path.removeFileExtension().addFileExtension("tsv");
 		file 		= ResourcesPlugin.getWorkspace().getRoot().getFile(p2);
 		sFile 		= file.getRawLocation().toOSString();
 		
@@ -65,6 +65,8 @@ public class ModelFileTowerSec extends FileNREL {
 		    			));
 
 		    }
+		    
+		    twrList.calcHtFract();
 		    
 		    if(reader instanceof CSVReader && reader!=null)
 				reader.close();

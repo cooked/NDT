@@ -1,0 +1,72 @@
+grammar sc.ndt.editor.Bmodestsp //with org.eclipse.xtext.common.Terminals
+
+generate bmodestsp "http://www.ndt.sc/editor/Bmodestsp"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+ModelBmodestsp:
+	
+	Head 		= Header
+	NNodes		= iNodes
+	
+	NEWLINE
+	
+	Sections	= aSec
+	
+  	(WS|NEWLINE|SL_COMMENT)*
+  	
+;
+
+tNUMBER returns ecore::EFloat	: INT | NUMBER;
+
+//from online help: The QualifiedName is a little special. It does not contain any assignments. 
+// Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
+// Package is still of type String. 
+//FILE: ('.'?'.'?)('/'? STRING)*;
+//FILE returns ecore::EString:
+//	'"' ((('.'|'..')? '/')? (NAME '/')* NAME'.'NAME)? '"';
+
+tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? STRING WS? NEWLINE )*;
+
+// TERMINALS 
+// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
+// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal NUMBER returns ecore::EFloat:	
+	(('+'|'-')? INT ('.'INT?) (('E'|'e')('+'|'-')? INT )?) |
+	(('+'|'-')? INT 		  (('E'|'e')('+'|'-')? INT ) ) |
+	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
+	('-'		INT										 )
+;
+
+terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+					  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+terminal NEWLINE	: '\r'|'\n'|'\r\n';
+terminal SL_COMMENT	: '-' !('0'..'9') !('\r'|'\n'|'\r\n')*;
+terminal WS			: (' '|'\t')+;
+
+
+Header hidden(): 
+	name=SL_COMMENT NEWLINE
+;
+
+iNodes	hidden():	WS? value=INT 		WS	name='n_secs'		WS? SL_COMMENT? NEWLINE;
+aSec	hidden():
+	           																               															  
+	WS? 'sec_loc' WS 'str_tw' WS 'tw_iner' WS 'mass_den' WS 'flp_iner' WS 'edge_iner' WS 'flp_stff' WS 'edge_stff' WS 'tor_stff' WS 'axial_stff' WS 'cg_offst' WS 'sc_offst' WS 'tc_offst' WS? SL_COMMENT? NEWLINE	
+	WS? '(-)' 	  WS '(deg)' 	WS '(deg)'   WS '(kg/m)'   WS '(kg-m)'   WS '(kg-m)'  	WS '(Nm^2)'   WS '(Nm^2)'   WS '(Nm^2)'	  WS '(N)'  	WS '(m)'		WS '(m)'	WS '(m)'		WS? SL_COMMENT? NEWLINE
+   (WS? sec_loc	+=tNUMBER WS 
+		str_tw	+=tNUMBER WS 
+		tw_iner	+=tNUMBER WS 
+		mass_den+=tNUMBER WS 
+		flp_iner+=tNUMBER WS 
+		edge_iner+=tNUMBER WS
+		flp_stff+=tNUMBER WS
+		edge_stff+=tNUMBER WS
+		tor_stff+=tNUMBER WS
+		axial_stff+=tNUMBER WS
+		cg_offst+=tNUMBER WS
+		sc_offst+=tNUMBER WS
+		tc_offst+=tNUMBER WS? SL_COMMENT? NEWLINE)+
+
+;

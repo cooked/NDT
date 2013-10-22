@@ -3,6 +3,7 @@ package sc.ndt.editor.fast.ui.addon.mpe;
 import java.util.HashMap;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -28,10 +29,14 @@ import sc.ndt.commons.model.EditorInputFASTOut;
 import sc.ndt.commons.model.ModelFileTowerSec;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.bmodesbmi.ModelBmodesbmi;
+import sc.ndt.editor.bmodesout.ModelBmodesout;
+import sc.ndt.editor.bmodestsp.ModelBmodestsp;
 import sc.ndt.editor.fast.fasttwr.ModelFasttwr;
 import sc.ndt.editor.fast.ui.FasttwrFactory;
 import sc.ndt.editor.fast.ui.addon.mpe.outline.TwrMultiPageContentOutline;
 import sc.ndt.editor.ui.BmodesbmiFactory;
+import sc.ndt.editor.ui.BmodesoutFactory;
+import sc.ndt.editor.ui.BmodestspFactory;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -43,6 +48,9 @@ import com.google.inject.Provider;
  */
 public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
+	// NOTE: all file of the set must exists. no problem if it is created with wizard
+	//		 that creates .tsv, .twr, .bmi, .tsp (the.out is not required)	
+	
 	// see about ISizeprovider
 	// http://www.eclipse.org/forums/index.php/m/706788/
 	
@@ -51,13 +59,15 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	// external injectors
 	public Injector				fTwrInjector;
 	public Injector				fBmiInjector;
+	public Injector				fTspInjector;
+	public Injector				fOutInjector;
 	
 	// inner source editors
 	//public XtextEditor 			xtextEditorTwr;
 	//public XtextEditor 			xtextEditorBmi;
 	
 	// inner form editors
-	public FormPage				formPageMain;
+	public TwrFormPage				formPageMain;
 		
 	// outline view
 	@Inject 
@@ -67,30 +77,40 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		
 	public ModelFasttwr 					modelTwr;
 	public ModelBmodesbmi 					modelBmi;
+	public ModelBmodestsp 					modelTsp;
+	public ModelBmodesout					modelOut;
 	
 	FasttwrFactory 		ff;
 	BmodesbmiFactory 	bf;
+	BmodestspFactory 	tf;
+	BmodesoutFactory 	of;
 	
 	private TwrMultiPageContentOutline fContentOutline;
 	
 	private HashMap<String,Injector>	xtextInjectors;
 	private HashMap<String,XtextEditor>	xtextEditors;
 	
-	public ModelFileTowerSec			fileTwrSec;
+	public ModelFileTowerSec			fileTwrTsv;
 	
 	
 	public TwrMultiPageEditor() {
 		
 		ff 				= new FasttwrFactory();
 		bf 				= new BmodesbmiFactory();
+		tf 				= new BmodestspFactory();
+		of 				= new BmodesoutFactory();
 		
 		xtextInjectors 	= new HashMap<String,Injector>();
 		xtextInjectors.put("twr", ff.getInjector());
 		xtextInjectors.put("bmi", bf.getInjector());
+		xtextInjectors.put("tsp", tf.getInjector());
+		xtextInjectors.put("out", of.getInjector());
 		
 		xtextEditors 	= new HashMap<String,XtextEditor>();
 		xtextEditors.put("twr",xtextInjectors.get("twr").getInstance(XtextEditor.class));
 		xtextEditors.put("bmi",xtextInjectors.get("bmi").getInstance(XtextEditor.class));
+		xtextEditors.put("tsp",xtextInjectors.get("tsp").getInstance(XtextEditor.class));
+		xtextEditors.put("out",xtextInjectors.get("out").getInstance(XtextEditor.class));
 
 		
 	}
@@ -100,11 +120,12 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 		super.init(site,input);		
 
+		
 		if (input instanceof FileEditorInput) {
 
-			if(fileTwrSec==null) {
+			if(fileTwrTsv==null) {
 				IFile file = ((FileEditorInput)input).getFile();
-				fileTwrSec = new ModelFileTowerSec(file);
+				fileTwrTsv = new ModelFileTowerSec(file);
 			}
 		}
 
@@ -196,6 +217,10 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		
 	}
 	
+	public boolean isDirty() {
+		return formPageMain.isDirty();
+	}
+	
 	@Override
 	public boolean isSaveAsAllowed() {
 		// TODO Auto-generated method stub
@@ -205,11 +230,12 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	@Override
 	public void doSave(IProgressMonitor monitor) {
 		
-		// save Main
+		// save sources
 		getXtextEditor("twr").doSave(monitor);
-		
+		getXtextEditor("tsp").doSave(monitor);
+		getXtextEditor("bmi").doSave(monitor);
 		// save sec
-		formPageMain.doSaveAs();
+		formPageMain.doSave(monitor);
 				
 		editorDirtyStateChanged();
 		
@@ -223,7 +249,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		setPageText(0, getXtextEditor("twr").getTitle());
 		setInput(getXtextEditor("twr").getEditorInput());
 		
-		
+		getXtextEditor("tsp").doSaveAs();
 		getXtextEditor("bmi").doSaveAs();
 		
 	}
@@ -239,6 +265,36 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 						
 			modelTwr = (ModelFasttwr) getModelFromXtextEditor(getXtextEditor("twr"));
 			
+			IFile file = ((FileEditorInput) getEditorInput()).getFile();
+			Path path = new Path(file.getFullPath().toOSString());
+			IWorkspaceRoot r = ResourcesPlugin.getWorkspace().getRoot();
+			
+			// *.bmi file
+			if (getEditorInput() instanceof FileEditorInput) {
+				
+				IPath p2 = path.removeFileExtension().addFileExtension("bmi");
+				FileEditorInput fei = new FileEditorInput(r.getFile(p2));
+				index = addPage(getXtextEditor("bmi"), fei);
+				setPageText(index, fei.getName());
+			}
+
+			// *.tsp file
+			if (getEditorInput() instanceof FileEditorInput) {
+				IPath p2 = path.removeFileExtension().addFileExtension("tsp");
+				FileEditorInput fei = new FileEditorInput( r.getFile(p2) );
+				index = addPage(getXtextEditor("tsp"), fei);
+				setPageText(index, fei.getName());
+			}
+
+			// *.out file
+			if (getEditorInput() instanceof FileEditorInput) {
+				IPath p2 = path.removeFileExtension().addFileExtension("out");
+				FileEditorInput fei = new FileEditorInput(r.getFile(p2));
+				index = addPage(getXtextEditor("out"), fei);
+				setPageText(index, fei.getName());
+			}
+			
+			
 			// Form
 			formPageMain = new TwrFormPage(this,"general","GUI");
 			addPage(0,formPageMain);
@@ -246,17 +302,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			setActivePage(0);
 			
 			
-			// *.bmi file
-			if(getEditorInput() instanceof FileEditorInput) {
-				IFile file = ((FileEditorInput)getEditorInput()).getFile();
-				Path path 	= new Path(file.getFullPath().toOSString());
-				IPath p2 	= path.removeFileExtension().addFileExtension("bmi");
-				IFile file2 = ResourcesPlugin.getWorkspace().getRoot().getFile(p2);
-				FileEditorInput fei = new FileEditorInput(file2);
-				index = addPage(getXtextEditor("bmi"), fei);
-				setPageText(index, fei.getName());
-			}
-		
+			
 
 		} catch (PartInitException e) {
 			ErrorDialog.openError(getSite().getShell(),

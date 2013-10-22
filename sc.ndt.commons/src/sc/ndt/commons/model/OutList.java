@@ -302,6 +302,7 @@ public class OutList extends HashMap<String,OutCh> {
 		return rows.toString();
 
 	}
+	
 	// usato x canali disponibili in FAST.out
 	public OutList(List<String> avail) {
 		this();
