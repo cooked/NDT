@@ -4,11 +4,38 @@ NDT
 NREL Development Tools Plugin for Eclipse
 
 
-Description
-===
+## Description
 
 NDT is an user friendly front-end to the wind turbine simulation codes by NREL.
 
+## Features
 
-Installation
-===
+* Specific editors for FAST, AeroDyn and TurbSim input parameters file
+* Chart viewer for the FAST output file.
+* Support for single FAST simulation and batch run with ANT (to be completed)
+
+## Installation
+
+* Download and launch [Eclipse](http://www.eclipse.org/) standard platform for your system.
+* Add the [NDT update site](http://www.stefanocottafavi.com/eclipse/update/NDT/) to the list of the available update locations and install the plugin.
+* Add the [XULRunner update site](http://forge.ispras.ru/repo/xulrunner-eclipse/site/) - This step is required on Windows systems with explorer version prior to IE9.
+
+* Setup the default FAST installation location (aka FRE or FAST Runtime Environment): from menu Preferences > NREL > FAST > Installed FREs browse to the folder location on your drive and save.
+
+## Usage
+
+Create a new FAST project from menu File > New > Project...This will generate a set of files that represent the default 5MW baseline wind turbine from NREL.
+
+### Single run
+
+* Modify the files as you need.
+* Select *.fst file from Project Explorer and in context menu (right click) choose Run As > FAST Simulation to launch the simulation. Check in the Console view the output messages from the running program.
+* When the simulation is complete refresh the workspace (F5) and open the generated *.out file. This will show the output channels solved in a grahical viewer (you can zoom and/or hide series).   
+
+### Batch run
+
+TBD
+
+### Generate custom wind 
+
+TBD
