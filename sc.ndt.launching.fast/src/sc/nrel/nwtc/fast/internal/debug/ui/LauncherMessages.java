@@ -166,7 +166,8 @@ public class LauncherMessages extends NLS {
 	public static String JavaLaunchShortcut_1;
 	public static String JavaLaunchShortcut_2;
 	public static String JavaLaunchShortcut_3;
-
+	public static String JavaLaunchShortcut_4;
+	
 	public static String JreResolutionGenerator_open_ee_prefs;
 	public static String JreResolutionGenerator_opens_ee_prefs;
 

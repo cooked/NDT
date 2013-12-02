@@ -136,11 +136,14 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	 * Content provider to show a list of FREs
 	 */ 
 	class FREsContentProvider implements IStructuredContentProvider {		
+		@Override
 		public Object[] getElements(Object input) {
 			return fFASTs.toArray();
 		}
+		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		}
+		@Override
 		public void dispose() {
 		}
 	}
@@ -153,6 +156,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		/**
 		 * @see ITableLabelProvider#getColumnText(Object, int)
 		 */
+		@Override
 		public String getColumnText(Object element, int columnIndex) {
 			if (element instanceof IFASTInstall) {
 				IFASTInstall vm= (IFASTInstall)element;
@@ -175,6 +179,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		/**
 		 * @see ITableLabelProvider#getColumnImage(Object, int)
 		 */
+		@Override
 		public Image getColumnImage(Object element, int columnIndex) {
 			/* TODO if (columnIndex == 0) {
 				return JavaUI.getSharedImages().getImage(ISharedImages.IMG_OBJS_LIBRARY);
@@ -187,6 +192,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ISelectionProvider#addSelectionChangedListener(org.eclipse.jface.viewers.ISelectionChangedListener)
 	 */
+	@Override
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
 		fSelectionListeners.add(listener);
 	}
@@ -194,6 +200,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ISelectionProvider#getSelection()
 	 */
+	@Override
 	public ISelection getSelection() {
 		return new StructuredSelection(fFASTList.getCheckedElements());
 	}
@@ -201,6 +208,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ISelectionProvider#removeSelectionChangedListener(org.eclipse.jface.viewers.ISelectionChangedListener)
 	 */
+	@Override
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
 		fSelectionListeners.remove(listener);
 	}
@@ -208,6 +216,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ISelectionProvider#setSelection(org.eclipse.jface.viewers.ISelection)
 	 */
+	@Override
 	public void setSelection(ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			if (!selection.equals(fPrevSelection)) {
@@ -286,12 +295,14 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		sortByName();
 		
 		fFASTList.addSelectionChangedListener(new ISelectionChangedListener() {
+			@Override
 			public void selectionChanged(SelectionChangedEvent evt) {
 				enableButtons();
 			}
 		});
 		
 		fFASTList.addCheckStateListener(new ICheckStateListener() {
+			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
 				if (event.getChecked()) {
 					setCheckedFRE((IFASTInstall)event.getElement());
@@ -302,6 +313,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		});
 		
 		fFASTList.addDoubleClickListener(new IDoubleClickListener() {
+			@Override
 			public void doubleClick(DoubleClickEvent e) {
 				if (!fFASTList.getSelection().isEmpty()) {
 					editVM();
@@ -323,6 +335,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		
 		fAddButton = SWTFactory.createPushButton(buttons, FREMessages.InstalledJREsBlock_3, null); 
 		fAddButton.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event evt) {
 				addVM();
 			}
@@ -330,6 +343,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		
 		fEditButton= SWTFactory.createPushButton(buttons, FREMessages.InstalledJREsBlock_4, null); 
 		fEditButton.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event evt) {
 				editVM();
 			}
@@ -337,6 +351,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		
 		fCopyButton = SWTFactory.createPushButton(buttons, FREMessages.InstalledJREsBlock_16, null); 
 		fCopyButton.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event evt) {
 				copyVM();
 			}
@@ -344,6 +359,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		
 		fRemoveButton= SWTFactory.createPushButton(buttons, FREMessages.InstalledJREsBlock_5, null); 
 		fRemoveButton.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event evt) {
 				removeVMs();
 			}
@@ -353,6 +369,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		
 		fSearchButton = SWTFactory.createPushButton(buttons, FREMessages.InstalledJREsBlock_6, null); 
 		fSearchButton.addListener(SWT.Selection, new Listener() {
+			@Override
 			public void handleEvent(Event evt) {
 				search();
 			}
@@ -592,6 +609,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/**
 	 * @see IAddVMDialogRequestor#vmAdded(IVMInstall)
 	 */
+	@Override
 	public void vmAdded(IFASTInstall vm) {
 		fFASTs.add(vm);
 		fFASTList.refresh();
@@ -600,6 +618,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 	/**
 	 * @see IAddVMDialogRequestor#isDuplicateName(String)
 	 */
+	@Override
 	public boolean isDuplicateName(String name) {
 		for (int i= 0; i < fFASTs.size(); i++) {
 			IFASTInstall vm = (IFASTInstall)fFASTs.get(i);
@@ -709,6 +728,7 @@ public class InstalledFREsBlock implements IAddFASTDialogRequestor, ISelectionPr
 		final List<IFASTInstallType> types = new ArrayList<IFASTInstallType>();
 
 		IRunnableWithProgress r = new IRunnableWithProgress() {
+			@Override
 			public void run(IProgressMonitor monitor) {
 				monitor.beginTask(FREMessages.InstalledJREsBlock_11, IProgressMonitor.UNKNOWN); 
 				search(rootDir, locations, types, exstingLocations, monitor);

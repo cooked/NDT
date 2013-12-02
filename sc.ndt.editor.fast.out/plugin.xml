@@ -12,5 +12,80 @@
             name="WebUI Chart">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="sc.ndt.editor.fast.out"
+            name="Sample Category">
+      </category>
+      <view
+            category="sc.ndt.editor.fast.out"
+            class="sc.ndt.editor.fast.ui.views.ViewQuickChart"
+            icon="icons/monitor.png"
+            id="sc.ndt.editor.fast.out.views.ViewQuickChart"
+            name="Quick Chart">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="sc.ndt.editor.fast.ui.perspectives.FASTPerspectiveAnalysis"
+            fixed="true"
+            icon="icons/statistics-chart.png"
+            id="perspective.ndt.post"
+            name="FAST Analysis">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="perspective.ndt.post">
+         <view
+               id="sc.ndt.editor.fast.out.views.ViewQuickChart"
+               ratio="0.3"
+               relationship="top"
+               relative="org.eclipse.ui.editorss"
+               showTitle="false">
+         </view>
+         <view
+               closeable="false"
+               id="org.eclipse.ui.views.PropertySheet"
+               minimized="false"
+               ratio="0.8"
+               relationship="right"
+               relative="sc.ndt.editor.fast.out.views.ViewQuickChart"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="sc.ndt.editor.fast.ui.commands.OutListSelectHandler"
+            id="sc.ndt.editor.fast.out.OutListSelectAll"
+            name="OutListSelectAll">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.views.ContentOutline">
+         <toolbar
+               id="sc.ndt.editor.fast.out.toolbar2">
+            <command
+                  commandId="sc.ndt.editor.fast.out.OutListSelectAll"
+                  label="SelectAll"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
 
 </plugin>

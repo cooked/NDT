@@ -17,18 +17,29 @@ import org.eclipse.swt.widgets.Event;
 import sc.ndt.commons.model.OutBlock;
 import sc.ndt.commons.model.OutCh;
 
+
 //ToolTipSupport class
 public class OutListToolTipSupport extends ColumnViewerToolTipSupport {
 
+	
+	
 	public OutListToolTipSupport(ColumnViewer viewer, int style, boolean manualActivation) {
 		super(viewer, style, manualActivation);
 	}
 
+	@Override
 	protected Composite createViewerToolTipContentArea(Event event,
 			ViewerCell cell, Composite parent) {	
 
+		
+		
 		Composite tooltip = new Composite(parent,SWT.NONE);
 
+		//DefaultInformationControl dic = new DefaultInformationControl(tooltip.getShell());
+		//dic.setBackgroundColor(new Color(null, 0, 0, 0));
+		
+		tooltip.setSize(200, 300);
+		
 		GridLayout l = new GridLayout(1,false);
 		l.horizontalSpacing=0;
 		l.marginWidth=0;
@@ -48,7 +59,8 @@ public class OutListToolTipSupport extends ColumnViewerToolTipSupport {
 			OutCh ch = (OutCh)cell.getElement();
 
 			CLabel label = new CLabel(tooltip, getStyle(event));
-
+			label.setSize(100, 100);
+			
 			GridData gd_treeTower = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
 			gd_treeTower.widthHint = 100;
 			gd_treeTower.heightHint = 100;
@@ -95,9 +107,11 @@ public class OutListToolTipSupport extends ColumnViewerToolTipSupport {
 		}
 
 		return tooltip;
+		
 
 	}
 
+	@Override
 	public boolean isHideOnMouseDown() {
 		return false;
 	}

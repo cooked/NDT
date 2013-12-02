@@ -13,10 +13,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFastadnLexer extends Lexer {
     public static final int T__29=29;
-    public static final int T__28=28;
     public static final int RULE_INDMODEL=13;
-    public static final int RULE_STALL=10;
+    public static final int T__28=28;
     public static final int T__27=27;
+    public static final int RULE_STALL=10;
     public static final int T__26=26;
     public static final int T__25=25;
     public static final int T__24=24;
@@ -33,18 +33,24 @@ public class InternalFastadnLexer extends Lexer {
     public static final int RULE_INT=7;
     public static final int RULE_INFMODEL=12;
     public static final int T__42=42;
-    public static final int T__43=43;
     public static final int RULE_PRANDTL=14;
+    public static final int T__43=43;
     public static final int T__40=40;
+    public static final int RULE_PRINT=16;
     public static final int T__41=41;
     public static final int RULE_NEWLINE=5;
-    public static final int RULE_PRINT=16;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__48=48;
+    public static final int T__49=49;
     public static final int RULE_SL_COMMENT=6;
     public static final int RULE_UNITS=9;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_STRING=15;
+    public static final int T__32=32;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
@@ -72,10 +78,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:11:7: ( 'Atoler' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:11:9: 'Atoler'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:11:7: ( 'TRUE' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:11:9: 'TRUE'
             {
-            match("Atoler"); 
+            match("TRUE"); 
 
 
             }
@@ -93,10 +99,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:12:7: ( 'AToler' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:12:9: 'AToler'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:12:7: ( 'True' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:12:9: 'True'
             {
-            match("AToler"); 
+            match("True"); 
 
 
             }
@@ -114,10 +120,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:13:7: ( 'Rho' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:13:9: 'Rho'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:13:7: ( 'true' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:13:9: 'true'
             {
-            match("Rho"); 
+            match("true"); 
 
 
             }
@@ -135,10 +141,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:14:7: ( 'AirDens' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:14:9: 'AirDens'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:14:7: ( 'FALSE' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:14:9: 'FALSE'
             {
-            match("AirDens"); 
+            match("FALSE"); 
 
 
             }
@@ -156,10 +162,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:15:7: ( 'RNodes' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:15:9: 'RNodes'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:15:7: ( 'False' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:15:9: 'False'
             {
-            match("RNodes"); 
+            match("False"); 
 
 
             }
@@ -177,10 +183,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:16:7: ( 'AeroTwst' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:16:9: 'AeroTwst'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:16:7: ( 'false' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:16:9: 'false'
             {
-            match("AeroTwst"); 
+            match("false"); 
 
 
             }
@@ -198,10 +204,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:17:7: ( 'DRNodes' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:17:9: 'DRNodes'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:17:7: ( 'Atoler' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:17:9: 'Atoler'
             {
-            match("DRNodes"); 
+            match("Atoler"); 
 
 
             }
@@ -219,10 +225,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:18:7: ( 'Chord' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:18:9: 'Chord'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:18:7: ( 'AToler' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:18:9: 'AToler'
             {
-            match("Chord"); 
+            match("AToler"); 
 
 
             }
@@ -240,10 +246,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:19:7: ( 'NFoil' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:19:9: 'NFoil'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:19:7: ( 'Rho' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:19:9: 'Rho'
             {
-            match("NFoil"); 
+            match("Rho"); 
 
 
             }
@@ -261,10 +267,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:20:7: ( 'PrnElm' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:20:9: 'PrnElm'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:20:7: ( 'AirDens' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:20:9: 'AirDens'
             {
-            match("PrnElm"); 
+            match("AirDens"); 
 
 
             }
@@ -282,10 +288,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:21:7: ( 'SysUnits' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:21:9: 'SysUnits'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:21:7: ( 'RNodes' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:21:9: 'RNodes'
             {
-            match("SysUnits"); 
+            match("RNodes"); 
 
 
             }
@@ -303,10 +309,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:22:7: ( 'StallMod' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:22:9: 'StallMod'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:22:7: ( 'AeroTwst' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:22:9: 'AeroTwst'
             {
-            match("StallMod"); 
+            match("AeroTwst"); 
 
 
             }
@@ -324,10 +330,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:23:7: ( 'UseCm' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:23:9: 'UseCm'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:23:7: ( 'DRNodes' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:23:9: 'DRNodes'
             {
-            match("UseCm"); 
+            match("DRNodes"); 
 
 
             }
@@ -345,10 +351,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:24:7: ( 'InfModel' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:24:9: 'InfModel'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:24:7: ( 'Chord' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:24:9: 'Chord'
             {
-            match("InfModel"); 
+            match("Chord"); 
 
 
             }
@@ -366,10 +372,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:25:7: ( 'IndModel' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:25:9: 'IndModel'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:25:7: ( 'NFoil' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:25:9: 'NFoil'
             {
-            match("IndModel"); 
+            match("NFoil"); 
 
 
             }
@@ -387,10 +393,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:26:7: ( 'TLModel' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:26:9: 'TLModel'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:26:7: ( 'PrnElm' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:26:9: 'PrnElm'
             {
-            match("TLModel"); 
+            match("PrnElm"); 
 
 
             }
@@ -408,10 +414,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:27:7: ( 'HLModel' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:27:9: 'HLModel'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:27:7: ( 'SysUnits' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:27:9: 'SysUnits'
             {
-            match("HLModel"); 
+            match("SysUnits"); 
 
 
             }
@@ -429,10 +435,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:28:7: ( 'WindFile' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:28:9: 'WindFile'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:28:7: ( 'StallMod' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:28:9: 'StallMod'
             {
-            match("WindFile"); 
+            match("StallMod"); 
 
 
             }
@@ -450,10 +456,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:29:7: ( 'HH' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:29:9: 'HH'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:29:7: ( 'UseCm' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:29:9: 'UseCm'
             {
-            match("HH"); 
+            match("UseCm"); 
 
 
             }
@@ -471,10 +477,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:30:7: ( 'TwrShad' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:30:9: 'TwrShad'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:30:7: ( 'InfModel' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:30:9: 'InfModel'
             {
-            match("TwrShad"); 
+            match("InfModel"); 
 
 
             }
@@ -492,10 +498,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:31:7: ( 'ShadHWid' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:31:9: 'ShadHWid'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:31:7: ( 'IndModel' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:31:9: 'IndModel'
             {
-            match("ShadHWid"); 
+            match("IndModel"); 
 
 
             }
@@ -513,10 +519,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:32:7: ( 'T_Shad_Refpt' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:32:9: 'T_Shad_Refpt'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:32:7: ( 'TLModel' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:32:9: 'TLModel'
             {
-            match("T_Shad_Refpt"); 
+            match("TLModel"); 
 
 
             }
@@ -534,10 +540,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:33:7: ( 'KinVisc' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:33:9: 'KinVisc'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:33:7: ( 'HLModel' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:33:9: 'HLModel'
             {
-            match("KinVisc"); 
+            match("HLModel"); 
 
 
             }
@@ -555,10 +561,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:34:7: ( 'DTAero' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:34:9: 'DTAero'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:34:7: ( 'WindFile' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:34:9: 'WindFile'
             {
-            match("DTAero"); 
+            match("WindFile"); 
 
 
             }
@@ -576,10 +582,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:35:7: ( 'NumFoil' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:35:9: 'NumFoil'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:35:7: ( 'HH' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:35:9: 'HH'
             {
-            match("NumFoil"); 
+            match("HH"); 
 
 
             }
@@ -597,10 +603,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:36:7: ( 'FoilNm' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:36:9: 'FoilNm'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:36:7: ( 'TwrShad' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:36:9: 'TwrShad'
             {
-            match("FoilNm"); 
+            match("TwrShad"); 
 
 
             }
@@ -618,10 +624,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:37:7: ( 'BldNodes' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:37:9: 'BldNodes'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:37:7: ( 'ShadHWid' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:37:9: 'ShadHWid'
             {
-            match("BldNodes"); 
+            match("ShadHWid"); 
 
 
             }
@@ -634,15 +640,141 @@ public class InternalFastadnLexer extends Lexer {
     }
     // $ANTLR end "T__43"
 
+    // $ANTLR start "T__44"
+    public final void mT__44() throws RecognitionException {
+        try {
+            int _type = T__44;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:38:7: ( 'T_Shad_Refpt' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:38:9: 'T_Shad_Refpt'
+            {
+            match("T_Shad_Refpt"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__44"
+
+    // $ANTLR start "T__45"
+    public final void mT__45() throws RecognitionException {
+        try {
+            int _type = T__45;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:39:7: ( 'KinVisc' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:39:9: 'KinVisc'
+            {
+            match("KinVisc"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__45"
+
+    // $ANTLR start "T__46"
+    public final void mT__46() throws RecognitionException {
+        try {
+            int _type = T__46;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:40:7: ( 'DTAero' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:40:9: 'DTAero'
+            {
+            match("DTAero"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__46"
+
+    // $ANTLR start "T__47"
+    public final void mT__47() throws RecognitionException {
+        try {
+            int _type = T__47;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:41:7: ( 'NumFoil' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:41:9: 'NumFoil'
+            {
+            match("NumFoil"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__47"
+
+    // $ANTLR start "T__48"
+    public final void mT__48() throws RecognitionException {
+        try {
+            int _type = T__48;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:42:7: ( 'FoilNm' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:42:9: 'FoilNm'
+            {
+            match("FoilNm"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__48"
+
+    // $ANTLR start "T__49"
+    public final void mT__49() throws RecognitionException {
+        try {
+            int _type = T__49;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:43:7: ( 'BldNodes' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:43:9: 'BldNodes'
+            {
+            match("BldNodes"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__49"
+
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8133:10: ( ( '0' .. '9' )+ )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8133:12: ( '0' .. '9' )+
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8269:10: ( ( '0' .. '9' )+ )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8269:12: ( '0' .. '9' )+
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8133:12: ( '0' .. '9' )+
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8269:12: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -656,7 +788,7 @@ public class InternalFastadnLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8133:13: '0' .. '9'
+            	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8269:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -688,17 +820,17 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:13: ( ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:13: ( ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )
             int alt10=4;
             alt10 = dfa10.predict(input);
             switch (alt10) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:16: ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:16: ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
                     {
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:16: ( '+' | '-' )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:16: ( '+' | '-' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -726,7 +858,7 @@ public class InternalFastadnLexer extends Lexer {
 
                     mRULE_INT(); 
                     match('.'); 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:40: ( RULE_INT )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:40: ( RULE_INT )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -735,7 +867,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:40: RULE_INT
+                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:40: RULE_INT
                             {
                             mRULE_INT(); 
 
@@ -744,7 +876,7 @@ public class InternalFastadnLexer extends Lexer {
 
                     }
 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:50: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:50: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -753,7 +885,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     switch (alt5) {
                         case 1 :
-                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:51: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
+                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:51: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
                             {
                             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                                 input.consume();
@@ -764,7 +896,7 @@ public class InternalFastadnLexer extends Lexer {
                                 recover(mse);
                                 throw mse;}
 
-                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:61: ( '+' | '-' )?
+                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:61: ( '+' | '-' )?
                             int alt4=2;
                             int LA4_0 = input.LA(1);
 
@@ -801,9 +933,9 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:83: ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:83: ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
                     {
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:83: ( '+' | '-' )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:83: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -839,7 +971,7 @@ public class InternalFastadnLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:113: ( '+' | '-' )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:113: ( '+' | '-' )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -870,11 +1002,11 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:133: '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:133: '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
                     {
                     match('.'); 
                     mRULE_INT(); 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:146: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:146: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -883,7 +1015,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:147: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
+                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:147: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
                             {
                             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                                 input.consume();
@@ -894,7 +1026,7 @@ public class InternalFastadnLexer extends Lexer {
                                 recover(mse);
                                 throw mse;}
 
-                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:157: ( '+' | '-' )?
+                            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:157: ( '+' | '-' )?
                             int alt8=2;
                             int LA8_0 = input.LA(1);
 
@@ -931,7 +1063,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8135:179: '-' RULE_INT
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8271:179: '-' RULE_INT
                     {
                     match('-'); 
                     mRULE_INT(); 
@@ -957,8 +1089,8 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_UNITS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8137:12: ( 'SI' )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8137:14: 'SI'
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8273:12: ( 'SI' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8273:14: 'SI'
             {
             match("SI"); 
 
@@ -978,10 +1110,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_STALL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8139:12: ( ( 'BEDDOES' | 'STEADY' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8139:14: ( 'BEDDOES' | 'STEADY' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8275:12: ( ( 'BEDDOES' | 'STEADY' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8275:14: ( 'BEDDOES' | 'STEADY' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8139:14: ( 'BEDDOES' | 'STEADY' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8275:14: ( 'BEDDOES' | 'STEADY' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -999,7 +1131,7 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8139:15: 'BEDDOES'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8275:15: 'BEDDOES'
                     {
                     match("BEDDOES"); 
 
@@ -1007,7 +1139,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8139:25: 'STEADY'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8275:25: 'STEADY'
                     {
                     match("STEADY"); 
 
@@ -1033,10 +1165,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_CM;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8141:9: ( ( 'USE_CM' | 'NO_CM' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8141:11: ( 'USE_CM' | 'NO_CM' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8277:9: ( ( 'USE_CM' | 'NO_CM' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8277:11: ( 'USE_CM' | 'NO_CM' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8141:11: ( 'USE_CM' | 'NO_CM' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8277:11: ( 'USE_CM' | 'NO_CM' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -1054,7 +1186,7 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8141:12: 'USE_CM'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8277:12: 'USE_CM'
                     {
                     match("USE_CM"); 
 
@@ -1062,7 +1194,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8141:21: 'NO_CM'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8277:21: 'NO_CM'
                     {
                     match("NO_CM"); 
 
@@ -1088,10 +1220,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_INFMODEL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8143:15: ( ( 'EQUIL' | 'DYNIN' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8143:17: ( 'EQUIL' | 'DYNIN' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8279:15: ( ( 'EQUIL' | 'DYNIN' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8279:17: ( 'EQUIL' | 'DYNIN' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8143:17: ( 'EQUIL' | 'DYNIN' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8279:17: ( 'EQUIL' | 'DYNIN' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1109,7 +1241,7 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8143:18: 'EQUIL'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8279:18: 'EQUIL'
                     {
                     match("EQUIL"); 
 
@@ -1117,7 +1249,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8143:26: 'DYNIN'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8279:26: 'DYNIN'
                     {
                     match("DYNIN"); 
 
@@ -1143,10 +1275,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_INDMODEL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:15: ( ( 'NONE' | 'WAKE' | 'SWIRL' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:17: ( 'NONE' | 'WAKE' | 'SWIRL' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:15: ( ( 'NONE' | 'WAKE' | 'SWIRL' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:17: ( 'NONE' | 'WAKE' | 'SWIRL' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:17: ( 'NONE' | 'WAKE' | 'SWIRL' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:17: ( 'NONE' | 'WAKE' | 'SWIRL' )
             int alt14=3;
             switch ( input.LA(1) ) {
             case 'N':
@@ -1173,7 +1305,7 @@ public class InternalFastadnLexer extends Lexer {
 
             switch (alt14) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:18: 'NONE'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:18: 'NONE'
                     {
                     match("NONE"); 
 
@@ -1181,7 +1313,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:25: 'WAKE'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:25: 'WAKE'
                     {
                     match("WAKE"); 
 
@@ -1189,7 +1321,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8145:32: 'SWIRL'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8281:32: 'SWIRL'
                     {
                     match("SWIRL"); 
 
@@ -1215,10 +1347,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_PRANDTL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8147:14: ( ( 'PRANDtl' | 'NONE' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8147:16: ( 'PRANDtl' | 'NONE' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8283:14: ( ( 'PRANDtl' | 'NONE' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8283:16: ( 'PRANDtl' | 'NONE' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8147:16: ( 'PRANDtl' | 'NONE' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8283:16: ( 'PRANDtl' | 'NONE' )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1236,7 +1368,7 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8147:17: 'PRANDtl'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8283:17: 'PRANDtl'
                     {
                     match("PRANDtl"); 
 
@@ -1244,7 +1376,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8147:27: 'NONE'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8283:27: 'NONE'
                     {
                     match("NONE"); 
 
@@ -1270,10 +1402,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_PRINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8149:12: ( ( 'PRINT' | 'NOPRINT' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8149:14: ( 'PRINT' | 'NOPRINT' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8285:12: ( ( 'PRINT' | 'NOPRINT' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8285:14: ( 'PRINT' | 'NOPRINT' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8149:14: ( 'PRINT' | 'NOPRINT' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8285:14: ( 'PRINT' | 'NOPRINT' )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1291,7 +1423,7 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8149:15: 'PRINT'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8285:15: 'PRINT'
                     {
                     match("PRINT"); 
 
@@ -1299,7 +1431,7 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8149:23: 'NOPRINT'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8285:23: 'NOPRINT'
                     {
                     match("NOPRINT"); 
 
@@ -1325,10 +1457,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -1346,10 +1478,10 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt19) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop17:
                     do {
                         int alt17=3;
@@ -1365,7 +1497,7 @@ public class InternalFastadnLexer extends Lexer {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1381,7 +1513,7 @@ public class InternalFastadnLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1406,10 +1538,10 @@ public class InternalFastadnLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop18:
                     do {
                         int alt18=3;
@@ -1425,7 +1557,7 @@ public class InternalFastadnLexer extends Lexer {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1441,7 +1573,7 @@ public class InternalFastadnLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8151:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8287:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1484,10 +1616,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:14: ( ( '\\r' | '\\n' | '\\r\\n' ) )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:16: ( '\\r' | '\\n' | '\\r\\n' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:14: ( ( '\\r' | '\\n' | '\\r\\n' ) )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:16: ( '\\r' | '\\n' | '\\r\\n' )
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:16: ( '\\r' | '\\n' | '\\r\\n' )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:16: ( '\\r' | '\\n' | '\\r\\n' )
             int alt20=3;
             int LA20_0 = input.LA(1);
 
@@ -1511,21 +1643,21 @@ public class InternalFastadnLexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:17: '\\r'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:17: '\\r'
                     {
                     match('\r'); 
 
                     }
                     break;
                 case 2 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:22: '\\n'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:22: '\\n'
                     {
                     match('\n'); 
 
                     }
                     break;
                 case 3 :
-                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8153:27: '\\r\\n'
+                    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8289:27: '\\r\\n'
                     {
                     match("\r\n"); 
 
@@ -1551,8 +1683,8 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8155:17: ( '-' ~ ( '0' .. '9' ) (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )* )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8155:19: '-' ~ ( '0' .. '9' ) (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )*
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8291:17: ( '-' ~ ( '0' .. '9' ) (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )* )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8291:19: '-' ~ ( '0' .. '9' ) (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )*
             {
             match('-'); 
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='/')||(input.LA(1)>=':' && input.LA(1)<='\uFFFF') ) {
@@ -1564,7 +1696,7 @@ public class InternalFastadnLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8155:35: (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )*
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8291:35: (~ ( ( '\\r' | '\\n' | '\\r\\n' ) ) )*
             loop21:
             do {
                 int alt21=2;
@@ -1577,7 +1709,7 @@ public class InternalFastadnLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8155:35: ~ ( ( '\\r' | '\\n' | '\\r\\n' ) )
+            	    // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8291:35: ~ ( ( '\\r' | '\\n' | '\\r\\n' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1613,10 +1745,10 @@ public class InternalFastadnLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8157:9: ( ( ' ' | '\\t' )+ )
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8157:11: ( ' ' | '\\t' )+
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8293:9: ( ( ' ' | '\\t' )+ )
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8293:11: ( ' ' | '\\t' )+
             {
-            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8157:11: ( ' ' | '\\t' )+
+            // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:8293:11: ( ' ' | '\\t' )+
             int cnt22=0;
             loop22:
             do {
@@ -1666,8 +1798,8 @@ public class InternalFastadnLexer extends Lexer {
     // $ANTLR end "RULE_WS"
 
     public void mTokens() throws RecognitionException {
-        // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_INT | RULE_NUMBER | RULE_UNITS | RULE_STALL | RULE_CM | RULE_INFMODEL | RULE_INDMODEL | RULE_PRANDTL | RULE_PRINT | RULE_STRING | RULE_NEWLINE | RULE_SL_COMMENT | RULE_WS )
-        int alt23=40;
+        // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:8: ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | RULE_INT | RULE_NUMBER | RULE_UNITS | RULE_STALL | RULE_CM | RULE_INFMODEL | RULE_INDMODEL | RULE_PRANDTL | RULE_PRINT | RULE_STRING | RULE_NEWLINE | RULE_SL_COMMENT | RULE_WS )
+        int alt23=46;
         alt23 = dfa23.predict(input);
         switch (alt23) {
             case 1 :
@@ -1860,91 +1992,133 @@ public class InternalFastadnLexer extends Lexer {
                 }
                 break;
             case 28 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:172: RULE_INT
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:172: T__44
+                {
+                mT__44(); 
+
+                }
+                break;
+            case 29 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:178: T__45
+                {
+                mT__45(); 
+
+                }
+                break;
+            case 30 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:184: T__46
+                {
+                mT__46(); 
+
+                }
+                break;
+            case 31 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:190: T__47
+                {
+                mT__47(); 
+
+                }
+                break;
+            case 32 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:196: T__48
+                {
+                mT__48(); 
+
+                }
+                break;
+            case 33 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:202: T__49
+                {
+                mT__49(); 
+
+                }
+                break;
+            case 34 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:208: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 29 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:181: RULE_NUMBER
+            case 35 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:217: RULE_NUMBER
                 {
                 mRULE_NUMBER(); 
 
                 }
                 break;
-            case 30 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:193: RULE_UNITS
+            case 36 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:229: RULE_UNITS
                 {
                 mRULE_UNITS(); 
 
                 }
                 break;
-            case 31 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:204: RULE_STALL
+            case 37 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:240: RULE_STALL
                 {
                 mRULE_STALL(); 
 
                 }
                 break;
-            case 32 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:215: RULE_CM
+            case 38 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:251: RULE_CM
                 {
                 mRULE_CM(); 
 
                 }
                 break;
-            case 33 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:223: RULE_INFMODEL
+            case 39 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:259: RULE_INFMODEL
                 {
                 mRULE_INFMODEL(); 
 
                 }
                 break;
-            case 34 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:237: RULE_INDMODEL
+            case 40 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:273: RULE_INDMODEL
                 {
                 mRULE_INDMODEL(); 
 
                 }
                 break;
-            case 35 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:251: RULE_PRANDTL
+            case 41 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:287: RULE_PRANDTL
                 {
                 mRULE_PRANDTL(); 
 
                 }
                 break;
-            case 36 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:264: RULE_PRINT
+            case 42 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:300: RULE_PRINT
                 {
                 mRULE_PRINT(); 
 
                 }
                 break;
-            case 37 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:275: RULE_STRING
+            case 43 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:311: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 38 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:287: RULE_NEWLINE
+            case 44 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:323: RULE_NEWLINE
                 {
                 mRULE_NEWLINE(); 
 
                 }
                 break;
-            case 39 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:300: RULE_SL_COMMENT
+            case 45 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:336: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 40 :
-                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:316: RULE_WS
+            case 46 :
+                // ../sc.ndt.editor.fast.adn.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastadn.g:1:352: RULE_WS
                 {
                 mRULE_WS(); 
 
@@ -1967,16 +2141,16 @@ public class InternalFastadnLexer extends Lexer {
     static final String DFA10_maxS =
         "\2\71\1\145\1\uffff\1\71\1\145\3\uffff";
     static final String DFA10_acceptS =
-        "\3\uffff\1\3\2\uffff\1\1\1\2\1\4";
+        "\3\uffff\1\3\2\uffff\1\2\1\1\1\4";
     static final String DFA10_specialS =
         "\11\uffff}>";
     static final String[] DFA10_transitionS = {
             "\1\4\1\uffff\1\1\1\3\1\uffff\12\2",
             "\12\5",
-            "\1\6\1\uffff\12\2\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\2\13\uffff\1\6\37\uffff\1\6",
             "",
             "\12\2",
-            "\1\6\1\uffff\12\5\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\5\13\uffff\1\6\37\uffff\1\6",
             "",
             "",
             ""
@@ -2012,56 +2186,55 @@ public class InternalFastadnLexer extends Lexer {
             this.transition = DFA10_transition;
         }
         public String getDescription() {
-            return "8135:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )";
+            return "8271:15: ( ( '+' | '-' )? RULE_INT '.' ( RULE_INT )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | ( '+' | '-' )? RULE_INT ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT | '.' RULE_INT ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? | '-' RULE_INT )";
         }
     }
     static final String DFA23_eotS =
-        "\20\uffff\1\64\53\uffff";
+        "\22\uffff\1\73\60\uffff";
     static final String DFA23_eofS =
-        "\74\uffff";
+        "\103\uffff";
     static final String DFA23_minS =
-        "\1\11\1\124\1\116\1\122\1\uffff\1\106\1\122\1\111\1\123\1\156\1"+
-        "\114\1\110\1\101\2\uffff\1\105\1\56\1\0\17\uffff\1\116\1\uffff\1"+
-        "\101\10\uffff\1\144\11\uffff\1\105\5\uffff";
+        "\1\11\1\114\1\uffff\1\101\1\uffff\1\124\1\116\1\122\1\uffff\1\106"+
+        "\1\122\1\111\1\123\1\156\1\110\1\101\1\uffff\1\105\1\56\1\0\27\uffff"+
+        "\1\116\1\uffff\1\101\10\uffff\1\144\6\uffff\1\105\5\uffff";
     static final String DFA23_maxS =
-        "\1\127\1\164\1\150\1\131\1\uffff\1\165\1\162\1\171\1\163\1\156\1"+
-        "\167\1\114\1\151\2\uffff\1\154\1\145\1\uffff\17\uffff\1\137\1\uffff"+
-        "\1\111\10\uffff\1\146\11\uffff\1\105\5\uffff";
+        "\1\164\1\167\1\uffff\1\157\1\uffff\1\164\1\150\1\131\1\uffff\1\165"+
+        "\1\162\1\171\1\163\1\156\1\114\1\151\1\uffff\1\154\1\145\1\uffff"+
+        "\27\uffff\1\137\1\uffff\1\111\10\uffff\1\146\6\uffff\1\105\5\uffff";
     static final String DFA23_acceptS =
-        "\4\uffff\1\10\10\uffff\1\27\1\32\3\uffff\1\35\1\41\1\45\1\46\1\50"+
-        "\1\1\1\2\1\4\1\6\1\3\1\5\1\7\1\30\1\11\1\31\1\uffff\1\12\1\uffff"+
-        "\1\13\1\14\1\25\1\36\1\37\1\42\1\15\1\40\1\uffff\1\20\1\24\1\26"+
-        "\1\21\1\23\1\22\1\33\1\34\1\47\1\uffff\1\44\1\43\1\16\1\17\1\42";
+        "\2\uffff\1\3\1\uffff\1\6\3\uffff\1\16\7\uffff\1\35\3\uffff\1\43"+
+        "\1\47\1\53\1\54\1\56\1\1\1\2\1\26\1\32\1\34\1\4\1\5\1\40\1\7\1\10"+
+        "\1\12\1\14\1\11\1\13\1\15\1\36\1\17\1\37\1\uffff\1\20\1\uffff\1"+
+        "\21\1\22\1\33\1\44\1\45\1\50\1\23\1\46\1\uffff\1\27\1\31\1\30\1"+
+        "\41\1\42\1\55\1\uffff\1\52\1\51\1\24\1\25\1\50";
     static final String DFA23_specialS =
-        "\21\uffff\1\0\52\uffff}>";
+        "\23\uffff\1\0\57\uffff}>";
     static final String[] DFA23_transitionS = {
-            "\1\26\1\25\2\uffff\1\25\22\uffff\1\26\1\uffff\1\24\4\uffff\1"+
-            "\24\3\uffff\1\22\1\uffff\1\21\1\22\1\uffff\12\20\7\uffff\1\1"+
-            "\1\17\1\4\1\3\1\23\1\16\1\uffff\1\13\1\11\1\uffff\1\15\2\uffff"+
-            "\1\5\1\uffff\1\6\1\uffff\1\2\1\7\1\12\1\10\1\uffff\1\14",
-            "\1\30\20\uffff\1\32\3\uffff\1\31\12\uffff\1\27",
-            "\1\34\31\uffff\1\33",
-            "\1\35\1\uffff\1\36\4\uffff\1\23",
+            "\1\30\1\27\2\uffff\1\27\22\uffff\1\30\1\uffff\1\26\4\uffff\1"+
+            "\26\3\uffff\1\24\1\uffff\1\23\1\24\1\uffff\12\22\7\uffff\1\5"+
+            "\1\21\1\10\1\7\1\25\1\3\1\uffff\1\16\1\15\1\uffff\1\20\2\uffff"+
+            "\1\11\1\uffff\1\12\1\uffff\1\6\1\13\1\1\1\14\1\uffff\1\17\16"+
+            "\uffff\1\4\15\uffff\1\2",
+            "\1\33\5\uffff\1\31\14\uffff\1\35\22\uffff\1\32\4\uffff\1\34",
             "",
-            "\1\37\10\uffff\1\41\45\uffff\1\40",
-            "\1\43\37\uffff\1\42",
-            "\1\47\12\uffff\1\50\2\uffff\1\51\20\uffff\1\46\13\uffff\1\45"+
-            "\4\uffff\1\44",
-            "\1\53\37\uffff\1\52",
-            "\1\54",
-            "\1\55\22\uffff\1\57\27\uffff\1\56",
-            "\1\61\3\uffff\1\60",
-            "\1\51\47\uffff\1\62",
+            "\1\36\37\uffff\1\37\15\uffff\1\40",
             "",
+            "\1\42\20\uffff\1\44\3\uffff\1\43\12\uffff\1\41",
+            "\1\46\31\uffff\1\45",
+            "\1\47\1\uffff\1\50\4\uffff\1\25",
             "",
-            "\1\50\46\uffff\1\63",
-            "\1\22\1\uffff\12\20\13\uffff\1\22\37\uffff\1\22",
-            "\60\65\12\22\uffc6\65",
+            "\1\51\10\uffff\1\53\45\uffff\1\52",
+            "\1\55\37\uffff\1\54",
+            "\1\61\12\uffff\1\62\2\uffff\1\63\20\uffff\1\60\13\uffff\1\57"+
+            "\4\uffff\1\56",
+            "\1\65\37\uffff\1\64",
+            "\1\66",
+            "\1\70\3\uffff\1\67",
+            "\1\63\47\uffff\1\71",
             "",
-            "",
-            "",
-            "",
-            "",
+            "\1\62\46\uffff\1\72",
+            "\1\24\1\uffff\12\22\13\uffff\1\24\37\uffff\1\24",
+            "\60\74\12\24\uffc6\74",
             "",
             "",
             "",
@@ -2072,18 +2245,6 @@ public class InternalFastadnLexer extends Lexer {
             "",
             "",
             "",
-            "\1\66\1\uffff\1\67\16\uffff\1\53",
-            "",
-            "\1\70\7\uffff\1\67",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\72\1\uffff\1\71",
             "",
             "",
             "",
@@ -2093,7 +2254,29 @@ public class InternalFastadnLexer extends Lexer {
             "",
             "",
             "",
-            "\1\73",
+            "",
+            "",
+            "",
+            "",
+            "\1\75\1\uffff\1\76\16\uffff\1\65",
+            "",
+            "\1\77\7\uffff\1\76",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\101\1\uffff\1\100",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\102",
             "",
             "",
             "",
@@ -2131,19 +2314,19 @@ public class InternalFastadnLexer extends Lexer {
             this.transition = DFA23_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | RULE_INT | RULE_NUMBER | RULE_UNITS | RULE_STALL | RULE_CM | RULE_INFMODEL | RULE_INDMODEL | RULE_PRANDTL | RULE_PRINT | RULE_STRING | RULE_NEWLINE | RULE_SL_COMMENT | RULE_WS );";
+            return "1:1: Tokens : ( T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | RULE_INT | RULE_NUMBER | RULE_UNITS | RULE_STALL | RULE_CM | RULE_INFMODEL | RULE_INDMODEL | RULE_PRANDTL | RULE_PRINT | RULE_STRING | RULE_NEWLINE | RULE_SL_COMMENT | RULE_WS );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA23_17 = input.LA(1);
+                        int LA23_19 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA23_17>='\u0000' && LA23_17<='/')||(LA23_17>=':' && LA23_17<='\uFFFF')) ) {s = 53;}
+                        if ( ((LA23_19>='\u0000' && LA23_19<='/')||(LA23_19>=':' && LA23_19<='\uFFFF')) ) {s = 60;}
 
-                        else if ( ((LA23_17>='0' && LA23_17<='9')) ) {s = 18;}
+                        else if ( ((LA23_19>='0' && LA23_19<='9')) ) {s = 20;}
 
                         if ( s>=0 ) return s;
                         break;

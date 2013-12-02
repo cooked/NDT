@@ -1,0 +1,144 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+    <!--[if IE]>
+    <script type="text/javascript" src="js/vendor/dygraph/excanvas.js"></script>
+    <![endif]-->
+    
+	<style type="text/css">
+		
+		html,body { 
+			height: 99.4%; 
+			margin: 0.2% 0px 0px 0px;
+			width: 99.9%;
+		}
+		
+		#graphdiv {  
+			width: 100%; 
+			max-width: 100%;
+			height: 400px;  
+			border:1px solid #bbb;
+		}
+		
+		.dygraph-axis-label.dygraph-axis-label-x {
+    		font-family: sans-serif;
+      		font-size: 10px;
+    	}
+    	.dygraph-axis-label.dygraph-axis-label-y {
+    		font-family: sans-serif;
+      		font-size: 10px;
+    	}
+		.dygraph-legend > span { 
+			display: none; 
+		}
+		.dygraph-legend > span.highlight { 
+			display: inline;
+		}
+
+	</style>
+	
+	<script type="text/javascript" src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/vendor/dygraph/dygraph-combined.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	
+	<script type="text/javascript">
+		
+		var dataCh 	= new Array();	
+		var g;
+		
+		
+		$(document).ready(
+				function() {
+					g = new Dygraph(document.getElementById("graphdiv"),
+							data_nolabel);
+					var onclick = function(ev) {
+						if (g.isSeriesLocked()) {
+							g.clearSelection();
+						} else {
+							g.setSelection(g.getSelection(), g
+									.getHighlightSeries(), true);
+						}
+					};
+					g.updateOptions({
+						clickCallback : onclick
+					}, true);
+
+					setStatus();
+				});
+
+		function setData(names, dat, visibility) {
+			g.updateOptions({
+				'visibility' : visibility,
+				'axisLabelWidth' : 20,
+				'labels' : names,
+				'file' : dat,
+
+				'highlightCircleSize' : 2,
+				'strokeBorderWidth' : 1,
+				'highlightSeriesOpts' : {
+					'strokeWidth' : 3,
+					'strokeBorderWidth' : 1,
+					'highlightCircleSize' : 5
+				}
+
+			});
+
+			setStatus();
+		}
+
+		function hideAll() {
+			// number of columns, independent var excluded
+			n_cols = g.numColumns() - 1;
+			for (var i = 0; i < n_cols; i++) {
+				g.setVisibility(i, false);
+			}
+			setStatus();
+		}
+
+		function hideAllButFirst() {
+			hideAll();
+			g.setVisibility(0, true);
+			setStatus();
+		}
+
+		function setAllSeriesVisibility(visibility) {
+			g.updateOptions({
+				'visibility' : visibility
+			});
+			setStatus();
+		}
+
+		function setSerieVisibility(name, visibility) {
+			index = g.indexFromSetName(name) - 1;
+			g.setVisibility(parseInt(index), visibility);
+			document.getElementById("name").innerHTML = name + "," + index;
+			setStatus();
+		}
+
+		function setStatus() {
+			document.getElementById("visibility").innerHTML = g.visibility()
+					.toString();
+		}
+
+		function TESTcheckClicked(name) {
+			document.getElementById("clicked").innerHTML = name;
+		}
+	</script>
+	
+	<script type="text/javascript">
+	    document.getElementById("browse").innerHTML = navigator.appCodeName + "," +navigator.appName + "," + navigator.appVersion + "," + navigator.platform + "," +navigator.userAgent;
+	</script>
+
+</head>
+<body>
+	<div id="graphdiv"></div>
+	<p><span id="browse"></span></p>
+	<!--<p>g.visibility() = <span id="visibility"></span></p>
+	<p>clicked = <span id="clicked"></span></p>
+	<p>name,index = <span id="name"></span></p>
+	-->
+</body>
+</html>
+

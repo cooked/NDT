@@ -88,9 +88,10 @@
     <extension
             point="org.eclipse.ui.preferencePages">
         <page
-            class="sc.ndt.editor.fast.ui.FasttwrExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="sc.ndt.editor.fast.Fasttwr"
-            name="Fasttwr">
+              category="sc.ndt.ui.preferences.FAST.fst"
+              class="sc.ndt.editor.fast.ui.FasttwrExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+              id="sc.ndt.editor.fast.Fasttwr"
+              name="FAST twr">
             <keywordReference id="sc.ndt.editor.fast.ui.keyword_Fasttwr"/>
         </page>
         <page
@@ -399,6 +400,16 @@
             class="sc.ndt.editor.fast.ui.FasttwrExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
             extensions="twr">
     </provider>
+  </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
+           class="sc.ndt.editor.fast.ui.wizard.project.TowerSetWizard"
+           icon="icons/wall-alt.png"
+           id="sc.ndt.editor.fast.twr.ui.wizard1"
+           name="Tower">
+     </wizard>
   </extension>
 
 </plugin>

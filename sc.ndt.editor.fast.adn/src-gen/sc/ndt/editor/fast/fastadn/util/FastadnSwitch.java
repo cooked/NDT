@@ -163,6 +163,34 @@ public class FastadnSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FastadnPackage.BTWR_POT:
+      {
+        bTwrPot bTwrPot = (bTwrPot)theEObject;
+        T result = casebTwrPot(bTwrPot);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FastadnPackage.BTWR_SHD:
+      {
+        bTwrShd bTwrShd = (bTwrShd)theEObject;
+        T result = casebTwrShd(bTwrShd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FastadnPackage.FTWR_FILE:
+      {
+        fTwrFile fTwrFile = (fTwrFile)theEObject;
+        T result = casefTwrFile(fTwrFile);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FastadnPackage.BCALC_TWR_AERO:
+      {
+        bCalcTwrAero bCalcTwrAero = (bCalcTwrAero)theEObject;
+        T result = casebCalcTwrAero(bCalcTwrAero);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FastadnPackage.NSHAD_HWID:
       {
         nShadHWid nShadHWid = (nShadHWid)theEObject;
@@ -434,6 +462,70 @@ public class FastadnSwitch<T> extends Switch<T>
    * @generated
    */
   public T casenTwrShad(nTwrShad object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>bTwr Pot</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>bTwr Pot</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casebTwrPot(bTwrPot object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>bTwr Shd</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>bTwr Shd</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casebTwrShd(bTwrShd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>fTwr File</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>fTwr File</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casefTwrFile(fTwrFile object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>bCalc Twr Aero</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>bCalc Twr Aero</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casebCalcTwrAero(bCalcTwrAero object)
   {
     return null;
   }

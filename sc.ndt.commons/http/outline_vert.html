@@ -1,0 +1,208 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" href="css/dygraph.css">
+	
+	<style type="text/css">
+		/* rotate the 'rollPeriod' input box */
+		#dygraph input {
+			transform: translateY(-3px) translateX(-3px) rotate(90deg) rotateY(180deg);
+			-ms-transform: translateY(-3px) translateX(-3px) rotate(90deg) rotateY(180deg);
+			-webkit-transform: translateY(-3px) translateX(-3px) rotate(90deg) rotateY(180deg);
+		}
+		/* fix axis labels */
+		#dygraph .dygraph-axis-label-y {
+			text-align: center;
+		}
+		#dygraph .dygraph-axis-label-x {
+			text-align: right;
+		}
+		/* rotate legend (this would need to be moved as well, or just set the labelsDiv option for the dygraph) */
+		#dygraph .dygraph-legend {
+			transform: rotate(-90deg) rotateX(180deg) translateX(0.5px) translateY(0.5px);
+			-ms-transform: rotate(-90deg) rotateX(180deg) translateX(0.5px) translateY(0.5px);
+			-webkit-transform: rotate(-90deg) rotateX(180deg) translateX(0.5px) translateY(0.5px);
+		}
+		#dygraph {
+			margin: 0px;
+		}
+		html,body { height: 99.5%; margin: 0; padding: 0px; width:99.9%;}
+		#dygraph { background: #eee; height: 100%; border:1px solid #aaa; }
+		
+	</style>
+
+	<script type="text/javascript" src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/vendor/dygraph/dygraph-combined.js"></script>
+	
+<script type="text/javascript">
+
+	var flipped_dygraph;
+	var dygraph_width;
+	var dygraph_height;
+	var dygraph_options;
+	
+	var dygraph_div_id = '#dygraph';
+	
+	//$().ready( create );
+			
+		// change the dygraph interaction model for this graph so we can properly interact with a graph which is rotated 90 degrees. Basically, we need to switch mouse X and mouse Y values
+		var newInteraction = function( c, b, a ) {
+			// 'c' is the MouseEvent, and we need to change the X and Y values.
+			// However, the MouseEvent object is read-only, so we need to make a new MouseEvent based on the values of the old one.
+			var new_c;
+			if (document.createEvent) new_c = document.createEvent('MouseEvent');
+			else if (document.createEventObject) new_c = document.createEventObject();
+			
+			// switch the x and y values for this mouse event by copying the old mouse event and inserting new x & y values, based on the position of the dygraph.
+			// Dygraphs doesn't make use of screenX and screenY, so we can ignore those
+			var new_x = $(dygraph_div_id).width() + $(dygraph_div_id).offset().left - (c.pageY - $(dygraph_div_id).offset().top) - $(window).scrollLeft();
+			var new_y = $(dygraph_div_id).height() + $(dygraph_div_id).offset().top - (c.pageX - $(dygraph_div_id).offset().left) - $(window).scrollTop();
+			new_c.initMouseEvent( c.type, c.bubbles, c.cancelable, c.view, c.detail, c.screenX, c.screenY, new_x, new_y, c.ctrlKey, c.altKey, c.shiftKey, c.metaKey, c.button, c.target );
+			
+			// call the original function, but with the new altered MouseEvent
+			Dygraph.Interaction.defaultModel[c.type]( new_c, b, a );
+		}
+	
+		// the 'restyle' function rotates and repositions all the labels so as to be readable once again.
+		var restyle = function() {
+			var xlabel_transform = 'rotate(180deg) translateY(-5px) rotateY(180deg)';
+			$(dygraph_div_id + ' .dygraph-xlabel').parent().css({
+				transform: xlabel_transform,
+				msTransform: xlabel_transform,
+				webkitTransform: xlabel_transform
+			});
+			
+			var ylabel_transform = 'rotate(90deg) rotateY(180deg) translateY(-10px)';
+			$(dygraph_div_id + ' .dygraph-ylabel').parent().css({
+				transform: ylabel_transform,
+				msTransform: ylabel_transform,
+				webkitTransform: ylabel_transform
+			});
+			
+			var axis_label_x_transform = 'translateY(17.5px) translateX(0.5px) rotate(90deg) rotateY(180deg)';
+			$(dygraph_div_id + ' .dygraph-axis-label-x, ' + dygraph_div_id + ' .dygraph-axis-label-y').parent().css({
+				transform: axis_label_x_transform,
+				msTransform: axis_label_x_transform,
+				webkitTransform: axis_label_x_transform
+			});
+			
+			var axis_label_y_transform = 'translateX(17.5px) translateY(0.5px) rotate(90deg) rotateY(180deg)';
+			$(dygraph_div_id + ' .dygraph-axis-label-y').parent().css({
+				transform: axis_label_y_transform,
+				msTransform: axis_label_y_transform,
+				webkitTransform: axis_label_y_transform
+			});
+			
+			$(dygraph_div_id + ' .dygraph-legend').css({
+				textAlign: 'right',
+				top: '125px',
+				left: (dygraph_width - 125) + 'px'
+			});
+		}
+		
+		
+	var create = function() {
+		
+		$(dygraph_div_id).css({
+			width: dygraph_width,
+			height: dygraph_height
+		});
+		
+		// set rotation and position of dygraph div
+		var dygraph_transform = 'rotate(-90deg) rotateX(180deg) translateX(' + (dygraph_height - dygraph_width)/2 + 'px) translateY(' + (dygraph_width - dygraph_height)/2 + 'px)';
+		$(dygraph_div_id).css({
+			transform: dygraph_transform,
+			msTransform: dygraph_transform,
+			webkitTransform: dygraph_transform
+		});
+		
+		// set the options for the dygraph
+		dygraph_options = {
+			width: dygraph_width,
+			height: dygraph_height,
+			labels: [ "X", "Y1", "Y2"],
+			axes: {
+				x: { pixelsPerLabel: 30 },
+				y: { pixelsPerLabel: 60 }
+			},
+			interactionModel: {
+				mousedown:	newInteraction,
+				mouseup:	newInteraction,
+				mousemove:	newInteraction,
+				mouseout:	newInteraction,
+				dblclick:	newInteraction
+			},
+			drawCallback: restyle
+			//rollPeriod: 1,
+			//showRoller: true
+		};
+		
+		
+		var data 	= new Array();	
+		data.push([1,2,3]);
+		data.push([2,3,4]);
+		data.push([3,3,4]);
+		data.push([4,3,4]);
+		data.push([5,3,4]);
+		
+
+		flipped_dygraph = new Dygraph( $(dygraph_div_id)[0], data, dygraph_options );
+		
+		// finally create the graph
+		//var flipped_dygraph = new Dygraph( $(dygraph_div_id)[0], 'temperatures.csv', dygraph_options );
+		
+		// alter another mousemove function since we've rotated this graph 90 degrees
+		flipped_dygraph.mousemove_func = flipped_dygraph.mouseMove_;
+		flipped_dygraph.mouseMove_ = function(b) {
+			// "b" is the MouseEvent object. Copy the object so we can edit it, since MouseEvent is read-only
+			var new_b = jQuery.extend(true, {}, b);
+			// switch the x and y values for this mouse event... well, dygraphs only cares about the mouse X value in this case.
+			new_b.pageX = $(dygraph_div_id).width() + $(dygraph_div_id).offset().left - (b.pageY - $(dygraph_div_id).offset().top) - $(window).scrollLeft();
+			// call the original function, using the new MouseEvent
+			flipped_dygraph.mousemove_func(new_b);
+		}
+		
+	}
+	
+	function setData(names, data, visibility) {
+		flipped_dygraph.updateOptions({
+			//'visibility': 	visibility,
+			'axisLabelWidth': 20,
+			'labels': names,
+			'file': data
+		});
+		return 1;
+	}
+	
+	function setSerieVisibility(name, visibility) {
+		vis 	= flipped_dygraph.visibility();
+		index 	= flipped_dygraph.indexFromSetName(name) - 1;
+		vis[index] = visibility;
+		flipped_dygraph.updateOptions({
+			'visibility': vis
+		});
+	    return 1;
+	}
+	
+	function initSize(width, height) {
+		dygraph_width 	= width;
+		dygraph_height 	= height;
+	    return 1;
+	}
+	
+	function resizeGraph() {
+		flipped_dygraph.resize(dygraph_width,dygraph_height)
+	    return 1;
+	}
+	
+</script>
+
+</head>
+
+<body>
+	<div id="dygraph">
+	</div>
+</body>
+
+</html>
+

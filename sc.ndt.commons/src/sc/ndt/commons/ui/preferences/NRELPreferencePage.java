@@ -1,14 +1,8 @@
 package sc.ndt.commons.ui.preferences;
 
-import org.eclipse.jface.preference.BooleanFieldEditor;
-import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.preference.RadioGroupFieldEditor;
-import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-
-import sc.ndt.commons.Activator;
 
 public class NRELPreferencePage
 extends FieldEditorPreferencePage
@@ -26,6 +20,7 @@ implements IWorkbenchPreferencePage {
 	 * of preferences. Each field editor knows how to save and
 	 * restore itself.
 	 */
+	@Override
 	public void createFieldEditors() {
 		/*addField(new DirectoryFieldEditor(PreferenceConstants.P_PATH, 
 				"&Directory preference:", getFieldEditorParent()));
@@ -50,6 +45,7 @@ implements IWorkbenchPreferencePage {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
 	 */
+	@Override
 	public void init(IWorkbench workbench) {
 	}
 

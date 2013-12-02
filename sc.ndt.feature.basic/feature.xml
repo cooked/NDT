@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="sc.ndt.feature.basic"
-      label="NDT Basic"
-      version="0.4.0.qualifier"
+      id="sc.ndt.feature"
+      label="NDT Plugin for Eclipse"
+      version="0.5.0.qualifier"
       provider-name="Stefano Cottafavi">
 
    <description url="www.stefanocottafavi.com">
-      NREL Development Tools for Eclipse
+      NREL Development Tools Plugin for Eclipse
    </description>
 
    <copyright>
@@ -24,216 +24,222 @@ COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQ
    </url>
 
    <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.databinding" version="1.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.databinding.property" version="1.4.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.databinding" version="1.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext" version="2.3.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.util" version="2.3.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.core.resources" version="3.8.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.ui.ide" version="3.8.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.views" version="3.6.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.5.100" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.lang"/>
+      <import plugin="org.eclipse.ui.forms" version="3.5.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.text"/>
+      <import plugin="org.eclipse.jetty.server" version="8.1.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jetty.util" version="8.1.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.views.properties.tabbed" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.antlr.runtime"/>
       <import plugin="org.eclipse.xtext.common.types"/>
-      <import plugin="org.eclipse.core.resources" version="3.8.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.8.0" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
-      <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui.shared"/>
-      <import plugin="org.eclipse.ui" version="3.103.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.builder"/>
       <import plugin="org.eclipse.xtend"/>
       <import plugin="org.eclipse.xpand"/>
       <import plugin="org.eclipse.xtext.common.types.ui"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.compare"/>
-      <import plugin="org.apache.commons.lang" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="sc.ndt.commons" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.console" version="3.5.100" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.databinding" version="1.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.forms" version="3.5.200" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.databinding" version="1.2.0" match="greaterOrEqual"/>
-      <import plugin="ch.vorburger.xtext.databinding" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.databinding" version="1.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.databinding.beans" version="1.2.200" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.databinding.property" version="1.4.100" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.8.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.views" version="3.6.100" match="greaterOrEqual"/>
-      <import plugin="au.com.bytecode.opencsv" version="2.3.0" match="greaterOrEqual"/>
-      <import plugin="com.google.guava" version="11.0.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface.databinding" version="1.6.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.ant.launching" version="1.0.300" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.externaltools" version="1.0.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.xtend" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xpand" version="1.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime.compatibility" version="3.2.200" match="greaterOrEqual"/>
+      <import plugin="au.com.bytecode.opencsv" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.equinox.registry"/>
+      <import plugin="org.eclipse.ui.browser"/>
       <import plugin="org.eclipse.core.variables" version="3.2.600" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.7.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.103.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui" version="3.8.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ant.core" version="3.2.500" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface.databinding" version="1.6.0" match="greaterOrEqual"/>
-      <import plugin="sc.ndt.editor.fast.adn.ui" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.forms" version="3.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.swt"/>
-      <import plugin="sc.ndt.editor.bmodes.bmi.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.ant" match="greaterOrEqual"/>
    </requires>
 
    <plugin
-         id="sc.ndt.editor.fast.fst"
+         id="au.com.bytecode.opencsv"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.fst.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="ch.vorburger.xtext.databinding"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.commons"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
-         id="au.com.bytecode.opencsv"
+         id="sc.ndt.editor.fast.fst"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
-         id="com.google.guava"
+         id="sc.ndt.editor.fast.fst.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.adn"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.adn.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.launching.fast"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="sc.ndt.commons.ant"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.iecwind.iec"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.adn"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.adn.ui"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.guava"
+         download-size="0"
+         install-size="0"
+         version="10.0.1.v201203051515"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.iecwind.iec.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.turbsim.tbs"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.turbsim.tbs.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.bld"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.bld.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.twr"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.fast.twr.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.bmodes.bmi"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
+         version="0.5.0.qualifier"
+         unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.bmodes.bmi.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="sc.ndt.editor.bmodes.tsp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="sc.ndt.editor.bmodes.tsp.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.bmodes.out"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="sc.ndt.editor.bmodes.out.ui"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.bmodes.tsp"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.bmodes.tsp.ui"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.twr"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.twr.ui"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.editor.fast.out"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.launching.fast"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="sc.ndt.commons.ant"
+         download-size="0"
+         install-size="0"
+         version="0.5.0.qualifier"
          unpack="false"/>
 
 </feature>

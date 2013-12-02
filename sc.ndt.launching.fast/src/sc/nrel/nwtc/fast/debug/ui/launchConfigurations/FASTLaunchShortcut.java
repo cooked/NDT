@@ -1,7 +1,5 @@
 package sc.nrel.nwtc.fast.debug.ui.launchConfigurations;
 
-//import IType;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +28,7 @@ import org.eclipse.debug.ui.ILaunchShortcut;
 import org.eclipse.debug.ui.ILaunchShortcut2;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableContext;
+import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
@@ -55,7 +54,7 @@ import sc.nrel.nwtc.fast.launching.IFASTLaunchConfigurationConstants;
 import sc.nrel.nwtc.fast.launching.IFASTRunner;
 import sc.nrel.nwtc.fast.launching.StandardFAST;
 
-public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
+public class FASTLaunchShortcut implements ILaunchShortcut2 {
 
 	String executable;
 	String commandLine;
@@ -68,8 +67,9 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 	public void launch(IEditorPart editor, String mode) {
 		IEditorInput input = editor.getEditorInput();
 		//IFASTElement je = (IFASTElement) input.getAdapter(IFASTElement.class);
-		//if (je != null)
-		//	searchAndLaunch(new Object[] {je}, mode, getTypeSelectionTitle(), getEditorEmptyMessage());
+		IFile je = (IFile) input.getAdapter(IFile.class);
+		if (je != null)
+			searchAndLaunch(new Object[] {je}, mode, "title"/*getTypeSelectionTitle()*/, "emptyeditor"/*getEditorEmptyMessage()*/);
 	}
 
 	/* (non-Javadoc)
@@ -115,21 +115,18 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 		if(configs != null) {
 			ILaunchConfiguration config = null;
 			int count = configs.size();
-			if(count == 1) {
+			if(count == 1)
 				config = configs.get(0);
-			}
 			else if(count > 1) {
 				config = chooseConfiguration(configs);
-				if(config == null) {
+				if(config == null)
 					return;
-				}
 			}
-			if (config == null) {
+			if (config == null)
 				config = createConfiguration(/*type*/file);
-			}
-			if (config != null) {
+			if (config != null)
 				DebugUITools.launch(config, mode);
-			}	
+
 		}
 	}
 	
@@ -178,16 +175,22 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 		ILaunchConfigurationWorkingCopy wc = null;
 		int a;
 		try {
-						
+			
+			// NB: unhandled loop rimanda qui se per un qualche motivo si fotte
+			// la configurazione dell'FRE
+			// END NB
+			
 			// qui recupero il tipo di config
 			ILaunchConfigurationType configType = getConfigurationType();
 			
 			wc = configType.newInstance(null, file.getName() /*getLaunchManager().generateLaunchConfigurationName(type.getTypeQualifiedName('.'))*/ );
 			
-			String fileName= file.getName();
-			
 			IFASTInstall dfi = FASTRuntime.getDefaultFASTInstall();
-			File exe = ((StandardFAST)dfi).getJavaExecutable();
+			File exe = null;//((StandardFAST)dfi).getJavaExecutable();
+			if (exe==null) {
+				MessageDialog.openError(getShell(), LauncherMessages.JavaLaunchShortcut_1, LauncherMessages.JavaLaunchShortcut_4); 
+				return null;
+			}
 			
 			String location = exe.getAbsolutePath();
 			
@@ -205,15 +208,14 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 			}
 			
 			// file name as argument passed to FAST.exe
+			String fileName= file.getName();
 			if(fileName.length() == 0)
 				wc.setAttribute(IExternalToolConstants.ATTR_TOOL_ARGUMENTS, (String)null);
-			else {
-				if(fileName.contains(" "))
+			else
+				//if(fileName.contains(" "))
 					wc.setAttribute(IExternalToolConstants.ATTR_TOOL_ARGUMENTS, "\""+fileName+"\"");
-				else
-					wc.setAttribute(IExternalToolConstants.ATTR_TOOL_ARGUMENTS, fileName);
-				
-			}
+				//else
+				//	wc.setAttribute(IExternalToolConstants.ATTR_TOOL_ARGUMENTS, fileName);
 				
 			
 			// this should be unique identifier
@@ -240,8 +242,7 @@ public /*abstract*/ class FASTLaunchShortcut implements ILaunchShortcut2 {
 	 */
 	protected ILaunchConfigurationType getConfigurationType() {
 		ILaunchConfigurationType lc =
-				getLaunchManager().getLaunchConfigurationType(
-				"sc.ndt.launching.fast.localFASTApplication");
+				getLaunchManager().getLaunchConfigurationType("sc.ndt.launching.fast.localFASTApplication");
 				//IFASTLaunchConfigurationConstants.ID_FAST_APPLICATION);		
 		return lc;
 	}

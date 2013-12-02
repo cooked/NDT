@@ -5,7 +5,6 @@ import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
@@ -13,7 +12,6 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import sc.ndt.commons.Activator;
-import sc.ndt.commons.model.AirfoilFile;
 import sc.ndt.commons.model.OutCh;
 
 //LabelProvider class

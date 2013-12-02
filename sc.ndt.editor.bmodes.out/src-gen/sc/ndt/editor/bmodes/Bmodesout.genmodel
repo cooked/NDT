@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/sc.ndt.editor.bmodes.out/src-gen" editDirectory="/sc.ndt.editor.bmodes.out.edit/src"
+    editorDirectory="/sc.ndt.editor.bmodes.out.editor/src" modelPluginID="sc.ndt.editor.bmodes.out"
+    forceOverwrite="true" modelName="Bmodesout" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.bmodes.out.edit"
+    editorPluginID="sc.ndt.editor.bmodes.out.editor" runtimeVersion="2.9">
+  <genPackages prefix="Bmodesout" basePackage="sc.ndt.editor.bmodes" disposableProviderFactory="true"
+      fileExtensions="out" ecorePackage="Bmodesout.ecore#/">
+    <genClasses ecoreClass="Bmodesout.ecore#//ModelBmodesout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bmodesout.ecore#//ModelBmodesout/Head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Bmodesout.ecore#//ModelBmodesout/Modes"/>
+    </genClasses>
+    <genClasses ecoreClass="Bmodesout.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Header/n"/>
+    </genClasses>
+    <genClasses ecoreClass="Bmodesout.ecore#//Mode">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/freq"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/span_loc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/flap_disp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/flap_slope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/lag_disp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/lag_slope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Bmodesout.ecore#//Mode/twist"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

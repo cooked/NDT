@@ -77,6 +77,10 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
       case FastadnPackage.FWIND_FILE: return createfWindFile();
       case FastadnPackage.NHH: return createnHH();
       case FastadnPackage.NTWR_SHAD: return createnTwrShad();
+      case FastadnPackage.BTWR_POT: return createbTwrPot();
+      case FastadnPackage.BTWR_SHD: return createbTwrShd();
+      case FastadnPackage.FTWR_FILE: return createfTwrFile();
+      case FastadnPackage.BCALC_TWR_AERO: return createbCalcTwrAero();
       case FastadnPackage.NSHAD_HWID: return createnShadHWid();
       case FastadnPackage.NT_SHAD_REF_PT: return createnTShadRefPt();
       case FastadnPackage.NRHO: return createnRho();
@@ -232,6 +236,50 @@ public class FastadnFactoryImpl extends EFactoryImpl implements FastadnFactory
   {
     nTwrShadImpl nTwrShad = new nTwrShadImpl();
     return nTwrShad;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public bTwrPot createbTwrPot()
+  {
+    bTwrPotImpl bTwrPot = new bTwrPotImpl();
+    return bTwrPot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public bTwrShd createbTwrShd()
+  {
+    bTwrShdImpl bTwrShd = new bTwrShdImpl();
+    return bTwrShd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public fTwrFile createfTwrFile()
+  {
+    fTwrFileImpl fTwrFile = new fTwrFileImpl();
+    return fTwrFile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public bCalcTwrAero createbCalcTwrAero()
+  {
+    bCalcTwrAeroImpl bCalcTwrAero = new bCalcTwrAeroImpl();
+    return bCalcTwrAero;
   }
 
   /**

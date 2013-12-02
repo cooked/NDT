@@ -21,6 +21,12 @@ public class FastadnConverterService extends
 	@Inject
 	private STRINGValueConverter stringValueConverter;
 
+	/*@ValueConverter(rule = "STALL")
+	public IValueConverter<Integer> getSTALLConverter() {
+		return new tSTALLValueConverter();
+	}*/
+	
+	
 	// SC: see, http://www.eclipse.org/forums/index.php/mv/msg/282701/787968/
 	@ValueConverter(rule = "tNUMBER")
 	public IValueConverter<Float> gettNUMBERConverter() {
@@ -31,11 +37,6 @@ public class FastadnConverterService extends
 	public IValueConverter<String> getaSTRINGConverter() {
 		return stringValueConverter;
 	}
-
-	/*@ValueConverter(rule = "PRINT")
-	public IValueConverter<Boolean> getPRINTConverter() {
-		return new PRINTValueConverter();
-	}*/
 	
 	@ValueConverter(rule = "aAirfoilList")
 	public IValueConverter<String> getaAirfoilListConverter() {
@@ -43,7 +44,33 @@ public class FastadnConverterService extends
 	}
 	
 	
+	public class tSTALLValueConverter extends DefaultTerminalConverters	implements IValueConverter<Integer> {
 
+		public String toString(Integer value) {
+			String out;
+			switch(value) {
+			case 1: out = "BEDDOES";
+			case 2: out = "STEADY";
+			default: out = "";
+			}
+			return out;
+		}
+
+		public Integer toValue(String string, INode node) {
+			if (string == null)
+				return 0;
+			else if (Strings.isEmpty(string))
+				throw new ValueConverterException(
+						"Could not convert empty string to int", node, null);
+			else {
+				if(string.toLowerCase().matches("beddoes"))
+					return 1;
+				return 2;
+			}
+		}
+
+	};
+	
 	public class tNUMBERValueConverter extends DefaultTerminalConverters implements IValueConverter<Float> {
 
 		public String toString(Float value) {
@@ -64,7 +91,6 @@ public class FastadnConverterService extends
 	
 	public class PRINTValueConverter extends DefaultTerminalConverters implements IValueConverter<Boolean> {
 
-		@Override
 		public Boolean toValue(String string, INode node) throws ValueConverterException {
 			if (string == null || string.equalsIgnoreCase("NOPRINT"))
 				return false;
@@ -72,7 +98,6 @@ public class FastadnConverterService extends
 				return true;
 		}
 
-		@Override
 		public String toString(Boolean value) throws ValueConverterException {
 
 			if(value)
@@ -87,7 +112,6 @@ public class FastadnConverterService extends
 	public class tAirfoilListValueConverter extends DefaultTerminalConverters
 			implements IValueConverter<String> {
 
-		@Override
 		public String toValue(String string, INode node) throws ValueConverterException {
 			if (string == null)
 				return "";
@@ -99,7 +123,6 @@ public class FastadnConverterService extends
 			return string;
 		}
 
-		@Override
 		public String toString(String value) throws ValueConverterException {
 
 			String out = "";

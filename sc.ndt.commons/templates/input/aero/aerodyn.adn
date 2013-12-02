@@ -1,32 +1,41 @@
-- AWT-27CR aerodynamic parameters for FAST certification test #1.
+- 1.5 MW baseline aerodynamic parameters for FAST certification test #13.
 SI                                     SysUnits - System of units for used for input and output [must be SI for FAST] (unquoted string)
 BEDDOES                                StallMod - Dynamic stall included [BEDDOES or STEADY] (unquoted string)
 NO_CM                                  UseCm    - Use aerodynamic pitching moment model? [USE_CM or NO_CM] (unquoted string)
 DYNIN                                  InfModel - Inflow model [DYNIN or EQUIL] (unquoted string)
 SWIRL                                  IndModel - Induction-factor model [NONE or WAKE or SWIRL] (unquoted string)
-0.005                                  AToler   - Induction-factor tolerance (convergence criteria) (-)
+   0.005                               AToler   - Induction-factor tolerance (convergence criteria) (-)
 PRANDtl                                TLModel  - Tip-loss model (EQUIL only) [PRANDtl, GTECH, or NONE] (unquoted string)
-PRANDtl                                HLModel  - Hub-loss model (EQUIL only) [PRANDtl or NONE] (unquoted string)
-"wind/rated.wnd" 					   WindFile - Name of file containing wind data (quoted string)
- 100.0                                 HH       - Wind reference (hub) height [TowerHt+Twr2Shft+OverHang*SIN(ShftTilt)] (m)
-   0.3                                 TwrShad  - Tower-shadow velocity deficit (-)
-   1.0                                 ShadHWid - Tower-shadow half width (m)
-   2.432                               T_Shad_Refpt - Tower-shadow reference point (m)
+PRANDtl                                HLModel  - Hub-loss model (EQUIL only) [PRANdtl or NONE] (unquoted string)
+"../../wind/rated"           				   WindFile - Name of file containing wind data (quoted string)
+  84.2876                              HH       - Wind reference (hub) height [TowerHt+Twr2Shft+OverHang*SIN(ShftTilt)] (m)
+   0.0                                 TwrShad  - Tower-shadow velocity deficit (-)
+9999.9                                 ShadHWid - Tower-shadow half width (m)
+9999.9                                 T_Shad_Refpt - Tower-shadow reference point (m)
    1.225                               AirDens  - Air density (kg/m^3)
-   1.4639e-5                           KinVisc  - Kinematic air viscosity (m^2/sec)
-   0.004                               DTAero   - Time interval for aerodynamic calculations (sec)
-   2                                   NumFoil  - Number of airfoil files (-)
-"input/aero/foil/01.dat"            FoilNm   - Names of the airfoil files [NumFoil lines] (quoted strings)
-"input/aero/foil/02.dat"
-  10                                   BldNodes - Number of blade nodes used for analysis (-)
-RNodes   AeroTwst DRNodes Chord NFoil PrnElm
- 1.81265  5.80    1.2573  0.859   1   NOPRINT
- 3.06995  5.20    1.2573  1.045   2   NOPRINT
- 4.32725  4.66    1.2573  1.145   2   NOPRINT
- 5.58455  3.73    1.2573  1.124   2   NOPRINT
- 6.84185  2.64    1.2573  1.054   2   NOPRINT
- 8.09915  1.59    1.2573  0.976   2   NOPRINT
- 9.35645  0.73    1.2573  0.885   2   NOPRINT
-10.61375  0.23    1.2573  0.775   2   NOPRINT
-11.87105  0.08    1.2573  0.651   2   NOPRINT
-13.12835  0.03    1.2573  0.493   2   NOPRINT
+   1.4639E-5                           KinVisc  - Kinematic air viscosity (m^2/sec)
+   0.005                               DTAero   - Time interval for aerodynamic calculations (sec)
+   4                                   NumFoil  - Number of airfoil files (-)
+"foils/cylinder.dat"    FoilNm   - Names of the airfoil files [NumFoil lines] (quoted strings)
+"foils/s818_2703.dat"
+"foils/s825_2103.dat"
+"foils/s826_1603.dat"
+  15                                   BldNodes - Number of blade nodes used for analysis (-)
+RNodes    AeroTwst  DRNodes  Chord  NFoil  PrnElm
+ 2.85833  11.10     2.21667  1.949  1      NOPRINT
+ 5.07500  11.10     2.21667  2.269  2      NOPRINT
+ 7.29167  11.10     2.21667  2.589  2      NOPRINT
+ 9.50833  10.41     2.21667  2.743  2      NOPRINT
+11.72500   8.38     2.21667  2.578  2      NOPRINT
+13.94167   6.35     2.21667  2.412  2      NOPRINT
+16.15833   4.33     2.21667  2.247  2      NOPRINT
+18.37500   2.85     2.21667  2.082  3      NOPRINT
+20.59167   2.22     2.21667  1.916  3      NOPRINT
+22.80833   1.58     2.21667  1.751  3      NOPRINT
+25.02500   0.95     2.21667  1.585  3      NOPRINT
+27.24167   0.53     2.21667  1.427  3      NOPRINT
+29.45833   0.38     2.21667  1.278  3      NOPRINT
+31.67500   0.23     2.21667  1.129  4      NOPRINT
+33.89167   0.08     2.21667  0.980  4      NOPRINT
+
+

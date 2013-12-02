@@ -24,7 +24,7 @@ public class OutBlock extends HashMap<String, OutCh> {
 		ob.name = this.name;
 		
 		while(it.hasNext()) {
-			OutCh oc = get(it.next()); 
+			OutCh oc = get(OutListRegistry.filterAlterName(it.next())); 
 			if(oc.isAvailable())
 				ob.put(oc.name,oc);
 		}

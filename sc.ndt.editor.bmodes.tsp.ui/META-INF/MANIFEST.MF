@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: sc.ndt.editor.bmodes.tsp.ui
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Stefano Cottafavi
+Bundle-Version: 0.5.0.qualifier
 Bundle-SymbolicName: sc.ndt.editor.bmodes.tsp.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: sc.ndt.editor.bmodes.tsp;visibility:=reexport,
@@ -18,10 +18,10 @@ Require-Bundle: sc.ndt.editor.bmodes.tsp;visibility:=reexport,
  org.eclipse.compare
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: sc.ndt.editor.ui,
- sc.ndt.editor.ui.contentassist,
- sc.ndt.editor.ui.contentassist.antlr,
- sc.ndt.editor.ui.internal,
- sc.ndt.editor.ui.quickfix
-Bundle-Activator: sc.ndt.editor.ui.internal.BmodestspActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: sc.ndt.editor.bmodes.ui,
+ sc.ndt.editor.bmodes.ui.quickfix,
+ sc.ndt.editor.bmodes.ui.contentassist,
+ sc.ndt.editor.bmodes.ui.contentassist.antlr,
+ sc.ndt.editor.bmodes.ui.internal
+Bundle-Activator: sc.ndt.editor.bmodes.ui.internal.BmodestspActivator

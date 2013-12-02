@@ -314,28 +314,28 @@
            project="true">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.ui.wizard.file.FASTMainWizard"
            finalPerspective="perspective.ndt.fast"
            icon="icons/fan-alt.png"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="FAST">
+           name="FAST File - Time Marching">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.fst.ui.NewWizard1"
            icon="icons/chart_line.png"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="FAST Linearization">
+           name="FAST File - Linearization">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.fst.ui.NewWizard2"
            id="sc.ndt.editor.fast.fst.ui.wizard2"
            name="FAST Campbell Diagram">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel"
+           category="sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.fst.ui.NewWizard3"
            id="sc.ndt.editor.fast.fst.ui.wizard3"
            name="FAST IEC 61400-1 DLCs study">
@@ -420,6 +420,12 @@
            id="perspective.ndt.fast"
            name="FAST Simulation">
      </perspective>
+     <perspective
+           class="sc.ndt.editor.fast.ui.addon.perspectives.FASTPerspectiveDesign"
+           icon="icons/sticky-note.png"
+           id="perspective.ndt.fast.design"
+           name="FAST Design">
+     </perspective>
   </extension>
   <extension
         point="org.eclipse.ui.perspectiveExtensions">
@@ -449,6 +455,18 @@
               id="org.eclipse.ui.views.ContentOutline"
               minimized="false"
               ratio="0.80"
+              relationship="right"
+              relative="org.eclipse.ui.editorss">
+        </view>
+     </perspectiveExtension>
+     <perspectiveExtension
+           targetID="perspective.ndt.fast.design">
+        <view
+              closeable="false"
+              id="org.eclipse.ui.views.ContentOutline"
+              minimized="false"
+              moveable="false"
+              ratio="0.15"
               relationship="right"
               relative="org.eclipse.ui.editorss">
         </view>

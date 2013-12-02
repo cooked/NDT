@@ -1,5 +1,6 @@
 package sc.ndt.editor.fast.ui.views;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.eclipse.core.runtime.ListenerList;
@@ -22,16 +23,21 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.part.IPageSite;
 import org.eclipse.ui.part.Page;
+import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 import sc.ndt.commons.model.OutBlock;
 import sc.ndt.commons.model.OutCh;
+import sc.ndt.commons.model.OutList;
+import sc.ndt.commons.model.providers.outlist.OutListCheckStateProvider;
 import sc.ndt.commons.model.providers.outlist.OutListContentProvider;
 import sc.ndt.commons.model.providers.outlist.OutListLabelProvider;
+import sc.ndt.commons.model.providers.outlist.OutListViewerComparator;
 import sc.ndt.editor.fast.ui.editors.EditorBrowserFASTOut;
 import sc.ndt.editor.fast.ui.editors.MultiPageFASTOutEditor;
 
-public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISelectionChangedListener {
+//public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISelectionChangedListener {
+public class OutlinePageChGraph extends ContentOutlinePage implements ISelectionChangedListener {
 
 	private ListenerList selectionChangedListeners = new ListenerList();
 
@@ -40,10 +46,17 @@ public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISe
 	private IContentOutlinePage currentPage;
 
 	private EditorBrowserFASTOut ed;
+
+	private ArrayList<OutBlock> ob;
 	
 	// see
 	// http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fui%2Fviews%2Fcontentoutline%2FContentOutline.html
 	
+	@Override
+	public void dispose() {
+		checkboxTreeViewer = null;
+		super.dispose();
+	}
 	public OutlinePageChGraph() {
         super();
     }
@@ -80,10 +93,12 @@ public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISe
 		checkboxTreeViewer.setContentProvider(new OutListContentProvider());
 		//checkboxTreeViewer.setCheckStateProvider(new OutListCheckStateProvider());
 		checkboxTreeViewer.addSelectionChangedListener(this);
-		checkboxTreeViewer.setInput(
-				((MultiPageFASTOutEditor)ed.getEditor()).pFile.outList.getAvailableOutBlocks());
+		checkboxTreeViewer.setComparator(new OutListViewerComparator());
+		
+		ob = ((MultiPageFASTOutEditor)ed.getEditor()).pFile.outList.getAvailableOutBlocks();
+		checkboxTreeViewer.setInput(ob);
 	     
-		checkboxTreeViewer.addDoubleClickListener(new IDoubleClickListener() {
+		/*checkboxTreeViewer.addDoubleClickListener(new IDoubleClickListener() {
 			  @Override
 			  public void doubleClick(DoubleClickEvent event) {
 			    IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection(); 
@@ -92,21 +107,21 @@ public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISe
 			    //                 !viewer.getExpandedState(selectedNode));
 			  }
 			});
+			*/
+		
 		checkboxTreeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				Object o = event.getSelection();
-				// TODO something useful
-				
+
 			}
 		});
 
+		
 		// TODO http://www.java2s.com/Code/Java/SWT-JFace-Eclipse/DemonstratesCheckboxTreeViewer.htm
 		checkboxTreeViewer.addCheckStateListener(new ICheckStateListener() {
 			
-			//private Object[] chkdElements;
-
 			public void checkStateChanged(CheckStateChangedEvent event) {
 
 				Object elm = event.getElement();
@@ -115,40 +130,21 @@ public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISe
 				if(elm instanceof OutCh && !checkboxTreeViewer.getGrayed(elm)) {
 
 					OutCh ch = (OutCh)elm;
+					if(ed.getEditor() instanceof MultiPageFASTOutEditor)
+						ed.toggleChVisibility(ch.usedName,event.getChecked());
 
-					if(event.getChecked() &&  ed.getEditor() instanceof MultiPageFASTOutEditor) {
-						ed.appendCh(ch.name,1);
-						checkboxTreeViewer.setChecked(elm, true);
-						//checkboxTreeViewer.reveal(elm);
-						//chkdElements = checkboxTreeViewer.getCheckedElements();
-					} else if(!event.getChecked() && ed.getEditor() instanceof MultiPageFASTOutEditor) {
-						ed.removeCh(ch.name,1);
-						checkboxTreeViewer.setChecked(event.getElement(), false);
-						//chkdElements = checkboxTreeViewer.getCheckedElements();
-					}
-
-					// is block of channels
+				// is block of channels
 				} else if(elm instanceof OutBlock) {
 
 					OutBlock 		bl = (OutBlock)elm;
 					Iterator<OutCh> it = bl.values().iterator();
-					if(event.getChecked() && ed.getEditor() instanceof MultiPageFASTOutEditor) {
+					if(ed.getEditor() instanceof MultiPageFASTOutEditor) {
 						while(it.hasNext()) {
 							OutCh ch = it.next();
-							if(!checkboxTreeViewer.getGrayed(ch) && !checkboxTreeViewer.getChecked(ch)){
-								checkboxTreeViewer.setChecked(ch, true);
-								ed.appendCh(ch.name,1);
-							}
-						}
-					} else if(!event.getChecked() && ed.getEditor() instanceof MultiPageFASTOutEditor) {
-						while(it.hasNext()) {
-							OutCh ch = it.next();
-							if(!checkboxTreeViewer.getGrayed(ch) && checkboxTreeViewer.getChecked(ch)){
-								checkboxTreeViewer.setChecked(ch, false);
-								ed.removeCh(ch.name,1);
-							}
+							ed.toggleChVisibility(ch.usedName,event.getChecked());
 						}
 					}
+					checkboxTreeViewer.setSubtreeChecked(elm, event.getChecked());
 
 				}
 
@@ -156,7 +152,21 @@ public class OutlinePageChGraph extends Page implements IContentOutlinePage, ISe
 
 		});
 		
-
+		checkboxTreeViewer.expandAll();
+		checkboxTreeViewer.setAllChecked(true);
+		checkboxTreeViewer.collapseAll();
+		//checkboxTreeViewer.setAllChecked(false);
+		
+		//Object obj = checkboxTreeViewer.getInput();
+		//checkboxTreeViewer.setSubtreeChecked(obj, true);
+		
+		//TreeItem ti = checkboxTreeViewer.getTree().getItems();
+		
+		//checkboxTreeViewer.getTree().setSelection();
+		
+		getSite().setSelectionProvider(checkboxTreeViewer);
+		
+		
 		/*		
 		// add listener
 				partListener = new IPartListener() {

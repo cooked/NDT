@@ -1,18 +1,30 @@
 package sc.ndt.editor.fast.ui.editors;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.Action;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.SWTError;
 import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.browser.BrowserFunction;
 import org.eclipse.swt.browser.LocationEvent;
 import org.eclipse.swt.browser.LocationListener;
 import org.eclipse.swt.browser.ProgressEvent;
 import org.eclipse.swt.browser.ProgressListener;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IEditorInput;
@@ -23,16 +35,34 @@ import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.wb.swt.ResourceManager;
 
+import sc.ndt.commons.http.HttpUtils;
+import sc.ndt.commons.model.OutList;
 import sc.ndt.editor.fast.ui.views.OutlinePageChGraph;
+
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.wb.swt.SWTResourceManager;
+import org.osgi.framework.Bundle;
 
 public class EditorBrowserFASTOut extends FormPage {
 
 	//public static final String ID = "sc.webui.charting.editors.EditorBrowserFASTOut"; //$NON-NLS-1$
 		
+	@Override
+	public void dispose() {
+		
+		myOutlinePage.dispose();
+		
+		super.dispose();
+	}
+
 	public ArrayList<String> 	visibleCh;
 	private OutlinePageChGraph 	myOutlinePage;
 	private Browser 			browser;
 
+	public boolean initialized;
+	
 	public EditorBrowserFASTOut(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 		// init map to track plotted channels
@@ -42,12 +72,10 @@ public class EditorBrowserFASTOut extends FormPage {
 
 	@Override
 	public void doSave(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -55,7 +83,7 @@ public class EditorBrowserFASTOut extends FormPage {
 				
 		setSite(site);
 		setInput(input);
-		setPartName(input.getName());
+		//setPartName(input.getName());
 				
 	}
 	
@@ -69,42 +97,133 @@ public class EditorBrowserFASTOut extends FormPage {
 		return false;
 	}
 
+	private Browser createSWTBrowser(Composite parent)
+    {
+            try
+            {
+                    if (System.getProperty(HttpUtils.XULRUNNER_ENV) == null)
+                    {
+                            Bundle bundle = null;
+                            if (Platform.getOS().matches(Platform.OS_WIN32))
+                                    bundle = Platform.getBundle(HttpUtils.XULRUNNER_WIN32_PLUGIN);
+                            else if (Platform.getOS().matches(Platform.OS_MACOSX))
+                                    bundle = Platform.getBundle(HttpUtils.XULRUNNER_MAC_PLUGIN);
+
+                            if (bundle != null)
+                            {
+                                    URL xulrunner = bundle.getEntry(HttpUtils.XULRUNNER_PATH);
+                                    if (xulrunner != null)
+                                    {
+                                            try
+                                            {
+                                                    xulrunner = FileLocator.toFileURL(xulrunner);
+                                                    if (xulrunner != null)
+                                                    {
+                                                            File xulrunnerFolder = new File(xulrunner.getFile());
+                                                            /*String message = MessageFormat.format(
+                                                                    Messages.getString("FirefoxBrowser.Setting_Path_To"), //$NON-NLS-1$
+                                                                    new Object[] {
+                                                                            xulrunnerFolder.getAbsolutePath()
+                                                                    }
+                                                            );*/
+                                                            System.setProperty(HttpUtils.XULRUNNER_ENV, xulrunnerFolder.getAbsolutePath());
+                                                            //IdeLog.logInfo(Activator.getDefault(), message);
+                                                    }
+                                            }
+                                            catch (IOException e)
+                                            {
+                                                  //  IdeLog.logError(Activator.getDefault(), Messages.getString("FirefoxBrowser.Error_Setting_Path"), e); //$NON-NLS-1$
+                                            }
+                                    }
+                            }
+                    }
+            }
+            catch (Exception e)
+            {
+                   // IdeLog.logError(Activator.getDefault(), Messages.getString("FirefoxBrowser.Error_Setting_Path"), e); //$NON-NLS-1$
+            }
+
+            return new Browser(parent, HttpUtils.getEngine());
+            //browser.addProgressListener(progressListener);
+            //browser.addOpenWindowListener(openWindowListener);
+            
+    }
+            
 	/**
 	 * Create contents of the form.
 	 * @param managedForm
 	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
-		// set decorations and title
-		//FormToolkit toolkit = managedForm.getToolkit();
-		//ScrolledForm form = managedForm.getForm();
-		//form.setText("Empty FormPage"); 	
-		//Composite body = form.getBody();	
-		//toolkit.decorateFormHeading(form.getForm());
-		//toolkit.paintBordersFor(body);
-		managedForm.getForm().getBody().setLayout(new FillLayout(SWT.VERTICAL));
-				
-		// specify browser type 	- http://www.eclipse.org/swt/faq.php#browserspecifydefault
-        // SWT.MOZILLA 				- http://www.eclipse.org/swt/faq.php#howusemozilla
-        // 							- https://developer.mozilla.org/en/docs/XULRunner
-        // XULRunner Eclipse plugin - http://forge.ispras.ru/projects/xulrunner-eclipse
-        // XULRunner vs WebKit 		- http://dottorblaster.it/2011/04/eclipse-sostituire-xulrunner-con-webkit/		
-		browser = new Browser(managedForm.getForm().getBody(), SWT.WEBKIT);
-		browser.setUrl("http://localhost:8888/index.html");
-		//browser.setUrl("http://localhost:8888/dygraph.html");
+		
+		// TODO
+		// change to WebBrowserEditor
+		
+		HttpUtils.getDefaultServer();
+		
+		try {
+			GridLayout layout = new GridLayout();
+			layout.marginHeight = 0;
+	        layout.marginWidth = 0;
+	        layout.horizontalSpacing = 0;
+	        layout.verticalSpacing = 0;
+	        
+	         managedForm.getForm().getBody().setLayout(layout);
+	         //browser = new Browser(managedForm.getForm().getBody(), HttpUtils.getEngine());
+	         browser = createSWTBrowser(managedForm.getForm().getBody());
+	         browser.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		} catch (SWTError e) {
+	         MessageBox messageBox = new MessageBox(managedForm.getForm().getBody().getShell(), SWT.ICON_ERROR | SWT.OK);
+	         messageBox.setMessage("Browser cannot be initialized.");
+	         messageBox.setText("Exit");
+	         messageBox.open();
+	         //System.exit(-1);
+	    }
+		
+		/*browser = new Browser(managedForm.getForm().getBody(),HttpUtils.getEngine());
 		managedForm.getToolkit().adapt(browser);
 		managedForm.getToolkit().paintBordersFor(browser);
+		*/
+		
+		browser.setUrl("http://localhost:8888/index.html");
+		//browser.setUrl("http://localhost:8888/index_flot.html");
+		
+		browser.addControlListener(new ControlListener() {
+            public void controlResized(ControlEvent e) {
+            }
+            public void controlMoved(ControlEvent e) {
+            }
+        });
 		
 		browser.addProgressListener(new ProgressListener() {
-            @Override
+
+            
+			@Override
             public void completed(ProgressEvent event) {
         		
+            	// ----- DYGRAPH chart
             	String name = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsNameString();
         		String data = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsData();
-        		String vis = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsInvisible();
+        		String vis = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsVisible();
         		
-            	browser.evaluate("return setData("+name+","+data+","+vis+");");
-            	
+        		// la forma, visibility: [false, true, true,...]
+        		browser.execute("setData("+name+","+data+","+vis+");");
+        		
+        		// numero canali meno il tempo
+        		//int numCh = ((MultiPageFASTOutEditor)getEditor()).pFile.channels.length-1;
+        		//browser.execute("hideAll();");
+        		//browser.execute("hideAllButFirst();");
+        		
+        		//browser.evaluate("return setData(["+"\"Wind\""+"],"+single+",0);");
+        		//browser.evaluate("return setData(["+"\"Time\",\"Wind\""+"],"+single+",0);");
+        		//String single = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelString("Azimuth");
+        		// ----- END
+        		
+        		
+        		/* for FLOT graph*/
+				//String single = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelString("Azimuth");
+				//browser.evaluate("return setCh(["+single+"]);");
+				initialized = true;
             }
             @Override
             public void changed(ProgressEvent event) {
@@ -167,7 +286,7 @@ public class EditorBrowserFASTOut extends FormPage {
         */
 		
 	}
-		
+    
 	public float[][] getChDataF(String chName) {
 		return ((MultiPageFASTOutEditor)getEditor()).pFile.xySeries.get(chName);
 	}
@@ -178,37 +297,15 @@ public class EditorBrowserFASTOut extends FormPage {
 				);
 	}
 
-	public void appendCh(String chName,int plotNr) {
-		
-		/*String ds = getChDataS(chName);
-		Object res = browser.evaluate(	//, curvedLines: {apply:true,fit: true, fitPointDist: 0.000001}
-        		"n"+plotNr+".push({ label: '" + chName + "', data:" + ds + " });" +
-        		"return setSWTData"+plotNr+"();" );
-		visibleCh.add(chName);*/
-		
-		//float[][] s = ((MultiPageFASTOutEditor)getEditor()).pFile.getChannelsData();
-		
-    	
-		//String ds = getChDataS(chName);
-		browser.evaluate("return setSerieVisibility(\""+chName+"\",true);");
-		visibleCh.add(chName);
-
-    }
-	
-	public void removeCh(String chName,int plotNr) {
-		/*int index = visibleCh.indexOf(chName);
-		Object res = browser.evaluate("n"+plotNr+".splice("+index+",1); return setSWTData"+plotNr+"();");
-		visibleCh.remove(index);*/
-		
-		//String ds = getChDataS(chName);
-		browser.evaluate("return setSerieVisibility(\""+chName+"\",false);");
-		visibleCh.add(chName);
-		
+	public void toggleChVisibility(String chName,boolean value) {
+		browser.execute("setSerieVisibility(\""+chName+"\","+value+");");
+		browser.execute("TESTcheckClicked(\""+chName+"\");");
     }
 	
 	@Override
 	public void setFocus() {
 		super.setFocus();
+		
 	}
 		
 	public IContentOutlinePage getContentOutline() {

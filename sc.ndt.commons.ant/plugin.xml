@@ -2,23 +2,48 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.ant.core.extraClasspathEntries">
-      <extraClasspathEntry
-            library="lib/ant-contrib.jar">
-      </extraClasspathEntry>
-   </extension>
-   <extension
          point="org.eclipse.ant.core.antTasks">
       <antTask
             class="net.sf.antcontrib.logic.ForTask"
+            eclipseRuntime="false"
             library="lib/ant-contrib.jar"
             name="for">
       </antTask>
       <antTask
             class="net.sf.antcontrib.logic.ForEach"
+            eclipseRuntime="false"
             library="lib/ant-contrib.jar"
             name="foreach">
       </antTask>
+      <antTask
+            class="net.sf.antcontrib.property.Variable"
+            eclipseRuntime="false"
+            library="lib/ant-contrib.jar"
+            name="var">
+      </antTask>
+      <antTask
+            class="net.sf.antcontrib.logic.IfTask"
+            eclipseRuntime="false"
+            library="lib/ant-contrib.jar"
+            name="if">
+      </antTask>
+      <antTask
+            class="net.sf.antcontrib.logic.condition.IsLessThan"
+            eclipseRuntime="false"
+            library="lib/ant-contrib.jar"
+            name="islessthan">
+      </antTask>
+   </extension>
+   <extension
+         point="org.eclipse.ant.core.extraClasspathEntries">
+      <extraClasspathEntry
+            eclipseRuntime="false"
+            library="lib/ant-contrib.jar">
+      </extraClasspathEntry>
+      <extraClasspathEntry
+            eclipseRuntime="false"
+            library="lib/ant-logger.jar">
+      </extraClasspathEntry>
    </extension>
 
 </plugin>

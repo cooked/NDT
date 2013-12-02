@@ -1,0 +1,1023 @@
+Category,Name,Other Name(s),Description,Convention,Units,Invalid Channel Criteria
+Wind Motions,,,,,,
+,WindVxi,uWind,Nominally downwind component of the hub-height wind velocity,Directed along the xi-axis                         ,(m/s),.NOT. CompAero
+,WindVyi,vWind,Cross-wind component of the hub-height wind velocity,Directed along the yi-axis                         ,(m/s),.NOT. CompAero
+,WindVzi,wWind,Vertical component of the hub-height wind velocity,Directed along the zi-axis                         ,(m/s),.NOT. CompAero
+,TotWindV,                                ,Total hub-height wind velocity magnitude,N/A                                                ,(m/s),.NOT. CompAero
+,HorWindV,                                ,Horizontal hub-height wind velocity magnitude,In the xi- and yi-plane                            ,(m/s),.NOT. CompAero
+,HorWndDir,                                ,"Horizontal hub-height wind direction.  Please note that FAST  uses the opposite sign convention that AeroDyn uses.  Put a ""-"", ""_"", ""m"", or ""M"" character in front of this variable name if you want to use the AeroDyn convention.",About the zi-axis                                  ,(deg),.NOT. CompAero
+,VerWndDir,                                ,Vertical hub-height wind direction,About an axis orthogonal to the zi-axis and the HorWindV-vector,(deg),.NOT. CompAero
+Blade 1 Tip Motions,,,,,,
+,TipDxc1,OoPDefl1,Blade 1 out-of-plane tip deflection (relative to the undeflected position),Directed along the xc1-axis,(m),
+,TipDyc1,IPDefl1,Blade 1 in-plane tip deflection (relative to the undeflected position),Directed along the yc1-axis,(m),
+,TipDzc1,TipDzb1,Blade 1 axial tip deflection (relative to the undeflected position),Directed along the zc1- and zb1-axes,(m),
+,TipDxb1,,Blade 1 flapwise tip deflection (relative to the undeflected position),Directed along the xb1-axis,(m),
+,TipDyb1,,Blade 1 edgewise tip deflection (relative to the undeflected position),Directed along the yb1-axis,(m),
+,TipALxb1,,Blade 1 local flapwise tip acceleration (absolute),Directed along the local xb1-axis,(m/s^2),
+,TipALyb1,,Blade 1 local edgewise tip acceleration (absolute),Directed along the local yb1-axis,(m/s^2),
+,TipALzb1,,Blade 1 local axial tip acceleration (absolute),Directed along the local zb1-axis,(m/s^2),
+,TipRDxb1,RollDefl1,"Blade 1 roll (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the xb1-axis,(deg),
+,TipRDyb1,PtchDefl1,"Blade 1 pitch (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the yb1-axis,(deg),
+,TipRDzc1,"TipRDzb1, TwstDefl1","Blade 1 torsional tip deflection (relative to the undeflected position). This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the zc1- and zb1-axes,(deg),
+,TipClrnc1,"TwrClrnc1, Tip2Twr1","Blade 1 tip-to-tower clearance estimate. This is computed as the perpendicular distance from the yaw axis to the tip of blade 1 when the blade tip is below the yaw bearing. When the tip of blade 1 is above the yaw bearing, it is computed as the absolute distance from the yaw bearing to the blade tip. Please note that you should reduce this value by the tower radius to obtain the actual tower clearance.",N/A,(m),
+Blade 2 Tip Motions,,,,,,
+,TipDxc2,OoPDefl2,Blade 2 out-of-plane tip deflection (relative to the pitch axis),Directed along the xc2-axis,(m),
+,TipDyc2,IPDefl2,Blade 2 in-plane tip deflection (relative to the pitch axis),Directed along the yc2-axis,(m),
+,TipDzc2,TipDzb2,Blade 2 axial tip deflection (relative to the pitch axis),Directed along the zc2- and zb2-axes,(m),
+,TipDxb2,,Blade 2 flapwise tip deflection (relative to the pitch axis),Directed along the xb2-axis,(m),
+,TipDyb2,,Blade 2 edgewise tip deflection (relative to the pitch axis),Directed along the yb2-axis,(m),
+,TipALxb2,,Blade 2 local flapwise tip acceleration (absolute),Directed along the local xb2-axis,(m/s^2),
+,TipALyb2,,Blade 2 local edgewise tip acceleration (absolute),Directed along the local yb2-axis,(m/s^2),
+,TipALzb2,,Blade 2 local axial tip acceleration (absolute),Directed along the local zb2-axis,(m/s^2),
+,TipRDxb2,RollDefl2,"Blade 2 roll (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the xb2-axis,(deg),
+,TipRDyb2,PtchDefl2,"Blade 2 pitch (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the yb2-axis,(deg),
+,TipRDzc2,"TipRDzb2, TwstDefl2","Blade 2 torsional (angular/rotational) tip deflection (relative to the undeflected position). This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the zc2- and zb2-axes,(deg),
+,TipClrnc2,"TwrClrnc2, Tip2Twr2","Blade 2 tip-to-tower clearance estimate. This is computed as the perpendicular distance from the yaw axis to the tip of blade 1 when the blade tip is below the yaw bearing. When the tip of blade 1 is above the yaw bearing, it is computed as the absolute distance from the yaw bearing to the blade tip. Please note that you should reduce this value by the tower radius to obtain the actual tower clearance.",N/A,(m),
+Blade 3 Tip Motions,,,,,,
+,TipDxc3,OoPDefl3,Blade 3 out-of-plane tip deflection (relative to the pitch axis),Directed along the xc3-axis,(m),NumBl < 3
+,TipDyc3,IPDefl3,Blade 3 in-plane tip deflection (relative to the pitch axis),Directed along the yc3-axis,(m),NumBl < 3
+,TipDzc3,TipDzb3,Blade 3 axial tip deflection (relative to the pitch axis),Directed along the zc3- and zb3-axes,(m),NumBl < 3
+,TipDxb3,,Blade 3 flapwise tip deflection (relative to the pitch axis),Directed along the xb3-axis,(m),NumBl < 3
+,TipDyb3,,Blade 3 edgewise tip deflection (relative to the pitch axis),Directed along the yb3-axis,(m),NumBl < 3
+,TipALxb3,,Blade 3 local flapwise tip acceleration (absolute),Directed along the local xb3-axis,(m/s^2),NumBl < 3
+,TipALyb3,,Blade 3 local edgewise tip acceleration (absolute),Directed along the local yb3-axis,(m/s^2),NumBl < 3
+,TipALzb3,,Blade 3 local axial tip acceleration (absolute),Directed along the local zb3-axis,(m/s^2),NumBl < 3
+,TipRDxb3,RollDefl3,"Blade 3 roll (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the xb3-axis,(deg),NumBl < 3
+,TipRDyb3,PtchDefl3,"Blade 3 pitch (angular/rotational) tip deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the yb3-axis,(deg),NumBl < 3
+,TipRDzc3,"TipRDzb3, TwstDefl3","Blade 3 torsional tip deflection (relative to the undeflected position). This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the zc3- and zb3-axes,(deg),NumBl < 3
+,TipClrnc3,"TwrClrnc3, Tip2Twr3","Blade 3 tip-to-tower clearance estimate. This is computed as the perpendicular distance from the yaw axis to the tip of blade 1 when the blade tip is below the yaw bearing. When the tip of blade 1 is above the yaw bearing, it is computed as the absolute distance from the yaw bearing to the blade tip. Please note that you should reduce this value by the tower radius to obtain the actual tower clearance.",N/A,(m),NumBl < 3
+Blade 1 Local Span Motions,,,,,,
+,Spn1ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 1,Directed along the local xb1-axis,(m/s^2),NBlGages < 1
+,Spn1ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 1,Directed along the local yb1-axis,(m/s^2),NBlGages < 1
+,Spn1ALzb1,,Blade 1 local axial acceleration (absolute) of span station 1,Directed along the local zb1-axis,(m/s^2),NBlGages < 1
+,Spn2ALxb1,,Blade 1 local flapwise acceleration (absolute) of span  station 2,Directed along the local xb1-axis,(m/s^2),NBlGages < 2
+,Spn2ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 2,Directed along the local yb1-axis,(m/s^2),NBlGages < 2
+,Spn2ALzb1,,Blade 1 local axial acceleration (absolute) of span station 2,Directed along the local zb1-axis,(m/s^2),NBlGages < 2
+,Spn3ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 3,Directed along the local xb1-axis,(m/s^2),NBlGages < 3
+,Spn3ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 3,Directed along the local yb1-axis,(m/s^2),NBlGages < 3
+,Spn3ALzb1,,Blade 1 local axial acceleration (absolute) of span station 3,Directed along the local zb1-axis,(m/s^2),NBlGages < 3
+,Spn4ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 4,Directed along the local xb1-axis,(m/s^2),NBlGages < 4
+,Spn4ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 4,Directed along the local yb1-axis,(m/s^2),NBlGages < 4
+,Spn4ALzb1,,Blade 1 local axial acceleration (absolute) of span station 4,Directed along the local zb1-axis,(m/s^2),NBlGages < 4
+,Spn5ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 5,Directed along the local xb1-axis,(m/s^2),NBlGages < 5
+,Spn5ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 5,Directed along the local yb1-axis,(m/s^2),NBlGages < 5
+,Spn5ALzb1,,Blade 1 local axial acceleration (absolute) of span station 5,Directed along the local zb1-axis,(m/s^2),NBlGages < 5
+,Spn6ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 6,Directed along the local xb1-axis,(m/s^2),NBlGages < 6
+,Spn6ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 6,Directed along the local yb1-axis,(m/s^2),NBlGages < 6
+,Spn6ALzb1,,Blade 1 local axial acceleration (absolute) of span station 6,Directed along the local zb1-axis,(m/s^2),NBlGages < 6
+,Spn7ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 7,Directed along the local xb1-axis,(m/s^2),NBlGages < 7
+,Spn7ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 7,Directed along the local yb1-axis,(m/s^2),NBlGages < 7
+,Spn7ALzb1,,Blade 1 local axial acceleration (absolute) of span station 7,Directed along the local zb1-axis,(m/s^2),NBlGages < 7
+,Spn8ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 8,Directed along the local xb1-axis,(m/s^2),NBlGages < 8
+,Spn8ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 8,Directed along the local yb1-axis,(m/s^2),NBlGages < 8
+,Spn8ALzb1,,Blade 1 local axial acceleration (absolute) of span station 8,Directed along the local zb1-axis,(m/s^2),NBlGages < 8
+,Spn9ALxb1,,Blade 1 local flapwise acceleration (absolute) of span station 9,Directed along the local xb1-axis,(m/s^2),NBlGages < 9
+,Spn9ALyb1,,Blade 1 local edgewise acceleration (absolute) of span station 9,Directed along the local yb1-axis,(m/s^2),NBlGages < 9
+,Spn9ALzb1,,Blade 1 local axial acceleration (absolute) of span station 9,Directed along the local zb1-axis,(m/s^2),NBlGages < 9
+,Spn1TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the xb1-axis,(m),NBlGages < 1
+,Spn1TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the yb1-axis,(m),NBlGages < 1
+,Spn1TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 1,Directed along the zb1-axis,(m),NBlGages < 1
+,Spn2TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the xb1-axis,(m),NBlGages < 2
+,Spn2TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the yb1-axis,(m),NBlGages < 2
+,Spn2TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 2,Directed along the zb1-axis,(m),NBlGages < 2
+,Spn3TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the xb1-axis,(m),NBlGages < 3
+,Spn3TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the yb1-axis,(m),NBlGages < 3
+,Spn3TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 3,Directed along the zb1-axis,(m),NBlGages < 3
+,Spn4TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the xb1-axis,(m),NBlGages < 4
+,Spn4TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the yb1-axis,(m),NBlGages < 4
+,Spn4TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 4,Directed along the zb1-axis,(m),NBlGages < 4
+,Spn5TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the xb1-axis,(m),NBlGages < 5
+,Spn5TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the yb1-axis,(m),NBlGages < 5
+,Spn5TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 5,Directed along the zb1-axis,(m),NBlGages < 5
+,Spn6TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the xb1-axis,(m),NBlGages < 6
+,Spn6TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the yb1-axis,(m),NBlGages < 6
+,Spn6TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 6,Directed along the zb1-axis,(m),NBlGages < 6
+,Spn7TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the xb1-axis,(m),NBlGages < 7
+,Spn7TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the yb1-axis,(m),NBlGages < 7
+,Spn7TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 7,Directed along the zb1-axis,(m),NBlGages < 7
+,Spn8TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the xb1-axis,(m),NBlGages < 8
+,Spn8TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the yb1-axis,(m),NBlGages < 8
+,Spn8TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 8,Directed along the zb1-axis,(m),NBlGages < 8
+,Spn9TDxb1,,Blade 1 local flapwise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the xb1-axis,(m),NBlGages < 9
+,Spn9TDyb1,,Blade 1 local edgewise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the yb1-axis,(m),NBlGages < 9
+,Spn9TDzb1,,Blade 1 local axial (translational) deflection (relative to the undeflected position) of span station 9,Directed along the zb1-axis,(m),NBlGages < 9
+,Spn1RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 1
+,Spn1RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 1
+,Spn1RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 1. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 1
+,Spn2RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 2
+,Spn2RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 2
+,Spn2RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 2. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 2
+,Spn3RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 3
+,Spn3RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 3
+,Spn3RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 3. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 3
+,Spn4RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 4
+,Spn4RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 4
+,Spn4RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 4. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 4
+,Spn5RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 5
+,Spn5RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 5
+,Spn5RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 5. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 5
+,Spn6RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 6
+,Spn6RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 6
+,Spn6RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 6. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 6
+,Spn7RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 7
+,Spn7RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 7
+,Spn7RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 7. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 7
+,Spn8RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 8
+,Spn8RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 8
+,Spn8RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 8. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 8
+,Spn9RDxb1,,"Blade 1 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb1-axis,(deg),NBlGages < 9
+,Spn9RDyb1,,"Blade 1 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb1-axis,(deg),NBlGages < 9
+,Spn9RDzb1,,"Blade 1 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 9. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb1-axis,(deg),NBlGages < 9
+Blade 2 Local Span Motions,,,,,,
+,Spn1ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 1,Directed along the local xb2-axis,(m/s^2),NBlGages < 1
+,Spn1ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 1,Directed along the local yb2-axis,(m/s^2),NBlGages < 1
+,Spn1ALzb2,,Blade 2 local axial acceleration (absolute) of span station 1,Directed along the local zb2-axis,(m/s^2),NBlGages < 1
+,Spn2ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 2,Directed along the local xb2-axis,(m/s^2),NBlGages < 2
+,Spn2ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 2,Directed along the local yb2-axis,(m/s^2),NBlGages < 2
+,Spn2ALzb2,,Blade 2 local axial acceleration (absolute) of span station 2,Directed along the local zb2-axis,(m/s^2),NBlGages < 2
+,Spn3ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 3,Directed along the local xb2-axis,(m/s^2),NBlGages < 3
+,Spn3ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 3,Directed along the local yb2-axis,(m/s^2),NBlGages < 3
+,Spn3ALzb2,,Blade 2 local axial acceleration (absolute) of span station 3,Directed along the local zb2-axis,(m/s^2),NBlGages < 3
+,Spn4ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 4,Directed along the local xb2-axis,(m/s^2),NBlGages < 4
+,Spn4ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 4,Directed along the local yb2-axis,(m/s^2),NBlGages < 4
+,Spn4ALzb2,,Blade 2 local axial acceleration (absolute) of span station 4,Directed along the local zb2-axis,(m/s^2),NBlGages < 4
+,Spn5ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 5,Directed along the local xb2-axis,(m/s^2),NBlGages < 5
+,Spn5ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 5,Directed along the local yb2-axis,(m/s^2),NBlGages < 5
+,Spn5ALzb2,,Blade 2 local axial acceleration (absolute) of span station 5,Directed along the local zb2-axis,(m/s^2),NBlGages < 5
+,Spn6ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 6,Directed along the local xb2-axis,(m/s^2),NBlGages < 6
+,Spn6ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 6,Directed along the local yb2-axis,(m/s^2),NBlGages < 6
+,Spn6ALzb2,,Blade 2 local axial acceleration (absolute) of span station 6,Directed along the local zb2-axis,(m/s^2),NBlGages < 6
+,Spn7ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 7,Directed along the local xb2-axis,(m/s^2),NBlGages < 7
+,Spn7ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 7,Directed along the local yb2-axis,(m/s^2),NBlGages < 7
+,Spn7ALzb2,,Blade 2 local axial acceleration (absolute) of span station 7,Directed along the local zb2-axis,(m/s^2),NBlGages < 7
+,Spn8ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 8,Directed along the local xb2-axis,(m/s^2),NBlGages < 8
+,Spn8ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 8,Directed along the local yb2-axis,(m/s^2),NBlGages < 8
+,Spn8ALzb2,,Blade 2 local axial acceleration (absolute) of span station 8,Directed along the local zb2-axis,(m/s^2),NBlGages < 8
+,Spn9ALxb2,,Blade 2 local flapwise acceleration (absolute) of span station 9,Directed along the local xb2-axis,(m/s^2),NBlGages < 9
+,Spn9ALyb2,,Blade 2 local edgewise acceleration (absolute) of span station 9,Directed along the local yb2-axis,(m/s^2),NBlGages < 9
+,Spn9ALzb2,,Blade 2 local axial acceleration (absolute) of span station 9,Directed along the local zb2-axis,(m/s^2),NBlGages < 9
+,Spn1TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the xb2-axis,(m),NBlGages < 1
+,Spn1TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the yb2-axis,(m),NBlGages < 1
+,Spn1TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 1,Directed along the zb2-axis,(m),NBlGages < 1
+,Spn2TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the xb2-axis,(m),NBlGages < 2
+,Spn2TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the yb2-axis,(m),NBlGages < 2
+,Spn2TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 2,Directed along the zb2-axis,(m),NBlGages < 2
+,Spn3TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the xb2-axis,(m),NBlGages < 3
+,Spn3TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the yb2-axis,(m),NBlGages < 3
+,Spn3TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 3,Directed along the zb2-axis,(m),NBlGages < 3
+,Spn4TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the xb2-axis,(m),NBlGages < 4
+,Spn4TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the yb2-axis,(m),NBlGages < 4
+,Spn4TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 4,Directed along the zb2-axis,(m),NBlGages < 4
+,Spn5TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the xb2-axis,(m),NBlGages < 5
+,Spn5TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the yb2-axis,(m),NBlGages < 5
+,Spn5TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 5,Directed along the zb2-axis,(m),NBlGages < 5
+,Spn6TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the xb2-axis,(m),NBlGages < 6
+,Spn6TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the yb2-axis,(m),NBlGages < 6
+,Spn6TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 6,Directed along the zb2-axis,(m),NBlGages < 6
+,Spn7TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the xb2-axis,(m),NBlGages < 7
+,Spn7TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the yb2-axis,(m),NBlGages < 7
+,Spn7TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 7,Directed along the zb2-axis,(m),NBlGages < 7
+,Spn8TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the xb2-axis,(m),NBlGages < 8
+,Spn8TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the yb2-axis,(m),NBlGages < 8
+,Spn8TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 8,Directed along the zb2-axis,(m),NBlGages < 8
+,Spn9TDxb2,,Blade 2 local flapwise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the xb2-axis,(m),NBlGages < 9
+,Spn9TDyb2,,Blade 2 local edgewise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the yb2-axis,(m),NBlGages < 9
+,Spn9TDzb2,,Blade 2 local axial (translational) deflection (relative to the undeflected position) of span station 9,Directed along the zb2-axis,(m),NBlGages < 9
+,Spn1RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 1
+,Spn1RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 1
+,Spn1RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 1. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 1
+,Spn2RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 2
+,Spn2RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 2
+,Spn2RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 2. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 2
+,Spn3RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 3
+,Spn3RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 3
+,Spn3RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 3. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 3
+,Spn4RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 4
+,Spn4RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 4
+,Spn4RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 4. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 4
+,Spn5RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 5
+,Spn5RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 5
+,Spn5RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 5. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 5
+,Spn6RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 6
+,Spn6RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 6
+,Spn6RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 6. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 6
+,Spn7RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 7
+,Spn7RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 7
+,Spn7RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 7. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 7
+,Spn8RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 8
+,Spn8RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 8
+,Spn8RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 8. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 8
+,Spn9RDxb2,,"Blade 2 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb2-axis,(deg),NBlGages < 9
+,Spn9RDyb2,,"Blade 2 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb2-axis,(deg),NBlGages < 9
+,Spn9RDzb2,,"Blade 2 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 9. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb2-axis,(deg),NBlGages < 9
+Blade 3 Local Span Motions,,,,,,
+,Spn1ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 1,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 1,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1ALzb3,,Blade 3 local axial acceleration (absolute) of span station 1,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn2ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 2,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 2,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2ALzb3,,Blade 3 local axial acceleration (absolute) of span station 2,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn3ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 3,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 3,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3ALzb3,,Blade 3 local axial acceleration (absolute) of span station 3,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn4ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 4,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 4,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4ALzb3,,Blade 3 local axial acceleration (absolute) of span station 4,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn5ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 5,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 5,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5ALzb3,,Blade 3 local axial acceleration (absolute) of span station 5,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn6ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 6,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 6,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6ALzb3,,Blade 3 local axial acceleration (absolute) of span station 6,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn7ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 7,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 7,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7ALzb3,,Blade 3 local axial acceleration (absolute) of span station 7,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn8ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 8,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 8,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8ALzb3,,Blade 3 local axial acceleration (absolute) of span station 8,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn9ALxb3,,Blade 3 local flapwise acceleration (absolute) of span station 9,Directed along the local xb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9ALyb3,,Blade 3 local edgewise acceleration (absolute) of span station 9,Directed along the local yb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9ALzb3,,Blade 3 local axial acceleration (absolute) of span station 9,Directed along the local zb3-axis,(m/s^2),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn1TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 1,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 1,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn2TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 2,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 2,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn3TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 3,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 3,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn4TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 4,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 4,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn5TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 5,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 5,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn6TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 6,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 6,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn7TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 7,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 7,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn8TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 8,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 8,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn9TDxb3,,Blade 3 local flapwise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the xb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9TDyb3,,Blade 3 local edgewise (translational) deflection (relative to the undeflected position) of span station 9,Directed along the yb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9TDzb3,,Blade 3 local axial (translational) deflection (relative to the undeflected position) of span station 9,Directed along the zb3-axis,(m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn1RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 1. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 1. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn2RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 2. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 2. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn3RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 3. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 3. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn4RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 4. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 4. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn5RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 5. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 5. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn6RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 6. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 6. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn7RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 7. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 7. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn8RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 8. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 8. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn9RDxb3,,"Blade 3 local roll (angular/rotational)  deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local xb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9RDyb3,,"Blade 3 local pitch (angular/rotational) deflection (relative to the undeflected position) of span station 9. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small blade deflections, so that the rotation sequence does not matter.",About the local yb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9RDzb3,,"Blade 3 local torsional (angular/rotational) deflection (relative to the undeflected position) of span station 9. This output will always be zero for FAST simulation results. Use it for examining blade torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.  Please note that this output uses the opposite of the sign convention used for blade pitch angles.",About the local zb3-axis,(deg),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+Blade Pitch Motions,,,,,,
+,PtchPMzc1,"PtchPMzb1, BldPitch1, BlPitch1",Blade 1 pitch angle (position),Positive towards feather about the minus zc1- and minus zb1-axes,(deg),
+,PtchPMzc2,"PtchPMzb2, BldPitch2, BlPitch2",Blade 2 pitch angle (position),Positive towards feather about the minus zc2- and minus zb2-axes,(deg),
+,PtchPMzc3,"PtchPMzb3, BldPitch3, BlPitch3",Blade 3 pitch angle (position),Positive towards feather about the minus zc3- and minus zb3-axes,(deg),NumBl < 3
+Teeter Motions,,,,,,
+,TeetPya,"RotTeetP, TeetDefl",Rotor teeter angle (position),About the ya-axis,(deg),NumBl > 2
+,TeetVya,RotTeetV,Rotor teeter angular velocity,About the ya-axis,(deg/s),NumBl > 2
+,TeetAya,RotTeetA,Rotor teeter angular acceleration,About the ya-axis,(deg/s^2),NumBl > 2
+Shaft Motions,,,,,,
+,LSSTipPxa,"LSSTipPxs, LSSTipP, Azimuth",Rotor azimuth angle (position),About the xa- and xs-axes,(deg),
+,LSSTipVxa,"LSSTipVxs, LSSTipV, RotSpeed",Rotor azimuth angular speed,About the xa- and xs-axes,(rpm),
+,LSSTipAxa,"LSSTipAxs, LSSTipA, RotAccel",Rotor azimuth angular acceleration,About the xa- and xs-axes,(deg/s^2),
+,LSSGagPxa,"LSSGagPxs, LSSGagP",Low-speed shaft strain gage azimuth angle (position) (on the gearbox side of the low-speed shaft),About the xa- and xs-axes,(deg),
+,LSSGagVxa,"LSSGagVxs, LSSGagV",Low-speed shaft strain gage angular speed (on the gearbox side of the low-speed shaft),About the xa- and xs-axes,(rpm),
+,LSSGagAxa,"LSSGagAxs, LSSGagA",Low-speed shaft strain gage angular acceleration (on the gearbox side of the low-speed shaft),About the xa- and xs-axes,(deg/s^2),
+,HSShftV,GenSpeed,Angular speed of the high-speed shaft and generator,Same sign as LSSGagVxa / LSSGagVxs / LSSGagV,(rpm),
+,HSShftA,GenAccel,Angular acceleration of the high-speed shaft and generator,Same sign as LSSGagAxa / LSSGagAxs / LSSGagA,(deg/s^2),
+,TipSpdRat,TSR,Rotor blade tip speed ratio,N/A,(-),.NOT. CompAero
+Nacelle IMU Motions,,,,,,
+,NcIMUTVxs,,Nacelle inertial measurement unit translational velocity (absolute),Directed along the xs-axis,(m/s),
+,NcIMUTVys,,Nacelle inertial measurement unit translational velocity (absolute),Directed along the ys-axis,(m/s),
+,NcIMUTVzs,,Nacelle inertial measurement unit translational velocity (absolute),Directed along the zs-axis,(m/s),
+,NcIMUTAxs,,Nacelle inertial measurement unit translational acceleration (absolute),Directed along the xs-axis,(m/s^2),
+,NcIMUTAys,,Nacelle inertial measurement unit translational acceleration (absolute),Directed along the ys-axis,(m/s^2),
+,NcIMUTAzs,,Nacelle inertial measurement unit translational acceleration (absolute),Directed along the zs-axis,(m/s^2),
+,NcIMURVxs,,Nacelle inertial measurement unit angular (rotational) velocity (absolute),About the xs-axis,(deg/s),
+,NcIMURVys,,Nacelle inertial measurement unit angular (rotational) velocity (absolute),About the ys-axis,(deg/s),
+,NcIMURVzs,,Nacelle inertial measurement unit angular (rotational) velocity (absolute),About the zs-axis,(deg/s),
+,NcIMURAxs,,Nacelle inertial measurement unit angular (rotational) acceleration (absolute),About the xs-axis,(deg/s^2),
+,NcIMURAys,,Nacelle inertial measurement unit angular (rotational) acceleration (absolute),About the ys-axis,(deg/s^2),
+,NcIMURAzs,,Nacelle inertial measurement unit angular (rotational) acceleration (absolute),About the zs-axis,(deg/s^2),
+Rotor-Furl Motions,,,,,,
+,RotFurlP,RotFurl,Rotor-furl angle (position),About the rotor-furl axis,(deg),
+,RotFurlV,,Rotor-furl angular velocity,About the rotor-furl axis,(deg/s),
+,RotFurlA,,Rotor-furl angular acceleration,About the rotor-furl axis,(deg/s^2),
+Tail-Furl Motions,,,,,,
+,TailFurlP,TailFurl,Tail-furl angle (position),About the tail-furl axis,(deg),
+,TailFurlV,,Tail-furl angular velocity,About the tail-furl axis,(deg/s),
+,TailFurlA,,Tail-furl angular acceleration,About the tail-furl axis,(deg/s^2),
+Nacelle Yaw Motions,,,,,,
+,YawPzn,"YawPzp, NacYawP, NacYaw, YawPos",Nacelle yaw angle (position),About the zn- and zp-axes,(deg),
+,YawVzn,"YawVzp, NacYawV, YawRate",Nacelle yaw angular velocity,About the zn- and zp-axes,(deg/s),
+,YawAzn,"YawAzp, NacYawA, YawAccel",Nacelle yaw angular acceleration,About the zn- and zp-axes,(deg/s^2),
+,NacYawErr,,"Nacelle yaw error estimate. This is computed as follows: NacYawErr = HorWndDir - YawPzn - YawBrRDzt - PtfmRDzi. This estimate is not accurate instantaneously in the presence of significant tower deflection or platform angular (rotational) displacement since the angles used in the computation are not all defined about the same axis of rotation. However, the estimate should be useful in a yaw controller if averaged over a time scale long enough to diminish the effects of tower and platform motions (i.e., much longer than the period of oscillation).",About the zi-axis,(deg),.NOT. CompAero
+Tower-Top / Yaw Bearing Motions,,,,,,
+,YawBrTDxp,,Tower-top / yaw bearing fore-aft (translational) deflection (relative to the undeflected position),Directed along the xp-axis,(m),
+,YawBrTDyp,,Tower-top / yaw bearing side-to-side (translational) deflection (relative to the undeflected position),Directed along the yp-axis,(m),
+,YawBrTDzp,,Tower-top / yaw bearing axial (translational) deflection (relative to the undeflected position),Directed along the zp-axis,(m),
+,YawBrTDxt,TTDspFA,Tower-top / yaw bearing fore-aft (translational) deflection (relative to the undeflected position),Directed along the xt-axis,(m),
+,YawBrTDyt,TTDspSS,Tower-top / yaw bearing side-to-side (translation) deflection (relative to the undeflected position),Directed along the yt-axis,(m),
+,YawBrTDzt,TTDspAx,Tower-top / yaw bearing axial (translational) deflection (relative to the undeflected position),Directed along the zt-axis,(m),
+,YawBrTAxp,,Tower-top / yaw bearing fore-aft (translational) acceleration (absolute),Directed along the xp-axis,(m/s^2),
+,YawBrTAyp,,Tower-top / yaw bearing side-to-side (translational) acceleration (absolute),Directed along the yp-axis,(m/s^2),
+,YawBrTAzp,,Tower-top / yaw bearing axial (translational) acceleration (absolute),Directed along the zp-axis,(m/s^2),
+,YawBrRDxt,TTDspRoll,"Tower-top / yaw bearing angular (rotational) roll deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the xt-axis,(deg),
+,YawBrRDyt,TTDspPtch,"Tower-top / yaw bearing angular (rotational) pitch deflection (relative to the undeflected position). In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the yt-axis,(deg),
+,YawBrRDzt,TTDspTwst,"Tower-top / yaw bearing angular (rotational) torsion deflection (relative to the undeflected position). This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the zt-axis,(deg),
+,YawBrRVxp,,Tower-top / yaw bearing angular (rotational) roll velocity (absolute),About the xp-axis,(deg/s),
+,YawBrRVyp,,Tower-top / yaw bearing angular (rotational) pitch velocity (absolute),About the yp-axis,(deg/s),
+,YawBrRVzp,,Tower-top / yaw bearing angular (rotational) torsion velocity. This output will always be very close to zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. (absolute),About the zp-axis,(deg/s),
+,YawBrRAxp,,Tower-top / yaw bearing angular (rotational) roll acceleration (absolute),About the xp-axis,(deg/s^2),
+,YawBrRAyp,,Tower-top / yaw bearing angular (rotational) pitch acceleration (absolute),About the yp-axis,(deg/s^2),
+,YawBrRAzp,,Tower-top / yaw bearing angular (rotational) torsion acceleration. This output will always be very close to zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. (absolute),About the zp-axis,(deg/s^2),
+Local Tower Motions,,,,,,
+,TwHt1ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 1 ,Directed along the local xt-axis,(m/s^2),NTwGages < 1
+,TwHt1ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 1 ,Directed along the local yt-axis,(m/s^2),NTwGages < 1
+,TwHt1ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 1 ,Directed along the local zt-axis,(m/s^2),NTwGages < 1
+,TwHt2ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 2,Directed along the local xt-axis,(m/s^2),NTwGages < 2
+,TwHt2ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 2,Directed along the local yt-axis,(m/s^2),NTwGages < 2
+,TwHt2ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 2,Directed along the local zt-axis,(m/s^2),NTwGages < 2
+,TwHt3ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 3,Directed along the local xt-axis,(m/s^2),NTwGages < 3
+,TwHt3ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 3,Directed along the local yt-axis,(m/s^2),NTwGages < 3
+,TwHt3ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 3,Directed along the local zt-axis,(m/s^2),NTwGages < 3
+,TwHt4ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 4,Directed along the local xt-axis,(m/s^2),NTwGages < 4
+,TwHt4ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 4,Directed along the local yt-axis,(m/s^2),NTwGages < 4
+,TwHt4ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 4,Directed along the local zt-axis,(m/s^2),NTwGages < 4
+,TwHt5ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 5,Directed along the local xt-axis,(m/s^2),NTwGages < 5
+,TwHt5ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 5,Directed along the local yt-axis,(m/s^2),NTwGages < 5
+,TwHt5ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 5,Directed along the local zt-axis,(m/s^2),NTwGages < 5
+,TwHt6ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 6,Directed along the local xt-axis,(m/s^2),NTwGages < 6
+,TwHt6ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 6,Directed along the local yt-axis,(m/s^2),NTwGages < 6
+,TwHt6ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 6,Directed along the local zt-axis,(m/s^2),NTwGages < 6
+,TwHt7ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 7,Directed along the local xt-axis,(m/s^2),NTwGages < 7
+,TwHt7ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 7,Directed along the local yt-axis,(m/s^2),NTwGages < 7
+,TwHt7ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 7,Directed along the local zt-axis,(m/s^2),NTwGages < 7
+,TwHt8ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 8,Directed along the local xt-axis,(m/s^2),NTwGages < 8
+,TwHt8ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 8,Directed along the local yt-axis,(m/s^2),NTwGages < 8
+,TwHt8ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 8,Directed along the local zt-axis,(m/s^2),NTwGages < 8
+,TwHt9ALxt,,Local tower fore-aft (translational) acceleration (absolute) of tower gage 9,Directed along the local xt-axis,(m/s^2),NTwGages < 9
+,TwHt9ALyt,,Local tower side-to-side (translational) acceleration (absolute) of tower gage 9,Directed along the local yt-axis,(m/s^2),NTwGages < 9
+,TwHt9ALzt,,Local tower axial (translational) acceleration (absolute) of tower gage 9,Directed along the local zt-axis,(m/s^2),NTwGages < 9
+,TwHt1TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 1,Directed along the local xt-axis,(m),NTwGages < 1
+,TwHt1TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 1,Directed along the local yt-axis,(m),NTwGages < 1
+,TwHt1TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 1,Directed along the local zt-axis,(m),NTwGages < 1
+,TwHt2TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 2,Directed along the local xt-axis,(m),NTwGages < 2
+,TwHt2TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 2,Directed along the local yt-axis,(m),NTwGages < 2
+,TwHt2TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 2,Directed along the local zt-axis,(m),NTwGages < 2
+,TwHt3TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 3,Directed along the local xt-axis,(m),NTwGages < 3
+,TwHt3TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 3,Directed along the local yt-axis,(m),NTwGages < 3
+,TwHt3TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 3,Directed along the local zt-axis,(m),NTwGages < 3
+,TwHt4TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 4,Directed along the local xt-axis,(m),NTwGages < 4
+,TwHt4TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 4,Directed along the local yt-axis,(m),NTwGages < 4
+,TwHt4TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 4,Directed along the local zt-axis,(m),NTwGages < 4
+,TwHt5TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 5,Directed along the local xt-axis,(m),NTwGages < 5
+,TwHt5TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 5,Directed along the local yt-axis,(m),NTwGages < 5
+,TwHt5TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 5,Directed along the local zt-axis,(m),NTwGages < 5
+,TwHt6TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 6,Directed along the local xt-axis,(m),NTwGages < 6
+,TwHt6TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 6,Directed along the local yt-axis,(m),NTwGages < 6
+,TwHt6TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 6,Directed along the local zt-axis,(m),NTwGages < 6
+,TwHt7TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 7,Directed along the local xt-axis,(m),NTwGages < 7
+,TwHt7TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 7,Directed along the local yt-axis,(m),NTwGages < 7
+,TwHt7TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 7,Directed along the local zt-axis,(m),NTwGages < 7
+,TwHt8TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 8,Directed along the local xt-axis,(m),NTwGages < 8
+,TwHt8TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 8,Directed along the local yt-axis,(m),NTwGages < 8
+,TwHt8TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 8,Directed along the local zt-axis,(m),NTwGages < 8
+,TwHt9TDxt,,Local tower fore-aft (translational) deflection (relative to the undeflected position) of tower gage 9,Directed along the local xt-axis,(m),NTwGages < 9
+,TwHt9TDyt,,Local tower side-to-side (translational) deflection (relative to the undeflected position) of tower gage 9,Directed along the local yt-axis,(m),NTwGages < 9
+,TwHt9TDzt,,Local tower axial (translational) deflection (relative to the undeflected position) of tower gage 9,Directed along the local zt-axis,(m),NTwGages < 9
+,TwHt1RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 1. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 1
+,TwHt1RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 1. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 1
+,TwHt1RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 1. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 1
+,TwHt2RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 2. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 2
+,TwHt2RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 2. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 2
+,TwHt2RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 2. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 2
+,TwHt3RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 3. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 3
+,TwHt3RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 3. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 3
+,TwHt3RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 3. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 3
+,TwHt4RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 4. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 4
+,TwHt4RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 4. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 4
+,TwHt4RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 4. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 4
+,TwHt5RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 5. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 5
+,TwHt5RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 5. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 5
+,TwHt5RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 5. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 5
+,TwHt6RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 6. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 6
+,TwHt6RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 6. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 6
+,TwHt6RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 6. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 6
+,TwHt7RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 7. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 7
+,TwHt7RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 7. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 7
+,TwHt7RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 7. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 7
+,TwHt8RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 8. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 8
+,TwHt8RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 8. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 8
+,TwHt8RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 8. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 8
+,TwHt9RDxt,,"Local tower angular (rotational) roll deflection (relative to the undeflected position) of tower gage 9. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local xt-axis,(deg),NTwGages < 9
+,TwHt9RDyt,,"Local tower angular (rotational) pitch deflection (relative to the undeflected position) of tower gage 9. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower deflections, so that the rotation sequence does not matter.",About the local yt-axis,(deg),NTwGages < 9
+,TwHt9RDzt,,"Local tower angular (rotational) torsion deflection (relative to the undeflected position) of tower gage 9. This output will always be zero for FAST simulation results. Use it for examining tower torsional deflections of ADAMS simulations run using ADAMS datasets created using the FAST-to-ADAMS preprocessor. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence.",About the local zt-axis,(deg),NTwGages < 9
+,TwHt1TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 1,Directed along the local xi-axis,(m),NTwGages < 1
+,TwHt1TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 1,Directed along the local yi-axis,(m),NTwGages < 1
+,TwHt1TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 1,Directed along the local zi-axis,(m),NTwGages < 1
+,TwHt2TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 2,Directed along the local xi-axis,(m),NTwGages < 2
+,TwHt2TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 2,Directed along the local yi-axis,(m),NTwGages < 2
+,TwHt2TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 2,Directed along the local zi-axis,(m),NTwGages < 2
+,TwHt3TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 3,Directed along the local xi-axis,(m),NTwGages < 3
+,TwHt3TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 3,Directed along the local yi-axis,(m),NTwGages < 3
+,TwHt3TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 3,Directed along the local zi-axis,(m),NTwGages < 3
+,TwHt4TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 4,Directed along the local xi-axis,(m),NTwGages < 4
+,TwHt4TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 4,Directed along the local yi-axis,(m),NTwGages < 4
+,TwHt4TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 4,Directed along the local zi-axis,(m),NTwGages < 4
+,TwHt5TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 5,Directed along the local xi-axis,(m),NTwGages < 5
+,TwHt5TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 5,Directed along the local yi-axis,(m),NTwGages < 5
+,TwHt5TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 5,Directed along the local zi-axis,(m),NTwGages < 5
+,TwHt6TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 6,Directed along the local xi-axis,(m),NTwGages < 6
+,TwHt6TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 6,Directed along the local yi-axis,(m),NTwGages < 6
+,TwHt6TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 6,Directed along the local zi-axis,(m),NTwGages < 6
+,TwHt7TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 7,Directed along the local xi-axis,(m),NTwGages < 7
+,TwHt7TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 7,Directed along the local yi-axis,(m),NTwGages < 7
+,TwHt7TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 7,Directed along the local zi-axis,(m),NTwGages < 7
+,TwHt8TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 8,Directed along the local xi-axis,(m),NTwGages < 8
+,TwHt8TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 8,Directed along the local yi-axis,(m),NTwGages < 8
+,TwHt8TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 8,Directed along the local zi-axis,(m),NTwGages < 8
+,TwHt9TPxi,,xi-component of the translational position (relative to the inertia frame) of tower gage 9,Directed along the local xi-axis,(m),NTwGages < 9
+,TwHt9TPyi,,yi-component of the translational position (relative to the inertia frame) of tower gage 9,Directed along the local yi-axis,(m),NTwGages < 9
+,TwHt9TPzi,,zi-component of the translational position (relative to ground level [onshore] or MSL [offshore]) of tower gage 9,Directed along the local zi-axis,(m),NTwGages < 9
+,TwHt1RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 1. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 1
+,TwHt1RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 1. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 1
+,TwHt1RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 1. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 1
+,TwHt2RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 2. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 2
+,TwHt2RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 2. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 2
+,TwHt2RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 2. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 2
+,TwHt3RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 3. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 3
+,TwHt3RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 3. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 3
+,TwHt3RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 3. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 3
+,TwHt4RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 4. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 4
+,TwHt4RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 4. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 4
+,TwHt4RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 4. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 4
+,TwHt5RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 5. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 5
+,TwHt5RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 5. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 5
+,TwHt5RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 5. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 5
+,TwHt6RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 6. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 6
+,TwHt6RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 6. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 6
+,TwHt6RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 6. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 6
+,TwHt7RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 7. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 7
+,TwHt7RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 7. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 7
+,TwHt7RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 7. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 7
+,TwHt8RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 8. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 8
+,TwHt8RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 8. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 8
+,TwHt8RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 8. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 8
+,TwHt9RPxi,,"xi-component of the rotational position (relative to the inertia frame) of tower gage 9. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local xi-axis,(deg),NTwGages < 9
+,TwHt9RPyi,,"yi-component of the rotational position (relative to the inertia frame) of tower gage 9. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local yi-axis,(deg),NTwGages < 9
+,TwHt9RPzi,,"zi-component of the rotational position (relative to the inertia frame) of tower gage 9. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small tower and platform rotational deflections, so that the rotation sequence does not matter.",About the local zi-axis,(deg),NTwGages < 9
+Platform Motions,,,,,,
+,PtfmTDxt,,Platform horizontal surge (translational) displacement,Directed along the xt-axis,(m),
+,PtfmTDyt,,Platform horizontal sway (translational) displacement,Directed along the yt-axis,(m),
+,PtfmTDzt,,Platform vertical heave (translational) displacement,Directed along the zt-axis,(m),
+,PtfmTDxi,PtfmSurge,Platform horizontal surge (translational) displacement,Directed along the xi-axis,(m),
+,PtfmTDyi,PtfmSway,Platform horizontal sway (translational) displacement,Directed along the yi-axis,(m),
+,PtfmTDzi,PtfmHeave,Platform vertical heave (translational) displacement,Directed along the zi-axis,(m),
+,PtfmTVxt,,Platform horizontal surge (translational) velocity,Directed along the xt-axis,(m/s),
+,PtfmTVyt,,Platform horizontal sway (translational) velocity,Directed along the yt-axis,(m/s),
+,PtfmTVzt,,Platform vertical heave (translational) velocity,Directed along the zt-axis,(m/s),
+,PtfmTVxi,,Platform horizontal surge (translational) velocity,Directed along the xi-axis,(m/s),
+,PtfmTVyi,,Platform horizontal sway (translational) velocity,Directed along the yi-axis,(m/s),
+,PtfmTVzi,,Platform vertical heave (translational) velocity,Directed along the zi-axis,(m/s),
+,PtfmTAxt,,Platform horizontal surge (translational) acceleration,Directed along the xt-axis,(m/s^2),
+,PtfmTAyt,,Platform horizontal sway (translational) acceleration,Directed along the yt-axis,(m/s^2),
+,PtfmTAzt,,Platform vertical heave (translational) acceleration,Directed along the zt-axis,(m/s^2),
+,PtfmTAxi,,Platform horizontal surge (translational) acceleration,Directed along the xi-axis,(m/s^2),
+,PtfmTAyi,,Platform horizontal sway (translational) acceleration,Directed along the yi-axis,(m/s^2),
+,PtfmTAzi,,Platform vertical heave (translational) acceleration,Directed along the zi-axis,(m/s^2),
+,PtfmRDxi,PtfmRoll,"Platform roll tilt angular (rotational) displacement. In ADAMS, it is output as an Euler angle computed as the 3rd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small rotational platform displacements, so that the rotation sequence does not matter.",About the xi-axis,(deg),
+,PtfmRDyi,PtfmPitch,"Platform pitch tilt angular (rotational) displacement. In ADAMS, it is output as an Euler angle computed as the 2nd rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small rotational platform displacements, so that the rotation sequence does not matter.",About the yi-axis,(deg),
+,PtfmRDzi,PtfmYaw,"Platform yaw angular (rotational) displacement. In ADAMS, it is output as an Euler angle computed as the 1st rotation in the yaw-pitch-roll rotation sequence. It is not output as an Euler angle in FAST, which assumes small rotational platform displacements, so that the rotation sequence does not matter.",About the zi-axis,(deg),
+,PtfmRVxt,,Platform roll tilt angular (rotational) velocity,About the xt-axis,(deg/s),
+,PtfmRVyt,,Platform pitch tilt angular (rotational) velocity,About the yt-axis,(deg/s),
+,PtfmRVzt,,Platform yaw angular (rotational) velocity,About the zt-axis,(deg/s),
+,PtfmRVxi,,Platform roll tilt angular (rotational) velocity,About the xi-axis,(deg/s),
+,PtfmRVyi,,Platform pitch tilt angular (rotational) velocity,About the yi-axis,(deg/s),
+,PtfmRVzi,,Platform yaw angular (rotational) velocity,About the zi-axis,(deg/s),
+,PtfmRAxt,,Platform roll tilt angular (rotational) acceleration,About the xt-axis,(deg/s^2),
+,PtfmRAyt,,Platform pitch tilt angular (rotational) acceleration,About the yt-axis,(deg/s^2),
+,PtfmRAzt,,Platform yaw angular (rotational) acceleration,About the zt-axis,(deg/s^2),
+,PtfmRAxi,,Platform roll tilt angular (rotational) acceleration,About the xi-axis,(deg/s^2),
+,PtfmRAyi,,Platform pitch tilt angular (rotational) acceleration,About the yi-axis,(deg/s^2),
+,PtfmRAzi,,Platform yaw angular (rotational) acceleration,About the zi-axis,(deg/s^2),
+Blade 1 Root Loads,,,,,,
+,RootFxc1,,Blade 1 out-of-plane shear force at the blade root,Directed along the xc1-axis,(kN),
+,RootFyc1,,Blade 1 in-plane shear force at the blade root,Directed along the yc1-axis,(kN),
+,RootFzc1,RootFzb1,Blade 1 axial force at the blade root,Directed along the zc1- and zb1-axes,(kN),
+,RootFxb1,,Blade 1 flapwise shear force at the blade root,Directed along the xb1-axis,(kN),
+,RootFyb1,,Blade 1 edgewise shear force at the blade root,Directed along the yb1-axis,(kN),
+,RootMxc1,RootMIP1,"Blade 1 in-plane moment (i.e., the moment caused by in-plane forces) at the blade root",About the xc1-axis,(kN·m),
+,RootMyc1,RootMOoP1,"Blade 1 out-of-plane moment (i.e., the moment caused by out-of-plane forces) at the blade root",About the yc1-axis,(kN·m),
+,RootMzc1,RootMzb1,Blade 1 pitching moment at the blade root,About the zc1- and zb1-axes,(kN·m),
+,RootMxb1,RootMEdg1,"Blade 1 edgewise moment (i.e., the moment caused by edgewise forces) at the blade root",About the xb1-axis,(kN·m),
+,RootMyb1,RootMFlp1,"Blade 1 flapwise moment (i.e., the moment caused by flapwise forces) at the blade root",About the yb1-axis,(kN·m),
+Blade 2 Root Loads,,,,,,
+,RootFxc2,,Blade 2 out-of-plane shear force at the blade root,Directed along the xc2-axis,(kN),
+,RootFyc2,,Blade 2 in-plane shear force at the blade root,Directed along the yc2-axis,(kN),
+,RootFzc2,RootFzb2,Blade 2 axial force at the blade root,Directed along the zc2- and zb2-axes,(kN),
+,RootFxb2,,Blade 2 flapwise shear force at the blade root,Directed along the xb2-axis,(kN),
+,RootFyb2,,Blade 2 edgewise shear force at the blade root,Directed along the yb2-axis,(kN),
+,RootMxc2,RootMIP2,"Blade 2 in-plane moment (i.e., the moment caused by in-plane forces) at the blade root",About the xc2-axis,(kN·m),
+,RootMyc2,RootMOoP2,"Blade 2 out-of-plane moment (i.e., the moment caused by out-of-plane forces) at the blade root",About the yc2-axis,(kN·m),
+,RootMzc2,RootMzb2,Blade 2 pitching moment at the blade root,About the zc2- and zb2-axes,(kN·m),
+,RootMxb2,RootMEdg2,"Blade 2 edgewise moment (i.e., the moment caused by edgewise forces) at the blade root",About the xb2-axis,(kN·m),
+,RootMyb2,RootMFlp2,"Blade 2 flapwise moment (i.e., the moment caused by flapwise forces) at the blade root",About the yb2-axis,(kN·m),
+Blade 3 Root Loads,,,,,,
+,RootFxc3,,Blade 3 out-of-plane shear force at the blade root,Directed along the xc3-axis,(kN),NumBl < 3
+,RootFyc3,,Blade 3 in-plane shear force at the blade root,Directed along the yc3-axis,(kN),NumBl < 3
+,RootFzc3,RootFzb3,Blade 3 axial force at the blade root,Directed along the zc3- and zb3-axes,(kN),NumBl < 3
+,RootFxb3,,Blade 3 flapwise shear force at the blade root,Directed along the xb3-axis,(kN),NumBl < 3
+,RootFyb3,,Blade 3 edgewise shear force at the blade root,Directed along the yb3-axis,(kN),NumBl < 3
+,RootMxc3,RootMIP3,"Blade 3 in-plane moment (i.e., the moment caused by in-plane forces) at the blade root",About the xc3-axis,(kN·m),NumBl < 3
+,RootMyc3,RootMOoP3,"Blade 3 out-of-plane moment (i.e., the moment caused by out-of-plane forces) at the blade root",About the yc3-axis,(kN·m),NumBl < 3
+,RootMzc3,RootMzb3,Blade 3 pitching moment at the blade root,About the zc3- and zb3-axes,(kN·m),NumBl < 3
+,RootMxb3,RootMEdg3,"Blade 3 edgewise moment (i.e., the moment caused by edgewise forces) at the blade root",About the xb3-axis,(kN·m),NumBl < 3
+,RootMyb3,RootMFlp3,"Blade 3 flapwise moment (i.e., the moment caused by flapwise forces) at the blade root",About the yb3-axis,(kN·m),NumBl < 3
+Blade 1 Local Span Loads,,,,,,
+,Spn1MLxb1,,Blade 1 local edgewise moment at span station 1,About the local xb1-axis,(kN·m),NBlGages < 1
+,Spn1MLyb1,,Blade 1 local flapwise moment at span station 1,About the local yb1-axis,(kN·m),NBlGages < 1
+,Spn1MLzb1,,Blade 1 local pitching moment at span station 1,About the local zb1-axis,(kN·m),NBlGages < 1
+,Spn2MLxb1,,Blade 1 local edgewise moment at span station 2,About the local xb1-axis,(kN·m),NBlGages < 2
+,Spn2MLyb1,,Blade 1 local flapwise moment at span station 2,About the local yb1-axis,(kN·m),NBlGages < 2
+,Spn2MLzb1,,Blade 1 local pitching moment at span station 2,About the local zb1-axis,(kN·m),NBlGages < 2
+,Spn3MLxb1,,Blade 1 local edgewise moment at span station 3,About the local xb1-axis,(kN·m),NBlGages < 3
+,Spn3MLyb1,,Blade 1 local flapwise moment at span station 3,About the local yb1-axis,(kN·m),NBlGages < 3
+,Spn3MLzb1,,Blade 1 local pitching moment at span station 3,About the local zb1-axis,(kN·m),NBlGages < 3
+,Spn4MLxb1,,Blade 1 local edgewise moment at span station 4,About the local xb1-axis,(kN·m),NBlGages < 4
+,Spn4MLyb1,,Blade 1 local flapwise moment at span station 4,About the local yb1-axis,(kN·m),NBlGages < 4
+,Spn4MLzb1,,Blade 1 local pitching moment at span station 4,About the local zb1-axis,(kN·m),NBlGages < 4
+,Spn5MLxb1,,Blade 1 local edgewise moment at span station 5,About the local xb1-axis,(kN·m),NBlGages < 5
+,Spn5MLyb1,,Blade 1 local flapwise moment at span station 5,About the local yb1-axis,(kN·m),NBlGages < 5
+,Spn5MLzb1,,Blade 1 local pitching moment at span station 5,About the local zb1-axis,(kN·m),NBlGages < 5
+,Spn6MLxb1,,Blade 1 local edgewise moment at span station 6,About the local xb1-axis,(kN·m),NBlGages < 6
+,Spn6MLyb1,,Blade 1 local flapwise moment at span station 6,About the local yb1-axis,(kN·m),NBlGages < 6
+,Spn6MLzb1,,Blade 1 local pitching moment at span station 6,About the local zb1-axis,(kN·m),NBlGages < 6
+,Spn7MLxb1,,Blade 1 local edgewise moment at span station 7,About the local xb1-axis,(kN·m),NBlGages < 7
+,Spn7MLyb1,,Blade 1 local flapwise moment at span station 7,About the local yb1-axis,(kN·m),NBlGages < 7
+,Spn7MLzb1,,Blade 1 local pitching moment at span station 7,About the local zb1-axis,(kN·m),NBlGages < 7
+,Spn8MLxb1,,Blade 1 local edgewise moment at span station 8,About the local xb1-axis,(kN·m),NBlGages < 8
+,Spn8MLyb1,,Blade 1 local flapwise moment at span station 8,About the local yb1-axis,(kN·m),NBlGages < 8
+,Spn8MLzb1,,Blade 1 local pitching moment at span station 8,About the local zb1-axis,(kN·m),NBlGages < 8
+,Spn9MLxb1,,Blade 1 local edgewise moment at span station 9,About the local xb1-axis,(kN·m),NBlGages < 9
+,Spn9MLyb1,,Blade 1 local flapwise moment at span station 9,About the local yb1-axis,(kN·m),NBlGages < 9
+,Spn9MLzb1,,Blade 1 local pitching moment at span station 9,About the local zb1-axis,(kN·m),NBlGages < 9
+,Spn1FLxb1,,Blade 1 local flapwise shear force at span station 1,Directed along the local xb1-axis,(kN),NBlGages < 1
+,Spn1FLyb1,,Blade 1 local edgewise shear force at span station 1,Directed along the local yb1-axis,(kN),NBlGages < 1
+,Spn1FLzb1,,Blade 1 local axial force at span station 1,Directed along the local zb1-axis,(kN),NBlGages < 1
+,Spn2FLxb1,,Blade 1 local flapwise shear force at span station 2,Directed along the local xb1-axis,(kN),NBlGages < 2
+,Spn2FLyb1,,Blade 1 local edgewise shear force at span station 2,Directed along the local yb1-axis,(kN),NBlGages < 2
+,Spn2FLzb1,,Blade 1 local axial force at span station 2,Directed along the local zb1-axis,(kN),NBlGages < 2
+,Spn3FLxb1,,Blade 1 local flapwise shear force at span station 3,Directed along the local xb1-axis,(kN),NBlGages < 3
+,Spn3FLyb1,,Blade 1 local edgewise shear force at span station 3,Directed along the local yb1-axis,(kN),NBlGages < 3
+,Spn3FLzb1,,Blade 1 local axial force at span station 3,Directed along the local zb1-axis,(kN),NBlGages < 3
+,Spn4FLxb1,,Blade 1 local flapwise shear force at span station 4,Directed along the local xb1-axis,(kN),NBlGages < 4
+,Spn4FLyb1,,Blade 1 local edgewise shear force at span station 4,Directed along the local yb1-axis,(kN),NBlGages < 4
+,Spn4FLzb1,,Blade 1 local axial force at span station 4,Directed along the local zb1-axis,(kN),NBlGages < 4
+,Spn5FLxb1,,Blade 1 local flapwise shear force at span station 5,Directed along the local xb1-axis,(kN),NBlGages < 5
+,Spn5FLyb1,,Blade 1 local edgewise shear force at span station 5,Directed along the local yb1-axis,(kN),NBlGages < 5
+,Spn5FLzb1,,Blade 1 local axial force at span station 5,Directed along the local zb1-axis,(kN),NBlGages < 5
+,Spn6FLxb1,,Blade 1 local flapwise shear force at span station 6,Directed along the local xb1-axis,(kN),NBlGages < 6
+,Spn6FLyb1,,Blade 1 local edgewise shear force at span station 6,Directed along the local yb1-axis,(kN),NBlGages < 6
+,Spn6FLzb1,,Blade 1 local axial force at span station 6,Directed along the local zb1-axis,(kN),NBlGages < 6
+,Spn7FLxb1,,Blade 1 local flapwise shear force at span station 7,Directed along the local xb1-axis,(kN),NBlGages < 7
+,Spn7FLyb1,,Blade 1 local edgewise shear force at span station 7,Directed along the local yb1-axis,(kN),NBlGages < 7
+,Spn7FLzb1,,Blade 1 local axial force at span station 7,Directed along the local zb1-axis,(kN),NBlGages < 7
+,Spn8FLxb1,,Blade 1 local flapwise shear force at span station 8,Directed along the local xb1-axis,(kN),NBlGages < 8
+,Spn8FLyb1,,Blade 1 local edgewise shear force at span station 8,Directed along the local yb1-axis,(kN),NBlGages < 8
+,Spn8FLzb1,,Blade 1 local axial force at span station 8,Directed along the local zb1-axis,(kN),NBlGages < 8
+,Spn9FLxb1,,Blade 1 local flapwise shear force at span station 9,Directed along the local xb1-axis,(kN),NBlGages < 9
+,Spn9FLyb1,,Blade 1 local edgewise shear force at span station 9,Directed along the local yb1-axis,(kN),NBlGages < 9
+,Spn9FLzb1,,Blade 1 local axial force at span station 9,Directed along the local zb1-axis,(kN),NBlGages < 9
+Blade 2 Local Span Loads,,,,,,
+,Spn1MLxb2,,Blade 2 local edgewise moment at span station 1,About the local xb2-axis,(kN·m),NBlGages < 1
+,Spn1MLyb2,,Blade 2 local flapwise moment at span station 1,About the local yb2-axis,(kN·m),NBlGages < 1
+,Spn1MLzb2,,Blade 2 local pitching moment at span station 1,About the local zb2-axis,(kN·m),NBlGages < 1
+,Spn2MLxb2,,Blade 2 local edgewise moment at span station 2,About the local xb2-axis,(kN·m),NBlGages < 2
+,Spn2MLyb2,,Blade 2 local flapwise moment at span station 2,About the local yb2-axis,(kN·m),NBlGages < 2
+,Spn2MLzb2,,Blade 2 local pitching moment at span station 2,About the local zb2-axis,(kN·m),NBlGages < 2
+,Spn3MLxb2,,Blade 2 local edgewise moment at span station 3,About the local xb2-axis,(kN·m),NBlGages < 3
+,Spn3MLyb2,,Blade 2 local flapwise moment at span station 3,About the local yb2-axis,(kN·m),NBlGages < 3
+,Spn3MLzb2,,Blade 2 local pitching moment at span station 3,About the local zb2-axis,(kN·m),NBlGages < 3
+,Spn4MLxb2,,Blade 2 local edgewise moment at span station 4,About the local xb2-axis,(kN·m),NBlGages < 4
+,Spn4MLyb2,,Blade 2 local flapwise moment at span station 4,About the local yb2-axis,(kN·m),NBlGages < 4
+,Spn4MLzb2,,Blade 2 local pitching moment at span station 4,About the local zb2-axis,(kN·m),NBlGages < 4
+,Spn5MLxb2,,Blade 2 local edgewise moment at span station 5,About the local xb2-axis,(kN·m),NBlGages < 5
+,Spn5MLyb2,,Blade 2 local flapwise moment at span station 5,About the local yb2-axis,(kN·m),NBlGages < 5
+,Spn5MLzb2,,Blade 2 local pitching moment at span station 5,About the local zb2-axis,(kN·m),NBlGages < 5
+,Spn6MLxb2,,Blade 2 local edgewise moment at span station 6,About the local xb2-axis,(kN·m),NBlGages < 6
+,Spn6MLyb2,,Blade 2 local flapwise moment at span station 6,About the local yb2-axis,(kN·m),NBlGages < 6
+,Spn6MLzb2,,Blade 2 local pitching moment at span station 6,About the local zb2-axis,(kN·m),NBlGages < 6
+,Spn7MLxb2,,Blade 2 local edgewise moment at span station 7,About the local xb2-axis,(kN·m),NBlGages < 7
+,Spn7MLyb2,,Blade 2 local flapwise moment at span station 7,About the local yb2-axis,(kN·m),NBlGages < 7
+,Spn7MLzb2,,Blade 2 local pitching moment at span station 7,About the local zb2-axis,(kN·m),NBlGages < 7
+,Spn8MLxb2,,Blade 2 local edgewise moment at span station 8,About the local xb2-axis,(kN·m),NBlGages < 8
+,Spn8MLyb2,,Blade 2 local flapwise moment at span station 8,About the local yb2-axis,(kN·m),NBlGages < 8
+,Spn8MLzb2,,Blade 2 local pitching moment at span station 8,About the local zb2-axis,(kN·m),NBlGages < 8
+,Spn9MLxb2,,Blade 2 local edgewise moment at span station 9,About the local xb2-axis,(kN·m),NBlGages < 9
+,Spn9MLyb2,,Blade 2 local flapwise moment at span station 9,About the local yb2-axis,(kN·m),NBlGages < 9
+,Spn9MLzb2,,Blade 2 local pitching moment at span station 9,About the local zb2-axis,(kN·m),NBlGages < 9
+,Spn1FLxb2,,Blade 2 local flapwise shear force at span station 1,Directed along the local xb2-axis,(kN),NBlGages < 1
+,Spn1FLyb2,,Blade 2 local edgewise shear force at span station 1,Directed along the local yb2-axis,(kN),NBlGages < 1
+,Spn1FLzb2,,Blade 2 local axial force at span station 1,Directed along the local zb2-axis,(kN),NBlGages < 1
+,Spn2FLxb2,,Blade 2 local flapwise shear force at span station 2,Directed along the local xb2-axis,(kN),NBlGages < 2
+,Spn2FLyb2,,Blade 2 local edgewise shear force at span station 2,Directed along the local yb2-axis,(kN),NBlGages < 2
+,Spn2FLzb2,,Blade 2 local axial force at span station 2,Directed along the local zb2-axis,(kN),NBlGages < 2
+,Spn3FLxb2,,Blade 2 local flapwise shear force at span station 3,Directed along the local xb2-axis,(kN),NBlGages < 3
+,Spn3FLyb2,,Blade 2 local edgewise shear force at span station 3,Directed along the local yb2-axis,(kN),NBlGages < 3
+,Spn3FLzb2,,Blade 2 local axial force at span station 3,Directed along the local zb2-axis,(kN),NBlGages < 3
+,Spn4FLxb2,,Blade 2 local flapwise shear force at span station 4,Directed along the local xb2-axis,(kN),NBlGages < 4
+,Spn4FLyb2,,Blade 2 local edgewise shear force at span station 4,Directed along the local yb2-axis,(kN),NBlGages < 4
+,Spn4FLzb2,,Blade 2 local axial force at span station 4,Directed along the local zb2-axis,(kN),NBlGages < 4
+,Spn5FLxb2,,Blade 2 local flapwise shear force at span station 5,Directed along the local xb2-axis,(kN),NBlGages < 5
+,Spn5FLyb2,,Blade 2 local edgewise shear force at span station 5,Directed along the local yb2-axis,(kN),NBlGages < 5
+,Spn5FLzb2,,Blade 2 local axial force at span station 5,Directed along the local zb2-axis,(kN),NBlGages < 5
+,Spn6FLxb2,,Blade 2 local flapwise shear force at span station 6,Directed along the local xb2-axis,(kN),NBlGages < 6
+,Spn6FLyb2,,Blade 2 local edgewise shear force at span station 6,Directed along the local yb2-axis,(kN),NBlGages < 6
+,Spn6FLzb2,,Blade 2 local axial force at span station 6,Directed along the local zb2-axis,(kN),NBlGages < 6
+,Spn7FLxb2,,Blade 2 local flapwise shear force at span station 7,Directed along the local xb2-axis,(kN),NBlGages < 7
+,Spn7FLyb2,,Blade 2 local edgewise shear force at span station 7,Directed along the local yb2-axis,(kN),NBlGages < 7
+,Spn7FLzb2,,Blade 2 local axial force at span station 7,Directed along the local zb2-axis,(kN),NBlGages < 7
+,Spn8FLxb2,,Blade 2 local flapwise shear force at span station 8,Directed along the local xb2-axis,(kN),NBlGages < 8
+,Spn8FLyb2,,Blade 2 local edgewise shear force at span station 8,Directed along the local yb2-axis,(kN),NBlGages < 8
+,Spn8FLzb2,,Blade 2 local axial force at span station 8,Directed along the local zb2-axis,(kN),NBlGages < 8
+,Spn9FLxb2,,Blade 2 local flapwise shear force at span station 9,Directed along the local xb2-axis,(kN),NBlGages < 9
+,Spn9FLyb2,,Blade 2 local edgewise shear force at span station 9,Directed along the local yb2-axis,(kN),NBlGages < 9
+,Spn9FLzb2,,Blade 2 local axial force at span station 9,Directed along the local zb2-axis,(kN),NBlGages < 9
+Blade 3 Local Span Loads,,,,,,
+,Spn1MLxb3,,Blade 3 local edgewise moment at span station 1,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1MLyb3,,Blade 3 local flapwise moment at span station 1,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1MLzb3,,Blade 3 local pitching moment at span station 1,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn2MLxb3,,Blade 3 local edgewise moment at span station 2,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2MLyb3,,Blade 3 local flapwise moment at span station 2,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2MLzb3,,Blade 3 local pitching moment at span station 2,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn3MLxb3,,Blade 3 local edgewise moment at span station 3,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3MLyb3,,Blade 3 local flapwise moment at span station 3,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3MLzb3,,Blade 3 local pitching moment at span station 3,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn4MLxb3,,Blade 3 local edgewise moment at span station 4,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4MLyb3,,Blade 3 local flapwise moment at span station 4,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4MLzb3,,Blade 3 local pitching moment at span station 4,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn5MLxb3,,Blade 3 local edgewise moment at span station 5,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5MLyb3,,Blade 3 local flapwise moment at span station 5,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5MLzb3,,Blade 3 local pitching moment at span station 5,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn6MLxb3,,Blade 3 local edgewise moment at span station 6,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6MLyb3,,Blade 3 local flapwise moment at span station 6,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6MLzb3,,Blade 3 local pitching moment at span station 6,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn7MLxb3,,Blade 3 local edgewise moment at span station 7,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7MLyb3,,Blade 3 local flapwise moment at span station 7,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7MLzb3,,Blade 3 local pitching moment at span station 7,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn8MLxb3,,Blade 3 local edgewise moment at span station 8,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8MLyb3,,Blade 3 local flapwise moment at span station 8,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8MLzb3,,Blade 3 local pitching moment at span station 8,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn9MLxb3,,Blade 3 local edgewise moment at span station 9,About the local xb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9MLyb3,,Blade 3 local flapwise moment at span station 9,About the local yb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9MLzb3,,Blade 3 local pitching moment at span station 9,About the local zb3-axis,(kN·m),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn1FLxb3,,Blade 3 local flapwise shear force at span station 1,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1FLyb3,,Blade 3 local edgewise shear force at span station 1,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn1FLzb3,,Blade 3 local axial force at span station 1,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 1 )
+,Spn2FLxb3,,Blade 3 local flapwise shear force at span station 2,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2FLyb3,,Blade 3 local edgewise shear force at span station 2,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn2FLzb3,,Blade 3 local axial force at span station 2,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 2 )
+,Spn3FLxb3,,Blade 3 local flapwise shear force at span station 3,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3FLyb3,,Blade 3 local edgewise shear force at span station 3,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn3FLzb3,,Blade 3 local axial force at span station 3,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 3 )
+,Spn4FLxb3,,Blade 3 local flapwise shear force at span station 4,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4FLyb3,,Blade 3 local edgewise shear force at span station 4,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn4FLzb3,,Blade 3 local axial force at span station 4,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 4 )
+,Spn5FLxb3,,Blade 3 local flapwise shear force at span station 5,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5FLyb3,,Blade 3 local edgewise shear force at span station 5,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn5FLzb3,,Blade 3 local axial force at span station 5,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 5 )
+,Spn6FLxb3,,Blade 3 local flapwise shear force at span station 6,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6FLyb3,,Blade 3 local edgewise shear force at span station 6,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn6FLzb3,,Blade 3 local axial force at span station 6,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 6 )
+,Spn7FLxb3,,Blade 3 local flapwise shear force at span station 7,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7FLyb3,,Blade 3 local edgewise shear force at span station 7,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn7FLzb3,,Blade 3 local axial force at span station 7,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 7 )
+,Spn8FLxb3,,Blade 3 local flapwise shear force at span station 8,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8FLyb3,,Blade 3 local edgewise shear force at span station 8,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn8FLzb3,,Blade 3 local axial force at span station 8,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 8 )
+,Spn9FLxb3,,Blade 3 local flapwise shear force at span station 9,Directed along the local xb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9FLyb3,,Blade 3 local edgewise shear force at span station 9,Directed along the local yb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+,Spn9FLzb3,,Blade 3 local axial force at span station 9,Directed along the local zb3-axis,(kN),( NumBl < 3 ) .OR. ( NBlGages < 9 )
+Hub and Rotor Loads,,,,,,
+,LSShftFxa,"LSShftFxs, LSSGagFxa, LSSGagFxs, RotThrust",Low-speed shaft thrust force (this is constant along the shaft and is equivalent to the rotor thrust force),Directed along the xa- and xs-axes,(kN),
+,LSShftFya,LSSGagFya,Rotating low-speed shaft shear force (this is constant along the shaft),Directed along the ya-axis,(kN),
+,LSShftFza,LSSGagFza,Rotating low-speed shaft shear force (this is constant along the shaft),Directed along the za-axis,(kN),
+,LSShftFys,LSSGagFys,Nonrotating low-speed shaft shear force (this is constant along the shaft),Directed along the ys-axis,(kN),
+,LSShftFzs,LSSGagFzs,Nonrotating low-speed shaft shear force (this is constant along the shaft),Directed along the zs-axis,(kN),
+,LSShftMxa,"LSShftMxs, LSSGagMxa, LSSGagMxs, RotTorq, LSShftTq",Low-speed shaft torque (this is constant along the shaft and is equivalent to the rotor torque),About the xa- and xs-axes,(kN·m),
+,LSSTipMya,,"Rotating low-speed shaft bending moment at the shaft tip (teeter pin for 2-blader, apex of rotation for 3-blader)",About the ya-axis,(kN·m),
+,LSSTipMza,,"Rotating low-speed shaft bending moment at the shaft tip (teeter pin for 2-blader, apex of rotation for 3-blader)",About the za-axis,(kN·m),
+,LSSTipMys,,"Nonrotating low-speed shaft bending moment at the shaft tip (teeter pin for 2-blader, apex of rotation for 3-blader)",About the ys-axis,(kN·m),
+,LSSTipMzs,,"Nonrotating low-speed shaft bending moment at the shaft tip (teeter pin for 2-blader, apex of rotation for 3-blader)",About the zs-axis,(kN·m),
+,CThrstAzm,,"Azimuth location of the center of thrust. This is estimated using values of LSSTipMys, LSSTipMzs, and RotThrust.",About the xa- and xs-axes,(deg),
+,CThrstRad,CThrstArm,"Dimensionless radial (arm) location of the center of thrust. This is estimated using values of LSSTipMys, LSSTipMzs, and RotThrust. (nondimensionalized using the undeflected tip radius normal to the shaft and limited to values between 0 and 1 (inclusive))",Always positive (directed radially outboard at azimuth angle CThrstAzm),(-),
+,RotPwr,LSShftPwr,Rotor power (this is equivalent to the low-speed shaft power),N/A,(kW),
+,RotCq,LSShftCq,Rotor torque coefficient (this is equivalent to the low-speed shaft torque coefficient),N/A,(-),.NOT. CompAero
+,RotCp,LSShftCp,Rotor power coefficient (this is equivalent to the low-speed shaft power coefficient),N/A,(-),.NOT. CompAero
+,RotCt,LSShftCt,Rotor thrust coefficient (this is equivalent to the low-speed shaft thrust coefficient),N/A,(-),.NOT. CompAero
+Shaft Strain Gage Loads,,,,,,
+,LSSGagMya,,Rotating low-speed shaft bending moment at the shaft's strain gage (shaft strain gage located by input ShftGagL),About the ya-axis,(kN·m),
+,LSSGagMza,,Rotating low-speed shaft bending moment at the shaft's strain gage (shaft strain gage located by input ShftGagL),About the za-axis,(kN·m),
+,LSSGagMys,,Nonrotating low-speed shaft bending moment at the shaft's strain gage (shaft strain gage located by input ShftGagL),About the ys-axis,(kN·m),
+,LSSGagMzs,,Nonrotating low-speed shaft bending moment at the shaft's strain gage (shaft strain gage located by input ShftGagL),About the zs-axis,(kN·m),
+Generator and High-Speed Shaft Loads,,,,,,
+,HSShftTq,,High-speed shaft torque (this is constant along the shaft),Same sign as LSShftTq / RotTorq / LSShftMxa / LSShftMxs / LSSGagMxa / LSSGagMxs,(kN·m),
+,HSShftPwr,,High-speed shaft power,Same sign as HSShftTq,(kW),
+,HSShftCq,,High-speed shaft torque coefficient,N/A,(-),.NOT. CompAero
+,HSShftCp,,High-speed shaft power coefficient,N/A,(-),.NOT. CompAero
+,GenTq,,Electrical generator torque,Positive reflects power extracted and negative represents a motoring-up situation (power input),(kN·m),
+,GenPwr,,Electrical generator power,Same sign as GenTq,(kW),
+,GenCq,,Electrical generator torque coefficient,N/A,(-),.NOT. CompAero
+,GenCp,,Electrical generator power coefficient,N/A,(-),.NOT. CompAero
+,HSSBrTq,,"High-speed shaft brake torque (i.e., the moment applied to the high-speed shaft by the brake)",Always positive (indicating dissipation of power),(kN·m),
+Rotor-Furl Bearing Loads,,,,,,
+,RFrlBrM,,Rotor-furl bearing moment,About the rotor-furl axis,(kN·m),
+Tail-Furl Bearing Loads,,,,,,
+,TFrlBrM,,Tail-furl bearing moment,About the tail-furl axis,(kN·m),
+Tail Fin Aerodynamic Loads,,,,,,
+,TFinAlpha,,Tail fin angle of attack. This is the angle between the relative velocity of the wind-inflow at the tail fin center-of-pressure and the tail fin chordline.,"About the tail fin z-axis, which is the axis in the tail fin plane normal to the chordline",(deg),.NOT. CompAero
+,TFinCLift,,Tail fin dimensionless lift coefficient,N/A,(-),.NOT. CompAero
+,TFinCDrag,,Tail fin dimensionless drag coefficient,N/A,(-),.NOT. CompAero
+,TFinDnPrs,,"Tail fin dynamic pressure, equal to 1/2*AirDens*Vrel^2 where Vrel is the relative velocity of the wind-inflow at the tail fin center-of-pressure",N/A,(Pa),.NOT. CompAero
+,TFinCPFx,,Tangential aerodynamic force at the tail fin center-of-pressure,"Directed along the tail fin x-axis, which is the axis along the chordline, positive towards the trailing edge",(kN),.NOT. CompAero
+,TFinCPFy,,Normal aerodynamic force at the tail fin center-of-pressure,"Directed along the tail fin y-axis, which is orthogonal to the tail fin plane",(kN),.NOT. CompAero
+Tower-Top / Yaw Bearing Loads,,,,,,
+,YawBrFxn,,Rotating (with nacelle) tower-top / yaw bearing shear force,Directed along the xn-axis,(kN),
+,YawBrFyn,,Rotating (with nacelle) tower-top / yaw bearing shear force,Directed along the yn-axis,(kN),
+,YawBrFzn,YawBrFzp,Tower-top / yaw bearing axial force,Directed along the zn- and zp-axes,(kN),
+,YawBrFxp,,Tower-top / yaw bearing fore-aft (nonrotating) shear force,Directed along the xp-axis,(kN),
+,YawBrFyp,,Tower-top / yaw bearing side-to-side (nonrotating) shear force,Directed along the yp-axis,(kN),
+,YawBrMxn,,Rotating (with nacelle) tower-top / yaw bearing roll moment,About the xn-axis,(kN·m),
+,YawBrMyn,,Rotating (with nacelle) tower-top / yaw bearing pitch moment,About the yn-axis,(kN·m),
+,YawBrMzn,"YawBrMzp, YawMom",Tower-top / yaw bearing yaw moment,About the zn- and zp-axes,(kN·m),
+,YawBrMxp,,Nonrotating tower-top / yaw bearing roll moment,About the xp-axis,(kN·m),
+,YawBrMyp,,Nonrotating tower-top / yaw bearing pitch moment,About the yp-axis,(kN·m),
+Tower Base Loads,,,,,,
+,TwrBsFxt,,Tower base fore-aft shear force,Directed along the xt-axis,(kN),
+,TwrBsFyt,,Tower base side-to-side shear force,Directed along the yt-axis,(kN),
+,TwrBsFzt,,Tower base axial force,Directed along the zt-axis,(kN),
+,TwrBsMxt,,"Tower base roll (or side-to-side) moment (i.e., the moment caused by side-to-side forces)",About the xt-axis,(kN·m),
+,TwrBsMyt,,"Tower base pitching (or fore-aft) moment (i.e., the moment caused by fore-aft forces)",About the yt-axis,(kN·m),
+,TwrBsMzt,,Tower base yaw (or torsional) moment,About the zt-axis,(kN·m),
+Local Tower Loads,,,,,,
+,TwHt1MLxt,,Local tower roll (or side-to-side) moment of tower gage 1,About the local xt-axis,(kN·m),NTwGages < 1
+,TwHt1MLyt,,Local tower pitching (or fore-aft) moment of tower gage 1,About the local yt-axis,(kN·m),NTwGages < 1
+,TwHt1MLzt,,Local tower yaw (or torsional) moment of tower gage 1,About the local zt-axis,(kN·m),NTwGages < 1
+,TwHt2MLxt,,Local tower roll (or side-to-side) moment of tower gage 2,About the local xt-axis,(kN·m),NTwGages < 2
+,TwHt2MLyt,,Local tower pitching (or fore-aft) moment of tower gage 2,About the local yt-axis,(kN·m),NTwGages < 2
+,TwHt2MLzt,,Local tower yaw (or torsional) moment of tower gage 2,About the local zt-axis,(kN·m),NTwGages < 2
+,TwHt3MLxt,,Local tower roll (or side-to-side) moment of tower gage 3,About the local xt-axis,(kN·m),NTwGages < 3
+,TwHt3MLyt,,Local tower pitching (or fore-aft) moment of tower gage 3,About the local yt-axis,(kN·m),NTwGages < 3
+,TwHt3MLzt,,Local tower yaw (or torsional) moment of tower gage 3,About the local zt-axis,(kN·m),NTwGages < 3
+,TwHt4MLxt,,Local tower roll (or side-to-side) moment of tower gage 4,About the local xt-axis,(kN·m),NTwGages < 4
+,TwHt4MLyt,,Local tower pitching (or fore-aft) moment of tower gage 4,About the local yt-axis,(kN·m),NTwGages < 4
+,TwHt4MLzt,,Local tower yaw (or torsional) moment of tower gage 4,About the local zt-axis,(kN·m),NTwGages < 4
+,TwHt5MLxt,,Local tower roll (or side-to-side) moment of tower gage 5,About the local xt-axis,(kN·m),NTwGages < 5
+,TwHt5MLyt,,Local tower pitching (or fore-aft) moment of tower gage 5,About the local yt-axis,(kN·m),NTwGages < 5
+,TwHt5MLzt,,Local tower yaw (or torsional) moment of tower gage 5,About the local zt-axis,(kN·m),NTwGages < 5
+,TwHt6MLxt,,Local tower roll (or side-to-side) moment of tower gage 6,About the local xt-axis,(kN·m),NTwGages < 6
+,TwHt6MLyt,,Local tower pitching (or fore-aft) moment of tower gage 6,About the local yt-axis,(kN·m),NTwGages < 6
+,TwHt6MLzt,,Local tower yaw (or torsional) moment of tower gage 6,About the local zt-axis,(kN·m),NTwGages < 6
+,TwHt7MLxt,,Local tower roll (or side-to-side) moment of tower gage 7,About the local xt-axis,(kN·m),NTwGages < 7
+,TwHt7MLyt,,Local tower pitching (or fore-aft) moment of tower gage 7,About the local yt-axis,(kN·m),NTwGages < 7
+,TwHt7MLzt,,Local tower yaw (or torsional) moment of tower gage 7,About the local zt-axis,(kN·m),NTwGages < 7
+,TwHt8MLxt,,Local tower roll (or side-to-side) moment of tower gage 8,About the local xt-axis,(kN·m),NTwGages < 8
+,TwHt8MLyt,,Local tower pitching (or fore-aft) moment of tower gage 8,About the local yt-axis,(kN·m),NTwGages < 8
+,TwHt8MLzt,,Local tower yaw (or torsional) moment of tower gage 8,About the local zt-axis,(kN·m),NTwGages < 8
+,TwHt9MLxt,,Local tower roll (or side-to-side) moment of tower gage 9,About the local xt-axis,(kN·m),NTwGages < 9
+,TwHt9MLyt,,Local tower pitching (or fore-aft) moment of tower gage 9,About the local yt-axis,(kN·m),NTwGages < 9
+,TwHt9MLzt,,Local tower yaw (or torsional) moment of tower gage 9,About the local zt-axis,(kN·m),NTwGages < 9
+,TwHt1FLxt,,Local tower roll (or side-to-side) force of tower gage 1,About the local xt-axis,(kN),NTwGages < 1
+,TwHt1FLyt,,Local tower pitching (or fore-aft) force of tower gage 1,About the local yt-axis,(kN),NTwGages < 1
+,TwHt1FLzt,,Local tower yaw (or torsional) force of tower gage 1,About the local zt-axis,(kN),NTwGages < 1
+,TwHt2FLxt,,Local tower roll (or side-to-side) force of tower gage 2,About the local xt-axis,(kN),NTwGages < 2
+,TwHt2FLyt,,Local tower pitching (or fore-aft) force of tower gage 2,About the local yt-axis,(kN),NTwGages < 2
+,TwHt2FLzt,,Local tower yaw (or torsional) force of tower gage 2,About the local zt-axis,(kN),NTwGages < 2
+,TwHt3FLxt,,Local tower roll (or side-to-side) force of tower gage 3,About the local xt-axis,(kN),NTwGages < 3
+,TwHt3FLyt,,Local tower pitching (or fore-aft) force of tower gage 3,About the local yt-axis,(kN),NTwGages < 3
+,TwHt3FLzt,,Local tower yaw (or torsional) force of tower gage 3,About the local zt-axis,(kN),NTwGages < 3
+,TwHt4FLxt,,Local tower roll (or side-to-side) force of tower gage 4,About the local xt-axis,(kN),NTwGages < 4
+,TwHt4FLyt,,Local tower pitching (or fore-aft) force of tower gage 4,About the local yt-axis,(kN),NTwGages < 4
+,TwHt4FLzt,,Local tower yaw (or torsional) force of tower gage 4,About the local zt-axis,(kN),NTwGages < 4
+,TwHt5FLxt,,Local tower roll (or side-to-side) force of tower gage 5,About the local xt-axis,(kN),NTwGages < 5
+,TwHt5FLyt,,Local tower pitching (or fore-aft) force of tower gage 5,About the local yt-axis,(kN),NTwGages < 5
+,TwHt5FLzt,,Local tower yaw (or torsional) force of tower gage 5,About the local zt-axis,(kN),NTwGages < 5
+,TwHt6FLxt,,Local tower roll (or side-to-side) force of tower gage 6,About the local xt-axis,(kN),NTwGages < 6
+,TwHt6FLyt,,Local tower pitching (or fore-aft) force of tower gage 6,About the local yt-axis,(kN),NTwGages < 6
+,TwHt6FLzt,,Local tower yaw (or torsional) force of tower gage 6,About the local zt-axis,(kN),NTwGages < 6
+,TwHt7FLxt,,Local tower roll (or side-to-side) force of tower gage 7,About the local xt-axis,(kN),NTwGages < 7
+,TwHt7FLyt,,Local tower pitching (or fore-aft) force of tower gage 7,About the local yt-axis,(kN),NTwGages < 7
+,TwHt7FLzt,,Local tower yaw (or torsional) force of tower gage 7,About the local zt-axis,(kN),NTwGages < 7
+,TwHt8FLxt,,Local tower roll (or side-to-side) force of tower gage 8,About the local xt-axis,(kN),NTwGages < 8
+,TwHt8FLyt,,Local tower pitching (or fore-aft) force of tower gage 8,About the local yt-axis,(kN),NTwGages < 8
+,TwHt8FLzt,,Local tower yaw (or torsional) force of tower gage 8,About the local zt-axis,(kN),NTwGages < 8
+,TwHt9FLxt,,Local tower roll (or side-to-side) force of tower gage 9,About the local xt-axis,(kN),NTwGages < 9
+,TwHt9FLyt,,Local tower pitching (or fore-aft) force of tower gage 9,About the local yt-axis,(kN),NTwGages < 9
+,TwHt9FLzt,,Local tower yaw (or torsional) force of tower gage 9,About the local zt-axis,(kN),NTwGages < 9
+Platform Loads,,,,,,
+,PtfmFxt,,Platform horizontal surge shear force,Directed along the xt-axis,(kN),
+,PtfmFyt,,Platform horizontal sway shear force,Directed along the yt-axis,(kN),
+,PtfmFzt,,Platform vertical heave force,Directed along the zt-axis,(kN),
+,PtfmFxi,,Platform horizontal surge shear force,Directed along the xi-axis,(kN),
+,PtfmFyi,,Platform horizontal sway shear force,Directed along the yi-axis,(kN),
+,PtfmFzi,,Platform vertical heave force,Directed along the zi-axis,(kN),
+,PtfmMxt,,Platform roll tilt moment,About the xt-axis,(kN·m),
+,PtfmMyt,,Platform pitch tilt moment,About the yt-axis,(kN·m),
+,PtfmMzt,,Platform yaw moment,About the zt-axis,(kN·m),
+,PtfmMxi,,Platform roll tilt moment,About the xi-axis,(kN·m),
+,PtfmMyi,,Platform pitch tilt moment,About the yi-axis,(kN·m),
+,PtfmMzi,,Platform yaw moment,About the zi-axis,(kN·m),
+Mooring Line Loads,,,,,,
+,Fair1Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 1 )
+,Fair1Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 1 )
+,Anch1Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 1 )
+,Anch1Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 1 )
+,Fair2Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 2 )
+,Fair2Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 2 )
+,Anch2Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 2 )
+,Anch2Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 2 )
+,Fair3Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 3 )
+,Fair3Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 3 )
+,Anch3Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 3 )
+,Anch3Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 3 )
+,Fair4Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 4 )
+,Fair4Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 4 )
+,Anch4Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 4 )
+,Anch4Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 4 )
+,Fair5Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 5 )
+,Fair5Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 5 )
+,Anch5Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 5 )
+,Anch5Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 5 )
+,Fair6Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 6 )
+,Fair6Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 6 )
+,Anch6Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 6 )
+,Anch6Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 6 )
+,Fair7Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 7 )
+,Fair7Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 7 )
+,Anch7Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 7 )
+,Anch7Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 7 )
+,Fair8Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 8 )
+,Fair8Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 8 )
+,Anch8Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 8 )
+,Anch8Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 8 )
+,Fair9Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 9 )
+,Fair9Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 9 )
+,Anch9Ten,,,,(kN),( .NOT. CompHydro ) .OR. ( NumLines < 9 )
+,Anch9Ang,,,,(deg),( .NOT. CompHydro ) .OR. ( NumLines < 9 )
+Wave Motions,,,,,,
+,WaveElev,,,,(m),.NOT. CompHydro
+,Wave1Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave1Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave1Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave1Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave1Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave1Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 1 )
+,Wave2Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave2Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave2Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave2Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave2Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave2Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 2 )
+,Wave3Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave3Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave3Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave3Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave3Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave3Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 3 )
+,Wave4Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave4Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave4Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave4Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave4Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave4Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 4 )
+,Wave5Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave5Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave5Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave5Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave5Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave5Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 5 )
+,Wave6Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave6Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave6Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave6Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave6Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave6Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 6 )
+,Wave7Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave7Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave7Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave7Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave7Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave7Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 7 )
+,Wave8Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave8Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave8Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave8Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave8Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave8Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 8 )
+,Wave9Vxi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+,Wave9Vyi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+,Wave9Vzi,,,,(m/s),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+,Wave9Axi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+,Wave9Ayi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+,Wave9Azi,,,,(m/s^2),( .NOT. CompHydro ) .OR. ( NWaveKin < 9 )
+Internal Degrees of Freedom,,,WARNING: USE ONLY FOR FULL-SYSTEM FEEDBACK; PHYSICAL MEANING OF THESE OUTPUTS CAN BE MISLEADING,,,
+,Q_B1E1,,Displacement of 1st edgewise bending-mode DOF of blade 1,,(m),
+,Q_B2E1,,Displacement of 1st edgewise bending-mode DOF of blade 2,,(m),
+,Q_B3E1,,Displacement of 1st edgewise bending-mode DOF of blade 3,,(m),NumBl < 3
+,Q_B1F1,,Displacement of 1st flapwise bending-mode DOF of blade 1,,(m),
+,Q_B2F1,,Displacement of 1st flapwise bending-mode DOF of blade 2,,(m),
+,Q_B3F1,,Displacement of 1st flapwise bending-mode DOF of blade 3,,(m),NumBl < 3
+,Q_B1F2,,Displacement of 2nd flapwise bending-mode DOF of blade 1,,(m),
+,Q_B2F2,,Displacement of 2nd flapwise bending-mode DOF of blade 2,,(m),
+,Q_B3F2,,Displacement of 2nd flapwise bending-mode DOF of blade 3,,(m),NumBl < 3
+,Q_Teet,,Displacement of hub teetering DOF,,(rad),NumBl > 2
+,Q_DrTr,,Displacement of drivetrain rotational-flexibility DOF,,(rad),
+,Q_GeAz,,Displacement of variable speed generator DOF,,(rad),
+,Q_RFrl,,Displacement of rotor-furl DOF,,(rad),
+,Q_TFrl,,Displacement of tail-furl DOF,,(rad),
+,Q_Yaw,,Displacement of nacelle yaw DOF,,(rad),
+,Q_TFA1,,Displacement of 1st tower fore-aft bending mode DOF,,(m),
+,Q_TSS1,,Displacement of 1st tower side-to-side bending mode DOF,,(m),
+,Q_TFA2,,Displacement of 2nd tower fore-aft bending mode DOF,,(m),
+,Q_TSS2,,Displacement of 2nd tower side-to-side bending mode DOF,,(m),
+,Q_Sg,,Displacement of platform horizontal surge translation DOF,,(m),
+,Q_Sw,,Displacement of platform horizontal sway translation DOF,,(m),
+,Q_Hv,,Displacement of platform vertical heave translation DOF,,(m),
+,Q_R,,Displacement of platform roll tilt rotation DOF,,(rad),
+,Q_P,,Displacement of platform pitch tilt rotation DOF,,(rad),
+,Q_Y,,Displacement of platform yaw rotation DOF,,(rad),
+,QD_B1E1,,Velocity of 1st edgewise bending-mode DOF of blade 1,,(m/s),
+,QD_B2E1,,Velocity of 1st edgewise bending-mode DOF of blade 2,,(m/s),
+,QD_B3E1,,Velocity of 1st edgewise bending-mode DOF of blade 3,,(m/s),NumBl < 3
+,QD_B1F1,,Velocity of 1st flapwise bending-mode DOF of blade 1,,(m/s),
+,QD_B2F1,,Velocity of 1st flapwise bending-mode DOF of blade 2,,(m/s),
+,QD_B3F1,,Velocity of 1st flapwise bending-mode DOF of blade 3,,(m/s),NumBl < 3
+,QD_B1F2,,Velocity of 2nd flapwise bending-mode DOF of blade 1,,(m/s),
+,QD_B2F2,,Velocity of 2nd flapwise bending-mode DOF of blade 2,,(m/s),
+,QD_B3F2,,Velocity of 2nd flapwise bending-mode DOF of blade 3,,(m/s),NumBl < 3
+,QD_Teet,,Velocity of hub teetering DOF,,(rad/s),NumBl > 2
+,QD_DrTr,,Velocity of drivetrain rotational-flexibility DOF,,(rad/s),
+,QD_GeAz,,Velocity of variable speed generator DOF,,(rad/s),
+,QD_RFrl,,Velocity of rotor-furl DOF,,(rad/s),
+,QD_TFrl,,Velocity of tail-furl DOF,,(rad/s),
+,QD_Yaw,,Velocity of nacelle yaw DOF,,(rad/s),
+,QD_TFA1,,Velocity of 1st tower fore-aft bending mode DOF,,(m/s),
+,QD_TSS1,,Velocity of 1st tower side-to-side bending mode DOF,,(m/s),
+,QD_TFA2,,Velocity of 2nd tower fore-aft bending mode DOF,,(m/s),
+,QD_TSS2,,Velocity of 2nd tower side-to-side bending mode DOF,,(m/s),
+,QD_Sg,,Velocity of platform horizontal surge translation DOF,,(m/s),
+,QD_Sw,,Velocity of platform horizontal sway translation DOF,,(m/s),
+,QD_Hv,,Velocity of platform vertical heave translation DOF,,(m/s),
+,QD_R,,Velocity of platform roll tilt rotation DOF,,(rad/s),
+,QD_P,,Velocity of platform pitch tilt rotation DOF,,(rad/s),
+,QD_Y,,Velocity of platform yaw rotation DOF,,(rad/s),
+,QD2_B1E1,,Acceleration of 1st edgewise bending-mode DOF of blade 1,,(m/s^2),
+,QD2_B2E1,,Acceleration of 1st edgewise bending-mode DOF of blade 2,,(m/s^2),
+,QD2_B3E1,,Acceleration of 1st edgewise bending-mode DOF of blade 3,,(m/s^2),NumBl < 3
+,QD2_B1F1,,Acceleration of 1st flapwise bending-mode DOF of blade 1,,(m/s^2),
+,QD2_B2F1,,Acceleration of 1st flapwise bending-mode DOF of blade 2,,(m/s^2),
+,QD2_B3F1,,Acceleration of 1st flapwise bending-mode DOF of blade 3,,(m/s^2),NumBl < 3
+,QD2_B1F2,,Acceleration of 2nd flapwise bending-mode DOF of blade 1,,(m/s^2),
+,QD2_B2F2,,Acceleration of 2nd flapwise bending-mode DOF of blade 2,,(m/s^2),
+,QD2_B3F2,,Acceleration of 2nd flapwise bending-mode DOF of blade 3,,(m/s^2),NumBl < 3
+,QD2_Teet,,Acceleration of hub teetering DOF,,(rad/s^2),NumBl > 2
+,QD2_DrTr,,Acceleration of drivetrain rotational-flexibility DOF,,(rad/s^2),
+,QD2_GeAz,,Acceleration of variable speed generator DOF,,(rad/s^2),
+,QD2_RFrl,,Acceleration of rotor-furl DOF,,(rad/s^2),
+,QD2_TFrl,,Acceleration of tail-furl DOF,,(rad/s^2),
+,QD2_Yaw,,Acceleration of nacelle yaw DOF,,(rad/s^2),
+,QD2_TFA1,,Acceleration of 1st tower fore-aft bending mode DOF,,(m/s^2),
+,QD2_TSS1,,Acceleration of 1st tower side-to-side bending mode DOF,,(m/s^2),
+,QD2_TFA2,,Acceleration of 2nd tower fore-aft bending mode DOF,,(m/s^2),
+,QD2_TSS2,,Acceleration of 2nd tower side-to-side bending mode DOF,,(m/s^2),
+,QD2_Sg,,Acceleration of platform horizontal surge translation DOF,,(m/s^2),
+,QD2_Sw,,Acceleration of platform horizontal sway translation DOF,,(m/s^2),
+,QD2_Hv,,Acceleration of platform vertical heave translation DOF,,(m/s^2),
+,QD2_R,,Acceleration of platform roll tilt rotation DOF,,(rad/s^2),
+,QD2_P,,Acceleration of platform pitch tilt rotation DOF,,(rad/s^2),
+,QD2_Y,,Acceleration of platform yaw rotation DOF,,(rad/s^2),

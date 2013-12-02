@@ -15,6 +15,10 @@ import sc.ndt.editor.fast.fastadn.Header;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastadn.aAirStat;
 import sc.ndt.editor.fast.fastadn.aAirfoilList;
+import sc.ndt.editor.fast.fastadn.bCalcTwrAero;
+import sc.ndt.editor.fast.fastadn.bTwrPot;
+import sc.ndt.editor.fast.fastadn.bTwrShd;
+import sc.ndt.editor.fast.fastadn.fTwrFile;
 import sc.ndt.editor.fast.fastadn.fWindFile;
 import sc.ndt.editor.fast.fastadn.iBldNodes;
 import sc.ndt.editor.fast.fastadn.iNumFoil;
@@ -132,6 +136,34 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * @generated
    */
   private EClass nTwrShadEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bTwrPotEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bTwrShdEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fTwrFileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass bCalcTwrAeroEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -834,6 +866,126 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getbTwrPot()
+  {
+    return bTwrPotEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbTwrPot_Value()
+  {
+    return (EAttribute)bTwrPotEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbTwrPot_Name()
+  {
+    return (EAttribute)bTwrPotEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getbTwrShd()
+  {
+    return bTwrShdEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbTwrShd_Value()
+  {
+    return (EAttribute)bTwrShdEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbTwrShd_Name()
+  {
+    return (EAttribute)bTwrShdEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getfTwrFile()
+  {
+    return fTwrFileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getfTwrFile_Value()
+  {
+    return (EAttribute)fTwrFileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getfTwrFile_Name()
+  {
+    return (EAttribute)fTwrFileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getbCalcTwrAero()
+  {
+    return bCalcTwrAeroEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbCalcTwrAero_Value()
+  {
+    return (EAttribute)bCalcTwrAeroEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getbCalcTwrAero_Name()
+  {
+    return (EAttribute)bCalcTwrAeroEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getnShadHWid()
   {
     return nShadHWidEClass;
@@ -1239,6 +1391,22 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     createEAttribute(nTwrShadEClass, NTWR_SHAD__VALUE);
     createEAttribute(nTwrShadEClass, NTWR_SHAD__NAME);
 
+    bTwrPotEClass = createEClass(BTWR_POT);
+    createEAttribute(bTwrPotEClass, BTWR_POT__VALUE);
+    createEAttribute(bTwrPotEClass, BTWR_POT__NAME);
+
+    bTwrShdEClass = createEClass(BTWR_SHD);
+    createEAttribute(bTwrShdEClass, BTWR_SHD__VALUE);
+    createEAttribute(bTwrShdEClass, BTWR_SHD__NAME);
+
+    fTwrFileEClass = createEClass(FTWR_FILE);
+    createEAttribute(fTwrFileEClass, FTWR_FILE__VALUE);
+    createEAttribute(fTwrFileEClass, FTWR_FILE__NAME);
+
+    bCalcTwrAeroEClass = createEClass(BCALC_TWR_AERO);
+    createEAttribute(bCalcTwrAeroEClass, BCALC_TWR_AERO__VALUE);
+    createEAttribute(bCalcTwrAeroEClass, BCALC_TWR_AERO__NAME);
+
     nShadHWidEClass = createEClass(NSHAD_HWID);
     createEAttribute(nShadHWidEClass, NSHAD_HWID__VALUE);
     createEAttribute(nShadHWidEClass, NSHAD_HWID__NAME);
@@ -1380,6 +1548,22 @@ public class FastadnPackageImpl extends EPackageImpl implements FastadnPackage
     initEClass(nTwrShadEClass, nTwrShad.class, "nTwrShad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getnTwrShad_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, nTwrShad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getnTwrShad_Name(), ecorePackage.getEString(), "name", null, 0, 1, nTwrShad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bTwrPotEClass, bTwrPot.class, "bTwrPot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getbTwrPot_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, bTwrPot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getbTwrPot_Name(), ecorePackage.getEString(), "name", null, 0, 1, bTwrPot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bTwrShdEClass, bTwrShd.class, "bTwrShd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getbTwrShd_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, bTwrShd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getbTwrShd_Name(), ecorePackage.getEString(), "name", null, 0, 1, bTwrShd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fTwrFileEClass, fTwrFile.class, "fTwrFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getfTwrFile_Value(), ecorePackage.getEString(), "value", null, 0, 1, fTwrFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getfTwrFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, fTwrFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(bCalcTwrAeroEClass, bCalcTwrAero.class, "bCalcTwrAero", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getbCalcTwrAero_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, bCalcTwrAero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getbCalcTwrAero_Name(), ecorePackage.getEString(), "name", null, 0, 1, bCalcTwrAero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nShadHWidEClass, nShadHWid.class, "nShadHWid", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getnShadHWid_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, nShadHWid.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

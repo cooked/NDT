@@ -5,7 +5,6 @@ import org.eclipse.core.runtime.IStatus;
 
 public class AdnValidator implements IValidator {
 
-	@Override
 	public IStatus validate(Object value) {
 		// TODO Auto-generated method stub
 		if(value instanceof String)

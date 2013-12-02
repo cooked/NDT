@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<project name="NDT Builder" default="dlc" xmlns:ac="antlib:net.sf.antcontrib">
+	
+	<!-- TODO
+		pass the exe programs as properties from eclipse (so get the global default executables
+		or the project specific ones )
+	-->
+	<!--
+	http://ant.apache.org/manual/using.html
+	http://ant.apache.org/manual/Tasks/replace.html 
+	http://ant.apache.org/manual/Tasks/propertyfile.html
+	-->
+	
+	<description> FAST Simulation Control Panel </description>
+
+	<property name="root" 	location="."/>
+	<property name="input" 	location="${root}/input"/>
+	<property name="output" location="${root}/output"/>
+	<property name="wind" 	location="${root}/wind"/>
+	<property file="build.properties" />
+
+	<basename property="file.FAST.name" file="${file.FAST}" suffix=".fst" />
+	
+	<!-- SCRIPTS -->
+	<scriptdef language="javascript" name="lower">
+	    <attribute name="string" /> 
+	    <attribute name="to" />
+		project.setProperty(attributes.get("to"),attributes.get("string").toLowerCase());
+	</scriptdef>
+	<lower string="${wtg.class.row}" to="wtg.class.rowl" />
+	
+	<ac:if>
+		<equals arg1="${wtg.class.col}" arg2="I" />
+		<then><ac:var name="class" value="1"/></then>
+	<ac:elseif>
+		<equals arg1="${wtg.class.col}" arg2="II" />
+		<then><ac:var name="class" value="2"/></then>
+	</ac:elseif>	
+	<ac:elseif>		
+		<equals arg1="${wtg.class.col}" arg2="III" />
+		<then><ac:var name="class" value="3"/></then>
+	</ac:elseif>
+	<ac:else>
+		<then><ac:var name="class" value=""/></then>
+	</ac:else>
+	</ac:if>
+	
+	
+	<!-- TEST -->
+	<target name="test">
+		<loadfile property="fast.file" srcFile="FAST.fst"/>
+		<ac:propertyregex property="file.ADFile" input="${fast.file}"
+		    regexp="(.*) (\s)* ADFile (.*)" select="\1" casesensitive="false" />
+
+		<echo message="basedir		${basedir}" />
+		<echo message="user.home	${user.home}"/>
+		<echo message="user.dir		${user.dir}" />
+		
+	</target>
+
+	<!-- SINGLE RUN -->
+	<target name="run">
+
+		<mkdir dir="${output}"/>
+		<loadfile srcfile="Test01.fst" property="TowerHt">
+			<filterchain>
+				<linecontains>
+					<contains value="TowerHt"/>
+				</linecontains>
+				<tokenfilter>
+					<stringtokenizer delims="TowerHt"/>
+				</tokenfilter>
+			</filterchain>
+		</loadfile>
+
+		<dirset id="dist.contents" dir="build/javadoc" includes="*"/>
+
+		<echo>${TowerHt}</echo>
+
+		<exec executable="${loc.fast}">
+			<arg value="${file.FAST}" />
+		</exec>
+		
+		<move todir="${output}">
+			<fileset dir="${basedir}">
+				<include name="**/*.acf"/>
+				<include name="**/*.adm"/>
+				<include name="**/*.fsm"/>
+				<include name="**/*.opt"/>
+				<include name="**/*.out"/>
+			</fileset>
+		</move>
+
+	</target>
+
+
+	<!-- DLCs RUN -->
+	<target name="dlc" description=""
+		depends="
+		wind,
+		dlc.1.1,dlc.1.2,dlc.1.3,dlc.1.4,
+		dlc.7.1
+		" />		
+	
+	<target name="dlc.1.1" depends="" if="${build.dlc.1.1}"
+		description="Run simulations for all DLCs of the IEC 61400-1">
+		
+		<!-- create output structure - TODO -->
+		<mkdir dir="${output}/dlc" />
+		<mkdir dir="${output}/dlc/1.1" />
+
+		<!-- backup -->
+		<copy file="${root}/${file.FAST}" tofile="${file.FAST}.bak" />
+
+		<!-- extract linked files from FAST main file -->
+		<loadfile property="file.FAST.content" srcFile="${file.FAST}"/>
+
+		<ac:propertyregex property="file.TwrFile" input="${file.FAST.content}"
+			regexp='"(.*)"(\s)*TwrFile(.*)' select="\1" casesensitive="false" />
+		<ac:propertyregex property="file.BldFile" input="${file.FAST.content}"
+			regexp='"(.*)"(\s)*BldFile\(1\)(.*)' select="\1" casesensitive="false" />
+		<ac:propertyregex property="file.ADFile" input="${file.FAST.content}"
+			regexp='"(.*)"(\s)*ADFile(.*)' select="\1" casesensitive="false" />
+
+		<!-- backup -->
+		<copy file="${root}/${file.ADFile}"  tofile="${file.ADFile}.bak" />
+		<copy file="${root}/${file.TwrFile}" tofile="${file.TwrFile}.bak" />
+		<copy file="${root}/${file.BldFile}" tofile="${file.BldFile}.bak" />
+
+		<!-- loop NTM wind speed range -->
+		<ac:for list="${wtg.wind.range}" param="wind.speed">
+			<sequential>
+
+				<!-- format the number to XX.xx -->
+				<ac:propertyregex property="pack.name" input="@{wind.speed}"
+					              	regexp="\d\d."
+					              	select="@{wind.speed}"
+					              	casesensitive="false" 
+									defaultValue="0@{wind.speed}" />
+				
+				<local name="file.rel" />
+				<property name="file.rel" 
+					location="${wind}/NTM/NTM${wtg.class.rowl}_@{wind.speed}.${turbsim.filefmt}" 
+					relative="yes" />
+				
+				<ac:propertyregex property="file.rel.safe" input="${file.rel}"
+					regexp="\\" replace="/" global="true" />
+				
+				<!-- get file name-->
+				<local name="folder" />
+				<basename property="folder" file="${file.rel}" suffix=".${turbsim.filefmt}" />
+
+				
+				<replaceregexp
+					file="${file.ADFile}" 
+					match="(.*)[\s]+WindFile" 
+					replace='"../../${file.rel.safe}" WindFile' 
+					byline="true" 
+				/>
+				
+				<!-- execute FAST -->
+				<exec executable="${loc.fast}"><arg value="${file.FAST}" /></exec>
+	
+				<!-- TODO:  DO BETTER RENAME of output files -->
+				<move file="${root}/${file.FAST.name}.out" 	tofile="${file.FAST.name}_${folder}.out" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.ech" 	tofile="${file.FAST.name}_${folder}.ech" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.fsm" 	tofile="${file.FAST.name}_${folder}.fsm" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.sum" 	tofile="${file.FAST.name}_${folder}.sum" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.elm" 	tofile="${file.FAST.name}_${folder}.elm" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.opt" 	tofile="${file.FAST.name}_${folder}.opt" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.acf" 	tofile="${file.FAST.name}_${folder}.acf" failonerror="false" />
+				<move file="${root}/${file.FAST.name}.adm" 	tofile="${file.FAST.name}_${folder}.adm" failonerror="false" />
+												
+				<move todir="${root}/output/dlc/1.1/">
+					<fileset dir="${basedir}">
+						<include name="*.ech" />
+						<include name="*.acf" />
+						<include name="*.adm" />
+						<include name="*.fsm" />
+						<include name="*.opt" />
+						<include name="*.out" />
+						<include name="*.sum" />
+						<include name="*.elm" />
+					</fileset>
+				</move>
+
+				<!-- export input if requested
+				<move todir="${root}/output/dlc/1.1/${folder}">	
+				    <fileset dir="my/src/dir">
+				      <include name="**/*.*"/>
+				      <exclude name="**/ant.jar"/>
+				    </fileset>
+				  </move>-->
+
+			</sequential>
+		</ac:for>
+
+		<!-- restore and clean-->
+		<move file="${root}/${file.FAST}.bak" 		tofile="${file.FAST}" />
+		<move file="${root}/${file.ADFile}.bak"  	tofile="${file.ADFile}" />
+		<move file="${root}/${file.TwrFile}.bak" 	tofile="${file.TwrFile}" />
+		<move file="${root}/${file.BldFile}.bak" 	tofile="${file.BldFile}" />
+
+	</target>
+	
+	<target name="dlc.1.2" depends="" if="${build.dlc.1.2}" description=""></target>
+	<target name="dlc.1.3" depends="" if="${build.dlc.1.3}" description=""></target>
+	<target name="dlc.1.4" depends="" if="${build.dlc.1.4}" description=""></target>
+	<target name="dlc.7.1" depends="" if="${build.dlc.7.1}" description=""></target>
+		
+
+	<!-- WIND - Create IECWind and TurbSim wind -->
+	<target name="wind" depends="" if="${build.wind}"
+		description="Create all IECWind and TurbSim synthetic wind" >
+		
+		<antcall target="wind.NTM" />
+		<antcall target="wind.ETM" />
+		<antcall target="wind.EWM" />
+		
+	</target>
+
+	<target name="wind.NTM" description="">
+
+		<!-- TODO: add check to skip this if already done and if not marked for overwrite -->
+		
+		<!-- file prep -->
+		<ac:var name="tbs_orig" value="${input}/wind/turbsim/turbsim.tbs"/>
+		
+		<!-- backup -->
+		<copy file="${tbs_orig}" tofile="${tbs_orig}.bak" />
+
+		<mkdir dir="${input}/wind/turbsim/NTM" />
+		<mkdir dir="${wind}/NTM" />
+
+		<!-- set common parameters -->
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IECturbc" 		replace="${wtg.class.row}	IECturbc" 	byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IEC_WindType" 	replace="NTM	 IEC_WindType" 			byline="true" />
+
+		<!-- loop wind speed range and create .tbs files -->
+		<ac:for list="${wtg.wind.range}" param="wind.speed">
+			<sequential>
+
+				<ac:var name="tbs_in" value="${input}/wind/turbsim/NTM/NTM${wtg.class.rowl}_@{wind.speed}.tbs"/>
+									
+				<!-- set the output formats required -->
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBHHTP"  replace="${turbsim.output.bin}	WrBHHTP" byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFHHTP"  replace="${turbsim.output.dat}	WrFHHTP" byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADHH"  replace="${turbsim.output.hh}		WrADHH"  byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADFF"  replace="${turbsim.output.bts}		WrADFF"  byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBLFF"  replace="${turbsim.output.wnd}		WrBLFF"  byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADTWR"  replace="${turbsim.output.twr}	WrADTWR" byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFMTFF"  replace="${turbsim.output.uvw}	WrFMTFF" byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrACT"  replace="${turbsim.output.cts}		WrACT"   byline="true" />
+				<replaceregexp file="${tbs_orig}" match="(.*)[\s]+Uref"  replace="@{wind.speed}	Uref" byline="true" />
+				<copy file="${tbs_orig}" tofile="${tbs_in}"/>
+
+				<!-- run TurbSim -->
+				<exec executable="${loc.turbsim}"><arg value="${tbs_in}" /></exec>
+				
+				<move todir="${wind}/NTM">
+					<fileset dir="${input}/wind/turbsim/NTM">
+						<include name="*.sum" />
+						<include name="*.bin" />
+						<include name="*.dat" />
+						<include name="*.hh" />
+						<include name="*.bts" />
+						<include name="*.wnd" />
+						<include name="*.twr" />
+						<include name="*.u" />
+						<include name="*.v" />
+						<include name="*.w" />
+						<include name="*.cts" />
+					</fileset>
+				</move>
+			</sequential>
+		</ac:for>
+
+		<!-- restore and clean -->
+		<move file="${tbs_orig}.bak" tofile="${tbs_orig}"/>
+		
+	</target>
+
+	
+	<target name="wind.ETM" description="">
+
+			<!-- file prep -->
+			<ac:var name="tbs_orig" value="${input}/wind/turbsim/turbsim.tbs"/>
+			
+			<!-- backup -->
+			<copy file="${tbs_orig}" tofile="${tbs_orig}.bak" />
+
+			<mkdir dir="${input}/wind/turbsim/ETM" />
+			<mkdir dir="${wind}/ETM" />
+			
+			<!-- set common parameters -->
+			<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IECturbc" 		replace="${wtg.class.row}	IECturbc" 		byline="true" />
+			<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IEC_WindType" 	replace="${class}ETM	 	IEC_WindType" 	byline="true" />
+
+			<!-- loop wind speed range and create .tbs files -->
+			<ac:for list="${wtg.wind.range}" param="wind.speed">
+				<sequential>
+
+					<ac:var name="tbs_in" value="${input}/wind/turbsim/ETM/ETM-${wtg.class.col}${wtg.class.rowl}_@{wind.speed}.tbs"/>
+					
+					<!-- set the output formats required -->
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBHHTP"  replace="${turbsim.output.bin}	WrBHHTP" byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFHHTP"  replace="${turbsim.output.dat}	WrFHHTP" byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADHH"  replace="${turbsim.output.hh}		WrADHH"  byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADFF"  replace="${turbsim.output.bts}		WrADFF"  byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBLFF"  replace="${turbsim.output.wnd}		WrBLFF"  byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADTWR"  replace="${turbsim.output.twr}	WrADTWR" byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFMTFF"  replace="${turbsim.output.uvw}	WrFMTFF" byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrACT"  replace="${turbsim.output.cts}		WrACT"   byline="true" />
+					<replaceregexp file="${tbs_orig}" match="(.*)[\s]+Uref"  replace="@{wind.speed}	Uref" byline="true" />
+					<copy file="${tbs_orig}" tofile="${tbs_in}"/>
+
+					<!-- run TurbSim -->
+					<exec executable="${loc.turbsim}"><arg value="${tbs_in}" /></exec>
+					
+					<move todir="${wind}/ETM">
+						<fileset dir="${input}/wind/turbsim/ETM">
+							<include name="*.sum" />
+							<include name="*.bin" />
+							<include name="*.dat" />
+							<include name="*.hh" />
+							<include name="*.bts" />
+							<include name="*.wnd" />
+							<include name="*.twr" />
+							<include name="*.u" />
+							<include name="*.v" />
+							<include name="*.w" />
+							<include name="*.cts" />
+						</fileset>
+					</move>
+				</sequential>
+			</ac:for>
+
+			<!-- restore and clean -->
+			<move file="${tbs_orig}.bak" tofile="${tbs_orig}"/>
+			
+		</target>
+	
+	
+	<target name="wind.EWM" description="">
+		
+		<!-- file prep -->
+		<ac:var name="tbs_orig" value="${input}/wind/turbsim/turbsim.tbs"/>
+		
+		<!-- backup -->
+		<copy file="${tbs_orig}" tofile="${tbs_orig}.bak" />
+
+		<mkdir dir="${input}/wind/turbsim/EWM" />
+		<mkdir dir="${wind}/EWM" />
+	
+		<!-- set the output formats required -->
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBHHTP"  replace="${turbsim.output.bin}	WrBHHTP" byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFHHTP"  replace="${turbsim.output.dat}	WrFHHTP" byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADHH"  replace="${turbsim.output.hh}		WrADHH"  byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADFF"  replace="${turbsim.output.bts}		WrADFF"  byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrBLFF"  replace="${turbsim.output.wnd}		WrBLFF"  byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrADTWR"  replace="${turbsim.output.twr}	WrADTWR" byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrFMTFF"  replace="${turbsim.output.uvw}	WrFMTFF" byline="true" />
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+WrACT"  replace="${turbsim.output.cts}		WrACT"   byline="true" />
+
+		<!-- set common parameters -->
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IECturbc" replace="${wtg.class.row}	IECturbc" byline="true" />
+		
+		<!-- run TurbSim EWM1 -->
+		<ac:var name="tbs_in" value="${input}/wind/turbsim/EWM/EWM1-${wtg.class.col}${wtg.class.rowl}.tbs"/>
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IEC_WindType" replace="${class}EWM1	 IEC_WindType" byline="true" />
+		<copy file="${tbs_orig}" tofile="${tbs_in}"/>
+		<exec executable="${loc.turbsim}"><arg value="${tbs_in}" /></exec>
+		
+		<!-- run TurbSim EWM50 -->
+		<ac:var name="tbs_in" value="${input}/wind/turbsim/EWM/EWM50-${wtg.class.col}${wtg.class.rowl}.tbs"/>
+		<replaceregexp file="${tbs_orig}" match="(.*)[\s]+IEC_WindType" replace="${class}EWM50	 IEC_WindType" byline="true" />
+		<copy file="${tbs_orig}" tofile="${tbs_in}"/>
+		<exec executable="${loc.turbsim}"><arg value="${tbs_in}" /></exec>
+		
+		
+		<move todir="${wind}/EWM">
+			<fileset dir="${input}/wind/turbsim/EWM">
+				<include name="*.sum" />
+				<include name="*.bin" />
+				<include name="*.dat" />
+				<include name="*.hh" />
+				<include name="*.bts" />
+				<include name="*.wnd" />
+				<include name="*.twr" />
+				<include name="*.u" />
+				<include name="*.v" />
+				<include name="*.w" />
+				<include name="*.cts" />
+			</fileset>
+		</move>
+
+		<!-- restore and clean-->
+		<move file="${tbs_orig}.bak" tofile="${tbs_orig}"/>
+
+	</target>
+
+
+	<target name="wind.NWP" description="">
+	</target>
+
+
+	<!-- PRE - Create IECWind and TurbSim stuff -->
+	<target name="linear" description="Run single linearization">
+	</target>
+	<target name="campbell" description="Run linearized simulations to create Campbell's diagram">
+	</target>
+
+	<!-- CLEAN around -->
+	<target name="clean" description="remove intermediate files">
+		<delete dir="classes"/>
+		<delete file="hello.jar"/>
+	</target>
+
+	
+	
+</project>

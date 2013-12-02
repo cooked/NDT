@@ -33,6 +33,13 @@ public class OutListLabelProvider extends ColumnLabelProvider implements IStyled
 	}
 
 	@Override
+	public String getText(Object element) {
+		if(element instanceof OutCh)
+			return ((OutCh)element).usedName;
+		return super.getText(element);
+	}
+
+	@Override
 	public String getToolTipText(Object element) {
 		if (element instanceof OutCh)
 			return ((OutCh)element).description;
@@ -150,7 +157,7 @@ public class OutListLabelProvider extends ColumnLabelProvider implements IStyled
 
 			OutCh ch = (OutCh)cell.getElement();
 
-			styledString.append(ch.name);
+			styledString.append(ch.usedName);
 
 			cell.setText(styledString.getString());
 			if(ch.isAvailable()) {

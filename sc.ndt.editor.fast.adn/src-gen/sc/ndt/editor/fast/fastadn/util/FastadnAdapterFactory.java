@@ -140,6 +140,26 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
         return createnTwrShadAdapter();
       }
       @Override
+      public Adapter casebTwrPot(bTwrPot object)
+      {
+        return createbTwrPotAdapter();
+      }
+      @Override
+      public Adapter casebTwrShd(bTwrShd object)
+      {
+        return createbTwrShdAdapter();
+      }
+      @Override
+      public Adapter casefTwrFile(fTwrFile object)
+      {
+        return createfTwrFileAdapter();
+      }
+      @Override
+      public Adapter casebCalcTwrAero(bCalcTwrAero object)
+      {
+        return createbCalcTwrAeroAdapter();
+      }
+      @Override
       public Adapter casenShadHWid(nShadHWid object)
       {
         return createnShadHWidAdapter();
@@ -397,6 +417,66 @@ public class FastadnAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createnTwrShadAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.bTwrPot <em>bTwr Pot</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sc.ndt.editor.fast.fastadn.bTwrPot
+   * @generated
+   */
+  public Adapter createbTwrPotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.bTwrShd <em>bTwr Shd</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sc.ndt.editor.fast.fastadn.bTwrShd
+   * @generated
+   */
+  public Adapter createbTwrShdAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.fTwrFile <em>fTwr File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sc.ndt.editor.fast.fastadn.fTwrFile
+   * @generated
+   */
+  public Adapter createfTwrFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link sc.ndt.editor.fast.fastadn.bCalcTwrAero <em>bCalc Twr Aero</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see sc.ndt.editor.fast.fastadn.bCalcTwrAero
+   * @generated
+   */
+  public Adapter createbCalcTwrAeroAdapter()
   {
     return null;
   }

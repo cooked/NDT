@@ -19,20 +19,23 @@ import au.com.bytecode.opencsv.CSVReader;
 
 public class ModelFileFASTOut extends FileNRELOutput {
 	
-	public String[] 			channels;
+	public String[] 			channels; // time channel is included
 	public String[] 			units;
-	//public Matrix 				mData;
-	//public String[][]			data;
 	public ArrayList<float[]> 	data = new ArrayList<float[]>();
 	
 	public ArrayList<ArrayList<Float>> 	rowData = new ArrayList<ArrayList<Float>>();
 	public ArrayList<ArrayList<Float>> 	colData = new ArrayList<ArrayList<Float>>(); 
+	public HashMap<String,Integer> 		chIndex = new HashMap<String,Integer>();
 	public HashMap<String,float[][]> 	xySeries;	// float[][] of size[timesteps,2]
-		
+	
+	
 	public OutList outList;
 	
 	public ModelFileFASTOut(IFile file) {
 		super();
+		
+		outList = OutListRegistry.getInstance().getNewOutList();
+		
 		nHeadLines = 6;
 		
 		Path path = new Path(file.getFullPath().toOSString());
@@ -56,13 +59,37 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		return v;
 		
 	}
-	
+	public String getChannelsVisible() {
+		
+		String v = "[";
+		for(int i=0; i<channels.length-2;i++)
+			v = v.concat("true,");
+		v = v.concat("true]");
+		return v;
+		
+	}
+	public String getChannelsFirstVisible() {
+		
+		String v = "[true,";
+		for(int i=0; i<channels.length-3;i++)
+			v = v.concat("false,");
+		v = v.concat("false]");
+		return v;
+		
+	}
+
 	public String getChannelsNameString() {
 		
+		/*String names = "[";
+		for(int i=0; i<channels.length-1;i++)
+			names = names.concat("\""+channels[i].toString()+"\",");
+		names = names.concat("\""+channels[channels.length-1].toString()+"\"]");
+		*/
 		String names = "[";
 		for(int i=0; i<channels.length-1;i++)
 			names = names.concat("\""+channels[i].toString()+"\",");
 		names = names.concat("\""+channels[channels.length-1].toString()+"\"]");
+		
 		
 		return names;
 	
@@ -72,9 +99,13 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		return units;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getChannelsData() {
 		float[][] fl2 = data.toArray(new float[0][0]);
-		//String s = ArrayUtils.toString(fl2);
+
 		String t = Arrays.deepToString(fl2);
 		
 		return t;
@@ -85,6 +116,22 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		return xySeries.get(chName);
 	}
 	
+	public String getChannelByCol(String chName) {
+		float[][] ch = xySeries.get(chName);
+		
+		return Arrays.toString(ch);
+	}
+	
+	
+	public String getChannelString(String chName) {
+		
+		// see: http://stackoverflow.com/questions/2330942/java-variable-number-or-arguments-for-a-method
+		String t = Arrays.deepToString(getChannel(chName));
+		return t;
+		
+	
+	}
+
 	private void parse(String file) {
 		
 		final CSVReader reader;
@@ -100,8 +147,13 @@ public class ModelFileFASTOut extends FileNRELOutput {
 			
 			// parse names
 			channels = reader.readNext();				
-			for(int i=0; i<channels.length; i++)
+			for(int i=0; i<channels.length; i++) {
 				channels[i] = channels[i].trim();
+				chIndex.put(channels[i], i);
+			}
+			// init OutList, set available channels
+			outList.setAvailable(Arrays.asList(channels));
+			
 			
 			// parse units
 			units = reader.readNext();	
@@ -115,10 +167,8 @@ public class ModelFileFASTOut extends FileNRELOutput {
 			// parse data
 			String[] nextLine;
 		    while((nextLine = reader.readNext()) != null) {
-		    	
-		    	
-		    	
-		    	ArrayList<Float> row = new ArrayList<Float>();
+
+		    	ArrayList<Float> 			row = new ArrayList<Float>();
 		    	
 		    	Iterator<String> 			ilf = Arrays.asList(nextLine).iterator();
 		    	Iterator<ArrayList<Float>> 	ifd = colData.iterator();
@@ -148,7 +198,7 @@ public class ModelFileFASTOut extends FileNRELOutput {
 	}
 	
 	private void init() {
-		
+					
 		if(colData!=null) {
 			
 			xySeries = new HashMap<String, float[][]>();
@@ -161,6 +211,12 @@ public class ModelFileFASTOut extends FileNRELOutput {
 			while(ifd.hasNext()) { 
 		    	Float[] ch = ifd.next().toArray(new Float[0]);
 		    	
+		    	//
+		    	/*String name = OutList.filterAlterName(channels[index]);
+		    	OutCh c = outList.get(name);
+		    	c.setData(ArrayUtils.toPrimitive(ch),true);
+		    	*/
+		    	
 		    	// loop all the timesteps 
 				float[][] chXY = new float[colData.get(0).size()][2];
 		    	for(int i=0; i<ch.length; i++)
@@ -170,8 +226,7 @@ public class ModelFileFASTOut extends FileNRELOutput {
 		    	index++;
 			}
 	
-			// init OutList with available channels
-			outList = new OutList(Arrays.asList(channels));
+			
 						
 		}	
 			

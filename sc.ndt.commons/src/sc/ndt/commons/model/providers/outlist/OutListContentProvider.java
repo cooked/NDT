@@ -7,28 +7,22 @@ import org.eclipse.jface.viewers.Viewer;
 
 import sc.ndt.commons.model.OutBlock;
 
-
-//ContentProvider class
 public class OutListContentProvider implements ITreeContentProvider {
 
 	private final Object[] EMPTY_ARRAY = new Object[0];
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public Object[] getElements(Object inputElement) {
-
-		// chiamata nodi di primo livello non espansi
 
 		if(inputElement instanceof List)
 			return ((List<?>) inputElement).toArray();

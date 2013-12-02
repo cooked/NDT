@@ -1,12 +1,25 @@
 package sc.ndt.editor.fast.ui.wizard.project;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.TreeSet;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IEditorPart;
@@ -22,11 +35,14 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import sc.ndt.commons.http.HttpUtils;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
 import sc.ndt.editor.fast.ui.mpe.ui.FstMultiPageEditor;
 import sc.ndt.editor.iecwind.iecwindiec.ModelIecwindiec;
+import sc.nrel.nwtc.fast.launching.FASTRuntime;
+import sc.nrel.nwtc.fast.launching.IFASTInstall;
 
 public class FASTProjectWizard extends Wizard implements INewWizard,
 		IExecutableExtension {
@@ -74,7 +90,7 @@ public class FASTProjectWizard extends Wizard implements INewWizard,
 	    _page2.setDescription("Create something from scratch.");
 	    
 	    addPage(_page1);
-	    addPage(_page2);
+	    //addPage(_page2);
 	}
 
 	@Override
@@ -87,10 +103,70 @@ public class FASTProjectWizard extends Wizard implements INewWizard,
             System.err.println("location: " + location.toString()); //$NON-NLS-1$
         }
 
-        FASTProjectSupport.createProject(name, location);
+        IProject prj = FASTProjectSupport.createProject(name, location);
         BasicNewProjectResourceWizard.updatePerspective(_configurationElement);
 
+        // see:
+        // http://stackoverflow.com/questions/17011108/how-can-i-write-java-properties-in-a-defined-order
         
+        Properties properties = new Properties() {
+            @Override
+            public synchronized Enumeration<Object> keys() {
+                return Collections.enumeration(new TreeSet<Object>(super.keySet()));
+            }
+        };
+        
+        //IPath path = file.getProjectRelativePath();
+    	//String str = path.toString();
+    	
+        IFile f = prj.getFile("build.properties");
+        
+        InputStream is;
+		try {
+			is = f.getContents();
+			properties.load(is);
+			is.close();
+			
+			// TODO: get default from preferences
+			String fastLoc 		= "";
+			String turbsimLoc 	= "";
+			String crunchLoc 	= "";
+			
+			IFASTInstall fdi = FASTRuntime.getDefaultFASTInstall();
+			if(fdi!=null)
+				fastLoc = fdi.getInstallLocation().getAbsoluteFile().toString();
+			
+			if (Platform.getOS().matches(Platform.OS_WIN32))
+                fastLoc = fastLoc + File.separatorChar + "FAST.exe";
+			else if (Platform.getOS().matches(Platform.OS_MACOSX))
+				fastLoc = fastLoc + File.separatorChar + "FAST";
+
+			
+			// TODO: substitute constant string with variable
+			properties.setProperty("file.FAST", 	prj.getName()+".fst");
+			properties.setProperty("loc.fast", 		fastLoc);
+	        properties.setProperty("loc.turbsim", 	turbsimLoc);
+	        properties.setProperty("loc.crunch", 	crunchLoc);
+	        
+	        //f.getFullPath().toFile()
+	        File fi = f.getLocation().toFile();
+	        
+	        FileOutputStream os = new FileOutputStream(fi);
+	        properties.store(os,"");
+	        
+	        // see
+	        // http://www.eclipse.org/forums/index.php/t/99891/
+	        f.refreshLocal(IResource.NONE, null);
+	        
+	        
+		} catch (CoreException e1) {
+			e1.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		
         // http://blog.eclipse-tips.com/2008/07/how-to-create-new-file-wizard.html
         // http://wiki.eclipse.org/FAQ_How_do_I_find_the_active_workbench_page%3F
         try {
@@ -102,7 +178,7 @@ public class FASTProjectWizard extends Wizard implements INewWizard,
   
         	
         	// write to model of FAST.fst
-			editor = IDE.openEditor(page, project.getFile("FAST.fst"));
+			editor = IDE.openEditor(page, project.getFile(name+".fst"));
 			if(editor instanceof IXtextFormEditor)
 				document = ((IXtextFormEditor)editor).getXtextEditor("fst").getDocument();
 			else if(editor instanceof XtextEditor)
@@ -110,6 +186,8 @@ public class FASTProjectWizard extends Wizard implements INewWizard,
 			else
 				return true;
 			
+			
+			/* TODO 
 			document.modify(new IUnitOfWork.Void<XtextResource>() {
 				@Override
 				public void process(XtextResource resource) throws Exception {
@@ -166,7 +244,7 @@ public class FASTProjectWizard extends Wizard implements INewWizard,
 
 				};
 			});
-			
+			*/
 
 		} catch (PartInitException e) {
 			e.printStackTrace();

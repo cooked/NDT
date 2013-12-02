@@ -20,6 +20,8 @@ public class FastfstConverterService extends
 	@Inject
 	private STRINGValueConverter stringValueConverter;
 
+	
+	
 	// SC: see, http://www.eclipse.org/forums/index.php/mv/msg/282701/787968/
 	@ValueConverter(rule = "tNUMBER")
 	public IValueConverter<Float> gettNUMBERConverter() {
@@ -51,6 +53,8 @@ public class FastfstConverterService extends
 		return new tOutListValueConverter();
 	}
 
+	
+	
 	public class tNUMBERValueConverter extends DefaultTerminalConverters		implements IValueConverter<Float> {
 
 		public String toString(Float value) {

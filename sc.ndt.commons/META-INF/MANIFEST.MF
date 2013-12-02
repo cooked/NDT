@@ -2,23 +2,28 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: NDT Commons
 Bundle-SymbolicName: sc.ndt.commons;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: sc.ndt.commons.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.8.1",
  org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.8.2",
  org.eclipse.ui.views;bundle-version="3.6.100",
- au.com.bytecode.opencsv;bundle-version="2.3.0",
- com.google.guava;bundle-version="11.0.1",
+ au.com.bytecode.opencsv,
+ com.google.guava,
  org.eclipse.ui.console;bundle-version="3.5.100",
  org.apache.commons.lang,
- org.eclipse.ui.forms;bundle-version="3.6.0",
+ org.eclipse.ui.forms,
  org.eclipse.xtext.ui,
- org.eclipse.emf.common
+ org.eclipse.emf.common,
+ org.eclipse.text,
+ org.eclipse.jetty.server,
+ org.eclipse.jetty.util,
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: sc.ndt.commons.model,
+Export-Package: sc.ndt.commons.http,
+ sc.ndt.commons.model,
  sc.ndt.commons.model.providers,
  sc.ndt.commons.model.providers.airfoils,
  sc.ndt.commons.model.providers.outlist,

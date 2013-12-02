@@ -140,6 +140,42 @@ public interface FastadnFactory extends EFactory
   nTwrShad createnTwrShad();
 
   /**
+   * Returns a new object of class '<em>bTwr Pot</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>bTwr Pot</em>'.
+   * @generated
+   */
+  bTwrPot createbTwrPot();
+
+  /**
+   * Returns a new object of class '<em>bTwr Shd</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>bTwr Shd</em>'.
+   * @generated
+   */
+  bTwrShd createbTwrShd();
+
+  /**
+   * Returns a new object of class '<em>fTwr File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>fTwr File</em>'.
+   * @generated
+   */
+  fTwrFile createfTwrFile();
+
+  /**
+   * Returns a new object of class '<em>bCalc Twr Aero</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>bCalc Twr Aero</em>'.
+   * @generated
+   */
+  bCalcTwrAero createbCalcTwrAero();
+
+  /**
    * Returns a new object of class '<em>nShad HWid</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

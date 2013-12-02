@@ -700,6 +700,154 @@ public interface FastadnPackage extends EPackage
   int NTWR_SHAD_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.bTwrPotImpl <em>bTwr Pot</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sc.ndt.editor.fast.fastadn.impl.bTwrPotImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbTwrPot()
+   * @generated
+   */
+  int BTWR_POT = 13;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_POT__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_POT__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>bTwr Pot</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_POT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.bTwrShdImpl <em>bTwr Shd</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sc.ndt.editor.fast.fastadn.impl.bTwrShdImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbTwrShd()
+   * @generated
+   */
+  int BTWR_SHD = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_SHD__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_SHD__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>bTwr Shd</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BTWR_SHD_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.fTwrFileImpl <em>fTwr File</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sc.ndt.editor.fast.fastadn.impl.fTwrFileImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getfTwrFile()
+   * @generated
+   */
+  int FTWR_FILE = 15;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FTWR_FILE__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FTWR_FILE__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>fTwr File</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FTWR_FILE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.bCalcTwrAeroImpl <em>bCalc Twr Aero</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see sc.ndt.editor.fast.fastadn.impl.bCalcTwrAeroImpl
+   * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbCalcTwrAero()
+   * @generated
+   */
+  int BCALC_TWR_AERO = 16;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BCALC_TWR_AERO__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BCALC_TWR_AERO__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>bCalc Twr Aero</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BCALC_TWR_AERO_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link sc.ndt.editor.fast.fastadn.impl.nShadHWidImpl <em>nShad HWid</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -707,7 +855,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getnShadHWid()
    * @generated
    */
-  int NSHAD_HWID = 13;
+  int NSHAD_HWID = 17;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -744,7 +892,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getnTShadRefPt()
    * @generated
    */
-  int NT_SHAD_REF_PT = 14;
+  int NT_SHAD_REF_PT = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -781,7 +929,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getnRho()
    * @generated
    */
-  int NRHO = 15;
+  int NRHO = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -818,7 +966,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getnKinVisc()
    * @generated
    */
-  int NKIN_VISC = 16;
+  int NKIN_VISC = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -855,7 +1003,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getnDTAero()
    * @generated
    */
-  int NDT_AERO = 17;
+  int NDT_AERO = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -892,7 +1040,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getiNumFoil()
    * @generated
    */
-  int INUM_FOIL = 18;
+  int INUM_FOIL = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -929,7 +1077,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaAirfoilList()
    * @generated
    */
-  int AAIRFOIL_LIST = 19;
+  int AAIRFOIL_LIST = 23;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute list.
@@ -966,7 +1114,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getiBldNodes()
    * @generated
    */
-  int IBLD_NODES = 20;
+  int IBLD_NODES = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1003,7 +1151,7 @@ public interface FastadnPackage extends EPackage
    * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getaAirStat()
    * @generated
    */
-  int AAIR_STAT = 21;
+  int AAIR_STAT = 25;
 
   /**
    * The feature id for the '<em><b>Rnodes</b></em>' attribute list.
@@ -1682,6 +1830,134 @@ public interface FastadnPackage extends EPackage
    * @generated
    */
   EAttribute getnTwrShad_Name();
+
+  /**
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.bTwrPot <em>bTwr Pot</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>bTwr Pot</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrPot
+   * @generated
+   */
+  EClass getbTwrPot();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bTwrPot#isValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrPot#isValue()
+   * @see #getbTwrPot()
+   * @generated
+   */
+  EAttribute getbTwrPot_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bTwrPot#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrPot#getName()
+   * @see #getbTwrPot()
+   * @generated
+   */
+  EAttribute getbTwrPot_Name();
+
+  /**
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.bTwrShd <em>bTwr Shd</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>bTwr Shd</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrShd
+   * @generated
+   */
+  EClass getbTwrShd();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bTwrShd#isValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrShd#isValue()
+   * @see #getbTwrShd()
+   * @generated
+   */
+  EAttribute getbTwrShd_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bTwrShd#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bTwrShd#getName()
+   * @see #getbTwrShd()
+   * @generated
+   */
+  EAttribute getbTwrShd_Name();
+
+  /**
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.fTwrFile <em>fTwr File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>fTwr File</em>'.
+   * @see sc.ndt.editor.fast.fastadn.fTwrFile
+   * @generated
+   */
+  EClass getfTwrFile();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.fTwrFile#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sc.ndt.editor.fast.fastadn.fTwrFile#getValue()
+   * @see #getfTwrFile()
+   * @generated
+   */
+  EAttribute getfTwrFile_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.fTwrFile#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sc.ndt.editor.fast.fastadn.fTwrFile#getName()
+   * @see #getfTwrFile()
+   * @generated
+   */
+  EAttribute getfTwrFile_Name();
+
+  /**
+   * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.bCalcTwrAero <em>bCalc Twr Aero</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>bCalc Twr Aero</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bCalcTwrAero
+   * @generated
+   */
+  EClass getbCalcTwrAero();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bCalcTwrAero#isValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bCalcTwrAero#isValue()
+   * @see #getbCalcTwrAero()
+   * @generated
+   */
+  EAttribute getbCalcTwrAero_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link sc.ndt.editor.fast.fastadn.bCalcTwrAero#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see sc.ndt.editor.fast.fastadn.bCalcTwrAero#getName()
+   * @see #getbCalcTwrAero()
+   * @generated
+   */
+  EAttribute getbCalcTwrAero_Name();
 
   /**
    * Returns the meta object for class '{@link sc.ndt.editor.fast.fastadn.nShadHWid <em>nShad HWid</em>}'.
@@ -2519,6 +2795,110 @@ public interface FastadnPackage extends EPackage
      * @generated
      */
     EAttribute NTWR_SHAD__NAME = eINSTANCE.getnTwrShad_Name();
+
+    /**
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.bTwrPotImpl <em>bTwr Pot</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sc.ndt.editor.fast.fastadn.impl.bTwrPotImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbTwrPot()
+     * @generated
+     */
+    EClass BTWR_POT = eINSTANCE.getbTwrPot();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BTWR_POT__VALUE = eINSTANCE.getbTwrPot_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BTWR_POT__NAME = eINSTANCE.getbTwrPot_Name();
+
+    /**
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.bTwrShdImpl <em>bTwr Shd</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sc.ndt.editor.fast.fastadn.impl.bTwrShdImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbTwrShd()
+     * @generated
+     */
+    EClass BTWR_SHD = eINSTANCE.getbTwrShd();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BTWR_SHD__VALUE = eINSTANCE.getbTwrShd_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BTWR_SHD__NAME = eINSTANCE.getbTwrShd_Name();
+
+    /**
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.fTwrFileImpl <em>fTwr File</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sc.ndt.editor.fast.fastadn.impl.fTwrFileImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getfTwrFile()
+     * @generated
+     */
+    EClass FTWR_FILE = eINSTANCE.getfTwrFile();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FTWR_FILE__VALUE = eINSTANCE.getfTwrFile_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FTWR_FILE__NAME = eINSTANCE.getfTwrFile_Name();
+
+    /**
+     * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.bCalcTwrAeroImpl <em>bCalc Twr Aero</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see sc.ndt.editor.fast.fastadn.impl.bCalcTwrAeroImpl
+     * @see sc.ndt.editor.fast.fastadn.impl.FastadnPackageImpl#getbCalcTwrAero()
+     * @generated
+     */
+    EClass BCALC_TWR_AERO = eINSTANCE.getbCalcTwrAero();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BCALC_TWR_AERO__VALUE = eINSTANCE.getbCalcTwrAero_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BCALC_TWR_AERO__NAME = eINSTANCE.getbCalcTwrAero_Name();
 
     /**
      * The meta object literal for the '{@link sc.ndt.editor.fast.fastadn.impl.nShadHWidImpl <em>nShad HWid</em>}' class.

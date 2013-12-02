@@ -1,12 +1,16 @@
 package sc.ndt.editor.fast.ui.addon.mpe;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.editor.IFormPage;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.xtext.resource.XtextResource;
@@ -24,6 +28,8 @@ import sc.ndt.editor.fast.ui.addon.mpe.outline.AdnMultiPageContentOutline;
 //import sc.nrel.nwtc.fast.fMain.ModelFMain;
 //import sc.nrel.nwtc.fast.aerodyn.ui.internal.FAdynActivator;
 //import sc.nrel.nwtc.fast.aerodyn.ui.editors.*;
+
+
 
 
 import com.google.inject.Inject;
@@ -78,12 +84,10 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		xtextEditorAdn 	= fAdynInjector.getInstance(XtextEditor.class);
 	}
 
-	@Override
 	public Injector getXtextInjector(String key) {
 		return fAdynInjector;
 	}
 	
-	@Override
 	public XtextEditor getXtextEditor(String key) {
 		return xtextEditorAdn;
 	}
@@ -98,7 +102,6 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				
 			new IUnitOfWork<EObject, XtextResource>() {
 
-				@Override
 				public EObject exec(XtextResource res) throws Exception {
 
 					return res.getContents().get(0);
@@ -109,6 +112,20 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				
 		return out;
 		
+	}
+	
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		super.init(site, input);
+		
+		if (input instanceof FileEditorInput) {
+			// TODO add checks!!!!!!
+			IFile f = (IFile) input.getAdapter(IFile.class);
+			//setInput(new EditorInputFASTOut(f));
+			setPartName(f.getName());
+
+			
+		}
+
 	}
 	
 	protected void pageChange(int newPageIndex) {
@@ -203,13 +220,12 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 					
 			///// Formatted source			
 			int index = addPage(xtextEditorAdn, getEditorInput());
-			setPageText(index, getEditorInput().getName());
+			setPageText(index, "Source"/*getEditorInput().getName()*/);
 						
 			modelFst = xtextEditorAdn.getDocument().readOnly(
 				
 					new IUnitOfWork<ModelFastadn, XtextResource>() {
 
-						@Override
 						public ModelFastadn exec(XtextResource res) throws Exception {
 
 							return (ModelFastadn)res.getContents().get(0);
@@ -218,7 +234,7 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 					});
 			
 			///// Form
-			formPageMain = new AdnFormPage(this,"general","GUI");
+			formPageMain = new AdnFormPage(this,"general","Overview");
 			addPage(0,formPageMain);
 
 			setActivePage(0);
@@ -296,6 +312,12 @@ public class AdnMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
 		fContentOutline.setPageActive(outline);
+	}
+
+	@Override
+	public EObject getXtextEditorModel(String key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

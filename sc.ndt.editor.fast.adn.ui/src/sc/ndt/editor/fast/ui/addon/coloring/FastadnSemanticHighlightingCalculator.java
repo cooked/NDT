@@ -30,7 +30,6 @@ public class FastadnSemanticHighlightingCalculator implements ISemanticHighlight
 	private List<INode> 	lv;
 	private RuleCallImpl 	rc;
 	
-	@Override
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 
 		if (resource == null || resource.getParseResult() == null)

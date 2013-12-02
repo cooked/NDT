@@ -36,6 +36,7 @@ import sc.ndt.commons.model.AirfoilList;
 import sc.ndt.commons.model.BladeNodeAero;
 import sc.ndt.commons.model.BladeNodeAeroList;
 import sc.ndt.commons.model.OutList;
+import sc.ndt.commons.model.OutListRegistry;
 import sc.ndt.commons.model.providers.airfoils.AirfoilCellEditorProvider;
 import sc.ndt.commons.model.providers.airfoils.AirfoilListLabelProvider;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
@@ -72,7 +73,7 @@ public class AdnFormPage extends FormPage {
 
 	private DataBindingContext m_bindingContext;
 
-	public OutList outList = new OutList();
+	public OutList outList = OutListRegistry.getInstance().getNewOutList();
 
 	private ScrolledForm form;
 	private FormToolkit toolkit;
@@ -108,6 +109,11 @@ public class AdnFormPage extends FormPage {
 	private Table table;
 
 	private TableViewer tableViewer_1;
+	private Combo StallMod;
+	private Combo UseCm;
+	private Combo InfModel;
+	private Combo IndModel;
+	private Combo SysUnits;
 	
 	/**
 	 * Create the form page.
@@ -220,7 +226,7 @@ public class AdnFormPage extends FormPage {
 		// control decoration
 		fieldDecERR = FieldDecorationRegistry.getDefault().getFieldDecoration(
 				FieldDecorationRegistry.DEC_ERROR);
-		managedForm.getForm().getBody().setLayout(new FillLayout(SWT.VERTICAL));
+		managedForm.getForm().getBody().setLayout(new GridLayout(1, false));
 		
 		Composite composite_2 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
 		managedForm.getToolkit().adapt(composite_2);
@@ -248,7 +254,7 @@ public class AdnFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel, true, true);
 		lblNewLabel.setText("System of units");
 		
-		Combo SysUnits = new Combo(composite_1, SWT.NONE);
+		SysUnits = new Combo(composite_1, SWT.NONE);
 		SysUnits.setItems(new String[] {"SI"});
 		GridData gd_SysUnits = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
 		gd_SysUnits.widthHint = 100;
@@ -260,7 +266,7 @@ public class AdnFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel_1, true, true);
 		lblNewLabel_1.setText("Dynamic stall model");
 		
-		Combo StallMod = new Combo(composite_1, SWT.NONE);
+		StallMod = new Combo(composite_1, SWT.NONE);
 		StallMod.setItems(new String[] {"BEDDOES", "STEADY"});
 		StallMod.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(StallMod);
@@ -271,7 +277,7 @@ public class AdnFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel_2, true, true);
 		lblNewLabel_2.setText("Aerodynamic pitch moment model");
 		
-		Combo UseCm = new Combo(composite_1, SWT.NONE);
+		UseCm = new Combo(composite_1, SWT.NONE);
 		UseCm.setItems(new String[] {"USE_CM", "NO_CM"});
 		UseCm.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(UseCm);
@@ -279,15 +285,15 @@ public class AdnFormPage extends FormPage {
 		
 		Label lblInflowModel = managedForm.getToolkit().createLabel(composite_1, "Inflow model", SWT.NONE);
 		
-		Combo combo = new Combo(composite_1, SWT.NONE);
-		combo.setItems(new String[] {"DYNIN", "EQUIL"});
-		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(combo);
-		managedForm.getToolkit().paintBordersFor(combo);
+		InfModel = new Combo(composite_1, SWT.NONE);
+		InfModel.setItems(new String[] {"DYNIN", "EQUIL"});
+		InfModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(InfModel);
+		managedForm.getToolkit().paintBordersFor(InfModel);
 
 		// see
 		// http://stackoverflow.com/questions/14398966/check-checkbox-selection-from-within-listener
-		combo.addSelectionListener(new SelectionAdapter() {
+		InfModel.addSelectionListener(new SelectionAdapter() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -312,7 +318,7 @@ public class AdnFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel_3, true, true);
 		lblNewLabel_3.setText("Induction-factor model");
 		
-		Combo IndModel = new Combo(composite_1, SWT.NONE);
+		IndModel = new Combo(composite_1, SWT.NONE);
 		IndModel.setItems(new String[] {"NONE", "WAKE", "SWIRL"});
 		IndModel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(IndModel);
@@ -347,7 +353,26 @@ public class AdnFormPage extends FormPage {
 		managedForm.getToolkit().adapt(HLModel);
 		managedForm.getToolkit().paintBordersFor(HLModel);
 		
-		Section sctnNewSection_1 = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
+		Composite composite_9 = new Composite(composite_2, SWT.NONE);
+		managedForm.getToolkit().adapt(composite_9);
+		managedForm.getToolkit().paintBordersFor(composite_9);
+		composite_9.setLayout(new GridLayout(1, false));
+		
+		Composite composite_10 = new Composite(composite_9, SWT.NONE);
+		composite_10.setLayout(new GridLayout(2, false));
+		composite_10.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_10);
+		managedForm.getToolkit().paintBordersFor(composite_10);
+		
+		Label lblWindFile = new Label(composite_10, SWT.NONE);
+		managedForm.getToolkit().adapt(lblWindFile, true, true);
+		lblWindFile.setText("Wind file:");
+		
+		WindFile = new Text(composite_10, SWT.BORDER);
+		WindFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(WindFile, true, true);
+		
+		Section sctnNewSection_1 = managedForm.getToolkit().createSection(composite_9, Section.TWISTIE | Section.TITLE_BAR);
 		managedForm.getToolkit().paintBordersFor(sctnNewSection_1);
 		sctnNewSection_1.setText("Model");
 		sctnNewSection_1.setExpanded(true);
@@ -360,13 +385,12 @@ public class AdnFormPage extends FormPage {
 		gl_composite_3.verticalSpacing = 1;
 		composite_3.setLayout(gl_composite_3);
 		
-		Label lblWindFile = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblWindFile, true, true);
-		lblWindFile.setText("Wind file");
-		
-		WindFile = new Text(composite_3, SWT.BORDER);
-		WindFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(WindFile, true, true);
+		Composite composite = new Composite(composite_3, SWT.NONE);
+		composite.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		managedForm.getToolkit().adapt(composite);
+		managedForm.getToolkit().paintBordersFor(composite);
+		composite.setLayout(new GridLayout(1, false));
+		new Label(composite_3, SWT.NONE);
 		
 		Label lblNewLabel_4 = new Label(composite_3, SWT.NONE);
 		managedForm.getToolkit().adapt(lblNewLabel_4, true, true);
@@ -704,13 +728,55 @@ public class AdnFormPage extends FormPage {
 		m_bindingContext = new XtextDataBindingContext();
 		
 		initXDB_SimulationControl	(m_bindingContext);
-		
+		initXDB_Model				(m_bindingContext);
 		
 	}
 
-	
+	protected DataBindingContext initXDB_Model (DataBindingContext bindingContext) {
+
+		
+		return bindingContext;
+		
+	}
 	protected DataBindingContext initXDB_SimulationControl (DataBindingContext bindingContext) {
 
+		// this bind to the text not the index, simple and easy
+		IObservableValue observes0 = WidgetProperties.selection().observe(SysUnits);
+		IObservableValue modelValues0 = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_SIUnits(), bindFastadnPackage().getsUnits_Value()) ).observe(document);
+		bindingContext.bindValue(observes0, modelValues0, null, null);
+		
+		IObservableValue observes = WidgetProperties.selection().observe(StallMod);
+		IObservableValue modelValues = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_StallMod(), bindFastadnPackage().getsStallMod_Value()) ).observe(document);
+		bindingContext.bindValue(observes, modelValues, null, null);
+		
+		IObservableValue observesa = WidgetProperties.selection().observe(UseCm);
+		IObservableValue modelValuesa = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_UseCm(), bindFastadnPackage().getsUseCm_Value()) ).observe(document);
+		bindingContext.bindValue(observesa, modelValuesa, null, null);
+		
+		IObservableValue observesb = WidgetProperties.selection().observe(InfModel);
+		IObservableValue modelValuesb = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_InfModel(), bindFastadnPackage().getsInfModel_Value()) ).observe(document);
+		bindingContext.bindValue(observesb, modelValuesb, null, null);
+		
+		IObservableValue observesc = WidgetProperties.selection().observe(IndModel);
+		IObservableValue modelValuesc = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_IndModel(), bindFastadnPackage().getsIndModel_Value()) ).observe(document);
+		bindingContext.bindValue(observesc, modelValuesc, null, null);
+		
+		IObservableValue observesd = WidgetProperties.selection().observe(TLModel);
+		IObservableValue modelValuesd = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_TLModel(), bindFastadnPackage().getsTLModel_Value()) ).observe(document);
+		bindingContext.bindValue(observesd, modelValuesd, null, null);
+		
+		IObservableValue observese = WidgetProperties.selection().observe(HLModel);
+		IObservableValue modelValuese = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_HLModel(), bindFastadnPackage().getsHLModel_Value()) ).observe(document);
+		bindingContext.bindValue(observese, modelValuese, null, null);
+		
+		
+		
+		
+		IObservableValue observewfObserveWidget = WidgetProperties.text(SWT.Modify).observe(WindFile);
+		IObservableValue modelValueObserveValueww = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_WindFile(), bindFastadnPackage().getfWindFile_Value()) ).observe(document);
+		bindingContext.bindValue(observewfObserveWidget, modelValueObserveValueww, null, null);
+		
+		
 		// AToler
 		IObservableValue observeTextATolerObserveWidget = WidgetProperties.text(SWT.Modify).observe(AToler);
 		IObservableValue modelValueObserveValueA = XtextProperties.value(FeaturePath.fromList( bindFastadnPackage().getModelFastadn_Atoler(), bindFastadnPackage().getnAtoler_Value()) ).observe(document);

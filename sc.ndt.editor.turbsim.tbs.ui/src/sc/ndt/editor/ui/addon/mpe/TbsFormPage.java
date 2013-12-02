@@ -36,6 +36,7 @@ import sc.ndt.commons.model.AirfoilList;
 import sc.ndt.commons.model.BladeNodeAero;
 import sc.ndt.commons.model.BladeNodeAeroList;
 import sc.ndt.commons.model.OutList;
+import sc.ndt.commons.model.OutListRegistry;
 import sc.ndt.commons.model.providers.airfoils.AirfoilCellEditorProvider;
 import sc.ndt.commons.model.providers.airfoils.AirfoilListLabelProvider;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
@@ -74,7 +75,7 @@ public class TbsFormPage extends FormPage {
 
 	private DataBindingContext m_bindingContext;
 
-	public OutList outList = new OutList();
+	public OutList outList = OutListRegistry.getInstance().getNewOutList();
 
 	private ScrolledForm form;
 	private FormToolkit toolkit;

@@ -18,6 +18,10 @@ import sc.ndt.editor.fast.fastadn.Header;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastadn.aAirStat;
 import sc.ndt.editor.fast.fastadn.aAirfoilList;
+import sc.ndt.editor.fast.fastadn.bCalcTwrAero;
+import sc.ndt.editor.fast.fastadn.bTwrPot;
+import sc.ndt.editor.fast.fastadn.bTwrShd;
+import sc.ndt.editor.fast.fastadn.fTwrFile;
 import sc.ndt.editor.fast.fastadn.fWindFile;
 import sc.ndt.editor.fast.fastadn.iBldNodes;
 import sc.ndt.editor.fast.fastadn.iNumFoil;
@@ -67,6 +71,30 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case FastadnPackage.AAIRFOIL_LIST:
 				if(context == grammarAccess.getAAirfoilListRule()) {
 					sequence_aAirfoilList(context, (aAirfoilList) semanticObject); 
+					return; 
+				}
+				else break;
+			case FastadnPackage.BCALC_TWR_AERO:
+				if(context == grammarAccess.getBCalcTwrAeroRule()) {
+					sequence_bCalcTwrAero(context, (bCalcTwrAero) semanticObject); 
+					return; 
+				}
+				else break;
+			case FastadnPackage.BTWR_POT:
+				if(context == grammarAccess.getBTwrPotRule()) {
+					sequence_bTwrPot(context, (bTwrPot) semanticObject); 
+					return; 
+				}
+				else break;
+			case FastadnPackage.BTWR_SHD:
+				if(context == grammarAccess.getBTwrShdRule()) {
+					sequence_bTwrShd(context, (bTwrShd) semanticObject); 
+					return; 
+				}
+				else break;
+			case FastadnPackage.FTWR_FILE:
+				if(context == grammarAccess.getFTwrFileRule()) {
+					sequence_fTwrFile(context, (fTwrFile) semanticObject); 
 					return; 
 				}
 				else break;
@@ -283,15 +311,15 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 		feeder.accept(grammarAccess.getModelFastadnAccess().getWindFileFWindFileParserRuleCall_9_0(), semanticObject.getWindFile());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getHHNHHParserRuleCall_10_0(), semanticObject.getHH());
 		feeder.accept(grammarAccess.getModelFastadnAccess().getTwrShadNTwrShadParserRuleCall_11_0(), semanticObject.getTwrShad());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getShadHWidNShadHWidParserRuleCall_12_0(), semanticObject.getShadHWid());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getTShadRefPtNTShadRefPtParserRuleCall_13_0(), semanticObject.getTShadRefPt());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getRhoNRhoParserRuleCall_14_0(), semanticObject.getRho());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getKinViscNKinViscParserRuleCall_15_0(), semanticObject.getKinVisc());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getDTAeroNDTAeroParserRuleCall_16_0(), semanticObject.getDTAero());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getNumFoilINumFoilParserRuleCall_17_0(), semanticObject.getNumFoil());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_18_0(), semanticObject.getFoilNm());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getBldNodesIBldNodesParserRuleCall_19_0(), semanticObject.getBldNodes());
-		feeder.accept(grammarAccess.getModelFastadnAccess().getAirStatAAirStatParserRuleCall_20_0(), semanticObject.getAirStat());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getShadHWidNShadHWidParserRuleCall_12_0_0(), semanticObject.getShadHWid());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getTShadRefPtNTShadRefPtParserRuleCall_12_1_0(), semanticObject.getTShadRefPt());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getRhoNRhoParserRuleCall_13_0(), semanticObject.getRho());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getKinViscNKinViscParserRuleCall_14_0(), semanticObject.getKinVisc());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getDTAeroNDTAeroParserRuleCall_15_0(), semanticObject.getDTAero());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getNumFoilINumFoilParserRuleCall_16_0(), semanticObject.getNumFoil());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_17_0(), semanticObject.getFoilNm());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getBldNodesIBldNodesParserRuleCall_18_0(), semanticObject.getBldNodes());
+		feeder.accept(grammarAccess.getModelFastadnAccess().getAirStatAAirStatParserRuleCall_19_0(), semanticObject.getAirStat());
 		feeder.finish();
 	}
 	
@@ -318,6 +346,82 @@ public class FastadnSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 */
 	protected void sequence_aAirfoilList(EObject context, aAirfoilList semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=tBOOL name='CalcTwrAero')
+	 */
+	protected void sequence_bCalcTwrAero(EObject context, bCalcTwrAero semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BCALC_TWR_AERO__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BCALC_TWR_AERO__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BCALC_TWR_AERO__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BCALC_TWR_AERO__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBCalcTwrAeroAccess().getValueTBOOLParserRuleCall_1_0(), semanticObject.isValue());
+		feeder.accept(grammarAccess.getBCalcTwrAeroAccess().getNameCalcTwrAeroKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=tBOOL name='TwrPotent')
+	 */
+	protected void sequence_bTwrPot(EObject context, bTwrPot semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BTWR_POT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BTWR_POT__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BTWR_POT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BTWR_POT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBTwrPotAccess().getValueTBOOLParserRuleCall_1_0(), semanticObject.isValue());
+		feeder.accept(grammarAccess.getBTwrPotAccess().getNameTwrPotentKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=tBOOL name='TwrShadow')
+	 */
+	protected void sequence_bTwrShd(EObject context, bTwrShd semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BTWR_SHD__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BTWR_SHD__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.BTWR_SHD__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.BTWR_SHD__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getBTwrShdAccess().getValueTBOOLParserRuleCall_1_0(), semanticObject.isValue());
+		feeder.accept(grammarAccess.getBTwrShdAccess().getNameTwrShadowKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value=STRING name='TwrFile')
+	 */
+	protected void sequence_fTwrFile(EObject context, fTwrFile semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.FTWR_FILE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.FTWR_FILE__VALUE));
+			if(transientValues.isValueTransient(semanticObject, FastadnPackage.Literals.FTWR_FILE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FastadnPackage.Literals.FTWR_FILE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getFTwrFileAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getFTwrFileAccess().getNameTwrFileKeyword_3_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

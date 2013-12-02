@@ -2,24 +2,24 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: sc.ndt.editor.fast.out
 Bundle-SymbolicName: sc.ndt.editor.fast.out;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: sc.ndt.editor.fast.ui.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.ide;bundle-version="3.8.2",
  org.eclipse.core.resources;bundle-version="3.8.1",
- au.com.bytecode.opencsv;bundle-version="1.0.0",
- org.eclipse.ui.forms;bundle-version="3.5.200",
+ au.com.bytecode.opencsv,
+ org.eclipse.ui.forms,
  org.eclipse.ui.views;bundle-version="3.6.100",
  org.eclipse.jface.text,
  org.eclipse.ui.editors,
- sc.ndt.commons;bundle-version="1.0.0",
- org.eclipse.jetty.http;bundle-version="8.1.3",
- org.eclipse.jetty.server;bundle-version="8.1.3",
- org.eclipse.jetty.util;bundle-version="8.1.3",
- org.eclipse.jetty.io;bundle-version="8.1.3",
- org.eclipse.jetty.continuation;bundle-version="8.1.3",
- org.eclipse.jetty.security;bundle-version="8.1.3"
+ sc.ndt.commons,
+ org.eclipse.jetty.server,
+ org.eclipse.jetty.util,
+ org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.equinox.registry,
+ org.eclipse.ui.browser
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Stefano Cottafavi

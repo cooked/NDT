@@ -13,4 +13,6 @@ public interface IXtextFormEditor {
 	
 	public EObject getModelFromXtextEditor(XtextEditor editor);
 	
+	public EObject getXtextEditorModel(String key);
+	
 }

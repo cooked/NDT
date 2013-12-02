@@ -9,6 +9,9 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
@@ -17,8 +20,10 @@ import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.editor.IFormPage;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.editor.XtextEditor;
@@ -28,15 +33,15 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import sc.ndt.commons.model.EditorInputFASTOut;
 import sc.ndt.commons.model.ModelFileTowerSec;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
-import sc.ndt.editor.bmodesbmi.ModelBmodesbmi;
-import sc.ndt.editor.bmodesout.ModelBmodesout;
-import sc.ndt.editor.bmodestsp.ModelBmodestsp;
+import sc.ndt.editor.bmodes.ui.BmodesbmiFactory;
+import sc.ndt.editor.bmodes.ui.BmodesoutFactory;
+import sc.ndt.editor.bmodes.ui.BmodestspFactory;
+import sc.ndt.editor.bmodes.bmodesbmi.ModelBmodesbmi;
+import sc.ndt.editor.bmodes.bmodesout.ModelBmodesout;
+import sc.ndt.editor.bmodes.bmodestsp.ModelBmodestsp;
 import sc.ndt.editor.fast.fasttwr.ModelFasttwr;
 import sc.ndt.editor.fast.ui.FasttwrFactory;
-import sc.ndt.editor.fast.ui.addon.mpe.outline.TwrMultiPageContentOutline;
-import sc.ndt.editor.ui.BmodesbmiFactory;
-import sc.ndt.editor.ui.BmodesoutFactory;
-import sc.ndt.editor.ui.BmodestspFactory;
+import sc.ndt.editor.fast.ui.addon.mpe.outline.ChartOutline;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -62,36 +67,34 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	public Injector				fTspInjector;
 	public Injector				fOutInjector;
 	
-	// inner source editors
-	//public XtextEditor 			xtextEditorTwr;
-	//public XtextEditor 			xtextEditorBmi;
-	
 	// inner form editors
-	public TwrFormPage				formPageMain;
+	public TwrFormPage			formPageMain;
 		
 	// outline view
 	@Inject 
 	public OutlinePage 			outlinePageFMain;
 	
-	public Provider<XtextResourceSet> 	resourceSetProviderFAdyn;
+	//public Provider<XtextResourceSet> 	resourceSetProviderFAdyn;
 		
 	public ModelFasttwr 					modelTwr;
 	public ModelBmodesbmi 					modelBmi;
 	public ModelBmodestsp 					modelTsp;
 	public ModelBmodesout					modelOut;
+	public ModelFileTowerSec				fileTwrTsv;
 	
 	FasttwrFactory 		ff;
 	BmodesbmiFactory 	bf;
 	BmodestspFactory 	tf;
 	BmodesoutFactory 	of;
 	
-	private TwrMultiPageContentOutline fContentOutline;
-	
 	private HashMap<String,Injector>	xtextInjectors;
 	private HashMap<String,XtextEditor>	xtextEditors;
 	
-	public ModelFileTowerSec			fileTwrTsv;
 	
+	// other views
+	protected IContentOutlinePage 		contentOutlinePage;
+	protected PropertySheetPage 		propertySheetPage;
+
 	
 	public TwrMultiPageEditor() {
 		
@@ -111,8 +114,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		xtextEditors.put("bmi",xtextInjectors.get("bmi").getInstance(XtextEditor.class));
 		xtextEditors.put("tsp",xtextInjectors.get("tsp").getInstance(XtextEditor.class));
 		xtextEditors.put("out",xtextInjectors.get("out").getInstance(XtextEditor.class));
-
-		
+	
 	}
 
 	@Override
@@ -120,14 +122,8 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 		super.init(site,input);		
 
-		
-		if (input instanceof FileEditorInput) {
-
-			if(fileTwrTsv==null) {
-				IFile file = ((FileEditorInput)input).getFile();
-				fileTwrTsv = new ModelFileTowerSec(file);
-			}
-		}
+		if (input instanceof FileEditorInput && fileTwrTsv==null)
+			fileTwrTsv = new ModelFileTowerSec(((FileEditorInput)input).getFile());
 
 	}
 	
@@ -148,16 +144,11 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	public EObject getModelFromXtextEditor(XtextEditor editor) {
 		
 		EObject out = editor.getDocument().readOnly(
-				
 			new IUnitOfWork<EObject, XtextResource>() {
-
 				@Override
 				public EObject exec(XtextResource res) throws Exception {
-
 					return res.getContents().get(0);
-					
-				}
-					
+				}	
 			});
 				
 		return out;
@@ -168,7 +159,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 		super.pageChange(newPageIndex);		
 		IFormPage page = getActivePageInstance();	
-		updateContentOutline(page);
+		//updateContentOutline(page);
 		
 		/* TODO 
 		// manage pages
@@ -261,9 +252,9 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 					
 			// *.twr source			
 			int index = addPage(getXtextEditor("twr"), getEditorInput());
-			setPageText(index, getEditorInput().getName());
+			setPageText(index, "FAST input (.twr)"/*getEditorInput().getName()*/);
 						
-			modelTwr = (ModelFasttwr) getModelFromXtextEditor(getXtextEditor("twr"));
+			//modelTwr = (ModelFasttwr) getModelFromXtextEditor(getXtextEditor("twr"));
 			
 			IFile file = ((FileEditorInput) getEditorInput()).getFile();
 			Path path = new Path(file.getFullPath().toOSString());
@@ -275,7 +266,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				IPath p2 = path.removeFileExtension().addFileExtension("bmi");
 				FileEditorInput fei = new FileEditorInput(r.getFile(p2));
 				index = addPage(getXtextEditor("bmi"), fei);
-				setPageText(index, fei.getName());
+				setPageText(index, "BModes input (.bmi)"/*fei.getName()*/);
 			}
 
 			// *.tsp file
@@ -283,7 +274,7 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				IPath p2 = path.removeFileExtension().addFileExtension("tsp");
 				FileEditorInput fei = new FileEditorInput( r.getFile(p2) );
 				index = addPage(getXtextEditor("tsp"), fei);
-				setPageText(index, fei.getName());
+				setPageText(index, "FAST input properties (.tsp)"/*fei.getName()*/);
 			}
 
 			// *.out file
@@ -291,12 +282,12 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				IPath p2 = path.removeFileExtension().addFileExtension("out");
 				FileEditorInput fei = new FileEditorInput(r.getFile(p2));
 				index = addPage(getXtextEditor("out"), fei);
-				setPageText(index, fei.getName());
+				setPageText(index, "BModes output (.out)"/*fei.getName()*/);
 			}
 			
 			
 			// Form
-			formPageMain = new TwrFormPage(this,"general","GUI");
+			formPageMain = new TwrFormPage(this,"general","Overview");
 			addPage(0,formPageMain);
 
 			setActivePage(0);
@@ -312,42 +303,78 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	}
 	
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 				
 		if (adapter.equals(IPropertySheetPage.class)) {
-			// TODO
 			return null;
+			
 		} else if (IContentOutlinePage.class.equals(adapter)) {
 			return getContentOutline();
-		}
+		} 
+		
 		return super.getAdapter(adapter);
 		
 	}
  
-	public TwrMultiPageContentOutline getContentOutline() {
-		if (fContentOutline == null || fContentOutline.isDisposed()) {
-			fContentOutline = new TwrMultiPageContentOutline(this);
-			updateContentOutline(getActivePageInstance());
+	public IContentOutlinePage getContentOutline() {
+		if (contentOutlinePage == null)
+			contentOutlinePage = new ChartOutline();
+			///updateContentOutline(getActivePageInstance());
+		return contentOutlinePage;
+		
+		
+		/*if (fContentOutline == null ) {
+			//fContentOutline = new TwrMultiPageContentOutline(this);
+			//updateContentOutline(getActivePageInstance());
+			fContentOutline = //(IContentOutlinePage) ((XtextEditor)page).getAdapter(IContentOutlinePage.class);
+					(IContentOutlinePage) xtextEditors.get("twr").getAdapter(IContentOutlinePage.class);
 		}
 		return fContentOutline;
+		*/
 		
 	}
+
+	@Override
+	public EObject getXtextEditorModel(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
-	private void updateContentOutline(IFormPage page) {
+	/*private void updateContentOutline(IFormPage page) {
 		if (fContentOutline == null)
 			return;
 
-		/*ISortable*/IContentOutlinePage outline = null;
+		IContentOutlinePage outline = null;
 		if (page instanceof TwrFormPage)
 			outline = ((TwrFormPage)page).getContentOutline();
-		//else if (page instanceof XtextEditor)
-		//	outline = ((XtextEditor)page).getContentOutline();
+		else if (page instanceof XtextEditor)
+			outline = (IContentOutlinePage) ((XtextEditor)page).getAdapter(IContentOutlinePage.class);
 			
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
-		fContentOutline.setPageActive(outline);
+		//fContentOutline.setPageActive(outline);
 	}
+	
+	/*public IPropertySheetPage getPropertySheetPage() {
+		if (propertySheetPage == null) {
+			propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
+					@Override
+					public void setSelectionToViewer(List<?> selection) {
+						WebpageEditor.this.setSelectionToViewer(selection);
+						WebpageEditor.this.setFocus();
+					}
+
+					@Override
+					public void setActionBars(IActionBars actionBars) {
+						super.setActionBars(actionBars);
+						getActionBarContributor().shareGlobalActions(this, actionBars);
+					}
+				};
+			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+		}
+
+		return propertySheetPage;
+	}*/
 
 	
 }

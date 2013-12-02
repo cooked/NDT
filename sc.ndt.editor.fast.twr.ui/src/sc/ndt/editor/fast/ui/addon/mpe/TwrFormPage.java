@@ -1,5 +1,7 @@
 package sc.ndt.editor.fast.ui.addon.mpe;
 
+import java.util.Iterator;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
@@ -20,9 +22,13 @@ import org.eclipse.jface.viewers.ColumnViewerEditorActivationListener;
 import org.eclipse.jface.viewers.ColumnViewerEditorDeactivationEvent;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TextCellEditor;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.FillLayout;
@@ -34,7 +40,10 @@ import org.eclipse.swt.custom.SashForm;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.fieldassist.FieldDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;
+import org.eclipse.jface.layout.TableColumnLayout;
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.UpdateValueStrategy;
+import org.eclipse.core.databinding.conversion.Converter;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -49,11 +58,11 @@ import sc.ndt.commons.model.providers.StructListLabelProvider;
 import sc.ndt.commons.model.providers.airfoils.AirfoilCellEditorProvider;
 import sc.ndt.commons.model.providers.airfoils.AirfoilListLabelProvider;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
-import sc.ndt.editor.bmodesbmi.BmodesbmiPackage;
-import sc.ndt.editor.bmodesbmi.ModelBmodesbmi;
-import sc.ndt.editor.bmodestsp.BmodestspPackage;
-import sc.ndt.editor.bmodestsp.ModelBmodestsp;
-import sc.ndt.editor.bmodestsp.aSec;
+import sc.ndt.editor.bmodes.bmodesbmi.BmodesbmiPackage;
+import sc.ndt.editor.bmodes.bmodesbmi.ModelBmodesbmi;
+import sc.ndt.editor.bmodes.bmodestsp.BmodestspPackage;
+import sc.ndt.editor.bmodes.bmodestsp.ModelBmodestsp;
+import sc.ndt.editor.bmodes.bmodestsp.aSec;
 import sc.ndt.editor.fast.fasttwr.FasttwrPackage;
 import sc.ndt.editor.fast.fasttwr.ModelFasttwr;
 import sc.ndt.editor.fast.fasttwr.aTwrStat;
@@ -78,9 +87,12 @@ import ch.vorburger.xtext.databinding.XtextDataBindingContext;
 import ch.vorburger.xtext.databinding.XtextProperties;
 
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
@@ -88,6 +100,13 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Spinner;
 import org.eclipse.swt.events.MouseAdapter;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DropTarget;
+import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.custom.CCombo;
 
 
 
@@ -100,7 +119,7 @@ public class TwrFormPage extends FormPage {
 	private IToolBarManager manager;
 
 	public URI uri;
-	private Text FAStTunr2;
+	private Spinner FAStTunr2;
 	private Text radius;
 	private Text hub_rad;
 	private Text modepr;
@@ -108,6 +127,11 @@ public class TwrFormPage extends FormPage {
 
 	private TowerNodeStructList tnslTwr 	= new TowerNodeStructList(); // from tower.twr file
 	private TowerNodeStructList tnslTsv 	= new TowerNodeStructList(); // from section .tsv file
+	
+	public TowerNodeStructList getTnslTsv() {
+		return tnslTsv;
+	}
+
 	private TowerNodeStructList tnslTsp 	= new TowerNodeStructList(); // from bmodes .tsp file
 	
 	private ModelFasttwr 	mTwr;
@@ -117,15 +141,15 @@ public class TwrFormPage extends FormPage {
 	private TableViewer tableViewer_1;
 
 	private Menu contextMenu;
-	private Text TwrFADmp1;
-	private Text TwrFADmp2;
+	private Spinner TwrFADmp1;
+	private Spinner TwrFADmp2;
 
 	private FieldDecoration fieldDecERR;
-	private Text TwrSSDmp1;
-	private Text TwrSSDmp2;
-	private Text FAStTunr1;
-	private Text SSStTunr2;
-	private Text SSStTunr1;
+	private Spinner TwrSSDmp1;
+	private Spinner TwrSSDmp2;
+	private Spinner FAStTunr1;
+	private Spinner SSStTunr2;
+	private Spinner SSStTunr1;
 	private Text tip_mass;
 	private Text cm_loc;
 	private Text cm_axial;
@@ -135,16 +159,16 @@ public class TwrFormPage extends FormPage {
 	private Text iyy_tip;
 	private Text iyz_tip;
 	private Text izz_tip;
-	private Text sec_mass_mult;
-	private Text flp_iner_mult;
-	private Text lag_iner_mult;
-	private Text flp_stff_mult;
-	private Text edge_stff_mult;
-	private Text tor_stff_mult;
-	private Text axial_stff_mult;
-	private Text cg_offst_mult;
-	private Text sc_offst_mult;
-	private Text tc_offst_mult;
+	private Spinner sec_mass_mult;
+	private Spinner flp_iner_mult;
+	private Spinner lag_iner_mult;
+	private Spinner flp_stff_mult;
+	private Spinner edge_stff_mult;
+	private Spinner tor_stff_mult;
+	private Spinner axial_stff_mult;
+	private Spinner cg_offst_mult;
+	private Spinner sc_offst_mult;
+	private Spinner tc_offst_mult;
 	
 	TwrMultiPageEditor tmpe;
 
@@ -180,7 +204,7 @@ public class TwrFormPage extends FormPage {
 		if(getEditor() instanceof IXtextFormEditor) {
 			IXtextFormEditor 	xfe = (IXtextFormEditor)getEditor();
 			
-			XtextEditor 		eTwr 	= xfe.getXtextEditor("twr");
+			XtextEditor eTwr = xfe.getXtextEditor("twr");
 			mTwr = (ModelFasttwr) xfe.getModelFromXtextEditor(eTwr);
 			docTwr = eTwr.getDocument();
 			
@@ -258,46 +282,7 @@ public class TwrFormPage extends FormPage {
 	protected void refresh() {
 		
 		tnslTsv.calcHtFract();
-		tableViewer_1.setInput(tnslTsv);
 
-		// when modify table notify the document
-		docTwr.modify(new IUnitOfWork.Void<XtextResource>() {
-			@Override
-			public void process(XtextResource resource) throws Exception {
-				ModelFasttwr m = (ModelFasttwr) resource.getContents().get(0);
-				if (m != null && ast != null){
-					
-					m.getNTwInpSt().setValue(tnslTsv.size());
-					
-					ast.getHtFract().clear();
-					ast.getHtFract().addAll(tnslTsv.getListHtFract());
-					ast.getTMassDen().clear();
-					ast.getTMassDen().addAll(tnslTsv.getListTMassDen());
-					ast.getTwFAStif().clear();
-					ast.getTwFAStif().addAll(tnslTsv.getListTwFAStif());
-					ast.getTwSSStif().clear();
-					ast.getTwSSStif().addAll(tnslTsv.getListTwSSStif());
-					ast.getTwGJStif().clear();
-					ast.getTwGJStif().addAll(tnslTsv.getListTwGJStif());
-					ast.getTwEAStif().clear();
-					ast.getTwEAStif().addAll(tnslTsv.getListTwEAStif());
-					ast.getTwFAIner().clear();
-					ast.getTwFAIner().addAll(tnslTsv.getListTwFAIner());
-					ast.getTwSSIner().clear();
-					ast.getTwSSIner().addAll(tnslTsv.getListTwSSIner());
-					ast.getTwFAcgOf().clear();
-					ast.getTwFAcgOf().addAll(tnslTsv.getListTwFAcgOf());
-					ast.getTwSScgOf().clear();
-					ast.getTwSScgOf().addAll(tnslTsv.getListTwSScgOf());
-					
-					m.setTwrStat(ast);
-				}
-				else
-					throw new IllegalStateException("Uh uh, no content");
-
-			};
-		});
-		
 		// TODO aggiungere qui codice per mantenere i file NON SINCRONIZZATI,
 		// ovvero fare in modo che dal form non si modifichi il file di bmodes
 		
@@ -344,6 +329,67 @@ public class TwrFormPage extends FormPage {
 			};
 		});
 
+		// when modify table notify the document
+		//deactivateBinding();
+				docTwr.modify(new IUnitOfWork.Void<XtextResource>() {
+					@Override
+					public void process(XtextResource resource) throws Exception {
+						ModelFasttwr m = (ModelFasttwr) resource.getContents().get(0);
+						if (m != null && ast != null){
+							
+							int size = tnslTsv.size();
+							
+							m.getNTwInpSt().setValue(size);
+							
+							ast.getHtFract().clear();
+							ast.getTMassDen().clear();
+							ast.getTwFAStif().clear();
+							ast.getTwSSStif().clear();
+							ast.getTwGJStif().clear();
+							ast.getTwEAStif().clear();
+							ast.getTwFAIner().clear();
+							ast.getTwSSIner().clear();
+							ast.getTwFAcgOf().clear();
+							ast.getTwSScgOf().clear();
+							
+							for(int i=0; i<size; i++) {
+								ast.getHtFract().add(tnslTsv.getListHtFract().get(i));
+								ast.getTMassDen().add(tnslTsv.getListTMassDen().get(i));
+								ast.getTwFAStif().add(tnslTsv.getListTwFAStif().get(i));
+								ast.getTwSSStif().add(tnslTsv.getListTwSSStif().get(i));
+								ast.getTwGJStif().add(tnslTsv.getListTwGJStif().get(i));
+								ast.getTwEAStif().add(tnslTsv.getListTwEAStif().get(i));
+								ast.getTwFAIner().add(tnslTsv.getListTwFAIner().get(i));
+								ast.getTwSSIner().add(tnslTsv.getListTwSSIner().get(i));
+								ast.getTwFAcgOf().add(tnslTsv.getListTwFAcgOf().get(i));
+								ast.getTwSScgOf().add(tnslTsv.getListTwSScgOf().get(i));
+							}
+								
+							/*
+							ast.getHtFract().addAll(tnslTsv.getListHtFract());
+							ast.getTMassDen().addAll(tnslTsv.getListTMassDen());
+							ast.getTwFAStif().addAll(tnslTsv.getListTwFAStif());
+							ast.getTwSSStif().addAll(tnslTsv.getListTwSSStif());
+							ast.getTwGJStif().addAll(tnslTsv.getListTwGJStif())
+							ast.getTwEAStif().addAll(tnslTsv.getListTwEAStif());
+							ast.getTwFAIner().addAll(tnslTsv.getListTwFAIner());
+							ast.getTwSSIner().addAll(tnslTsv.getListTwSSIner());
+							ast.getTwFAcgOf().addAll(tnslTsv.getListTwFAcgOf());
+							ast.getTwSScgOf().addAll(tnslTsv.getListTwSScgOf());
+							*/
+							/*Iterator<Float> it = tnslTsv.getListHtFract().iterator();
+							while(it.hasNext())
+								ast.getHtFract().add(it.next());*/
+							
+							m.setTwrStat(ast);
+						}
+						else
+							throw new IllegalStateException("Uh uh, no content");
+
+					};
+				});
+				
+		tableViewer_1.setInput(tnslTsv);
 		tableViewer_1.refresh();
 		setDirty(true);
 		
@@ -351,6 +397,9 @@ public class TwrFormPage extends FormPage {
 
 	// see: http://eclipseo.blogspot.it/2013/09/making-your-formeditor-dirty.html
 	protected boolean dirty = false;
+
+	protected int currentColumn;
+	private CCombo hub_conn;
 	
     public boolean isDirty() {
        return dirty;
@@ -399,6 +448,7 @@ public class TwrFormPage extends FormPage {
 	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
+		managedForm.getForm().setAlwaysShowScrollBars(true);
 
 		form = managedForm.getForm();
 		form.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));		
@@ -442,298 +492,21 @@ public class TwrFormPage extends FormPage {
 		// control decoration
 		fieldDecERR = FieldDecorationRegistry.getDefault().getFieldDecoration(
 				FieldDecorationRegistry.DEC_ERROR);
-		FillLayout fillLayout = new FillLayout(SWT.HORIZONTAL);
-		fillLayout.marginHeight = 5;
-		managedForm.getForm().getBody().setLayout(fillLayout);
+		GridLayout gridLayout = new GridLayout(1, false);
+		gridLayout.marginWidth = 0;
+		managedForm.getForm().getBody().setLayout(gridLayout);
 		
-		SashForm sashForm = new SashForm(managedForm.getForm().getBody(), SWT.VERTICAL);
-		managedForm.getToolkit().adapt(sashForm);
-		managedForm.getToolkit().paintBordersFor(sashForm);
-		
-		Composite composite_14 = new Composite(sashForm, SWT.NONE);
-		managedForm.getToolkit().adapt(composite_14);
-		managedForm.getToolkit().paintBordersFor(composite_14);
-		GridLayout gl_composite_14 = new GridLayout(1, false);
-		gl_composite_14.marginHeight = 0;
-		composite_14.setLayout(gl_composite_14);
-		
-		
-		Composite composite_2 = new Composite(sashForm, SWT.NONE);
-		managedForm.getToolkit().adapt(composite_2);
-		managedForm.getToolkit().paintBordersFor(composite_2);
-		FillLayout fl_composite_2 = new FillLayout(SWT.HORIZONTAL);
-		fl_composite_2.spacing = 5;
-		fl_composite_2.marginWidth = 5;
-		composite_2.setLayout(fl_composite_2);
-		
-		
-		
-		
-		Section sctnNewSection = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
-		managedForm.getToolkit().paintBordersFor(sctnNewSection);
-		sctnNewSection.setText("Tower Parameters");
-		sctnNewSection.setExpanded(true);
-		
-		Composite composite_1 = new Composite(sctnNewSection, SWT.NONE);
-		sctnNewSection.setClient(composite_1);
-		managedForm.getToolkit().adapt(composite_1);
-		managedForm.getToolkit().paintBordersFor(composite_1);
-		GridLayout gl_composite_1 = new GridLayout(2, false);
-		gl_composite_1.verticalSpacing = 1;
-		composite_1.setLayout(gl_composite_1);
-		
-		Label lblNewLabel = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel, true, true);
-		lblNewLabel.setText("Tower 1st fore-aft mode damping ratio:");
-		
-		TwrFADmp1 = new Text(composite_1, SWT.BORDER);
-		GridData gd_TwrFADmp1 = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_TwrFADmp1.widthHint = 40;
-		TwrFADmp1.setLayoutData(gd_TwrFADmp1);
-		
-		Label lblNewLabel_1 = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_1, true, true);
-		lblNewLabel_1.setText("Tower 2st fore-aft mode damping ratio:");
-		
-		TwrFADmp2 = new Text(composite_1, SWT.BORDER);
-		TwrFADmp2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		
-		Label lblNewLabel_2 = new Label(composite_1, SWT.NONE);
-		lblNewLabel_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(lblNewLabel_2, true, true);
-		lblNewLabel_2.setText("Tower 1st side-side mode damping ratio:");
-		
-		TwrSSDmp1 = new Text(composite_1, SWT.BORDER);
-		TwrSSDmp1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(TwrSSDmp1, true, true);
-		
-		Label lblInflowModel = managedForm.getToolkit().createLabel(composite_1, "Tower 2st side-side mode damping ratio:", SWT.NONE);
-		lblInflowModel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		
-		TwrSSDmp2 = new Text(composite_1, SWT.BORDER);
-		TwrSSDmp2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(TwrSSDmp2, true, true);
-		
-		Label lblNewLabel_3 = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_3, true, true);
-		lblNewLabel_3.setText("Tower 1st fore-aft mode tuner:");
-		
-		FAStTunr1 = new Text(composite_1, SWT.BORDER);
-		FAStTunr1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(FAStTunr1, true, true);
-		
-		Label lblInductionfactorTolerance = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblInductionfactorTolerance, true, true);
-		lblInductionfactorTolerance.setText("Tower 2nd fore-aft mode tuner:");
-		
-		FAStTunr2 = new Text(composite_1, SWT.BORDER);
-		FAStTunr2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(FAStTunr2, true, true);
-		
-		Label lblNewLabel_5 = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_5, true, true);
-		lblNewLabel_5.setText("Tower 1st side-side mode tuner:");
-		
-		SSStTunr1 = new Text(composite_1, SWT.BORDER);
-		SSStTunr1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(SSStTunr1, true, true);
-		
-		Label lblNewLabel_6 = new Label(composite_1, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_6, true, true);
-		lblNewLabel_6.setText("Tower 2nd side-side mode tuner:");
-		
-		SSStTunr2 = new Text(composite_1, SWT.BORDER);
-		SSStTunr2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		managedForm.getToolkit().adapt(SSStTunr2, true, true);
-		
-		Section sctnNewSection_2 = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
-		managedForm.getToolkit().paintBordersFor(sctnNewSection_2);
-		sctnNewSection_2.setText("Scaling factors");
-		sctnNewSection_2.setExpanded(true);
-		
-		Composite composite_9 = managedForm.getToolkit().createComposite(sctnNewSection_2, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite_9);
-		sctnNewSection_2.setClient(composite_9);
-		GridLayout gl_composite_9 = new GridLayout(2, false);
-		gl_composite_9.verticalSpacing = 1;
-		composite_9.setLayout(gl_composite_9);
-		
-		Label lblNewLabel_10 = managedForm.getToolkit().createLabel(composite_9, "Mass density multiplier:", SWT.NONE);
-		
-		sec_mass_mult = new Text(composite_9, SWT.BORDER);
-		GridData gd_sec_mass_mult = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_sec_mass_mult.widthHint = 40;
-		sec_mass_mult.setLayoutData(gd_sec_mass_mult);
-		
-		Label lblNewLabel_11 = managedForm.getToolkit().createLabel(composite_9, "Fore-aft inertia multiplier:", SWT.NONE);
-		
-		flp_iner_mult = new Text(composite_9, SWT.BORDER);
-		flp_iner_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_12 = managedForm.getToolkit().createLabel(composite_9, "Side-side inertia multiplier:", SWT.NONE);
-		
-		lag_iner_mult = new Text(composite_9, SWT.BORDER);
-		lag_iner_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_13 = managedForm.getToolkit().createLabel(composite_9, "Fore-aft bending stiffness multiplier:", SWT.NONE);
-		
-		flp_stff_mult = new Text(composite_9, SWT.BORDER);
-		flp_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_14 = managedForm.getToolkit().createLabel(composite_9, "Side-side bending stiffness multiplier:", SWT.NONE);
-		
-		edge_stff_mult = new Text(composite_9, SWT.BORDER);
-		edge_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_15 = managedForm.getToolkit().createLabel(composite_9, "Torsion stiffness multiplier:", SWT.NONE);
-		
-		tor_stff_mult = new Text(composite_9, SWT.BORDER);
-		tor_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_16 = managedForm.getToolkit().createLabel(composite_9, "Axial stiffness multiplier:", SWT.NONE);
-		
-		axial_stff_mult = new Text(composite_9, SWT.BORDER);
-		axial_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_17 = managedForm.getToolkit().createLabel(composite_9, "CG offset multiplier:", SWT.NONE);
-		
-		cg_offst_mult = new Text(composite_9, SWT.BORDER);
-		cg_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_18 = managedForm.getToolkit().createLabel(composite_9, "Shear center multiplier:", SWT.NONE);
-		
-		sc_offst_mult = new Text(composite_9, SWT.BORDER);
-		sc_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
-		Label lblNewLabel_19 = managedForm.getToolkit().createLabel(composite_9, "Tension center multiplier:", SWT.NONE);
-		
-		tc_offst_mult = new Text(composite_9, SWT.BORDER);
-		tc_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		Composite composite_10 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
+		GridData gd_composite_10 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_composite_10.widthHint = 920;
+		composite_10.setLayoutData(gd_composite_10);
+		managedForm.getToolkit().adapt(composite_10);
+		managedForm.getToolkit().paintBordersFor(composite_10);
+		composite_10.setLayout(new GridLayout(3, false));
 		
 
-
-		Section sctnNewSection_3 = managedForm.getToolkit().createSection(composite_2, Section.TWISTIE | Section.TITLE_BAR);
-		managedForm.getToolkit().paintBordersFor(sctnNewSection_3);
-		sctnNewSection_3.setText("Bmodes.bmi");
-		sctnNewSection_3.setExpanded(true);
-		
-		
-		Composite composite_3 = new Composite(sctnNewSection_3, SWT.NONE);
-		managedForm.getToolkit().adapt(composite_3);
-		managedForm.getToolkit().paintBordersFor(composite_3);
-		sctnNewSection_3.setClient(composite_3);
-		GridLayout gl_composite_3 = new GridLayout(2, false);
-		gl_composite_3.verticalSpacing = 1;
-		composite_3.setLayout(gl_composite_3);
-		
-		Label labTowerHeigth = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(labTowerHeigth, true, true);
-		labTowerHeigth.setText("Tower heigth");
-		
-		radius = new Text(composite_3, SWT.BORDER);
-		radius.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(radius, true, true);
-		
-		Label lblNewLabel_4 = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_4, true, true);
-		lblNewLabel_4.setText("Tower rigid base");
-		
-		hub_rad = new Text(composite_3, SWT.BORDER);
-		hub_rad.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(hub_rad, true, true);
-		
-		Label lblNewLabel_7 = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_7, true, true);
-		lblNewLabel_7.setText("Root constraint type");
-		
-		Combo hu_conn = new Combo(composite_3, SWT.NONE);
-		hu_conn.setItems(new String[] {"CANTILEVERED", "AXIAL+TORSION", "FREE-FREE"});
-		hu_conn.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(hu_conn);
-		managedForm.getToolkit().paintBordersFor(hu_conn);
-		
-		Label lblTowershadowHalfWidth = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblTowershadowHalfWidth, true, true);
-		lblTowershadowHalfWidth.setText("Modes to be printed");
-		
-		modepr = new Text(composite_3, SWT.BORDER);
-		modepr.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(modepr, true, true);
-		
-		Button btnCheckButton = new Button(composite_3, SWT.CHECK);
-		btnCheckButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		managedForm.getToolkit().adapt(btnCheckButton, true, true);
-		btnCheckButton.setText("tab-delimited output tables");
-		
-		Button btnCheckButton_1 = new Button(composite_3, SWT.CHECK);
-		btnCheckButton_1.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
-		managedForm.getToolkit().adapt(btnCheckButton_1, true, true);
-		btnCheckButton_1.setText("output twist @ mid-nodes");
-		
-		Label lblNewLabel_8 = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_8, true, true);
-		lblNewLabel_8.setText("Tower-top mass");
-		
-		tip_mass = new Text(composite_3, SWT.BORDER);
-		tip_mass.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(tip_mass, true, true);
-		
-		Label lblNewLabel_9 = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblNewLabel_9, true, true);
-		lblNewLabel_9.setText("CM fore-aft offset");
-		
-		cm_loc = new Text(composite_3, SWT.BORDER);
-		cm_loc.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(cm_loc, true, true);
-		
-		Label lblCmTopOffset = new Label(composite_3, SWT.NONE);
-		managedForm.getToolkit().adapt(lblCmTopOffset, true, true);
-		lblCmTopOffset.setText("CM top offset");
-		
-		cm_axial = new Text(composite_3, SWT.BORDER);
-		cm_axial.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(cm_axial, true, true);
-		
-		Composite composite_8 = new Composite(composite_3, SWT.NONE);
-		composite_8.setLayout(new GridLayout(3, false));
-		composite_8.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 2, 1));
-		managedForm.getToolkit().adapt(composite_8);
-		managedForm.getToolkit().paintBordersFor(composite_8);
-		
-		ixx_tip = new Text(composite_8, SWT.BORDER);
-		ixx_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(ixx_tip, true, true);
-		
-		ixy_tip = new Text(composite_8, SWT.BORDER);
-		ixy_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(ixy_tip, true, true);
-		
-		izx_tip = new Text(composite_8, SWT.BORDER);
-		izx_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(izx_tip, true, true);
-		new Label(composite_8, SWT.NONE);
-		
-		iyy_tip = new Text(composite_8, SWT.BORDER);
-		iyy_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(iyy_tip, true, true);
-		
-		iyz_tip = new Text(composite_8, SWT.BORDER);
-		iyz_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(iyz_tip, true, true);
-		new Label(composite_8, SWT.NONE);
-		new Label(composite_8, SWT.NONE);
-		
-		izz_tip = new Text(composite_8, SWT.BORDER);
-		izz_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(izz_tip, true, true);
-		new Label(composite_3, SWT.NONE);
-		new Label(composite_3, SWT.NONE);
-		
-
-		Section sctnOutputList = managedForm.getToolkit().createSection(composite_14, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
-		GridData gd_sctnOutputList = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
-		gd_sctnOutputList.heightHint = 500;
-		sctnOutputList.setLayoutData(gd_sctnOutputList);
+		Section sctnOutputList = managedForm.getToolkit().createSection(composite_10, Section.EXPANDED | Section.TITLE_BAR);
+		sctnOutputList.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		managedForm.getToolkit().paintBordersFor(sctnOutputList);
 		sctnOutputList.setText("Tower Structure");
 		
@@ -820,6 +593,9 @@ public class TwrFormPage extends FormPage {
 				gl_composite_7.marginHeight = 0;
 				composite_7.setLayout(gl_composite_7);
 				
+				/*TableColumnLayout ly = new TableColumnLayout();
+				composite_7.setLayout(ly);*/
+				
 				
 				
 				
@@ -831,6 +607,30 @@ public class TwrFormPage extends FormPage {
 				table.setLinesVisible(true);
 				table.setHeaderVisible(true);
 				managedForm.getToolkit().paintBordersFor(table);
+				
+				tableViewer_1.addSelectionChangedListener(new ISelectionChangedListener() {
+					public void selectionChanged(SelectionChangedEvent event) {
+						@SuppressWarnings("unused")
+						IStructuredSelection selection = (IStructuredSelection) tableViewer_1.getSelection();
+						// ... Do something with selection
+						int i = 0;  
+					}
+				});
+				table.addListener(SWT.Selection, new Listener() {
+					@Override
+				    public void handleEvent(Event event) {
+				    }
+				});
+				table.addListener(SWT.MouseDown, new Listener() {
+					@Override
+				    public void handleEvent(Event event) {
+				        Point p = new Point(event.x, event.y);
+				        ViewerCell cell = tableViewer_1.getCell(p);
+				        int columnIndex = cell.getColumnIndex();
+				        currentColumn = columnIndex;
+				        //System.out.println(currentColumn);
+				    }
+				});
 				
 				TableViewerColumn tabViewColID = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tabColID = tabViewColID.getColumn();
@@ -844,11 +644,19 @@ public class TwrFormPage extends FormPage {
 						  return Integer.toString(tnslTsv.indexOf( (TowerNodeStruct) element));
 					  }
 					});
+				tabColID.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						
+						tableViewer_1.setSorter(new FirstSorter());
+						
+					}
+				});
 				
 				TableViewerColumn tableViewerColumn = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tabColHt = tableViewerColumn.getColumn();
 				tabColHt.setAlignment(SWT.RIGHT);
-				tabColHt.setWidth(50);
+				tabColHt.setWidth(60);
 				tabColHt.setText("HtFract");
 				tableViewerColumn.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -887,7 +695,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_7 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnThickmm = tableViewerColumn_7.getColumn();
 				tblclmnThickmm.setAlignment(SWT.RIGHT);
-				tblclmnThickmm.setWidth(70);
+				tblclmnThickmm.setWidth(60);
 				tblclmnThickmm.setText("Thick [mm]");
 				tableViewerColumn_7.setLabelProvider(new ColumnLabelProvider() {
 					  @Override
@@ -900,7 +708,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_1 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnTwistdeg = tableViewerColumn_1.getColumn();
 				tblclmnTwistdeg.setAlignment(SWT.RIGHT);
-				tblclmnTwistdeg.setWidth(80);
+				tblclmnTwistdeg.setWidth(60);
 				tblclmnTwistdeg.setText("Density [kg/m]");
 				tableViewerColumn_1.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -948,7 +756,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_5 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnPrint = tableViewerColumn_5.getColumn();
 				tblclmnPrint.setAlignment(SWT.RIGHT);
-				tblclmnPrint.setWidth(50);
+				tblclmnPrint.setWidth(70);
 				tblclmnPrint.setText("EA Stif");
 				tableViewerColumn_5.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -960,7 +768,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_8 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnFaIner = tableViewerColumn_8.getColumn();
 				tblclmnFaIner.setAlignment(SWT.RIGHT);
-				tblclmnFaIner.setWidth(50);
+				tblclmnFaIner.setWidth(70);
 				tblclmnFaIner.setText("FA Iner");
 				tableViewerColumn_8.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -972,7 +780,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_9 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnNewColumn = tableViewerColumn_9.getColumn();
 				tblclmnNewColumn.setAlignment(SWT.RIGHT);
-				tblclmnNewColumn.setWidth(50);
+				tblclmnNewColumn.setWidth(70);
 				tblclmnNewColumn.setText("SS iner");
 				tableViewerColumn_9.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -984,7 +792,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_10 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnNewColumn_1 = tableViewerColumn_10.getColumn();
 				tblclmnNewColumn_1.setAlignment(SWT.RIGHT);
-				tblclmnNewColumn_1.setWidth(50);
+				tblclmnNewColumn_1.setWidth(60);
 				tblclmnNewColumn_1.setText("FA cg");
 				tableViewerColumn_10.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -996,7 +804,7 @@ public class TwrFormPage extends FormPage {
 				TableViewerColumn tableViewerColumn_11 = new TableViewerColumn(tableViewer_1, SWT.NONE);
 				TableColumn tblclmnNewColumn_2 = tableViewerColumn_11.getColumn();
 				tblclmnNewColumn_2.setAlignment(SWT.RIGHT);
-				tblclmnNewColumn_2.setWidth(50);
+				tblclmnNewColumn_2.setWidth(60);
 				tblclmnNewColumn_2.setText("SS cg");
 				tableViewerColumn_11.setLabelProvider(new ColumnLabelProvider() {
 					@Override
@@ -1009,133 +817,581 @@ public class TwrFormPage extends FormPage {
 				// set the content provider
 				tableViewer_1.setContentProvider(ArrayContentProvider.getInstance());
 				tableViewer_1.setInput(tnslTsv);
-		sashForm.setWeights(new int[] {6, 8});
-				
+		new Label(composite_10, SWT.NONE);
 		
-		// VALIDATOR / CONVERTER
 
-		// Define a validator to check that only numbers are entered
-		//IValidator validator = new FstValidator();
 
-		// Create UpdateValueStratgy and assign to the binding
-		//strategy = new UpdateValueStrategy();
-		//strategy.setBeforeSetValidator(validator);
+		Section sctnNewSection_3 = managedForm.getToolkit().createSection(composite_10, Section.TITLE_BAR);
+		sctnNewSection_3.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
+		managedForm.getToolkit().paintBordersFor(sctnNewSection_3);
+		sctnNewSection_3.setText("Modal Analysis Parameters");
+		sctnNewSection_3.setExpanded(true);
 		
-		// see											
-		// http://javafact.com/jface/databinding/converter/
-		//UpdateValueStrategy strategy = new UpdateValueStrategy();
-		//strategy.setBeforeSetValidator(validator);
+		
+		Composite composite_3 = new Composite(sctnNewSection_3, SWT.NONE);
+		managedForm.getToolkit().adapt(composite_3);
+		managedForm.getToolkit().paintBordersFor(composite_3);
+		sctnNewSection_3.setClient(composite_3);
+		GridLayout gl_composite_3 = new GridLayout(2, false);
+		gl_composite_3.verticalSpacing = 1;
+		composite_3.setLayout(gl_composite_3);
+		
+		Label labTowerHeigth = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(labTowerHeigth, true, true);
+		labTowerHeigth.setText("Tower heigth:");
+		
+		radius = new Text(composite_3, SWT.BORDER);
+		radius.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(radius, true, true);
+		
+		Label lblNewLabel_4 = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_4, true, true);
+		lblNewLabel_4.setText("Tower rigid base:");
+		
+		hub_rad = new Text(composite_3, SWT.BORDER);
+		hub_rad.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(hub_rad, true, true);
+		
+		Label lblNewLabel_7 = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_7, true, true);
+		lblNewLabel_7.setText("Root constraint type");
+		
+		hub_conn = new CCombo(composite_3, SWT.NONE);
+		hub_conn.setItems(new String[] {"", "CANTILEVERED", "AXIAL+TORSION", "FREE-FREE"});
+		hub_conn.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(hub_conn);
+		managedForm.getToolkit().paintBordersFor(hub_conn);
+		
+		Label lblTowershadowHalfWidth = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblTowershadowHalfWidth, true, true);
+		lblTowershadowHalfWidth.setText("Modes to be printed");
+		
+		modepr = new Text(composite_3, SWT.BORDER);
+		modepr.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(modepr, true, true);
+		
+		Button btnCheckButton = new Button(composite_3, SWT.CHECK | SWT.RIGHT);
+		btnCheckButton.setAlignment(SWT.RIGHT);
+		btnCheckButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
+		managedForm.getToolkit().adapt(btnCheckButton, true, true);
+		btnCheckButton.setText("TAB-delimited output tables");
+		
+		Button btnCheckButton_1 = new Button(composite_3, SWT.CHECK);
+		btnCheckButton_1.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1));
+		managedForm.getToolkit().adapt(btnCheckButton_1, true, true);
+		btnCheckButton_1.setText("output twist @ mid-nodes");
+		
+		Label lblNewLabel_8 = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_8, true, true);
+		lblNewLabel_8.setText("Tower-top mass");
+		
+		tip_mass = new Text(composite_3, SWT.BORDER);
+		tip_mass.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(tip_mass, true, true);
+		
+		Label lblNewLabel_9 = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_9, true, true);
+		lblNewLabel_9.setText("CM fore-aft offset");
+		
+		cm_loc = new Text(composite_3, SWT.BORDER);
+		cm_loc.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(cm_loc, true, true);
+		
+		Label lblCmTopOffset = new Label(composite_3, SWT.NONE);
+		managedForm.getToolkit().adapt(lblCmTopOffset, true, true);
+		lblCmTopOffset.setText("CM top offset");
+		
+		cm_axial = new Text(composite_3, SWT.BORDER);
+		cm_axial.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(cm_axial, true, true);
+		
+		Composite composite_8 = new Composite(composite_3, SWT.NONE);
+		composite_8.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		GridLayout gl_composite_8 = new GridLayout(3, true);
+		gl_composite_8.marginWidth = 0;
+		composite_8.setLayout(gl_composite_8);
+		composite_8.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 2, 1));
+		managedForm.getToolkit().adapt(composite_8);
+		managedForm.getToolkit().paintBordersFor(composite_8);
+		
+		ixx_tip = new Text(composite_8, SWT.BORDER);
+		ixx_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(ixx_tip, true, true);
+		
+		ixy_tip = new Text(composite_8, SWT.BORDER);
+		ixy_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(ixy_tip, true, true);
+		
+		izx_tip = new Text(composite_8, SWT.BORDER);
+		izx_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(izx_tip, true, true);
+		new Label(composite_8, SWT.NONE);
+		
+		iyy_tip = new Text(composite_8, SWT.BORDER);
+		iyy_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(iyy_tip, true, true);
+		
+		iyz_tip = new Text(composite_8, SWT.BORDER);
+		iyz_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(iyz_tip, true, true);
+		new Label(composite_8, SWT.NONE);
+		new Label(composite_8, SWT.NONE);
+		
+		izz_tip = new Text(composite_8, SWT.BORDER);
+		izz_tip.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		managedForm.getToolkit().adapt(izz_tip, true, true);
+		new Label(composite_3, SWT.NONE);
+		new Label(composite_3, SWT.NONE);
+		
+		ImageHyperlink mghprlnkLaunchABmodes = managedForm.getToolkit().createImageHyperlink(sctnNewSection_3, SWT.NONE);
+		mghprlnkLaunchABmodes.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.twr.ui", "icons/calculator.png"));
+		managedForm.getToolkit().paintBordersFor(mghprlnkLaunchABmodes);
+		sctnNewSection_3.setDescriptionControl(mghprlnkLaunchABmodes);
+		mghprlnkLaunchABmodes.setText("Launch a BModes tower analisys");
+		
+		Composite composite_2 = new Composite(composite_10, SWT.NONE);
+		composite_2.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_2);
+		managedForm.getToolkit().paintBordersFor(composite_2);
+		GridLayout gl_composite_2 = new GridLayout(1, false);
+		gl_composite_2.marginWidth = 0;
+		gl_composite_2.marginHeight = 0;
+		gl_composite_2.horizontalSpacing = 0;
+		composite_2.setLayout(gl_composite_2);
+		
+		
+		
+		
+		Section sctnNewSection = managedForm.getToolkit().createSection(composite_2, Section.TITLE_BAR);
+		sctnNewSection.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		managedForm.getToolkit().paintBordersFor(sctnNewSection);
+		sctnNewSection.setText("Bending Properties Tuner");
+		
+		Composite composite_1 = new Composite(sctnNewSection, SWT.NONE);
+		sctnNewSection.setClient(composite_1);
+		managedForm.getToolkit().adapt(composite_1);
+		managedForm.getToolkit().paintBordersFor(composite_1);
+		GridLayout gl_composite_1 = new GridLayout(3, false);
+		gl_composite_1.verticalSpacing = 1;
+		composite_1.setLayout(gl_composite_1);
+		new Label(composite_1, SWT.NONE);
+		
+		Label lblst = new Label(composite_1, SWT.NONE);
+		managedForm.getToolkit().adapt(lblst, true, true);
+		lblst.setText("1st");
+		
+		Label lblnd = new Label(composite_1, SWT.NONE);
+		managedForm.getToolkit().adapt(lblnd, true, true);
+		lblnd.setText("2nd");
+		
+		Label lblNewLabel = new Label(composite_1, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel, true, true);
+		lblNewLabel.setText("Tower fore-aft mode damping ratio:");
+		
+		TwrFADmp1 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		TwrFADmp1.setPageIncrement(100);
+		TwrFADmp1.setIncrement(10);
+		TwrFADmp1.setMaximum(1000);
+		TwrFADmp1.setDigits(2);
+		GridData gd_TwrFADmp1 = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_TwrFADmp1.widthHint = 40;
+		TwrFADmp1.setLayoutData(gd_TwrFADmp1);
+		
+		TwrFADmp2 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		TwrFADmp2.setPageIncrement(100);
+		TwrFADmp2.setMaximum(1000);
+		TwrFADmp2.setIncrement(10);
+		TwrFADmp2.setDigits(2);
+		TwrFADmp2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_2 = new Label(composite_1, SWT.NONE);
+		lblNewLabel_2.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(lblNewLabel_2, true, true);
+		lblNewLabel_2.setText("Tower side-side mode damping ratio:");
+		
+		TwrSSDmp1 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		TwrSSDmp1.setPageIncrement(100);
+		TwrSSDmp1.setIncrement(10);
+		TwrSSDmp1.setMaximum(1000);
+		TwrSSDmp1.setDigits(2);
+		TwrSSDmp1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(TwrSSDmp1, true, true);
+		
+		TwrSSDmp2 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		TwrSSDmp2.setPageIncrement(100);
+		TwrSSDmp2.setMaximum(1000);
+		TwrSSDmp2.setIncrement(10);
+		TwrSSDmp2.setDigits(2);
+		TwrSSDmp2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(TwrSSDmp2, true, true);
+		
+		Label lblNewLabel_3 = new Label(composite_1, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_3, true, true);
+		lblNewLabel_3.setText("Tower 1st fore-aft mode tuner:");
+		
+		FAStTunr1 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		FAStTunr1.setPageIncrement(100);
+		FAStTunr1.setMaximum(1000);
+		FAStTunr1.setIncrement(10);
+		FAStTunr1.setDigits(2);
+		FAStTunr1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(FAStTunr1, true, true);
+		
+		FAStTunr2 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		FAStTunr2.setPageIncrement(100);
+		FAStTunr2.setMaximum(1000);
+		FAStTunr2.setIncrement(10);
+		FAStTunr2.setDigits(2);
+		FAStTunr2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(FAStTunr2, true, true);
+		
+		Label lblNewLabel_5 = new Label(composite_1, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_5, true, true);
+		lblNewLabel_5.setText("Tower 1st side-side mode tuner:");
+		
+		SSStTunr1 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		SSStTunr1.setPageIncrement(100);
+		SSStTunr1.setMaximum(1000);
+		SSStTunr1.setIncrement(10);
+		SSStTunr1.setDigits(2);
+		SSStTunr1.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(SSStTunr1, true, true);
+		
+		SSStTunr2 = new Spinner(composite_1, SWT.BORDER | SWT.CENTER);
+		SSStTunr2.setDigits(2);
+		SSStTunr2.setPageIncrement(100);
+		SSStTunr2.setMaximum(1000);
+		SSStTunr2.setIncrement(10);
+		SSStTunr2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		managedForm.getToolkit().adapt(SSStTunr2, true, true);
+		
+		Section sctnNewSection_2 = managedForm.getToolkit().createSection(composite_2, Section.TITLE_BAR);
+		managedForm.getToolkit().paintBordersFor(sctnNewSection_2);
+		sctnNewSection_2.setText("Scaling Factors");
+		sctnNewSection_2.setExpanded(true);
+		
+		Composite composite_9 = managedForm.getToolkit().createComposite(sctnNewSection_2, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite_9);
+		sctnNewSection_2.setClient(composite_9);
+		GridLayout gl_composite_9 = new GridLayout(2, false);
+		gl_composite_9.verticalSpacing = 1;
+		composite_9.setLayout(gl_composite_9);
+		
+		Label lblNewLabel_10 = managedForm.getToolkit().createLabel(composite_9, "Mass density multiplier:", SWT.NONE);
+		
+		sec_mass_mult = new Spinner(composite_9, SWT.BORDER);
+		sec_mass_mult.setDigits(2);
+		sec_mass_mult.setPageIncrement(100);
+		sec_mass_mult.setMaximum(1000);
+		sec_mass_mult.setIncrement(10);
+		GridData gd_sec_mass_mult = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+		gd_sec_mass_mult.widthHint = 40;
+		sec_mass_mult.setLayoutData(gd_sec_mass_mult);
+		
+		Label lblNewLabel_11 = managedForm.getToolkit().createLabel(composite_9, "Fore-aft inertia multiplier:", SWT.NONE);
+		
+		flp_iner_mult = new Spinner(composite_9, SWT.BORDER);
+		flp_iner_mult.setPageIncrement(100);
+		flp_iner_mult.setMaximum(1000);
+		flp_iner_mult.setIncrement(10);
+		flp_iner_mult.setDigits(2);
+		flp_iner_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_12 = managedForm.getToolkit().createLabel(composite_9, "Side-side inertia multiplier:", SWT.NONE);
+		
+		lag_iner_mult = new Spinner(composite_9, SWT.BORDER);
+		lag_iner_mult.setPageIncrement(100);
+		lag_iner_mult.setMaximum(1000);
+		lag_iner_mult.setIncrement(10);
+		lag_iner_mult.setDigits(2);
+		lag_iner_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_13 = managedForm.getToolkit().createLabel(composite_9, "Fore-aft bending stiffness multiplier:", SWT.NONE);
+		
+		flp_stff_mult = new Spinner(composite_9, SWT.BORDER);
+		flp_stff_mult.setPageIncrement(100);
+		flp_stff_mult.setMaximum(1000);
+		flp_stff_mult.setIncrement(10);
+		flp_stff_mult.setDigits(2);
+		flp_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_14 = managedForm.getToolkit().createLabel(composite_9, "Side-side bending stiffness multiplier:", SWT.NONE);
+		
+		edge_stff_mult = new Spinner(composite_9, SWT.BORDER);
+		edge_stff_mult.setPageIncrement(100);
+		edge_stff_mult.setMaximum(1000);
+		edge_stff_mult.setIncrement(10);
+		edge_stff_mult.setDigits(2);
+		edge_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_15 = managedForm.getToolkit().createLabel(composite_9, "Torsion stiffness multiplier:", SWT.NONE);
+		
+		tor_stff_mult = new Spinner(composite_9, SWT.BORDER);
+		tor_stff_mult.setPageIncrement(100);
+		tor_stff_mult.setMaximum(1000);
+		tor_stff_mult.setIncrement(10);
+		tor_stff_mult.setDigits(2);
+		tor_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_16 = managedForm.getToolkit().createLabel(composite_9, "Axial stiffness multiplier:", SWT.NONE);
+		
+		axial_stff_mult = new Spinner(composite_9, SWT.BORDER);
+		axial_stff_mult.setPageIncrement(100);
+		axial_stff_mult.setMaximum(1000);
+		axial_stff_mult.setIncrement(10);
+		axial_stff_mult.setDigits(2);
+		axial_stff_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_17 = managedForm.getToolkit().createLabel(composite_9, "CG offset multiplier:", SWT.NONE);
+		
+		cg_offst_mult = new Spinner(composite_9, SWT.BORDER);
+		cg_offst_mult.setPageIncrement(100);
+		cg_offst_mult.setDigits(2);
+		cg_offst_mult.setIncrement(10);
+		cg_offst_mult.setMaximum(1000);
+		cg_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_18 = managedForm.getToolkit().createLabel(composite_9, "Shear center multiplier:", SWT.NONE);
+		
+		sc_offst_mult = new Spinner(composite_9, SWT.BORDER);
+		sc_offst_mult.setPageIncrement(100);
+		sc_offst_mult.setMaximum(1000);
+		sc_offst_mult.setIncrement(10);
+		sc_offst_mult.setDigits(2);
+		sc_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Label lblNewLabel_19 = managedForm.getToolkit().createLabel(composite_9, "Tension center multiplier:", SWT.NONE);
+		
+		tc_offst_mult = new Spinner(composite_9, SWT.BORDER);
+		tc_offst_mult.setPageIncrement(100);
+		tc_offst_mult.setDigits(2);
+		tc_offst_mult.setMaximum(1000);
+		tc_offst_mult.setIncrement(10);
+		tc_offst_mult.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		
+		Composite composite_4 = managedForm.getToolkit().createComposite(sctnNewSection_2, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite_4);
+		sctnNewSection_2.setDescriptionControl(composite_4);
+		GridLayout gl_composite_4 = new GridLayout(2, false);
+		gl_composite_4.marginHeight = 0;
+		gl_composite_4.marginWidth = 0;
+		gl_composite_4.verticalSpacing = 0;
+		composite_4.setLayout(gl_composite_4);
+		
+		Label lblNewLabel_21 = managedForm.getToolkit().createLabel(composite_4, "New Label", SWT.NONE);
+		GridData gd_lblNewLabel_21 = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+		gd_lblNewLabel_21.verticalIndent = 3;
+		lblNewLabel_21.setLayoutData(gd_lblNewLabel_21);
+		lblNewLabel_21.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/text_padding_left.png"));
+		
+		CLabel lblNewLabel_20 = new CLabel(composite_4, SWT.NONE);
+		managedForm.getToolkit().adapt(lblNewLabel_20);
+		managedForm.getToolkit().paintBordersFor(lblNewLabel_20);
+		lblNewLabel_20.setText("Fine tune the multipliers to fit tower's real \nproperties and experimental data.");
 
 
 		// DATABINDING
-		m_bindingContext = new XtextDataBindingContext();
-		
-		initXDB_Multipliers		(m_bindingContext);
-		initXDB_TowerParameters	(m_bindingContext);
-		
+		activateBinding();
+			
 	}
 
-	
-	protected DataBindingContext initXDB_Multipliers (DataBindingContext bindingContext) {
+	private void activateBinding() {
+		
+		m_bindingContext = new XtextDataBindingContext();
+		initXDB_BModesbmi		(m_bindingContext);
+		initXDB_TowerParameters	(m_bindingContext); // generate error
 
-		IObservableValue observeTextATolerObserveWidget = WidgetProperties.text(SWT.Modify).observe(sec_mass_mult);
+		
+	}
+	
+	/*private void deactivateBinding() {
+		if(m_bindingContext!=null) {
+			m_bindingContext.dispose();
+			m_bindingContext = null;
+		}
+	}*/
+	
+	protected DataBindingContext initXDB_BModesbmi (DataBindingContext bindingContext) {
+
+		// connection type
+		IObservableValue ow = WidgetProperties.singleSelectionIndex().observe(hub_conn);
+		IObservableValue mow = XtextProperties.value(
+		FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_HubConn(), bindBmodesbmiPackage().getiHubConn_Value())).observe(docBmi);
+		bindingContext.bindValue(ow, mow, null, null);
+				
+				
+				
+		IObservableValue observeTextATolerObserveWidget = WidgetProperties.selection().observe(sec_mass_mult);
 		IObservableValue modelValueObserveValueA = XtextProperties.value(
 				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_SecMasMult(), bindBmodesbmiPackage().getnSecMasMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextATolerObserveWidget, modelValueObserveValueA, null, null);
 		
-		IObservableValue observeHHObserveWidget = WidgetProperties.text(SWT.Modify).observe(flp_iner_mult);
+		IObservableValue observeHHObserveWidget = WidgetProperties.selection().observe(flp_iner_mult);
 		IObservableValue modelValueObserveValueB = XtextProperties.value(
 				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_FlpInrMult(), bindBmodesbmiPackage().getnFlpInrMult_Value()) ).observe(docBmi);
 		bindingContext.bindValue(observeHHObserveWidget, modelValueObserveValueB, null, null);
 		
-		IObservableValue observeTextNumFoilObserveWidget = WidgetProperties.text(SWT.Modify).observe(lag_iner_mult);
+		IObservableValue observeTextNumFoilObserveWidget = WidgetProperties.selection().observe(lag_iner_mult);
 		IObservableValue modelValueObserveValueC = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_LagInrMult(), bindBmodesbmiPackage().getnLagInrMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextNumFoilObserveWidget, modelValueObserveValueC, null, null);
 
-		IObservableValue observeTextBldNodesObserveWidget = WidgetProperties.text(SWT.Modify).observe(flp_stff_mult);
+		IObservableValue observeTextBldNodesObserveWidget = WidgetProperties.selection().observe(flp_stff_mult);
 		IObservableValue modelValueObserveValue_33 = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_FlpstfMult(), bindBmodesbmiPackage().getnFlpstfMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextBldNodesObserveWidget, modelValueObserveValue_33, null, null);
 		
-		IObservableValue observeTextTwrShadObserveWidget = WidgetProperties.text(SWT.Modify).observe(edge_stff_mult);
+		IObservableValue observeTextTwrShadObserveWidget = WidgetProperties.selection().observe(edge_stff_mult);
 		IObservableValue modelValueObserveValue_34 = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_EdgStfMult(), bindBmodesbmiPackage().getnEdgStfMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextTwrShadObserveWidget, modelValueObserveValue_34, null, null);
 
-		IObservableValue observeTextShadHWidObserveWidget = WidgetProperties.text(SWT.Modify).observe(tor_stff_mult);
+		IObservableValue observeTextShadHWidObserveWidget = WidgetProperties.selection().observe(tor_stff_mult);
 		IObservableValue modelValueObserveValue_ShadHWid = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_TorStfMult(), bindBmodesbmiPackage().getnTorStfMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextShadHWidObserveWidget, modelValueObserveValue_ShadHWid, null, null);
 
-		IObservableValue observeTextTShadRefPtObserveWidget = WidgetProperties.text(SWT.Modify).observe(axial_stff_mult);
+		IObservableValue observeTextTShadRefPtObserveWidget = WidgetProperties.selection().observe(axial_stff_mult);
 		IObservableValue modelValueObserveValue_TShadRefPt = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_AxiStfMult(), bindBmodesbmiPackage().getnAxiStfMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextTShadRefPtObserveWidget, modelValueObserveValue_TShadRefPt, null, null);
 
-		IObservableValue observeTextRhoObserveWidget = WidgetProperties.text(SWT.Modify).observe(cg_offst_mult);
+		IObservableValue observeTextRhoObserveWidget = WidgetProperties.selection().observe(cg_offst_mult);
 		IObservableValue modelValueObserveValue_Rho = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_CgOffsMult(), bindBmodesbmiPackage().getnCgOffsMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextRhoObserveWidget, modelValueObserveValue_Rho, null, null);
 
-		IObservableValue observeTextKinViscObserveWidget = WidgetProperties.text(SWT.Modify).observe(sc_offst_mult);
+		IObservableValue observeTextKinViscObserveWidget = WidgetProperties.selection().observe(sc_offst_mult);
 		IObservableValue modelValueObserveValue_KinVisc = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_ScOffsMult(), bindBmodesbmiPackage().getnScOffsMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextKinViscObserveWidget, modelValueObserveValue_KinVisc, null, null);
 
-		IObservableValue observeTextDTAeroObserveWidget = WidgetProperties.text(SWT.Modify).observe(tc_offst_mult);
+		IObservableValue observeTextDTAeroObserveWidget = WidgetProperties.selection().observe(tc_offst_mult);
 		IObservableValue modelValueObserveValue_DTAero = XtextProperties.value(
 				FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_TcOffsMult(), bindBmodesbmiPackage().getnTcOffsMult_Value())).observe(docBmi);
 		bindingContext.bindValue(observeTextDTAeroObserveWidget, modelValueObserveValue_DTAero, null, null);
-		
-		
+
+		// bmi
+		IObservableValue observeTextATolerObserveWidgetz0 = WidgetProperties.text(SWT.Modify).observe(radius);
+		IObservableValue modelValueObserveValueAz0 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_Radius(), bindBmodesbmiPackage().getnRadius_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextATolerObserveWidgetz0, modelValueObserveValueAz0, null, null);
+
+		IObservableValue observeTextB1 = WidgetProperties.text(SWT.Modify).observe(hub_rad);
+		IObservableValue modelValueB1 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_HubRad(), bindBmodesbmiPackage().getnHubRad_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB1, modelValueB1, null, null);
+
+		IObservableValue observeTextB2 = WidgetProperties.text(SWT.Modify).observe(tip_mass);
+		IObservableValue modelValueB2 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_TipMass(), bindBmodesbmiPackage().getnTipMass_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB2, modelValueB2, null, null);
+
+		IObservableValue observeTextB3 = WidgetProperties.text(SWT.Modify).observe(modepr);
+		IObservableValue modelValueB3 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_ModePr(), bindBmodesbmiPackage().getiModePr_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB3, modelValueB3, null, null);
+
+		IObservableValue observeTextB4 = WidgetProperties.text(SWT.Modify).observe(cm_loc);
+		IObservableValue modelValueB4 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_CmLoc(), bindBmodesbmiPackage().getnCmLoc_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB4, modelValueB4, null, null);
+
+		IObservableValue observeTextB5 = WidgetProperties.text(SWT.Modify).observe(cm_axial);
+		IObservableValue modelValueB5 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_CmAxial(), bindBmodesbmiPackage().getnCmAxial_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB5, modelValueB5, null, null);
+
+
+		IObservableValue observeTextB6 = WidgetProperties.text(SWT.Modify).observe(ixx_tip);
+		IObservableValue modelValueB6 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_IxxTip(), bindBmodesbmiPackage().getnIxxTip_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB6, modelValueB6, null, null);
+
+		IObservableValue observeTextc6 = WidgetProperties.text(SWT.Modify).observe(iyy_tip);
+		IObservableValue modelValuec6 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_IyyTip(), bindBmodesbmiPackage().getnIyyTip_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextc6, modelValuec6, null, null);
+
+		IObservableValue observeTextc7 = WidgetProperties.text(SWT.Modify).observe(izz_tip);
+		IObservableValue modelValuec7 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_IzzTip(), bindBmodesbmiPackage().getnIzzTip_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextc7, modelValuec7, null, null);
+
+	
+		IObservableValue observeTextB7 = WidgetProperties.text(SWT.Modify).observe(ixy_tip);
+		IObservableValue modelValueB7 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_IxyTip(), bindBmodesbmiPackage().getnIxyTip_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB7, modelValueB7, null, null);
+
+		IObservableValue observeTextB8 = WidgetProperties.text(SWT.Modify).observe(izx_tip);
+		IObservableValue modelValueB8 = XtextProperties.value(
+				FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_IzxTip(), bindBmodesbmiPackage().getnIzxTip_Value())).observe(docBmi);
+		bindingContext.bindValue(observeTextB8, modelValueB8, null, null);
+
+		bindingContext.bindValue(
+				WidgetProperties.text(SWT.Modify).observe(iyz_tip), 
+				XtextProperties.value(FeaturePath.fromList(bindBmodesbmiPackage().getModelBmodesbmi_IyzTip(), bindBmodesbmiPackage().getnIyzTip_Value())).observe(docBmi), 
+				null, null);
+
+
+
 		return bindingContext;
 	}
 	
+	
+	
+	
 	protected DataBindingContext initXDB_TowerParameters (DataBindingContext bindingContext) {
-
+		
+		UpdateValueStrategy stratI2F = new UpdateValueStrategy();
+		stratI2F.setConverter(new IntegerToFloatConverter());
+		UpdateValueStrategy stratF2I = new UpdateValueStrategy();
+		stratF2I.setConverter(new FloatToIntegerConverter());
+		
 		// dampers
-		IObservableValue observeTextATolerObserveWidget = WidgetProperties.text(SWT.Modify).observe(TwrFADmp1);
+		IObservableValue observeTextATolerObserveWidget = WidgetProperties.selection().observe(TwrFADmp1);
 		IObservableValue modelValueObserveValueA = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_BldFlDmp1(), bindFasttwrPackage().getnTwrFADmp1_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidget, modelValueObserveValueA, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidget, modelValueObserveValueA, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidget2 = WidgetProperties.text(SWT.Modify).observe(TwrFADmp2);
+		IObservableValue observeTextATolerObserveWidget2 = WidgetProperties.selection().observe(TwrFADmp2);
 		IObservableValue modelValueObserveValueA2 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_BldFlDmp2(), bindFasttwrPackage().getnTwrFADmp2_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidget2, modelValueObserveValueA2, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidget2, modelValueObserveValueA2, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidget3 = WidgetProperties.text(SWT.Modify).observe(TwrSSDmp1);
+		IObservableValue observeTextATolerObserveWidget3 = WidgetProperties.selection().observe(TwrSSDmp1);
 		IObservableValue modelValueObserveValueA3 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_BldEdDmp1(), bindFasttwrPackage().getnTwrSSDmp1_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidget3, modelValueObserveValueA3, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidget3, modelValueObserveValueA3, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidget4 = WidgetProperties.text(SWT.Modify).observe(TwrSSDmp2);
+		IObservableValue observeTextATolerObserveWidget4 = WidgetProperties.selection().observe(TwrSSDmp2);
 		IObservableValue modelValueObserveValueA4 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_BldEdDmp2(), bindFasttwrPackage().getnTwrSSDmp2_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidget4, modelValueObserveValueA4, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidget4, modelValueObserveValueA4, stratI2F, stratF2I);
 		
 		
 		// tuners
-		IObservableValue observeTextATolerObserveWidgetz1 = WidgetProperties.text(SWT.Modify).observe(FAStTunr1);
+		IObservableValue observeTextATolerObserveWidgetz1 = WidgetProperties.selection().observe(FAStTunr1);
 		IObservableValue modelValueObserveValueAz1 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_FAStTunr1(), bindFasttwrPackage().getnFAStTunr1_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidgetz1, modelValueObserveValueAz1, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidgetz1, modelValueObserveValueAz1, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidgetz2 = WidgetProperties.text(SWT.Modify).observe(FAStTunr2);
+		IObservableValue observeTextATolerObserveWidgetz2 = WidgetProperties.selection().observe(FAStTunr2);
 		IObservableValue modelValueObserveValueAz2 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_FAStTunr2(), bindFasttwrPackage().getnFAStTunr2_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidgetz2, modelValueObserveValueAz2, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidgetz2, modelValueObserveValueAz2, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidgetz3 = WidgetProperties.text(SWT.Modify).observe(SSStTunr1);
+		IObservableValue observeTextATolerObserveWidgetz3 = WidgetProperties.selection().observe(SSStTunr1);
 		IObservableValue modelValueObserveValueAz3 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_SSStTunr1(), bindFasttwrPackage().getnSSStTunr1_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidgetz3, modelValueObserveValueAz3, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidgetz3, modelValueObserveValueAz3, stratI2F, stratF2I);
 		
-		IObservableValue observeTextATolerObserveWidgetz4 = WidgetProperties.text(SWT.Modify).observe(SSStTunr2);
+		IObservableValue observeTextATolerObserveWidgetz4 = WidgetProperties.selection().observe(SSStTunr2);
 		IObservableValue modelValueObserveValueAz4 = XtextProperties.value(
 				FeaturePath.fromList( bindFasttwrPackage().getModelFasttwr_SSStTunr2(), bindFasttwrPackage().getnSSStTunr2_Value())).observe(docTwr);
-		bindingContext.bindValue(observeTextATolerObserveWidgetz4, modelValueObserveValueAz4, null, null);
+		bindingContext.bindValue(observeTextATolerObserveWidgetz4, modelValueObserveValueAz4, stratI2F, stratF2I);
+		
 		return bindingContext;
 	}
 		
@@ -1143,7 +1399,49 @@ public class TwrFormPage extends FormPage {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
+	// convert and scale (factor 100)
+	public class IntegerToFloatConverter extends Converter {
+		public IntegerToFloatConverter() {
+			this(Integer.class, Float.class);
+		}
+		public IntegerToFloatConverter(Object fromType, Object toType) {
+			super(fromType, toType);
+		}
+		@Override
+		public Object convert(Object fromObject) {
+			Integer from = (Integer) fromObject;
+			Float result = new Float(0);
+			try{
+				result = from/100f;
+			} catch(Exception ex){
+				//do nothing
+			}
+			return result;
+		}
+	}
+
+	public class FloatToIntegerConverter extends Converter {
+		public FloatToIntegerConverter() {
+			this(Float.class, Integer.class);
+		}
+		public FloatToIntegerConverter(Object fromType, Object toType) {
+			super(fromType, toType);
+		}
+		@Override
+		public Object convert(Object fromObject) {
+			Float from = (Float) fromObject;
+			Integer result = new Integer(0);
+			try{
+				from = from*100;
+				result = from.intValue();
+			} catch(Exception ex){
+				//do nothing
+			}
+			return result;
+		}
+	}
+
 	
 	class HtAglEditingSupport extends EditingSupport {
 
@@ -1254,6 +1552,13 @@ public class TwrFormPage extends FormPage {
 				
 		  }
 		  
+	}
+	
+	private static class FirstSorter extends ViewerSorter {
+		public int compare(Viewer viewer, Object e1, Object e2) {
+			// TODO:  do nothing for now? 0 means equal
+			return 0;
+		}
 	}
 }
 

@@ -74,17 +74,18 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	private TbsMultiPageContentOutline fContentOutline;
 	
 	public TbsMultiPageEditor() {
+		
+		setPartName(getEditorInput().getName());
+		
 		ff 				= new TurbsimtbsFactory();
 		fAdynInjector 	= ff.getInjector();
 		xtextEditorAdn 	= fAdynInjector.getInstance(XtextEditor.class);
 	}
 
-	@Override
 	public Injector getXtextInjector(String key) {
 		return fAdynInjector;
 	}
 	
-	@Override
 	public XtextEditor getXtextEditor(String key) {
 		return xtextEditorAdn;
 	}
@@ -99,7 +100,6 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 				
 			new IUnitOfWork<EObject, XtextResource>() {
 
-				@Override
 				public EObject exec(XtextResource res) throws Exception {
 
 					return res.getContents().get(0);
@@ -204,13 +204,12 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 					
 			///// Formatted source			
 			int index = addPage(xtextEditorAdn, getEditorInput());
-			setPageText(index, getEditorInput().getName());
+			setPageText(index, "Source");
 						
 			modelTbs = xtextEditorAdn.getDocument().readOnly(
 				
 					new IUnitOfWork<ModelTurbsimtbs, XtextResource>() {
 
-						@Override
 						public ModelTurbsimtbs exec(XtextResource res) throws Exception {
 
 							return (ModelTurbsimtbs)res.getContents().get(0);
@@ -297,6 +296,12 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
 		fContentOutline.setPageActive(outline);
+	}
+
+	@Override
+	public EObject getXtextEditorModel(String key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

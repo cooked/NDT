@@ -3,16 +3,8 @@ package sc.ndt.commons.model;
 import java.util.HashMap;
 
 import javax.measure.quantity.Dimensionless;
-import javax.measure.quantity.Length;
-import javax.measure.quantity.Quantity;
 import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
-import javax.measure.unit.Unit;
-
-import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.EditingSupport;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.jscience.physics.amount.Amount;
 
 public final class TowerNodeStruct extends NodeStruct {

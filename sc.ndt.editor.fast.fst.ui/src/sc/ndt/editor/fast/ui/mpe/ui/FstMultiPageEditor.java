@@ -8,10 +8,13 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.editor.IFormPage;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.xtext.resource.XtextResource;
@@ -20,18 +23,23 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
+import sc.ndt.commons.model.EditorInputFASTOut;
+import sc.ndt.commons.model.OutList;
+import sc.ndt.commons.model.OutListRegistry;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
 import sc.ndt.editor.fast.ui.FastfstFactory;
 import sc.ndt.editor.fast.ui.FastadnFactory;
 import sc.ndt.editor.fast.ui.mpe.outline.FstMultiPageContentOutline;
+import sc.ndt.editor.fast.ui.mpe.outline.OutListContentOutline;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 //import sc.nrel.nwtc.fast.fMain.ModelFMain;
 //import sc.nrel.nwtc.fast.aerodyn.ui.internal.FAdynActivator;
 //import sc.nrel.nwtc.fast.aerodyn.ui.editors.*;
 
 
-import com.google.inject.Inject;
+
+
 import com.google.inject.Injector;
 
 /**
@@ -53,27 +61,19 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	public FormPage				formPagePfm;
 		
 	// outline view
-	@Inject 
 	public OutlinePage 			outlinePageFMain;
 	public OutlinePage 			outlinePageFAdyn;
-		
-	public ModelFastfst 		modelFst;
-	public ModelFastadn 		modelAdn;
-	//public ModelFasttwr 		modelTwr;
-	//public ModelFastbld 		modelBld;
 	
 	FastfstFactory ff;
 	FastadnFactory fa;
 	
-	private FstMultiPageContentOutline fContentOutline;
-	
-	// injectors
+	protected IContentOutlinePage 		contentOutlinePage;
 	private HashMap<String,Injector>	xtextInjectors;
-	
-	// editors
 	private HashMap<String,XtextEditor>	xtextEditors;
+	private HashMap<String,EObject>		xtextEditorsModel;
+
 	
-	//public Provider<XtextResourceSet> resourceSetProviderFAdyn;
+	public OutList outList;
 	
 	public FstMultiPageEditor() {
 		
@@ -87,9 +87,26 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		xtextEditors 	= new HashMap<String,XtextEditor>();
 		xtextEditors.put("fst",xtextInjectors.get("fst").getInstance(XtextEditor.class));
 		xtextEditors.put("adn",xtextInjectors.get("adn").getInstance(XtextEditor.class));
-
+		
+		xtextEditorsModel 	= new HashMap<String,EObject>();
+		// TODO models can be added only in addPages() or nto the FormPage?..this is why we had to go there and create the model back here? seems so!
+		
 	}
 
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		super.init(site, input);
+		
+		if (input instanceof FileEditorInput) {
+			// TODO add checks!!!!!!
+			IFile f = (IFile) input.getAdapter(IFile.class);
+			//setInput(new EditorInputFASTOut(f));
+			setPartName(f.getName());
+
+			
+		}
+
+	}
+	
 	@Override
 	public Injector getXtextInjector(String key) {
 		return xtextInjectors.get(key);
@@ -100,17 +117,23 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		return xtextEditors.get(key);
 	}
 	
+	public EObject getXtextEditorModel(String key) {
+		if(xtextEditorsModel.get(key)==null)
+			xtextEditorsModel.put(key, getModelFromXtextEditor(getXtextEditor(key)));
+		return xtextEditorsModel.get(key);
+	}
+	
+	public ModelFastfst getXtextEditorModelFst() {
+		return (ModelFastfst) getXtextEditorModel("fst");
+	}
+	
 	public EObject getModelFromXtextEditor(XtextEditor editor) {
 		
 		EObject out = editor.getDocument().readOnly(
-				
 			new IUnitOfWork<EObject, XtextResource>() {
-
 				@Override
 				public EObject exec(XtextResource res) throws Exception {
-
-					return res.getContents().get(0);
-					
+					return res.getContents().get(0);		
 				}
 					
 			});
@@ -123,7 +146,7 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 		super.pageChange(newPageIndex);		
 		IFormPage page = getActivePageInstance();	
-		updateContentOutline(page);
+		//updateContentOutline(page);
 		
 		/* TODO 
 		// manage pages
@@ -202,6 +225,7 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 	}
 
+	
 	@Override
 	protected void addPages() {
 		
@@ -209,23 +233,18 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		
 		try {
 		
+	
+			
 			///// FAST source		
-			addPage(xtextEditors.get("fst"), getEditorInput());
-
-			modelFst = xtextEditors.get("fst").getDocument().readOnly(
-					new IUnitOfWork<ModelFastfst, XtextResource>() {
-						@Override
-						public ModelFastfst exec(XtextResource res) throws Exception {
-							return (ModelFastfst)res.getContents().get(0);
-						}
-					});
+			setPageText(
+					addPage(xtextEditors.get("fst"), getEditorInput()), "Source");
+			outList = OutListRegistry.getInstance().getNewOutList();
+			outList.setAllSelected(getXtextEditorModelFst().getOutList().getValue());
 			
 			///// FAST Form
-			formPageFst = new FstFormPage(this,"fast","FAST");
+			formPageFst = new FstFormPage(this,"ovr","Overview");
 			addPage(0,formPageFst);
 					
-			setPageText(1, getEditorInput().getName());
-			
 
 	/*
 			///// AeroDyn source
@@ -273,7 +292,6 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	}
 	
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 				
@@ -287,41 +305,32 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		
 	}
  
-	public FstMultiPageContentOutline getContentOutline() {
-		if (fContentOutline == null || fContentOutline.isDisposed()) {
-			fContentOutline = new FstMultiPageContentOutline(this);
-			updateContentOutline(getActivePageInstance());
+	public IContentOutlinePage getContentOutline() {
+		if (contentOutlinePage == null && getActivePageInstance() instanceof FstFormPage) {
+			//fContentOutline = new FstMultiPageContentOutline(this);
+				contentOutlinePage = new OutListContentOutline(this);
+			//fContentOutline = updateContentOutline(getActivePageInstance());
+			//contentOutlinePage = new ChartOutline();
 		}
-		return fContentOutline;
+		return contentOutlinePage;
 		
 	}
 	
-	private void updateContentOutline(IFormPage page) {
+	/*private void updateContentOutline(IFormPage page) {
+
 		if (fContentOutline == null)
 			return;
-
-		/*ISortable*/IContentOutlinePage outline = null;
+		IContentOutlinePage outline = null;
 		if (page instanceof FstFormPage)
-			outline = ((FstFormPage)page).getContentOutline();
+		//	outline = ((FstFormPage)page).getContentOutline();
 		//else if (page instanceof XtextEditor)
-		//	outline = ((XtextEditor)page).getContentOutline();
+		outline = new OutListContentOutline();
 			
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
-		fContentOutline.setPageActive(outline);
-	}
+		//fContentOutline.setPageActive(outline);
+		//return outline;
+		
+	}*/
 
-	/*
-	@Override
-	public int getSizeFlags(boolean width) {
-		// TODO Auto-generated method stub
-		return SWT.MIN|SWT.MAX;
-	}
 
-	@Override
-	public int computePreferredSize(boolean width, int availableParallel,
-			int availablePerpendicular, int preferredResult) {
-		// TODO Auto-generated method stub
-		return 500;
-	}
-	*/
 }

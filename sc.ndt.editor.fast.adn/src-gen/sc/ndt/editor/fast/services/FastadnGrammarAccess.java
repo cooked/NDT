@@ -44,35 +44,40 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHHNHHParserRuleCall_10_0 = (RuleCall)cHHAssignment_10.eContents().get(0);
 		private final Assignment cTwrShadAssignment_11 = (Assignment)cGroup.eContents().get(11);
 		private final RuleCall cTwrShadNTwrShadParserRuleCall_11_0 = (RuleCall)cTwrShadAssignment_11.eContents().get(0);
-		private final Assignment cShadHWidAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cShadHWidNShadHWidParserRuleCall_12_0 = (RuleCall)cShadHWidAssignment_12.eContents().get(0);
-		private final Assignment cTShadRefPtAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cTShadRefPtNTShadRefPtParserRuleCall_13_0 = (RuleCall)cTShadRefPtAssignment_13.eContents().get(0);
-		private final Assignment cRhoAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cRhoNRhoParserRuleCall_14_0 = (RuleCall)cRhoAssignment_14.eContents().get(0);
-		private final Assignment cKinViscAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cKinViscNKinViscParserRuleCall_15_0 = (RuleCall)cKinViscAssignment_15.eContents().get(0);
-		private final Assignment cDTAeroAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final RuleCall cDTAeroNDTAeroParserRuleCall_16_0 = (RuleCall)cDTAeroAssignment_16.eContents().get(0);
-		private final Assignment cNumFoilAssignment_17 = (Assignment)cGroup.eContents().get(17);
-		private final RuleCall cNumFoilINumFoilParserRuleCall_17_0 = (RuleCall)cNumFoilAssignment_17.eContents().get(0);
-		private final Assignment cFoilNmAssignment_18 = (Assignment)cGroup.eContents().get(18);
-		private final RuleCall cFoilNmAAirfoilListParserRuleCall_18_0 = (RuleCall)cFoilNmAssignment_18.eContents().get(0);
-		private final Assignment cBldNodesAssignment_19 = (Assignment)cGroup.eContents().get(19);
-		private final RuleCall cBldNodesIBldNodesParserRuleCall_19_0 = (RuleCall)cBldNodesAssignment_19.eContents().get(0);
-		private final Assignment cAirStatAssignment_20 = (Assignment)cGroup.eContents().get(20);
-		private final RuleCall cAirStatAAirStatParserRuleCall_20_0 = (RuleCall)cAirStatAssignment_20.eContents().get(0);
-		private final Alternatives cAlternatives_21 = (Alternatives)cGroup.eContents().get(21);
-		private final RuleCall cWSTerminalRuleCall_21_0 = (RuleCall)cAlternatives_21.eContents().get(0);
-		private final RuleCall cNEWLINETerminalRuleCall_21_1 = (RuleCall)cAlternatives_21.eContents().get(1);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_21_2 = (RuleCall)cAlternatives_21.eContents().get(2);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Assignment cShadHWidAssignment_12_0 = (Assignment)cGroup_12.eContents().get(0);
+		private final RuleCall cShadHWidNShadHWidParserRuleCall_12_0_0 = (RuleCall)cShadHWidAssignment_12_0.eContents().get(0);
+		private final Assignment cTShadRefPtAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final RuleCall cTShadRefPtNTShadRefPtParserRuleCall_12_1_0 = (RuleCall)cTShadRefPtAssignment_12_1.eContents().get(0);
+		private final Assignment cRhoAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cRhoNRhoParserRuleCall_13_0 = (RuleCall)cRhoAssignment_13.eContents().get(0);
+		private final Assignment cKinViscAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cKinViscNKinViscParserRuleCall_14_0 = (RuleCall)cKinViscAssignment_14.eContents().get(0);
+		private final Assignment cDTAeroAssignment_15 = (Assignment)cGroup.eContents().get(15);
+		private final RuleCall cDTAeroNDTAeroParserRuleCall_15_0 = (RuleCall)cDTAeroAssignment_15.eContents().get(0);
+		private final Assignment cNumFoilAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cNumFoilINumFoilParserRuleCall_16_0 = (RuleCall)cNumFoilAssignment_16.eContents().get(0);
+		private final Assignment cFoilNmAssignment_17 = (Assignment)cGroup.eContents().get(17);
+		private final RuleCall cFoilNmAAirfoilListParserRuleCall_17_0 = (RuleCall)cFoilNmAssignment_17.eContents().get(0);
+		private final Assignment cBldNodesAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final RuleCall cBldNodesIBldNodesParserRuleCall_18_0 = (RuleCall)cBldNodesAssignment_18.eContents().get(0);
+		private final Assignment cAirStatAssignment_19 = (Assignment)cGroup.eContents().get(19);
+		private final RuleCall cAirStatAAirStatParserRuleCall_19_0 = (RuleCall)cAirStatAssignment_19.eContents().get(0);
+		private final Alternatives cAlternatives_20 = (Alternatives)cGroup.eContents().get(20);
+		private final RuleCall cWSTerminalRuleCall_20_0 = (RuleCall)cAlternatives_20.eContents().get(0);
+		private final RuleCall cNEWLINETerminalRuleCall_20_1 = (RuleCall)cAlternatives_20.eContents().get(1);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_20_2 = (RuleCall)cAlternatives_20.eContents().get(2);
 		
 		//// about EOF
 		//// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
 		//ModelFastadn:
 		//	Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-		//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
-		//	Rho= // Air density (kg/m^3)						
+		//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad (ShadHWid= // old model, AeroDyn <14 				
+		//	nShadHWid TShadRefPt=nTShadRefPt) / * |
+		//	(TwrPotent 	= bTwrPot		// new model, AeroDyn 14+			
+		//	TwrShadow 	= bTwrShd
+		//	TwrFile 	= fTwrFile
+		//	CalcTwrAero	= bCalcTwrAero) * / Rho= // Air density (kg/m^3)						
 		//	nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//	nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 		//	nDTAero NumFoil= // Number of airfoil files (-)
@@ -81,8 +86,12 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		public ParserRule getRule() { return rule; }
 
 		//Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-		//TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
-		//Rho= // Air density (kg/m^3)						
+		//TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad (ShadHWid= // old model, AeroDyn <14 				
+		//nShadHWid TShadRefPt=nTShadRefPt) / * |
+		//	(TwrPotent 	= bTwrPot		// new model, AeroDyn 14+			
+		//	TwrShadow 	= bTwrShd
+		//	TwrFile 	= fTwrFile
+		//	CalcTwrAero	= bCalcTwrAero) * / Rho= // Air density (kg/m^3)						
 		//nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 		//nDTAero NumFoil= // Number of airfoil files (-)
@@ -162,81 +171,87 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//nTwrShad
 		public RuleCall getTwrShadNTwrShadParserRuleCall_11_0() { return cTwrShadNTwrShadParserRuleCall_11_0; }
 
-		//ShadHWid=nShadHWid
-		public Assignment getShadHWidAssignment_12() { return cShadHWidAssignment_12; }
+		//ShadHWid= // old model, AeroDyn <14 				
+		//nShadHWid TShadRefPt=nTShadRefPt
+		public Group getGroup_12() { return cGroup_12; }
 
+		//ShadHWid= // old model, AeroDyn <14 				
 		//nShadHWid
-		public RuleCall getShadHWidNShadHWidParserRuleCall_12_0() { return cShadHWidNShadHWidParserRuleCall_12_0; }
+		public Assignment getShadHWidAssignment_12_0() { return cShadHWidAssignment_12_0; }
+
+		//// old model, AeroDyn <14 				
+		//nShadHWid
+		public RuleCall getShadHWidNShadHWidParserRuleCall_12_0_0() { return cShadHWidNShadHWidParserRuleCall_12_0_0; }
 
 		//TShadRefPt=nTShadRefPt
-		public Assignment getTShadRefPtAssignment_13() { return cTShadRefPtAssignment_13; }
+		public Assignment getTShadRefPtAssignment_12_1() { return cTShadRefPtAssignment_12_1; }
 
 		//nTShadRefPt
-		public RuleCall getTShadRefPtNTShadRefPtParserRuleCall_13_0() { return cTShadRefPtNTShadRefPtParserRuleCall_13_0; }
+		public RuleCall getTShadRefPtNTShadRefPtParserRuleCall_12_1_0() { return cTShadRefPtNTShadRefPtParserRuleCall_12_1_0; }
 
 		//Rho= // Air density (kg/m^3)						
 		//nRho
-		public Assignment getRhoAssignment_14() { return cRhoAssignment_14; }
+		public Assignment getRhoAssignment_13() { return cRhoAssignment_13; }
 
 		//// Air density (kg/m^3)						
 		//nRho
-		public RuleCall getRhoNRhoParserRuleCall_14_0() { return cRhoNRhoParserRuleCall_14_0; }
+		public RuleCall getRhoNRhoParserRuleCall_13_0() { return cRhoNRhoParserRuleCall_13_0; }
 
 		//KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//nKinVisc
-		public Assignment getKinViscAssignment_15() { return cKinViscAssignment_15; }
+		public Assignment getKinViscAssignment_14() { return cKinViscAssignment_14; }
 
 		//// Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 		//nKinVisc
-		public RuleCall getKinViscNKinViscParserRuleCall_15_0() { return cKinViscNKinViscParserRuleCall_15_0; }
+		public RuleCall getKinViscNKinViscParserRuleCall_14_0() { return cKinViscNKinViscParserRuleCall_14_0; }
 
 		//DTAero= // Time interval for aerodynamic calculations						(sec)
 		//nDTAero
-		public Assignment getDTAeroAssignment_16() { return cDTAeroAssignment_16; }
+		public Assignment getDTAeroAssignment_15() { return cDTAeroAssignment_15; }
 
 		//// Time interval for aerodynamic calculations						(sec)
 		//nDTAero
-		public RuleCall getDTAeroNDTAeroParserRuleCall_16_0() { return cDTAeroNDTAeroParserRuleCall_16_0; }
+		public RuleCall getDTAeroNDTAeroParserRuleCall_15_0() { return cDTAeroNDTAeroParserRuleCall_15_0; }
 
 		//NumFoil= // Number of airfoil files (-)
 		//iNumFoil
-		public Assignment getNumFoilAssignment_17() { return cNumFoilAssignment_17; }
+		public Assignment getNumFoilAssignment_16() { return cNumFoilAssignment_16; }
 
 		//// Number of airfoil files (-)
 		//iNumFoil
-		public RuleCall getNumFoilINumFoilParserRuleCall_17_0() { return cNumFoilINumFoilParserRuleCall_17_0; }
+		public RuleCall getNumFoilINumFoilParserRuleCall_16_0() { return cNumFoilINumFoilParserRuleCall_16_0; }
 
 		//FoilNm= // Names of the airfoil files [NumFoil lines]					(quoted strings)
 		//aAirfoilList
-		public Assignment getFoilNmAssignment_18() { return cFoilNmAssignment_18; }
+		public Assignment getFoilNmAssignment_17() { return cFoilNmAssignment_17; }
 
 		//// Names of the airfoil files [NumFoil lines]					(quoted strings)
 		//aAirfoilList
-		public RuleCall getFoilNmAAirfoilListParserRuleCall_18_0() { return cFoilNmAAirfoilListParserRuleCall_18_0; }
+		public RuleCall getFoilNmAAirfoilListParserRuleCall_17_0() { return cFoilNmAAirfoilListParserRuleCall_17_0; }
 
 		//BldNodes=iBldNodes
-		public Assignment getBldNodesAssignment_19() { return cBldNodesAssignment_19; }
+		public Assignment getBldNodesAssignment_18() { return cBldNodesAssignment_18; }
 
 		//iBldNodes
-		public RuleCall getBldNodesIBldNodesParserRuleCall_19_0() { return cBldNodesIBldNodesParserRuleCall_19_0; }
+		public RuleCall getBldNodesIBldNodesParserRuleCall_18_0() { return cBldNodesIBldNodesParserRuleCall_18_0; }
 
 		//AirStat=aAirStat
-		public Assignment getAirStatAssignment_20() { return cAirStatAssignment_20; }
+		public Assignment getAirStatAssignment_19() { return cAirStatAssignment_19; }
 
 		//aAirStat
-		public RuleCall getAirStatAAirStatParserRuleCall_20_0() { return cAirStatAAirStatParserRuleCall_20_0; }
+		public RuleCall getAirStatAAirStatParserRuleCall_19_0() { return cAirStatAAirStatParserRuleCall_19_0; }
 
 		//(WS | NEWLINE | SL_COMMENT)*
-		public Alternatives getAlternatives_21() { return cAlternatives_21; }
+		public Alternatives getAlternatives_20() { return cAlternatives_20; }
 
 		//WS
-		public RuleCall getWSTerminalRuleCall_21_0() { return cWSTerminalRuleCall_21_0; }
+		public RuleCall getWSTerminalRuleCall_20_0() { return cWSTerminalRuleCall_20_0; }
 
 		//NEWLINE
-		public RuleCall getNEWLINETerminalRuleCall_21_1() { return cNEWLINETerminalRuleCall_21_1; }
+		public RuleCall getNEWLINETerminalRuleCall_20_1() { return cNEWLINETerminalRuleCall_20_1; }
 
 		//SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_21_2() { return cSL_COMMENTTerminalRuleCall_21_2; }
+		public RuleCall getSL_COMMENTTerminalRuleCall_20_2() { return cSL_COMMENTTerminalRuleCall_20_2; }
 	}
 
 	public class TNUMBERElements extends AbstractParserRuleElementFinder {
@@ -257,6 +272,42 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 
 		//NUMBER
 		public RuleCall getNUMBERTerminalRuleCall_1() { return cNUMBERTerminalRuleCall_1; }
+	}
+
+	public class TBOOLElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "tBOOL");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTRUEKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cTrueKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cTrueKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cFALSEKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cFalseKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cFalseKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		
+		//tBOOL returns ecore::EBoolean:
+		//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
+		public ParserRule getRule() { return rule; }
+
+		//"TRUE" | "True" | "true" | "FALSE" | "False" | "false"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"TRUE"
+		public Keyword getTRUEKeyword_0() { return cTRUEKeyword_0; }
+
+		//"True"
+		public Keyword getTrueKeyword_1() { return cTrueKeyword_1; }
+
+		//"true"
+		public Keyword getTrueKeyword_2() { return cTrueKeyword_2; }
+
+		//"FALSE"
+		public Keyword getFALSEKeyword_3() { return cFALSEKeyword_3; }
+
+		//"False"
+		public Keyword getFalseKeyword_4() { return cFalseKeyword_4; }
+
+		//"false"
+		public Keyword getFalseKeyword_5() { return cFalseKeyword_5; }
 	}
 
 	public class TARRAY_STRElements extends AbstractParserRuleElementFinder {
@@ -819,10 +870,10 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//nTwrShad hidden():
-		//	WS? value=tNUMBER WS name="TwrShad" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=tNUMBER / *|'NEWTOWER'* / WS name="TwrShad" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=tNUMBER WS name="TwrShad" WS? SL_COMMENT? NEWLINE
+		//WS? value=tNUMBER / *|'NEWTOWER'* / WS name="TwrShad" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
@@ -834,7 +885,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		//tNUMBER
 		public RuleCall getValueTNUMBERParserRuleCall_1_0() { return cValueTNUMBERParserRuleCall_1_0; }
 
-		//WS
+		/// *|'NEWTOWER'* / WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
 
 		//name="TwrShad"
@@ -842,6 +893,198 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"TwrShad"
 		public Keyword getNameTwrShadKeyword_3_0() { return cNameTwrShadKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BTwrPotElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bTwrPot");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameTwrPotentKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bTwrPot hidden():
+		//	WS? value=tBOOL WS name="TwrPotent" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="TwrPotent" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="TwrPotent"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"TwrPotent"
+		public Keyword getNameTwrPotentKeyword_3_0() { return cNameTwrPotentKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BTwrShdElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bTwrShd");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameTwrShadowKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bTwrShd hidden():
+		//	WS? value=tBOOL WS name="TwrShadow" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="TwrShadow" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="TwrShadow"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"TwrShadow"
+		public Keyword getNameTwrShadowKeyword_3_0() { return cNameTwrShadowKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class FTwrFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fTwrFile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameTwrFileKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//fTwrFile hidden():
+		//	WS? value=STRING WS name="TwrFile" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=STRING WS name="TwrFile" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="TwrFile"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"TwrFile"
+		public Keyword getNameTwrFileKeyword_3_0() { return cNameTwrFileKeyword_3_0; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+
+		//SL_COMMENT?
+		public RuleCall getSL_COMMENTTerminalRuleCall_5() { return cSL_COMMENTTerminalRuleCall_5; }
+
+		//NEWLINE
+		public RuleCall getNEWLINETerminalRuleCall_6() { return cNEWLINETerminalRuleCall_6; }
+	}
+
+	public class BCalcTwrAeroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "bCalcTwrAero");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueTBOOLParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Keyword cNameCalcTwrAeroKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		
+		//bCalcTwrAero hidden():
+		//	WS? value=tBOOL WS name="CalcTwrAero" WS? SL_COMMENT? NEWLINE;
+		public ParserRule getRule() { return rule; }
+
+		//WS? value=tBOOL WS name="CalcTwrAero" WS? SL_COMMENT? NEWLINE
+		public Group getGroup() { return cGroup; }
+
+		//WS?
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
+
+		//value=tBOOL
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//tBOOL
+		public RuleCall getValueTBOOLParserRuleCall_1_0() { return cValueTBOOLParserRuleCall_1_0; }
+
+		//WS
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
+
+		//name="CalcTwrAero"
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+
+		//"CalcTwrAero"
+		public Keyword getNameCalcTwrAeroKeyword_3_0() { return cNameCalcTwrAeroKeyword_3_0; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
@@ -1439,6 +1682,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private ModelFastadnElements pModelFastadn;
 	private TNUMBERElements pTNUMBER;
+	private TBOOLElements pTBOOL;
 	private TARRAY_STRElements pTARRAY_STR;
 	private TerminalRule tINT;
 	private TerminalRule tNUMBER;
@@ -1465,6 +1709,10 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	private FWindFileElements pFWindFile;
 	private NHHElements pNHH;
 	private NTwrShadElements pNTwrShad;
+	private BTwrPotElements pBTwrPot;
+	private BTwrShdElements pBTwrShd;
+	private FTwrFileElements pFTwrFile;
+	private BCalcTwrAeroElements pBCalcTwrAero;
 	private NShadHWidElements pNShadHWid;
 	private NTShadRefPtElements pNTShadRefPt;
 	private NRhoElements pNRho;
@@ -1509,8 +1757,12 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	//// http://www.euclideanspace.com/software/development/eclipse/xtext/grammar/lexer/index.htm
 	//ModelFastadn:
 	//	Head=Header SIUnits=sUnits StallMod=sStallMod UseCm=sUseCm InfModel=sInfModel IndModel=sIndModel Atoler=nAtoler
-	//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad ShadHWid=nShadHWid TShadRefPt=nTShadRefPt
-	//	Rho= // Air density (kg/m^3)						
+	//	TLModel=sTLModel HLModel=sHLModel WindFile=fWindFile HH=nHH TwrShad=nTwrShad (ShadHWid= // old model, AeroDyn <14 				
+	//	nShadHWid TShadRefPt=nTShadRefPt) / * |
+	//	(TwrPotent 	= bTwrPot		// new model, AeroDyn 14+			
+	//	TwrShadow 	= bTwrShd
+	//	TwrFile 	= fTwrFile
+	//	CalcTwrAero	= bCalcTwrAero) * / Rho= // Air density (kg/m^3)						
 	//	nRho KinVisc= // Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 	//	nKinVisc DTAero= // Time interval for aerodynamic calculations						(sec)
 	//	nDTAero NumFoil= // Number of airfoil files (-)
@@ -1534,6 +1786,16 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		return getTNUMBERAccess().getRule();
 	}
 
+	//tBOOL returns ecore::EBoolean:
+	//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
+	public TBOOLElements getTBOOLAccess() {
+		return (pTBOOL != null) ? pTBOOL : (pTBOOL = new TBOOLElements());
+	}
+	
+	public ParserRule getTBOOLRule() {
+		return getTBOOLAccess().getRule();
+	}
+
 	////from online help: The QualifiedName is a little special. It does not contain any assignments. 
 	//// Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
 	//// Package is still of type String. 
@@ -1550,7 +1812,7 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 		return getTARRAY_STRAccess().getRule();
 	}
 
-	//// TERMINALS 
+	//// TERMINALS
 	//// NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
 	//// NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
 	//terminal INT returns ecore::EInt:
@@ -1744,13 +2006,53 @@ public class FastadnGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//nTwrShad hidden():
-	//	WS? value=tNUMBER WS name="TwrShad" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=tNUMBER / *|'NEWTOWER'* / WS name="TwrShad" WS? SL_COMMENT? NEWLINE;
 	public NTwrShadElements getNTwrShadAccess() {
 		return (pNTwrShad != null) ? pNTwrShad : (pNTwrShad = new NTwrShadElements());
 	}
 	
 	public ParserRule getNTwrShadRule() {
 		return getNTwrShadAccess().getRule();
+	}
+
+	//bTwrPot hidden():
+	//	WS? value=tBOOL WS name="TwrPotent" WS? SL_COMMENT? NEWLINE;
+	public BTwrPotElements getBTwrPotAccess() {
+		return (pBTwrPot != null) ? pBTwrPot : (pBTwrPot = new BTwrPotElements());
+	}
+	
+	public ParserRule getBTwrPotRule() {
+		return getBTwrPotAccess().getRule();
+	}
+
+	//bTwrShd hidden():
+	//	WS? value=tBOOL WS name="TwrShadow" WS? SL_COMMENT? NEWLINE;
+	public BTwrShdElements getBTwrShdAccess() {
+		return (pBTwrShd != null) ? pBTwrShd : (pBTwrShd = new BTwrShdElements());
+	}
+	
+	public ParserRule getBTwrShdRule() {
+		return getBTwrShdAccess().getRule();
+	}
+
+	//fTwrFile hidden():
+	//	WS? value=STRING WS name="TwrFile" WS? SL_COMMENT? NEWLINE;
+	public FTwrFileElements getFTwrFileAccess() {
+		return (pFTwrFile != null) ? pFTwrFile : (pFTwrFile = new FTwrFileElements());
+	}
+	
+	public ParserRule getFTwrFileRule() {
+		return getFTwrFileAccess().getRule();
+	}
+
+	//bCalcTwrAero hidden():
+	//	WS? value=tBOOL WS name="CalcTwrAero" WS? SL_COMMENT? NEWLINE;
+	public BCalcTwrAeroElements getBCalcTwrAeroAccess() {
+		return (pBCalcTwrAero != null) ? pBCalcTwrAero : (pBCalcTwrAero = new BCalcTwrAeroElements());
+	}
+	
+	public ParserRule getBCalcTwrAeroRule() {
+		return getBCalcTwrAeroAccess().getRule();
 	}
 
 	//nShadHWid hidden():

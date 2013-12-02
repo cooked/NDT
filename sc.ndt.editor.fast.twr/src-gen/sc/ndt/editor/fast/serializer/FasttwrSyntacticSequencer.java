@@ -582,7 +582,7 @@ public class FasttwrSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (NEWLINE | WS | SL_COMMENT)*
+	 *     (WS | NEWLINE | SL_COMMENT)*
 	 */
 	protected void emit_ModelFasttwr___NEWLINETerminalRuleCall_40_1_or_SL_COMMENTTerminalRuleCall_40_2_or_WSTerminalRuleCall_40_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

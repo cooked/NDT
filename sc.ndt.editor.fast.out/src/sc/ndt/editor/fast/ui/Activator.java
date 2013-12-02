@@ -23,7 +23,6 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 
-	private Server server;
 	
 	/**
 	 * The constructor
@@ -39,32 +38,6 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
-		Connector connector=new SelectChannelConnector();
-		connector.setHost("localhost");
-        connector.setPort(8888);
-        
-        // see 
-        // http://www.vogella.com/blog/2010/07/06/reading-resources-from-plugin/
-        // see
-        // http://stackoverflow.com/questions/1462953/embedded-jetty-looking-for-files-inside-its-jar-file
-        // http://docs.codehaus.org/display/JETTY/Embedding+Jetty
-        
-        ResourceHandler resource_handler = new ResourceHandler();
-
-        resource_handler.setDirectoriesListed(true);
-        resource_handler.setResourceBase(
-        		this.getClass().getClassLoader().getResource("http").toExternalForm()
-        	);
-        resource_handler.setWelcomeFiles(new String[]{"index.html"});
-        
-           
-        HandlerList handlers = new HandlerList();
-        handlers.setHandlers(new Handler[] { resource_handler, new DefaultHandler() });
-        
-        server = new Server();
-        server.setConnectors(new Connector[]{connector});
-        server.setHandler(handlers);
-        server.start();
 		
 	}
 	
@@ -77,7 +50,6 @@ public class Activator extends AbstractUIPlugin {
 		plugin = null;
 		super.stop(context);
 
-		server.stop();
 		
 	}
 

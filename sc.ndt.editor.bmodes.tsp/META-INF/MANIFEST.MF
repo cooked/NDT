@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: sc.ndt.editor.bmodes.tsp
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-SymbolicName: sc.ndt.editor.bmodes.tsp; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
@@ -19,16 +19,17 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.common.types
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: sc.ndt.editor,
- sc.ndt.editor.services,
- sc.ndt.editor.bmodestsp,
- sc.ndt.editor.bmodestsp.impl,
- sc.ndt.editor.bmodestsp.util,
- sc.ndt.editor.serializer,
- sc.ndt.editor.parser.antlr,
- sc.ndt.editor.parser.antlr.internal,
- sc.ndt.editor.validation,
- sc.ndt.editor.scoping,
- sc.ndt.editor.generator,
- sc.ndt.editor.formatting
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: sc.ndt.editor.bmodes,
+ sc.ndt.editor.bmodes.services,
+ sc.ndt.editor.bmodes.bmodestsp,
+ sc.ndt.editor.bmodes.bmodestsp.impl,
+ sc.ndt.editor.bmodes.bmodestsp.util,
+ sc.ndt.editor.bmodes.serializer,
+ sc.ndt.editor.bmodes.parser.antlr,
+ sc.ndt.editor.bmodes.parser.antlr.internal,
+ sc.ndt.editor.bmodes.validation,
+ sc.ndt.editor.bmodes.scoping,
+ sc.ndt.editor.bmodes.generator,
+ sc.ndt.editor.bmodes.formatting
+

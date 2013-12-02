@@ -21,8 +21,12 @@ ModelFastadn:
   	
   	HH			= nHH
   	TwrShad  	= nTwrShad						
-	ShadHWid 	= nShadHWid					
-	TShadRefPt 	= nTShadRefPt
+	(ShadHWid 	= nShadHWid		// old model, AeroDyn <14 				
+	TShadRefPt 	= nTShadRefPt) /* |
+	(TwrPotent 	= bTwrPot		// new model, AeroDyn 14+			
+	TwrShadow 	= bTwrShd
+	TwrFile 	= fTwrFile
+	CalcTwrAero	= bCalcTwrAero) */
 	Rho     	= nRho			// Air density (kg/m^3)						
 	KinVisc  	= nKinVisc 		// Kinematic air viscosity [MUST !=0 FOR NOISE]						(m^2/sec)						
 	DTAero		= nDTAero 		// Time interval for aerodynamic calculations						(sec)
@@ -41,6 +45,7 @@ ModelFastadn:
 ;
 
 tNUMBER returns ecore::EFloat	: INT | NUMBER;
+tBOOL 	returns ecore::EBoolean	: 'TRUE'|'True'|'true'|'FALSE'|'False'|'false';	
 
 //from online help: The QualifiedName is a little special. It does not contain any assignments. 
 // Therefore, it serves as a data type rule, which returns a String. So the feature name of a 
@@ -51,7 +56,7 @@ tNUMBER returns ecore::EFloat	: INT | NUMBER;
 
 tARRAY_STR returns ecore::EString hidden(SL_COMMENT): (WS? STRING WS? NEWLINE )*;
 
-// TERMINALS 
+// TERMINALS
 // NOTE : see http://www.eclipse.org/Xtext/documentation.html#syntax
 // NOTE : the order of terminal rules is crucial for your grammar, as they may shadow each other. This is especially important for newly introduced rules in connection with imported rules from used grammars. 
 terminal INT returns ecore::EInt: ('0'..'9')+;
@@ -61,6 +66,7 @@ terminal NUMBER returns ecore::EFloat:
 	(				('.'INT)  (('E'|'e')('+'|'-')? INT )?) |
 	('-'		INT										 )
 ;
+
 terminal UNITS		: 'SI';
 terminal STALL		: 'BEDDOES'|'STEADY';
 terminal CM			: 'USE_CM'|'NO_CM';
@@ -93,15 +99,21 @@ sHLModel	hidden():	WS? value=PRANDTL 	WS	name='HLModel'		WS? SL_COMMENT? NEWLINE
 fWindFile hidden(): 	WS? value=STRING 	WS	name='WindFile'		WS?	SL_COMMENT? NEWLINE;
 
 nHH			hidden():	WS? value=tNUMBER 	WS	name='HH'			WS? SL_COMMENT? NEWLINE;
-nTwrShad	hidden():	WS? value=tNUMBER 	WS	name='TwrShad'		WS? SL_COMMENT? NEWLINE;
-nShadHWid	hidden():	WS? value=tNUMBER 	WS	name='ShadHWid'		WS? SL_COMMENT? NEWLINE;
-nTShadRefPt	hidden():	WS? value=tNUMBER 	WS	name='T_Shad_Refpt'	WS? SL_COMMENT? NEWLINE;								
-nRho		hidden():	WS? value=tNUMBER 	WS	name=('Rho'|'AirDens')	WS? SL_COMMENT? NEWLINE;								
-nKinVisc	hidden():	WS? value=tNUMBER 	WS	name='KinVisc'		WS? SL_COMMENT? NEWLINE;								
-nDTAero		hidden():	WS? value=tNUMBER 	WS	name='DTAero'		WS? SL_COMMENT? NEWLINE;								
 
-iNumFoil	hidden():	WS? value=INT 		WS	name='NumFoil'		WS? SL_COMMENT? NEWLINE;								
-aAirfoilList hidden():	WS? value+=STRING 	WS 	name='FoilNm' 		WS? SL_COMMENT? NEWLINE
+nTwrShad	hidden():	WS? value=tNUMBER/*|'NEWTOWER'*/ WS	name='TwrShad'	WS? SL_COMMENT? NEWLINE;
+bTwrPot		hidden():	WS? value=tBOOL 	WS	name='TwrPotent'		WS? SL_COMMENT? NEWLINE;
+bTwrShd		hidden():	WS? value=tBOOL 	WS	name='TwrShadow'		WS? SL_COMMENT? NEWLINE;
+fTwrFile	hidden():	WS? value=STRING 	WS	name='TwrFile'			WS? SL_COMMENT? NEWLINE;
+bCalcTwrAero hidden():	WS? value=tBOOL 	WS	name='CalcTwrAero'		WS? SL_COMMENT? NEWLINE;
+nShadHWid	hidden():	WS? value=tNUMBER 	WS	name='ShadHWid'			WS? SL_COMMENT? NEWLINE;
+nTShadRefPt	hidden():	WS? value=tNUMBER 	WS	name='T_Shad_Refpt'		WS? SL_COMMENT? NEWLINE;								
+
+nRho		hidden():	WS? value=tNUMBER 	WS	name=('Rho'|'AirDens')	WS? SL_COMMENT? NEWLINE;								
+nKinVisc	hidden():	WS? value=tNUMBER 	WS	name='KinVisc'			WS? SL_COMMENT? NEWLINE;								
+nDTAero		hidden():	WS? value=tNUMBER 	WS	name='DTAero'			WS? SL_COMMENT? NEWLINE;								
+
+iNumFoil	hidden():	WS? value=INT 		WS	name='NumFoil'			WS? SL_COMMENT? NEWLINE;								
+aAirfoilList hidden():	WS? value+=STRING 	WS 	name='FoilNm' 			WS? SL_COMMENT? NEWLINE
 						(WS? value+=STRING WS? SL_COMMENT? NEWLINE)*;
 
 iBldNodes	hidden():	WS? value=INT 		WS	name='BldNodes'		WS? SL_COMMENT? NEWLINE;

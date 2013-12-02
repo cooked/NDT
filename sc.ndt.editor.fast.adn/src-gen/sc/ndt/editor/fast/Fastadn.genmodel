@@ -77,6 +77,22 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTwrShad/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nTwrShad/name"/>
     </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//bTwrPot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bTwrPot/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bTwrPot/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//bTwrShd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bTwrShd/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bTwrShd/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//fTwrFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//fTwrFile/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//fTwrFile/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Fastadn.ecore#//bCalcTwrAero">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bCalcTwrAero/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//bCalcTwrAero/name"/>
+    </genClasses>
     <genClasses ecoreClass="Fastadn.ecore#//nShadHWid">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nShadHWid/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Fastadn.ecore#//nShadHWid/name"/>

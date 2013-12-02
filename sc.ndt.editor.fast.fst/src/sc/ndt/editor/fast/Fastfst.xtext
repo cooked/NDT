@@ -409,7 +409,7 @@ nGBRatio	hidden():	WS? value=tNUMBER 	WS	name='GBRatio'		WS? SL_COMMENT? NEWLINE
 bGBRevers	hidden():	WS? value=tBOOL 	WS	name='GBRevers'		WS? SL_COMMENT? NEWLINE;
 nHSSBrTqF	hidden():	WS? value=tNUMBER 	WS	name='HSSBrTqF'		WS? SL_COMMENT? NEWLINE;
 nHSSBrDT	hidden():	WS? value=tNUMBER 	WS	name='HSSBrDT'		WS? SL_COMMENT? NEWLINE;
-fDynBrkFi	hidden():	WS? value=STRING WS	name='DynBrkFi'		WS? SL_COMMENT? NEWLINE;
+fDynBrkFi	hidden():	WS? value=STRING 	WS	name='DynBrkFi'		WS? SL_COMMENT? NEWLINE;
 nDTTorSpr	hidden():	WS? value=tNUMBER 	WS	name='DTTorSpr'		WS? SL_COMMENT? NEWLINE;
 nDTTorDmp	hidden():	WS? value=tNUMBER 	WS	name='DTTorDmp'		WS? SL_COMMENT? NEWLINE;
 	

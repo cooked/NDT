@@ -47,17 +47,28 @@ public class FASTProjectSupport {
             		"output/linear"
             		};
             String[] files = { 
-            		".build/build.xml",
-            		".build/build.properties",
+            		project.getName()+".fst",
             		"input/aero/aerodyn.adn",
+            		"input/aero/foils/cylinder.dat",
+            		"input/aero/foils/s818_2703.dat",
+            		"input/aero/foils/s825_2103.dat",
+            		"input/aero/foils/s826_1603.dat",
+            		"input/control/Spd_Trq.dat",
             		"input/tower/tower.twr",
+            		"input/tower/tower.tsp",
+            		"input/tower/tower.tsv",
+            		"input/tower/tower.bmi",
             		"input/blade/blade.bld",
-            		"input/aero/foil/01.dat",
-            		"input/aero/foil/02.dat",
+            		"input/linear/linear.lin",
+            		"input/noise/noise.nos",
+            		"input/platform/platform.pfm",
             		"input/wind/iecwind/iecwind.iec",
             		"input/wind/turbsim/turbsim.tbs",
             		"wind/rated.wnd",
-            		"FAST.fst"
+            		"wind/rated.sum",
+            		"pitch.ipt",
+            		"build.xml",
+            		"build.properties",
             		};
             addToProjectStructure(project, folders, files);
         } catch (CoreException e) {
@@ -116,7 +127,12 @@ public class FASTProjectSupport {
    
         if (!file.exists()) {
         	IPath path = file.getProjectRelativePath();
-    		URL url = commonsBundle.getEntry("templates/"+path.toString());
+        	String str = path.toString();
+        	URL url;
+        	if(file.getFileExtension().matches("fst"))
+        		url = commonsBundle.getEntry("templates/FAST.fst");
+        	else
+        		url = commonsBundle.getEntry("templates/"+str);
         	InputStream inputStream = url.openConnection().getInputStream();
     	    file.create(inputStream, IResource.NONE, null);
     	}

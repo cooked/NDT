@@ -75,7 +75,7 @@ public class BldFormPage extends FormPage {
 
 	private DataBindingContext m_bindingContext;
 
-	public OutList outList = new OutList();
+	//public OutList outList = new OutList();
 
 	private ScrolledForm form;
 	private FormToolkit toolkit;

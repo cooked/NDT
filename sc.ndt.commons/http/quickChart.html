@@ -1,0 +1,66 @@
+<html>
+<head>
+	
+	<link rel="stylesheet" href="css/dygraph.css">
+	
+	<style type="text/css">
+		
+		/* go full-page please! */
+		
+		html,body { height: 99.5%; margin: 0; padding: 0px; width:99.9%;}
+		#graphdiv { background: #eee; height: 100%; border:1px solid #aaa; }
+	
+	</style>
+	
+	<script type="text/javascript" src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/vendor/dygraph/dygraph-combined.js"></script>
+	<script type="text/javascript">
+		
+		var g;
+		
+		$(document).ready(function() {
+			
+			var data = new Array();	
+			data.push([1,2,3]);
+			data.push([2,3,4]);
+			data.push([3,3,4]);
+			data.push([4,3,4]);
+			data.push([5,3,4]);
+			
+			g = new Dygraph(
+					document.getElementById("graphdiv"),
+					data,
+					{
+						labels: [ "Date", "Serie1", "Serie2" ]
+					}
+				);
+		});
+		
+		function setData(names, data, visibility) {
+			g.updateOptions({
+				//'visibility': 	visibility,
+				'axisLabelWidth': 20,
+				'labels': names,
+				'file': data
+			});
+			return 1;
+		}
+		
+		function setSerieVisibility(name, visibility) {
+			vis 	= g.visibility();
+			index 	= g.indexFromSetName(name) - 1;
+			vis[index] = visibility;
+			g.updateOptions({
+				'visibility': vis
+			});
+		    return 1;
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<div id="graphdiv"></div>
+</body>
+</html>
+

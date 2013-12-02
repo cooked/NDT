@@ -18,6 +18,12 @@
             id="sc.nrel.nwtc.fast.internal.debug.ui.fres.FREsPreferencePage"
             name="Installed FREs">
       </page>
+      <page
+            category="sc.ndt.editor.Turbsimtbs"
+            class="sc.nrel.nwtc.turbsim.internal.debug.tres.TREsPreferencePage"
+            id="sc.nrel.nwtc.fast.internal.debug.ui.tres.TREsPreferencePage"
+            name="Installed TREs">
+      </page>
    </extension>
 	  <extension
         point="org.eclipse.debug.ui.launchShortcuts">
@@ -47,6 +53,58 @@
                  </iterate>
               </with>
            </enablement></contextualLaunch>
+     </shortcut>
+     <shortcut
+           class="sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FASTLaunchShortcutBatch"
+           icon="icons/favico_nrel.png"
+           id="sc.ndt.launching.fast.DLC"
+           label="FAST Batch"
+           modes="run">
+        <contextualLaunch>
+           <enablement>
+              <with
+                    variable="selection">
+                 <count
+                       value="1">
+                 </count>
+                 <iterate>
+                    <instanceof
+                          value="org.eclipse.core.resources.IFile">
+                    </instanceof>
+                    <test
+                          property="org.eclipse.debug.ui.matchesPattern"
+                          value="*.fst">
+                    </test>
+                 </iterate>
+              </with>
+           </enablement>
+        </contextualLaunch>
+     </shortcut>
+     <shortcut
+           class="sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FASTLaunchShortcutBatchAs"
+           icon="icons/favico_nrel.png"
+           id="sc.ndt.launching.fast.shortcut2"
+           label="FAST Batch..."
+           modes="run">
+        <contextualLaunch>
+           <enablement>
+              <with
+                    variable="selection">
+                 <count
+                       value="1">
+                 </count>
+                 <iterate>
+                    <instanceof
+                          value="org.eclipse.core.resources.IFile">
+                    </instanceof>
+                    <test
+                          property="org.eclipse.debug.ui.matchesPattern"
+                          value="*.fst">
+                    </test>
+                 </iterate>
+              </with>
+           </enablement>
+        </contextualLaunch>
      </shortcut>
   </extension>
   <extension

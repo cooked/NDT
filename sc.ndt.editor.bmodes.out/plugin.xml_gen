@@ -5,9 +5,9 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.ndt.sc/editor/Bmodesout" 
-       class = "sc.ndt.editor.bmodesout.BmodesoutPackage"
-       genModel = "sc/ndt/editor/Bmodesout.genmodel" /> 
+       uri = "http://www.ndt.sc/editor/bmodes/Bmodesout" 
+       class = "sc.ndt.editor.bmodes.bmodesout.BmodesoutPackage"
+       genModel = "sc/ndt/editor/bmodes/Bmodesout.genmodel" /> 
 	
   </extension>
 

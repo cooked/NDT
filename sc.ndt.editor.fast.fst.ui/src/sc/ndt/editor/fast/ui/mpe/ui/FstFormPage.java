@@ -4,6 +4,7 @@ package sc.ndt.editor.fast.ui.mpe.ui;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.eclipse.ant.launching.IAntLaunchConstants;
 import org.eclipse.core.databinding.AggregateValidationStatus;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.ObservablesManager;
@@ -14,15 +15,26 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.databinding.validation.ValidationStatus;
+import org.eclipse.core.externaltools.internal.IExternalToolConstants;
 import org.eclipse.core.internal.resources.File;
+import org.eclipse.core.internal.resources.Resource;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.debug.core.DebugPlugin;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationType;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.debug.core.ILaunchManager;
+import org.eclipse.debug.ui.DebugUITools;
+import org.eclipse.debug.ui.actions.LaunchAction;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.FeaturePath;
 import org.eclipse.jface.action.Action;
@@ -37,6 +49,8 @@ import org.eclipse.jface.viewers.CheckboxTreeViewer;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.TreeViewerColumn;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.custom.CTabFolder;
@@ -54,18 +68,25 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.IMessage;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.wb.swt.ResourceManager;
@@ -83,9 +104,13 @@ import sc.ndt.commons.model.providers.outlist.OutListCheckStateProvider;
 import sc.ndt.commons.model.providers.outlist.OutListContentProvider;
 import sc.ndt.commons.model.providers.outlist.OutListLabelProvider;
 import sc.ndt.commons.model.providers.outlist.OutListToolTipSupport;
+import sc.ndt.commons.model.providers.outlist.OutListViewerComparator;
 import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastfst.FastfstPackage;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
+import sc.ndt.editor.fast.ui.mpe.outline.OutListContentOutline;
+import sc.nrel.nwtc.fast.debug.ui.launchConfigurations.FASTLaunchShortcut;
+import sc.nrel.nwtc.fast.launching.StandardFASTType;
 import ch.vorburger.xtext.databinding.XtextDataBindingContext;
 import ch.vorburger.xtext.databinding.XtextProperties;
 
@@ -93,6 +118,9 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 
 import com.google.inject.Injector;
+
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Spinner;
 
 public class FstFormPage extends FormPage {
 
@@ -171,18 +199,18 @@ public class FstFormPage extends FormPage {
 	private Text TPitManE_3_;
 	private Text BlPitch_3_;
 	private Text B1PitchF_3_;
-	private Text TwrFile;
+	private Combo TwrFile;
 	private Text TwrNodes;
 
 	private Button Echo;
-	private Text FurlFile;
+	private Combo FurlFile;
 	private Text TBDrConN;
 	private Text TBDrConD;
 	private Text TpBrDT;
-	private Text BldFile_1_;
-	private Text BldFile_2_;
-	private Text BldFile_3_;
-	private Text ADFile;
+	private Combo BldFile_1_;
+	private Combo BldFile_2_;
+	private Combo BldFile_3_;
+	private Combo ADFile;
 	private Button FlapDOF1;
 	private Button FlapDOF2;
 	private Button GenDOF;
@@ -197,10 +225,10 @@ public class FstFormPage extends FormPage {
 	private Button CompAero;
 	private Button CompNoise;
 	private Button GBRevers;
-	private Text NoiseFile;
+	private Combo NoiseFile;
 	private Text TStart;
-	private Text ADAMSFile;
-	private Text LinFile;
+	private Combo ADAMSFile;
+	private Combo LinFile;
 	private Text PSpnElN;
 	private Text DecFact;
 	private Text SttsTime;
@@ -208,9 +236,9 @@ public class FstFormPage extends FormPage {
 	private Text NcIMUyn;
 	private Button SumPrint;
 	private Button TabDelim;
-	private Text PtfmFile;
+	private Combo PtfmFile;
 	private Text NumBl;
-	private CCombo PlatformModel;
+	private Combo PlatformModel;
 	private CCombo YCMode;
 	private CCombo PCMode;
 	private CCombo HSSBrMode;
@@ -253,9 +281,7 @@ public class FstFormPage extends FormPage {
 
 	private DataBindingContext m_bindingContext;
 
-	public OutList outList = new OutList();
-
-	private ScrolledForm form;
+	private ScrolledForm sform;
 	private FormToolkit toolkit;
 	private IToolBarManager manager;
 	private String list;
@@ -281,8 +307,6 @@ public class FstFormPage extends FormPage {
 	private Label lblMethodToStart;
 	private Label label_18;
 
-
-	
 	public URI uri;
 	
 	private ControlDecoration cdFurlFile;
@@ -296,6 +320,18 @@ public class FstFormPage extends FormPage {
 	private ControlDecoration cdADAMSFile;
 	private ControlDecoration cdLinFile;
 	private ControlDecoration cdPtfmFile;
+	private FstMultiPageEditor fxe;
+	private Form form;
+	private ImageHyperlink mghprlnkNewImagehyperlink_1;
+	private ImageHyperlink mghprlnkNewImagehyperlink_5;
+	private ImageHyperlink mghprlnkNewImagehyperlink_6;
+	private ImageHyperlink imageHyperlink_8;
+	
+	
+	private IWorkbenchPage page;
+	private IEditorInput 	editorInput;
+	private Shell shell;
+	
 	
 	/**
 	 * Create the form page.
@@ -318,51 +354,169 @@ public class FstFormPage extends FormPage {
 	public FstFormPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 
-		if(document==null && getEditor() instanceof IXtextFormEditor) {
-			XtextEditor e = ((IXtextFormEditor)getEditor()).getXtextEditor("fst");
-			document = e.getDocument();
+		if(document==null && getEditor() instanceof FstMultiPageEditor) {
+			
+			fxe = (FstMultiPageEditor)getEditor();
+			
+			// init uri
+			uri = fxe.getXtextEditorModelFst().eResource().getURI();
+			
+			// init the model
+			fxe.outList.setAllSelected(
+					fxe.getXtextEditorModelFst().getOutList().getValue() );
+		
+			// get the document
+			document = fxe.getXtextEditor("fst").getDocument();
+			
 		}
-
-		list = document.readOnly(new IUnitOfWork<String,XtextResource>() {
-
-			public String exec(XtextResource resource) {
-				ModelFastfst m = (ModelFastfst)resource.getContents().get(0);
-				uri = m.eResource().getURI();
-				return m.getOutList().getValue();
-			}
-
-		});	
-		outList.setAllSelected(list);
-
+		
+		page 		= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+		shell 		= PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+		editorInput	= getEditor().getEditorInput();
+		
 	}
 
 	private FastfstPackage bindFastfstPackage() {
 		return FastfstPackage.eINSTANCE;
 	}
 
+	
+	// see:
+	// http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fdebug%2Fui%2Factions%2Fpackage-summary.html	
+	class FASTLaunchAction extends LaunchAction {
+
+		public FASTLaunchAction(ILaunchConfiguration configuration, String mode) {
+			
+			super(configuration, mode);
+			// TODO Auto-generated constructor stub
+		}
+		
+	}
+	
+	private void loadFile(Combo control,String path, String[] ext) {
+		FileDialog dialog = new FileDialog(shell, SWT.OPEN);
+		dialog.setFilterExtensions(ext);
+		dialog.setFilterPath(path);
+		String fileName = dialog.open();
+
+		if(fileName!=null) {
+			IPath file = ((FileEditorInput)getEditor().getEditorInput()).getFile().getParent().getLocation();
+			String p = new Path(fileName).makeRelativeTo(file).toOSString();
+			control.setText(p);
+		}
+	}
+	
+	private void openFile(String file) {
+    	IResource ir = (IResource)editorInput.getAdapter(IResource.class);
+		try {
+			IDE.openEditor(page, ir.getProject().getFile(file));
+		} catch (PartInitException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Create contents of the form.
 	 * @param managedForm
 	 */
 	@Override
 	protected void createFormContent(IManagedForm managedForm) {
-		managedForm.getForm().setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/fan-alt.png"));
-		managedForm.getToolkit().setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-
-		form = managedForm.getForm();
-		form.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));		
-		form.setText("FAST Main File");
-
+		
+		sform 	= managedForm.getForm();
+		form 	= managedForm.getForm().getForm();
 		toolkit = managedForm.getToolkit();
-		toolkit.decorateFormHeading(form.getForm());
-
-		manager = form.getToolBarManager();
-
+		manager = sform.getToolBarManager();
+		
+		
+		sform.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));		
+		sform.getBody().setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		//sform.setText("FAST Control Panel");
+		//sform.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/fan-alt.png"));
+		toolkit.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		//toolkit.decorateFormHeading(form.getForm());
+		
 		// see
 		// http://devblog.virtage.com/2012/09/snippet-of-the-day-execute-eclipse-command-programmatically/
+		final ImageHyperlink ihl = toolkit.createImageHyperlink(form.getHead(), SWT.NONE);
+		ihl.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		ihl.textSpacing = 0;
+		ihl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				
+				FileEditorInput fei = (FileEditorInput)getEditorInput();
+				IProject 		prj = fei.getFile().getProject();
+				
+				//File f = fei.getFile().getRawLocation().makeAbsolute().toFile();
+				
+				String buildFile = prj.getFile("build.xml").getRawLocation().makeAbsolute().toOSString();
+				
+				// OK working
+				/*FASTLaunchShortcut fls = new FASTLaunchShortcut();
+				fls.launch(getEditor(), ILaunchManager.RUN_MODE);*/
+				
+				// TODO almost done
+				/*AntLauncher al = new AntLauncher();
+				al.run(buildFile, new String[]{"",""});
+				*/
+				
+				// TODO
+				// see
+				// http://codescale.wordpress.com/2010/04/25/log-the-ant-output-to-the-eclipse-console/
+				
+				ILaunchManager launchManager = 
+						DebugPlugin.getDefault().getLaunchManager();
+				ILaunchConfigurationType lcType = 
+						launchManager.getLaunchConfigurationType(
+								IAntLaunchConstants.ID_ANT_LAUNCH_CONFIGURATION_TYPE);
+				 
+				String name = launchManager.generateLaunchConfigurationName("Run Ant");
+				try {
+					ILaunchConfigurationWorkingCopy wc = lcType.newInstance(null, "my build");
+					wc.setAttribute(ILaunchManager.ATTR_PRIVATE, true);
+					wc.setAttribute(IExternalToolConstants.ATTR_LOCATION, buildFile.toString());
+					wc.setAttribute(IAntLaunchConstants.ATTR_ANT_TARGETS, "wind");
+					wc.launch(ILaunchManager.RUN_MODE, null);
+				} catch (CoreException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		ihl.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/cog_go.png"));
+		ihl.setText("");
 		
-		Action runAction = new Action("Run") { //$NON-NLS-1$
+		
+		final ImageHyperlink ihl2 = toolkit.createImageHyperlink(form.getHead(), SWT.NONE);
+		ihl2.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		ihl2.textSpacing = 0;
+		ihl2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				// exploit launch shortcut
+				//AntLauncher al = new AntLauncher();
+				//al.run(getEditorInput(), new String[]{"",""});
+				
+			}
+		});
+		ihl2.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/table.png"));
+		ihl2.setText("");
+		
+		
+		// TODO: UNCOMMENT TO ENABLE HEAD TOOLBAR
+		//form.setHeadClient(ihl);
+		
+		
+		
+		//form.setToolBarVerticalAlignment(SWT.BOTTOM);
+		//sform.getToolBarManager().add(new Action("This is the toolbar") { });	// NEW LINE
+		
+		/*Action runAction = new Action("Run FAST") { //$NON-NLS-1$
 			public void run() {
+				
+				// exploit launch shortcut
+				FASTLaunchShortcut fls = new FASTLaunchShortcut();
+				fls.launch(getEditor(), ILaunchManager.RUN_MODE);
 				
 			}
 		};
@@ -370,13 +524,18 @@ public class FstFormPage extends FormPage {
 		runAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("sc.ndt.commons", "icons/cog_go.png"));
 
 		
-		Action linAction = new Action("Linearize") { //$NON-NLS-1$
+		Action linAction = new Action("Run DLC") { //$NON-NLS-1$
 			public void run() {
+				
+				// exploit launch shortcut
+				AntLauncher al = new AntLauncher();
+				al.run(getEditorInput(), new String[]{"",""});
+				
 			}
 		};
+		linAction.setToolTipText("Run DLC");
 		linAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("sc.ndt.commons", "/icons/table.png"));
-
-		/*
+		
 		Action helpAction = new Action("Help") { //$NON-NLS-1$
 			public void run() {
 			}
@@ -384,18 +543,20 @@ public class FstFormPage extends FormPage {
 		helpAction.setImageDescriptor(ResourceManager.getPluginImageDescriptor("org.eclipse.help.ui", "/icons/etool16/help.gif"));
 		 */
 		
-		manager.add(runAction);		// run time-marching simulation
-		manager.add(linAction);		// run model linearization
-		//manager.add(helpAction);	// open help
+		//manager.add(runAction);		// run time-marching simulation
+		//manager.add(linAction);		// run model linearization
+		//manager.add(helpAction);		// open help
 		
-		
+		sform.getToolBarManager().update(true);
 		form.updateToolBar();
-		managedForm.getForm().getBody().setLayout(new RowLayout(SWT.HORIZONTAL));
+		sform.getBody().setLayout(new RowLayout(SWT.HORIZONTAL));
 
 		// control decoration
 		fieldDecERR = FieldDecorationRegistry.getDefault().getFieldDecoration(
 				FieldDecorationRegistry.DEC_ERROR);
-				
+			
+		
+		
 		Composite composite_13 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
 		composite_13.setLayoutData(new RowData(450, SWT.DEFAULT));
 		managedForm.getToolkit().adapt(composite_13);
@@ -410,6 +571,7 @@ public class FstFormPage extends FormPage {
 				sctnNewSection_2.setLayoutData(gd_sctnNewSection_2);
 				managedForm.getToolkit().paintBordersFor(sctnNewSection_2);
 				sctnNewSection_2.setText("Environmental Conditions");
+				sctnNewSection_2.setExpanded(false);
 				
 						Composite composite_2 = managedForm.getToolkit().createComposite(sctnNewSection_2, SWT.NONE);
 						managedForm.getToolkit().paintBordersFor(composite_2);
@@ -441,7 +603,6 @@ public class FstFormPage extends FormPage {
 		sPlatform.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sPlatform);
 		sPlatform.setText("Platform");
-		sPlatform.setExpanded(true);
 
 		// Platform
 		Composite composite_4 = new Composite(sPlatform, SWT.NONE);
@@ -459,27 +620,13 @@ public class FstFormPage extends FormPage {
 		managedForm.getToolkit().adapt(lblNewLabel_20, true, true);
 		lblNewLabel_20.setText("Platform model");
 
-		PlatformModel = new CCombo(composite_4, SWT.NONE);
+		PlatformModel = new Combo(composite_4, SWT.NONE);
 		PlatformModel.setItems(new String[] {"NONE", "ONSHORE", "OFFSHORE FIXED", "OFFSHORE FLOATING"});
 		GridData gd_PlatformModel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_PlatformModel.widthHint = 150;
 		PlatformModel.setLayoutData(gd_PlatformModel);
 		PlatformModel.setToolTipText("PlatformModel");
 		managedForm.getToolkit().adapt(PlatformModel, true, true);
-		PlatformModel.addModifyListener( new ModifyListener() {
-
-			@Override
-			public void modifyText(ModifyEvent e) {
-				if(((CCombo)(e.widget)).getSelectionIndex()==0) {
-					lblPlatformPropertiesFile.setEnabled(false);
-					PtfmFile.setEnabled(false);
-				} else {
-					lblPlatformPropertiesFile.setEnabled(true);
-					PtfmFile.setEnabled(true);
-				}
-			}
-			
-		});
 		
 				
 						lblPlatformPropertiesFile = new Label(composite_4, SWT.NONE);
@@ -499,8 +646,8 @@ public class FstFormPage extends FormPage {
 				managedForm.getToolkit().adapt(composite_15);
 				managedForm.getToolkit().paintBordersFor(composite_15);
 				
-						PtfmFile = new Text(composite_15, SWT.NONE);
-						PtfmFile.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+						PtfmFile = new Combo(composite_15, SWT.NONE);
+						PtfmFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 						PtfmFile.setEnabled(false);
 						PtfmFile.setToolTipText("PtfmFile");
 						PtfmFile.setBounds(0, 0, 76, 19);
@@ -511,21 +658,12 @@ public class FstFormPage extends FormPage {
 						cdPtfmFile.setImage(fieldDecERR.getImage());
 				
 				final ImageHyperlink mghprlnkNewImagehyperlink = managedForm.getToolkit().createImageHyperlink(composite_15, SWT.NONE);
+				mghprlnkNewImagehyperlink.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				mghprlnkNewImagehyperlink.textSpacing = 0;
 				mghprlnkNewImagehyperlink.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseDown(MouseEvent e) {
-							FileDialog dialog = new FileDialog(mghprlnkNewImagehyperlink.getShell(), SWT.OPEN);
-						   dialog.setFilterExtensions(new String [] {"*.pfm","*.*"});
-						   dialog.setFilterPath("input");
-						   String fileName = dialog.open();
-						   
-						   if(fileName!=null) {
-							   IPath file = ((FileEditorInput)getEditor().getEditorInput()).getFile().getParent().getLocation();
-							   IPath path = new Path(fileName);
-							   IPath path_r = path.makeRelativeTo(file);
-						  
-							   PtfmFile.setText(path_r.toOSString());
-						   }
+						loadFile(PtfmFile,"input", new String [] {"*.pfm","*.*"});
 					}
 				});
 				mghprlnkNewImagehyperlink.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
@@ -533,6 +671,8 @@ public class FstFormPage extends FormPage {
 				mghprlnkNewImagehyperlink.setText("");
 				
 				ImageHyperlink mghprlnkNewImagehyperlink_2 = managedForm.getToolkit().createImageHyperlink(composite_15, SWT.NONE);
+				mghprlnkNewImagehyperlink_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				mghprlnkNewImagehyperlink_2.textSpacing = 0;
 				mghprlnkNewImagehyperlink_2.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
 				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_2);
 				mghprlnkNewImagehyperlink_2.setText("");
@@ -542,6 +682,7 @@ public class FstFormPage extends FormPage {
 		sTower.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sTower);
 		sTower.setText("Tower");
+		sTower.setExpanded(false);
 
 		Composite composite_17 = new Composite(sTower, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_17);
@@ -579,7 +720,7 @@ public class FstFormPage extends FormPage {
 		gl_composite_16.marginHeight = 0;
 		composite_16.setLayout(gl_composite_16);
 		
-				TwrFile = new Text(composite_16, SWT.NONE);
+				TwrFile = new Combo(composite_16, SWT.NONE);
 				TwrFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 				TwrFile.setToolTipText("TwrFile");
 				managedForm.getToolkit().adapt(TwrFile, true, true);
@@ -588,7 +729,9 @@ public class FstFormPage extends FormPage {
 				controlDecoration.setMarginWidth(3);
 				controlDecoration.setDescriptionText("Some description");
 		
-		ImageHyperlink mghprlnkNewImagehyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_16, SWT.NONE);
+		mghprlnkNewImagehyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_16, SWT.NONE);
+		mghprlnkNewImagehyperlink_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		mghprlnkNewImagehyperlink_1.textSpacing = 0;
 		GridData gd_mghprlnkNewImagehyperlink_1 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_mghprlnkNewImagehyperlink_1.widthHint = 18;
 		gd_mghprlnkNewImagehyperlink_1.heightHint = 16;
@@ -596,8 +739,16 @@ public class FstFormPage extends FormPage {
 		mghprlnkNewImagehyperlink_1.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
 		managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_1);
 		mghprlnkNewImagehyperlink_1.setText("");
+		mghprlnkNewImagehyperlink_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				loadFile(TwrFile,"input", new String [] {"*.twr","*.*"});
+			}
+		});
 		
 		ImageHyperlink mghprlnkNewImagehyperlink_3 = managedForm.getToolkit().createImageHyperlink(composite_16, SWT.NONE);
+		mghprlnkNewImagehyperlink_3.textSpacing = 0;
+		mghprlnkNewImagehyperlink_3.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		GridData gd_mghprlnkNewImagehyperlink_3 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_mghprlnkNewImagehyperlink_3.widthHint = 18;
 		mghprlnkNewImagehyperlink_3.setLayoutData(gd_mghprlnkNewImagehyperlink_3);
@@ -1049,6 +1200,7 @@ public class FstFormPage extends FormPage {
 		sFurling.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sFurling);
 		sFurling.setText("Furling");
+		sFurling.setExpanded(false);
 
 		Composite composite_26 = new Composite(sFurling, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_26);
@@ -1091,15 +1243,43 @@ public class FstFormPage extends FormPage {
 		lblFurlingPropertiesFile.setLayoutData(gd_lblFurlingPropertiesFile);
 		lblFurlingPropertiesFile.setText("Furling properties file");
 		managedForm.getToolkit().adapt(lblFurlingPropertiesFile, true, true);
-
-		FurlFile = new Text(composite_26, SWT.NONE);
-		FurlFile.setEnabled(false);
-		FurlFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(FurlFile, true, true);
 		
-		cdFurlFile = new ControlDecoration(FurlFile, SWT.LEFT | SWT.TOP);
-		cdFurlFile.setMarginWidth(3);
-		cdFurlFile.setImage(fieldDecERR.getImage());
+		Composite composite_35 = new Composite(composite_26, SWT.NONE);
+		composite_35.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_35);
+		managedForm.getToolkit().paintBordersFor(composite_35);
+		composite_35.setLayout(new GridLayout(3, false));
+		
+				FurlFile = new Combo(composite_35, SWT.NONE);
+				FurlFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				FurlFile.setEnabled(false);
+				managedForm.getToolkit().adapt(FurlFile, true, true);
+				
+				cdFurlFile = new ControlDecoration(FurlFile, SWT.LEFT | SWT.TOP);
+				cdFurlFile.setMarginWidth(3);
+				cdFurlFile.setImage(fieldDecERR.getImage());
+				
+				imageHyperlink_8 = managedForm.getToolkit().createImageHyperlink(composite_35, SWT.NONE);
+				GridData gd_imageHyperlink_8 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_8.widthHint = 18;
+				imageHyperlink_8.setLayoutData(gd_imageHyperlink_8);
+				imageHyperlink_8.textSpacing = 0;
+				imageHyperlink_8.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_8);
+				imageHyperlink_8.setText(".");
+				imageHyperlink_8.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						loadFile(FurlFile,"input", new String [] {"*.frl","*.*"});
+					}
+				});
+				ImageHyperlink imageHyperlink_9 = managedForm.getToolkit().createImageHyperlink(composite_35, SWT.NONE);
+				imageHyperlink_9.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				GridData gd_imageHyperlink_9 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_9.widthHint = 18;
+				imageHyperlink_9.setLayoutData(gd_imageHyperlink_9);
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_9);
+				imageHyperlink_9.setText(".");
 		
 		Section sRotorTeeter = managedForm.getToolkit().createSection(composite_13, Section.EXPANDED | Section.TWISTIE | Section.TITLE_BAR);
 		GridData gd_sRotorTeeter = new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1);
@@ -1330,7 +1510,7 @@ public class FstFormPage extends FormPage {
 		lblBladePropertyFile.setText("Blade 1 property file");
 		managedForm.getToolkit().adapt(lblBladePropertyFile, true, true);
 
-		BldFile_1_ = new Text(composite_28, SWT.NONE);
+		BldFile_1_ = new Combo(composite_28, SWT.NONE);
 		BldFile_1_.setToolTipText("BldFile(1)");
 		BldFile_1_.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(BldFile_1_, true, true);
@@ -1343,7 +1523,7 @@ public class FstFormPage extends FormPage {
 		lblBladeProperty.setText("Blade 2 property file");
 		managedForm.getToolkit().adapt(lblBladeProperty, true, true);
 
-		BldFile_2_ = new Text(composite_28, SWT.NONE);
+		BldFile_2_ = new Combo(composite_28, SWT.NONE);
 		BldFile_2_.setToolTipText("BldFile(2)");
 		BldFile_2_.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(BldFile_2_, true, true);
@@ -1356,7 +1536,7 @@ public class FstFormPage extends FormPage {
 		lblBladeProperty_1.setText("Blade 3 property file");
 		managedForm.getToolkit().adapt(lblBladeProperty_1, true, true);
 
-		BldFile_3_ = new Text(composite_28, SWT.NONE);
+		BldFile_3_ = new Combo(composite_28, SWT.NONE);
 		BldFile_3_.setToolTipText("BldFile(3)");
 		BldFile_3_.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		managedForm.getToolkit().adapt(BldFile_3_, true, true);
@@ -1384,21 +1564,61 @@ public class FstFormPage extends FormPage {
 		gd_lblAerodynPropertyFile.widthHint = 120;
 		lblAerodynPropertyFile.setLayoutData(gd_lblAerodynPropertyFile);
 		managedForm.getToolkit().adapt(lblAerodynPropertyFile, true, true);
-
-		ADFile = new Text(composite_29, SWT.NONE);
-		ADFile.setToolTipText("ADFile");
-		ADFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(ADFile, true, true);
 		
-		cdADFile = new ControlDecoration(ADFile, SWT.LEFT | SWT.TOP);
-		cdADFile.setMarginWidth(3);
-		cdADFile.setImage(fieldDecERR.getImage());
-
+		Composite composite_24 = new Composite(composite_29, SWT.NONE);
+		composite_24.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_24);
+		managedForm.getToolkit().paintBordersFor(composite_24);
+		GridLayout gl_composite_24 = new GridLayout(3, false);
+		gl_composite_24.marginHeight = 0;
+		composite_24.setLayout(gl_composite_24);
+		
+				ADFile = new Combo(composite_24, SWT.NONE);
+				ADFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				ADFile.setToolTipText("ADFile");
+				managedForm.getToolkit().adapt(ADFile, true, true);
+				
+				cdADFile = new ControlDecoration(ADFile, SWT.LEFT | SWT.TOP);
+				cdADFile.setMarginWidth(3);
+				cdADFile.setImage(fieldDecERR.getImage());
+				
+				mghprlnkNewImagehyperlink_5 = managedForm.getToolkit().createImageHyperlink(composite_24, SWT.NONE);
+				GridData gd_mghprlnkNewImagehyperlink_5 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_mghprlnkNewImagehyperlink_5.widthHint = 18;
+				mghprlnkNewImagehyperlink_5.setLayoutData(gd_mghprlnkNewImagehyperlink_5);
+				mghprlnkNewImagehyperlink_5.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				mghprlnkNewImagehyperlink_5.textSpacing = 0;
+				mghprlnkNewImagehyperlink_5.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_5);
+				mghprlnkNewImagehyperlink_5.setText(".");
+				mghprlnkNewImagehyperlink_2.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						loadFile(ADFile,"input", new String [] {"*.adn","*.*"});
+					}
+				});
+				
+				mghprlnkNewImagehyperlink_6 = managedForm.getToolkit().createImageHyperlink(composite_24, SWT.NONE);
+				GridData gd_mghprlnkNewImagehyperlink_6 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_mghprlnkNewImagehyperlink_6.widthHint = 18;
+				mghprlnkNewImagehyperlink_6.setLayoutData(gd_mghprlnkNewImagehyperlink_6);
+				mghprlnkNewImagehyperlink_6.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				mghprlnkNewImagehyperlink_6.textSpacing = 0;
+				mghprlnkNewImagehyperlink_6.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_6);
+				mghprlnkNewImagehyperlink_6.setText(".");
+				mghprlnkNewImagehyperlink_6.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						openFile(ADFile.getText());
+					}
+				});
+				
+				
 		Section sNoise = managedForm.getToolkit().createSection(composite_13, Section.TWISTIE | Section.TITLE_BAR);
 		sNoise.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sNoise);
 		sNoise.setText("Noise");
-		sNoise.setExpanded(true);
 
 		Composite composite_31 = new Composite(sNoise, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_31);
@@ -1414,21 +1634,52 @@ public class FstFormPage extends FormPage {
 		lblNewLabel_37.setLayoutData(gd_lblNewLabel_37);
 		managedForm.getToolkit().adapt(lblNewLabel_37, true, true);
 		lblNewLabel_37.setText("Aerodynamic noise file");
-
-		NoiseFile = new Text(composite_31, SWT.NONE);
-		NoiseFile.setToolTipText("NoiseFile");
-		NoiseFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(NoiseFile, true, true);
 		
-		cdNoiseFile = new ControlDecoration(NoiseFile, SWT.LEFT | SWT.TOP);
-		cdNoiseFile.setMarginWidth(3);
-		cdNoiseFile.setImage(fieldDecERR.getImage());
+		Composite composite_32 = new Composite(composite_31, SWT.NONE);
+		composite_32.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_32);
+		managedForm.getToolkit().paintBordersFor(composite_32);
+		GridLayout gl_composite_32 = new GridLayout(3, false);
+		gl_composite_32.marginHeight = 0;
+		composite_32.setLayout(gl_composite_32);
+		
+				NoiseFile = new Combo(composite_32, SWT.NONE);
+				NoiseFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				NoiseFile.setToolTipText("NoiseFile");
+				managedForm.getToolkit().adapt(NoiseFile, true, true);
+				
+				cdNoiseFile = new ControlDecoration(NoiseFile, SWT.LEFT | SWT.TOP);
+				cdNoiseFile.setMarginWidth(3);
+				cdNoiseFile.setImage(fieldDecERR.getImage());
+				
+				ImageHyperlink imageHyperlink_6 = managedForm.getToolkit().createImageHyperlink(composite_32, SWT.NONE);
+				GridData gd_imageHyperlink_6 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_6.widthHint = 18;
+				imageHyperlink_6.setLayoutData(gd_imageHyperlink_6);
+				imageHyperlink_6.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				imageHyperlink_6.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_6);
+				imageHyperlink_6.setText(".");
+				imageHyperlink_6.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						loadFile(NoiseFile,"input", new String [] {"*.nos","*.*"});
+					}
+				});
+				
+				ImageHyperlink imageHyperlink_7 = managedForm.getToolkit().createImageHyperlink(composite_32, SWT.NONE);
+				imageHyperlink_7.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				imageHyperlink_7.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				GridData gd_imageHyperlink_7 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_7.widthHint = 18;
+				imageHyperlink_7.setLayoutData(gd_imageHyperlink_7);
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_7);
+				imageHyperlink_7.setText(".");
 
 		Section sADAMS = managedForm.getToolkit().createSection(composite_13, Section.TWISTIE | Section.TITLE_BAR);
 		sADAMS.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sADAMS);
 		sADAMS.setText("ADAMS");
-		sADAMS.setExpanded(true);
 
 		Composite composite_33 = new Composite(sADAMS, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_33);
@@ -1442,21 +1693,52 @@ public class FstFormPage extends FormPage {
 		GridData gd_lblA = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_lblA.widthHint = 120;
 		lblA.setLayoutData(gd_lblA);
-
-		ADAMSFile = new Text(composite_33, SWT.NONE);
-		ADAMSFile.setToolTipText("ADAMSFile");
-		ADAMSFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(ADAMSFile, true, true);
 		
-		cdADAMSFile = new ControlDecoration(ADAMSFile, SWT.LEFT | SWT.TOP);
-		cdADAMSFile.setMarginWidth(3);
-		cdADAMSFile.setImage(fieldDecERR.getImage());
+		Composite composite_30 = new Composite(composite_33, SWT.NONE);
+		composite_30.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_30);
+		managedForm.getToolkit().paintBordersFor(composite_30);
+		GridLayout gl_composite_30 = new GridLayout(3, false);
+		gl_composite_30.marginHeight = 0;
+		composite_30.setLayout(gl_composite_30);
+		
+				ADAMSFile = new Combo(composite_30, SWT.NONE);
+				ADAMSFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				ADAMSFile.setToolTipText("ADAMSFile");
+				managedForm.getToolkit().adapt(ADAMSFile, true, true);
+				
+				cdADAMSFile = new ControlDecoration(ADAMSFile, SWT.LEFT | SWT.TOP);
+				cdADAMSFile.setMarginWidth(3);
+				cdADAMSFile.setImage(fieldDecERR.getImage());
+				
+				ImageHyperlink imageHyperlink_4 = managedForm.getToolkit().createImageHyperlink(composite_30, SWT.NONE);
+				GridData gd_imageHyperlink_4 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_4.widthHint = 18;
+				imageHyperlink_4.setLayoutData(gd_imageHyperlink_4);
+				imageHyperlink_4.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_4);
+				imageHyperlink_4.setText(".");
+				imageHyperlink_4.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						loadFile(ADAMSFile,"input", new String [] {"*.ams","*.*"});
+					}
+				});
+				
+				ImageHyperlink imageHyperlink_5 = managedForm.getToolkit().createImageHyperlink(composite_30, SWT.NONE);
+				GridData gd_imageHyperlink_5 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_5.widthHint = 18;
+				imageHyperlink_5.setLayoutData(gd_imageHyperlink_5);
+				imageHyperlink_5.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				imageHyperlink_5.textSpacing = 0;
+				imageHyperlink_5.setToolTipText("Edit file");
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_5);
+				imageHyperlink_5.setText(".");
 
 		Section sLinearization = managedForm.getToolkit().createSection(composite_13, Section.TWISTIE | Section.TITLE_BAR);
 		sLinearization.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		managedForm.getToolkit().paintBordersFor(sLinearization);
 		sLinearization.setText("Linearization");
-		sLinearization.setExpanded(true);
 
 		Composite composite_34 = new Composite(sLinearization, SWT.NONE);
 		managedForm.getToolkit().adapt(composite_34);
@@ -1470,19 +1752,52 @@ public class FstFormPage extends FormPage {
 		GridData gd_lblNewLabel_6 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_lblNewLabel_6.widthHint = 120;
 		lblNewLabel_6.setLayoutData(gd_lblNewLabel_6);
-
-		LinFile = new Text(composite_34, SWT.NONE);
-		LinFile.setToolTipText("LinFile");
-		LinFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		managedForm.getToolkit().adapt(LinFile, true, true);
 		
-		cdLinFile = new ControlDecoration(LinFile, SWT.LEFT | SWT.TOP);
-		cdLinFile.setMarginWidth(3);
-		cdLinFile.setImage(fieldDecERR.getImage());
+		Composite composite_25 = new Composite(composite_34, SWT.NONE);
+		composite_25.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		managedForm.getToolkit().adapt(composite_25);
+		managedForm.getToolkit().paintBordersFor(composite_25);
+		GridLayout gl_composite_25 = new GridLayout(3, false);
+		gl_composite_25.marginHeight = 0;
+		composite_25.setLayout(gl_composite_25);
 		
-		// This example will allow text to be dragged
-        //Transfer[] types = new Transfer[] {SectionTransfer.getInstance()};
-
+				LinFile = new Combo(composite_25, SWT.NONE);
+				LinFile.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+				LinFile.setToolTipText("LinFile");
+				managedForm.getToolkit().adapt(LinFile, true, true);
+				
+				cdLinFile = new ControlDecoration(LinFile, SWT.LEFT | SWT.TOP);
+				cdLinFile.setMarginWidth(3);
+				cdLinFile.setImage(fieldDecERR.getImage());
+				
+				ImageHyperlink imageHyperlink_2 = managedForm.getToolkit().createImageHyperlink(composite_25, SWT.NONE);
+				GridData gd_imageHyperlink_2 = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_2.widthHint = 18;
+				imageHyperlink_2.setLayoutData(gd_imageHyperlink_2);
+				imageHyperlink_2.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				imageHyperlink_2.textSpacing = 0;
+				imageHyperlink_2.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_get.png"));
+				imageHyperlink_2.setToolTipText("Load file");
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_2);
+				imageHyperlink_2.setText(".");
+				imageHyperlink_2.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseDown(MouseEvent e) {
+						loadFile(LinFile,"input", new String [] {"*.lin","*.*"});
+					}
+				});
+				
+				ImageHyperlink imageHyperlink_3 = managedForm.getToolkit().createImageHyperlink(composite_25, SWT.NONE);
+				imageHyperlink_3.setToolTipText("Edit file");
+				imageHyperlink_3.textSpacing = 0;
+				imageHyperlink_3.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+				imageHyperlink_3.setImage(ResourceManager.getPluginImage("sc.ndt.editor.fast.fst.ui", "icons/page_white_edit.png"));
+				GridData gd_imageHyperlink_3 = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
+				gd_imageHyperlink_3.widthHint = 18;
+				imageHyperlink_3.setLayoutData(gd_imageHyperlink_3);
+				managedForm.getToolkit().paintBordersFor(imageHyperlink_3);
+				imageHyperlink_3.setText(".");
+		
 		Composite composite_14 = new Composite(managedForm.getForm().getBody(), SWT.NONE);
 		composite_14.setLayoutData(new RowData(450, SWT.DEFAULT));
 		managedForm.getToolkit().adapt(composite_14);
@@ -1495,7 +1810,6 @@ public class FstFormPage extends FormPage {
 						sSimulationControl.setDescription("");
 						managedForm.getToolkit().paintBordersFor(sSimulationControl);
 						sSimulationControl.setText("Simulation Control");
-						sSimulationControl.setExpanded(true);
 						
 								Composite composite = managedForm.getToolkit().createComposite(sSimulationControl, SWT.NONE);
 								managedForm.getToolkit().paintBordersFor(composite);
@@ -2027,7 +2341,6 @@ public class FstFormPage extends FormPage {
 				sTurbineControl.setLayoutData(gd_sTurbineControl);
 				managedForm.getToolkit().paintBordersFor(sTurbineControl);
 				sTurbineControl.setText("Turbine Control");
-				sTurbineControl.setExpanded(true);
 				
 						CTabFolder tabFolder_1 = new CTabFolder(sTurbineControl, SWT.FLAT);
 						sTurbineControl.setClient(tabFolder_1);
@@ -2773,7 +3086,6 @@ public class FstFormPage extends FormPage {
 				sctnNewSection_4.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 				managedForm.getToolkit().paintBordersFor(sctnNewSection_4);
 				sctnNewSection_4.setText("Initial Conditions");
-				sctnNewSection_4.setExpanded(false);
 				
 						Composite composite_7 = managedForm.getToolkit().createComposite(sctnNewSection_4, SWT.NONE);
 						managedForm.getToolkit().paintBordersFor(composite_7);
@@ -2862,10 +3174,64 @@ public class FstFormPage extends FormPage {
 																																								gd_NacYaw.widthHint = 50;
 																																								NacYaw.setLayoutData(gd_NacYaw);
 																																								managedForm.getToolkit().adapt(NacYaw, true, true);
-																																								
-																																										Label lbldeg_8 = new Label(composite_7, SWT.NONE);
-																																										lbldeg_8.setText("[deg]");
-																																										managedForm.getToolkit().adapt(lbldeg_8, true, true);
+																																												
+																																												Composite composite_18 = new Composite(composite_7, SWT.NONE);
+																																												GridLayout gl_composite_18 = new GridLayout(4, false);
+																																												gl_composite_18.marginWidth = 0;
+																																												gl_composite_18.marginHeight = 0;
+																																												composite_18.setLayout(gl_composite_18);
+																																												composite_18.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+																																												managedForm.getToolkit().adapt(composite_18);
+																																												managedForm.getToolkit().paintBordersFor(composite_18);
+																																												
+																																														Label lbldeg_8 = new Label(composite_18, SWT.NONE);
+																																														lbldeg_8.setText("[deg]");
+																																														managedForm.getToolkit().adapt(lbldeg_8, true, true);
+																																														
+																																														ImageHyperlink mghprlnkNewImagehyperlink_4 = managedForm.getToolkit().createImageHyperlink(composite_18, SWT.NONE);
+																																														mghprlnkNewImagehyperlink_4.setToolTipText("Frontal wind\n(from 0\u00B0)");
+																																														mghprlnkNewImagehyperlink_4.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+																																														mghprlnkNewImagehyperlink_4.textSpacing = 0;
+																																														mghprlnkNewImagehyperlink_4.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/arrow_down.png"));
+																																														managedForm.getToolkit().paintBordersFor(mghprlnkNewImagehyperlink_4);
+																																														mghprlnkNewImagehyperlink_4.setText("");
+																																														mghprlnkNewImagehyperlink_4.addMouseListener(new MouseAdapter() {
+																																															@Override
+																																															public void mouseDown(MouseEvent e) {
+																																		
+																																																NacYaw.setText("0");
+																																															}
+																																														});
+																																														
+																																														ImageHyperlink imageHyperlink_1 = managedForm.getToolkit().createImageHyperlink(composite_18, SWT.NONE);
+																																														imageHyperlink_1.setToolTipText("Reverse wind\n(from 180\u00B0) ");
+																																														imageHyperlink_1.textSpacing = 0;
+																																														imageHyperlink_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+																																														imageHyperlink_1.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/arrow_up.png"));
+																																														managedForm.getToolkit().paintBordersFor(imageHyperlink_1);
+																																														imageHyperlink_1.setText("");
+																																														imageHyperlink_1.addMouseListener(new MouseAdapter() {
+																																															@Override
+																																															public void mouseDown(MouseEvent e) {
+																																		
+																																																NacYaw.setText("180");
+																																															}
+																																														});
+																																														
+																																														ImageHyperlink imageHyperlink = managedForm.getToolkit().createImageHyperlink(composite_18, SWT.NONE);
+																																														imageHyperlink.setToolTipText("Side wind\n(from 90\u00B0)");
+																																														imageHyperlink.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+																																														imageHyperlink.textSpacing = 0;
+																																														imageHyperlink.setImage(ResourceManager.getPluginImage("sc.ndt.commons", "icons/arrow_left.png"));
+																																														managedForm.getToolkit().paintBordersFor(imageHyperlink);
+																																														imageHyperlink.setText("");
+																																														imageHyperlink.addMouseListener(new MouseAdapter() {
+																																															@Override
+																																															public void mouseDown(MouseEvent e) {
+																																		
+																																																NacYaw.setText("90");
+																																															}
+																																														});
 																																										
 																																												Label lblForeaftTowertopDisplacement = new Label(composite_7, SWT.NONE);
 																																												managedForm.getToolkit().adapt(lblForeaftTowertopDisplacement, true, true);
@@ -2899,7 +3265,6 @@ public class FstFormPage extends FormPage {
 				sctnOutput.setLayoutData(new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1));
 				managedForm.getToolkit().paintBordersFor(sctnOutput);
 				sctnOutput.setText("Output");
-				sctnOutput.setExpanded(true);
 				
 				
 						Composite composite_9 = new Composite(sctnOutput, SWT.NONE);
@@ -3111,8 +3476,10 @@ public class FstFormPage extends FormPage {
 				composite_5.setLayout(gl_composite_5);
 				
 				
+				
 						// OutList
 						checkboxTreeViewer = new CheckboxTreeViewer(composite_5, SWT.MULTI);
+						
 						Tree treeTower = checkboxTreeViewer.getTree();
 						treeTower.setHeaderVisible(true);
 						treeTower.setLinesVisible(true);
@@ -3144,7 +3511,8 @@ public class FstFormPage extends FormPage {
 
 						checkboxTreeViewer.setContentProvider(new OutListContentProvider());
 						checkboxTreeViewer.setCheckStateProvider(new OutListCheckStateProvider());
-						checkboxTreeViewer.setInput(outList.getAllOutBlocks());
+						checkboxTreeViewer.setComparator(new OutListViewerComparator());
+						checkboxTreeViewer.setInput(fxe.outList.getAllOutBlocks());
 						OutListToolTipSupport.enableFor(checkboxTreeViewer);
 
 						// see
@@ -3156,19 +3524,19 @@ public class FstFormPage extends FormPage {
 											true);
 									Object o = event.getElement();
 									if (o instanceof OutCh) {
-										outList.get(((OutCh) o).name).setAvailable(true);
+										fxe.outList.get(((OutCh) o).name).setAvailable(true);
 
 									} else if (o instanceof OutBlock)
-										outList.setBlockSelected((OutBlock) o, true);
+										fxe.outList.setBlockSelected((OutBlock) o, true);
 
 								} else if (!event.getChecked()) {
 									checkboxTreeViewer.setSubtreeChecked(event.getElement(),
 											false);
 									Object o = event.getElement();
 									if (o instanceof OutCh)
-										outList.get(((OutCh) o).name).setAvailable(false);
+										fxe.outList.get(((OutCh) o).name).setAvailable(false);
 									else if (o instanceof OutBlock)
-										outList.setBlockSelected((OutBlock) o, false);
+										fxe.outList.setBlockSelected((OutBlock) o, false);
 								}
 
 								// TODO write to xtext model
@@ -3177,7 +3545,7 @@ public class FstFormPage extends FormPage {
 									public void process(XtextResource resource) throws Exception {
 										ModelFastfst m = (ModelFastfst) resource.getContents().get(0);
 										if (m != null && m.getOutList() != null)
-											m.getOutList().setValue(outList.getAllSelectedByBlock());
+											m.getOutList().setValue(fxe.outList.getAllSelectedByBlock());
 										else
 											throw new IllegalStateException("Uh uh, no content");
 
@@ -3189,7 +3557,7 @@ public class FstFormPage extends FormPage {
 							}
 						});
 		//toolkit.decorateFormHeading(form.getForm());
-
+	
 
 
 		// VALIDATOR / CONVERTER
@@ -3552,7 +3920,7 @@ public class FstFormPage extends FormPage {
 	protected DataBindingContext initXDB_AeroDyn(DataBindingContext bindingContext) {
 
 		//
-		IObservableValue observeTextADFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(ADFile);
+		IObservableValue observeTextADFileObserveWidget = WidgetProperties.selection().observe(ADFile);
 		IObservableValue modelValueObserveValue = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_ADFile(), bindFastfstPackage().getfADAMSFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextADFileObserveWidget, modelValueObserveValue,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3570,7 +3938,7 @@ public class FstFormPage extends FormPage {
 		IObservableValue modelValueObserveValue_PlatformModel = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_PtfmModel(), bindFastfstPackage().getiPtfmModel_Value())).observe(document);
 		bindingContext.bindValue(observeTextPlatformModelObserveWidget, modelValueObserveValue_PlatformModel, null, null);
 		//
-		IObservableValue observeTextPtfmFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(PtfmFile);
+		IObservableValue observeTextPtfmFileObserveWidget = WidgetProperties.selection().observe(PtfmFile);
 		IObservableValue modelValueObserveValue_16 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_PtfmFile(), bindFastfstPackage().getfPtfmFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextPtfmFileObserveWidget, modelValueObserveValue_16,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3588,7 +3956,7 @@ public class FstFormPage extends FormPage {
 		IObservableValue modelValueObserveValue_TwrNodes = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_TwrNodes(), bindFastfstPackage().getiTwrNodes_Value())).observe(document);
 		bindingContext.bindValue(observeTextTwrNodesObserveWidget, modelValueObserveValue_TwrNodes, null, null);
 		//
-		IObservableValue observeTextTwrFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(TwrFile);
+		IObservableValue observeTextTwrFileObserveWidget = WidgetProperties.selection().observe(TwrFile);
 		IObservableValue modelValueObserveValue_TwrFile = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_TwrFile(), bindFastfstPackage().getfTwrFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextTwrFileObserveWidget, modelValueObserveValue_TwrFile, null, null);
 
@@ -3659,7 +4027,7 @@ public class FstFormPage extends FormPage {
 		IObservableValue modelValueObserveValue_12 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_Furling(), bindFastfstPackage().getbFurling_Value())).observe(document);
 		bindingContext.bindValue(observeSelectionFurlingObserveWidget, modelValueObserveValue_12, null, null);
 		//
-		IObservableValue observeTextFurlFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(FurlFile);
+		IObservableValue observeTextFurlFileObserveWidget = WidgetProperties.selection().observe(FurlFile);
 		IObservableValue modelValueObserveValue_13 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_FurlFile(), bindFastfstPackage().getfFurlFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextFurlFileObserveWidget, modelValueObserveValue_13, 
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3723,7 +4091,7 @@ public class FstFormPage extends FormPage {
 	}
 	protected DataBindingContext initXDB_Blade (DataBindingContext bindingContext) {	
 		//
-		IObservableValue observeTextBldFile_1_ObserveWidget = WidgetProperties.text(SWT.Modify).observe(BldFile_1_);
+		IObservableValue observeTextBldFile_1_ObserveWidget = WidgetProperties.selection().observe(BldFile_1_);
 		IObservableValue modelValueObserveValue_24 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_BldFile_1_(), bindFastfstPackage().getfBldFile_1__Value())).observe(document);
 		bindingContext.bindValue(observeTextBldFile_1_ObserveWidget, modelValueObserveValue_24, 
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3731,7 +4099,7 @@ public class FstFormPage extends FormPage {
 						), 
 						null);
 		//
-		IObservableValue observeTextBldFile_2_ObserveWidget = WidgetProperties.text(SWT.Modify).observe(BldFile_2_);
+		IObservableValue observeTextBldFile_2_ObserveWidget = WidgetProperties.selection().observe(BldFile_2_);
 		IObservableValue modelValueObserveValue_25 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_BldFile_2_(), bindFastfstPackage().getfBldFile_2__Value())).observe(document);
 		bindingContext.bindValue(observeTextBldFile_2_ObserveWidget, modelValueObserveValue_25,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3739,7 +4107,7 @@ public class FstFormPage extends FormPage {
 						), 
 						null);
 		//
-		IObservableValue observeTextBldFile_3_ObserveWidget = WidgetProperties.text(SWT.Modify).observe(BldFile_3_);
+		IObservableValue observeTextBldFile_3_ObserveWidget = WidgetProperties.selection().observe(BldFile_3_);
 		IObservableValue modelValueObserveValue_26 = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_BldFile_3_(), bindFastfstPackage().getfBldFile_3__Value())).observe(document);
 		bindingContext.bindValue(observeTextBldFile_3_ObserveWidget, modelValueObserveValue_26,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3963,7 +4331,7 @@ public class FstFormPage extends FormPage {
 	protected DataBindingContext initXDB_Noise(DataBindingContext bindingContext) {
 
 		//
-		IObservableValue observeTextADFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(NoiseFile);
+		IObservableValue observeTextADFileObserveWidget = WidgetProperties.selection().observe(NoiseFile);
 		IObservableValue modelValueObserveValue = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_NoiseFile(), bindFastfstPackage().getfNoiseFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextADFileObserveWidget, modelValueObserveValue,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3977,7 +4345,7 @@ public class FstFormPage extends FormPage {
 	protected DataBindingContext initXDB_ADAMS(DataBindingContext bindingContext) {
 
 		//
-		IObservableValue observeTextADFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(ADAMSFile);
+		IObservableValue observeTextADFileObserveWidget = WidgetProperties.selection().observe(ADAMSFile);
 		IObservableValue modelValueObserveValue = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_ADAMSFile(), bindFastfstPackage().getfADAMSFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextADFileObserveWidget, modelValueObserveValue,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -3991,7 +4359,7 @@ public class FstFormPage extends FormPage {
 	protected DataBindingContext initXDB_Linearization(DataBindingContext bindingContext) {
 
 		//
-		IObservableValue observeTextADFileObserveWidget = WidgetProperties.text(SWT.Modify).observe(LinFile);
+		IObservableValue observeTextADFileObserveWidget = WidgetProperties.selection().observe(LinFile);
 		IObservableValue modelValueObserveValue = XtextProperties.value(FeaturePath.fromList(bindFastfstPackage().getModelFastfst_LinFile(), bindFastfstPackage().getfLinFile_Value())).observe(document);
 		bindingContext.bindValue(observeTextADFileObserveWidget, modelValueObserveValue,
 				new UpdateValueStrategy().setAfterConvertValidator(
@@ -4004,8 +4372,7 @@ public class FstFormPage extends FormPage {
 	}
 	
 	public IContentOutlinePage getContentOutline() {
-		// TODO Auto-generated method stub
-		return null;
+		return new OutListContentOutline(getEditor());
 	}
 
 
@@ -4095,7 +4462,8 @@ public class FstFormPage extends FormPage {
 	    public IStatus validate(Object value) {
 	        if (value instanceof String) {
 	            String text = (String) value;
-	            URI uri = URI.createFileURI(text).resolve(resURI);
+	            URI u = URI.createFileURI(text);
+	            URI uri = u.resolve(resURI);
 	            err = checkURI(uri);
 	    		switch (err) {
 	    			case 1:

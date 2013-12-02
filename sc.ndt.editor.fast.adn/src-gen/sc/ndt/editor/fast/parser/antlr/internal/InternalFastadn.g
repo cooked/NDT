@@ -293,10 +293,10 @@ ruleModelFastadn returns [EObject current=null]
 	    }
 
 )
-)(
+)((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getShadHWidNShadHWidParserRuleCall_12_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getShadHWidNShadHWidParserRuleCall_12_0_0()); 
 	    }
 		lv_ShadHWid_12_0=rulenShadHWid		{
 	        if ($current==null) {
@@ -314,7 +314,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getTShadRefPtNTShadRefPtParserRuleCall_13_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getTShadRefPtNTShadRefPtParserRuleCall_12_1_0()); 
 	    }
 		lv_TShadRefPt_13_0=rulenTShadRefPt		{
 	        if ($current==null) {
@@ -329,10 +329,10 @@ ruleModelFastadn returns [EObject current=null]
 	    }
 
 )
-)(
+))(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getRhoNRhoParserRuleCall_14_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getRhoNRhoParserRuleCall_13_0()); 
 	    }
 		lv_Rho_14_0=rulenRho		{
 	        if ($current==null) {
@@ -350,7 +350,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getKinViscNKinViscParserRuleCall_15_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getKinViscNKinViscParserRuleCall_14_0()); 
 	    }
 		lv_KinVisc_15_0=rulenKinVisc		{
 	        if ($current==null) {
@@ -368,7 +368,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getDTAeroNDTAeroParserRuleCall_16_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getDTAeroNDTAeroParserRuleCall_15_0()); 
 	    }
 		lv_DTAero_16_0=rulenDTAero		{
 	        if ($current==null) {
@@ -386,7 +386,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getNumFoilINumFoilParserRuleCall_17_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getNumFoilINumFoilParserRuleCall_16_0()); 
 	    }
 		lv_NumFoil_17_0=ruleiNumFoil		{
 	        if ($current==null) {
@@ -404,7 +404,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_18_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getFoilNmAAirfoilListParserRuleCall_17_0()); 
 	    }
 		lv_FoilNm_18_0=ruleaAirfoilList		{
 	        if ($current==null) {
@@ -422,7 +422,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getBldNodesIBldNodesParserRuleCall_19_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getBldNodesIBldNodesParserRuleCall_18_0()); 
 	    }
 		lv_BldNodes_19_0=ruleiBldNodes		{
 	        if ($current==null) {
@@ -440,7 +440,7 @@ ruleModelFastadn returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelFastadnAccess().getAirStatAAirStatParserRuleCall_20_0()); 
+	        newCompositeNode(grammarAccess.getModelFastadnAccess().getAirStatAAirStatParserRuleCall_19_0()); 
 	    }
 		lv_AirStat_20_0=ruleaAirStat		{
 	        if ($current==null) {
@@ -457,17 +457,17 @@ ruleModelFastadn returns [EObject current=null]
 )
 )(this_WS_21=RULE_WS
     { 
-    newLeafNode(this_WS_21, grammarAccess.getModelFastadnAccess().getWSTerminalRuleCall_21_0()); 
+    newLeafNode(this_WS_21, grammarAccess.getModelFastadnAccess().getWSTerminalRuleCall_20_0()); 
     }
 
     |this_NEWLINE_22=RULE_NEWLINE
     { 
-    newLeafNode(this_NEWLINE_22, grammarAccess.getModelFastadnAccess().getNEWLINETerminalRuleCall_21_1()); 
+    newLeafNode(this_NEWLINE_22, grammarAccess.getModelFastadnAccess().getNEWLINETerminalRuleCall_20_1()); 
     }
 
     |this_SL_COMMENT_23=RULE_SL_COMMENT
     { 
-    newLeafNode(this_SL_COMMENT_23, grammarAccess.getModelFastadnAccess().getSL_COMMENTTerminalRuleCall_21_2()); 
+    newLeafNode(this_SL_COMMENT_23, grammarAccess.getModelFastadnAccess().getSL_COMMENTTerminalRuleCall_20_2()); 
     }
 )*)
 ;
@@ -504,6 +504,68 @@ ruletNUMBER returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 
     { 
     newLeafNode(this_NUMBER_1, grammarAccess.getTNUMBERAccess().getNUMBERTerminalRuleCall_1()); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuletBOOL
+entryRuletBOOL returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTBOOLRule()); } 
+	 iv_ruletBOOL=ruletBOOL 
+	 { $current=$iv_ruletBOOL.current.getText(); }  
+	 EOF 
+;
+
+// Rule tBOOL
+ruletBOOL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='TRUE' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getTRUEKeyword_0()); 
+    }
+
+    |
+	kw='True' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getTrueKeyword_1()); 
+    }
+
+    |
+	kw='true' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getTrueKeyword_2()); 
+    }
+
+    |
+	kw='FALSE' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getFALSEKeyword_3()); 
+    }
+
+    |
+	kw='False' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getFalseKeyword_4()); 
+    }
+
+    |
+	kw='false' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTBOOLAccess().getFalseKeyword_5()); 
     }
 )
     ;
@@ -1501,6 +1563,14 @@ rulenTwrShad returns [EObject current=null]
 finally {
 	myHiddenTokenState.restore();
 }
+
+
+
+
+
+
+
+
 
 
 
