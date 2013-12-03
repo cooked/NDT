@@ -24,7 +24,7 @@ NDT is an user friendly front-end to the wind turbine simulation codes by NREL.
 
 ## Usage
 
-Create a new FAST project from menu File > New > Project...This will generate a set of files that represent the default 5MW baseline wind turbine from NREL.
+Create a new FAST project from menu File > New > Project...This will generate a set of files by default that represent the 1.5MW WindPACT baseline wind turbine.
 
 ### Single run
 
