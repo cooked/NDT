@@ -32,6 +32,7 @@ Create a new FAST project from menu File > New > Project...This will generate a 
 * Select *.fst file in the Project Explorer view, from the context menu (right click) choose Run As > FAST Simulation to launch the simulation. Check in the Console view the output messages from the running program.
 * When the simulation is over refresh the workspace (F5) and open the generated *.out file. This will show the output channels in a grahical viewer (you can zoom and/or hide series).   
 
+![Image](../sc.ndt.commons.assets/image/readme_01.png?raw=true)
 
 ### Batch run
 
