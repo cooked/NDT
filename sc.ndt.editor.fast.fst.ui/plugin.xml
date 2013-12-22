@@ -413,6 +413,55 @@
      </image>
   </extension>
   <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+     <commonFilter
+           description="Hide echo files"
+           id="sc.ndt.filter.resource.ech"
+           name=".ech files">
+        <filterExpression>
+           <and>
+              <adapt
+                    type="org.eclipse.core.resources.IResource">
+                 <test
+                       property="org.eclipse.core.resources.name"
+                       value="*.ech">
+                 </test>
+              </adapt>
+           </and>
+        </filterExpression>
+     </commonFilter>
+     <commonFilter
+           description="Hide option files"
+           id="sc.ndt.filter.resource.opt"
+           name=".opt files">
+        <filterExpression>
+           <and>
+              <adapt
+                    type="org.eclipse.core.resources.IResource">
+                 <test
+                       property="org.eclipse.core.resources.name"
+                       value="*.opt">
+                 </test>
+              </adapt>
+           </and>
+        </filterExpression>
+     </commonFilter>
+  </extension>
+  <extension
+        point="org.eclipse.ui.navigator.viewer">
+     <viewerContentBinding
+           viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+        <includes>
+           <contentExtension
+                 pattern="sc.ndt.filter.resource.ech">
+           </contentExtension>
+           <contentExtension
+                 pattern="sc.ndt.filter.resource.opt">
+           </contentExtension>
+        </includes>
+     </viewerContentBinding>
+  </extension>
+  <extension
         point="org.eclipse.ui.perspectives">
      <perspective
            class="sc.ndt.editor.fast.ui.addon.perspectives.FASTPerspective"

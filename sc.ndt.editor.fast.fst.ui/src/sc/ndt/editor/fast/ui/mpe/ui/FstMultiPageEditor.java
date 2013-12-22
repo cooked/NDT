@@ -101,8 +101,6 @@ public class FstMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			IFile f = (IFile) input.getAdapter(IFile.class);
 			//setInput(new EditorInputFASTOut(f));
 			setPartName(f.getName());
-
-			
 		}
 
 	}

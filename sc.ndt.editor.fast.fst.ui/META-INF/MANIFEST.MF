@@ -32,12 +32,13 @@ Require-Bundle: sc.ndt.editor.fast.fst;visibility:=reexport,
  sc.ndt.commons.ant,
  sc.ndt.editor.fast.adn,
  sc.ndt.editor.fast.adn.ui,
- sc.ndt.editor.iecwind.iec,
+ sc.ndt.editor.iecwind.iec;resolution:=optional,
  sc.ndt.launching.fast,
  org.eclipse.debug.ui,
  org.eclipse.debug.core,
  org.eclipse.ant.launching;bundle-version="1.0.300",
- org.eclipse.core.externaltools;bundle-version="1.0.200"
+ org.eclipse.core.externaltools;bundle-version="1.0.200",
+ org.eclipse.ui.navigator;bundle-version="3.5.300"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.editor.fast.ui,

@@ -40,7 +40,6 @@ import sc.ndt.commons.ui.editor.IXtextFormEditor;
 import sc.ndt.editor.fast.fastadn.ModelFastadn;
 import sc.ndt.editor.fast.fastfst.ModelFastfst;
 import sc.ndt.editor.fast.ui.mpe.ui.FstMultiPageEditor;
-import sc.ndt.editor.iecwind.iecwindiec.ModelIecwindiec;
 import sc.nrel.nwtc.fast.launching.FASTRuntime;
 import sc.nrel.nwtc.fast.launching.IFASTInstall;
 

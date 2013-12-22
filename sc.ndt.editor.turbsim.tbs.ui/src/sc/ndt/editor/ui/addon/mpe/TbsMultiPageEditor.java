@@ -1,12 +1,16 @@
 package sc.ndt.editor.ui.addon.mpe;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.editor.IFormPage;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.xtext.resource.XtextResource;
@@ -75,8 +79,6 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 	
 	public TbsMultiPageEditor() {
 		
-		setPartName(getEditorInput().getName());
-		
 		ff 				= new TurbsimtbsFactory();
 		fAdynInjector 	= ff.getInjector();
 		xtextEditorAdn 	= fAdynInjector.getInstance(XtextEditor.class);
@@ -112,6 +114,16 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		
 	}
 	
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		super.init(site, input);
+		if (input instanceof FileEditorInput) {
+			// TODO add checks!!!!!!
+			IFile f = (IFile) input.getAdapter(IFile.class);
+			setPartName(f.getName());
+		}
+	}
+
 	protected void pageChange(int newPageIndex) {
 
 		super.pageChange(newPageIndex);		
@@ -218,7 +230,7 @@ public class TbsMultiPageEditor extends FormEditor implements IXtextFormEditor {
 					});
 			
 			///// Form
-			formPageMain = new TbsFormPage(this,"general","GUI");
+			formPageMain = new TbsFormPage(this,"general","Overview");
 			addPage(0,formPageMain);
 
 			setActivePage(0);

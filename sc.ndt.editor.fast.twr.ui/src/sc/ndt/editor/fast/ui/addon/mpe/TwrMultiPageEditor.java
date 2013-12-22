@@ -281,8 +281,10 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			if (getEditorInput() instanceof FileEditorInput) {
 				IPath p2 = path.removeFileExtension().addFileExtension("out");
 				FileEditorInput fei = new FileEditorInput(r.getFile(p2));
-				index = addPage(getXtextEditor("out"), fei);
-				setPageText(index, "BModes output (.out)"/*fei.getName()*/);
+				if(fei.getFile().exists()) {
+					index = addPage(getXtextEditor("out"), fei);
+					setPageText(index, "BModes output (.out)"/*fei.getName()*/);
+				}
 			}
 			
 			

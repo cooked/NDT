@@ -299,7 +299,6 @@ public class EditorBrowserFASTOut extends FormPage {
 
 	public void toggleChVisibility(String chName,boolean value) {
 		browser.execute("setSerieVisibility(\""+chName+"\","+value+");");
-		browser.execute("TESTcheckClicked(\""+chName+"\");");
     }
 	
 	@Override
