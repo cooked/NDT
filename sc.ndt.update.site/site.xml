@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="NDT Update Site" url="http://www.stefanocottafavi.com/eclipse/test">
-      NDT test site
+   <description name="NDT Update Site" url="http://www.stefanocottafavi.com/eclipse/update/NDT">
+      NDT Update Site
    </description>
-   <feature url="features/sc.ndt.feature.basic_0.5.0.qualifier.jar" id="sc.ndt.feature.basic" version="0.5.0.qualifier"/>
-   <feature url="features/org.mozilla.xulrunner.feature_1.9.1.11.jar" id="org.mozilla.xulrunner.feature" version="1.9.1.11"/>
+   <feature url="features/sc.ndt.feature_0.5.0.201312101146.jar" id="sc.ndt.feature" version="0.5.0.201312101146">
+      <category name="NDT Core"/>
+   </feature>
+   <category-def name="NDT Core" label="NDT Plugin for Eclipse">
+      <description>
+         NDT core features
+      </description>
+   </category-def>
 </site>

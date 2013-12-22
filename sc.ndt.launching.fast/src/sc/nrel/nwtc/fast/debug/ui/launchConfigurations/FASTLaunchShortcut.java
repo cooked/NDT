@@ -186,7 +186,7 @@ public class FASTLaunchShortcut implements ILaunchShortcut2 {
 			wc = configType.newInstance(null, file.getName() /*getLaunchManager().generateLaunchConfigurationName(type.getTypeQualifiedName('.'))*/ );
 			
 			IFASTInstall dfi = FASTRuntime.getDefaultFASTInstall();
-			File exe = null;//((StandardFAST)dfi).getJavaExecutable();
+			File exe = ((StandardFAST)dfi).getJavaExecutable();
 			if (exe==null) {
 				MessageDialog.openError(getShell(), LauncherMessages.JavaLaunchShortcut_1, LauncherMessages.JavaLaunchShortcut_4); 
 				return null;

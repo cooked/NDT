@@ -1,28 +1,8 @@
 package sc.ndt.commons.ant.core;
 
-import java.io.InputStream;
-import java.net.URL;
-
 import org.eclipse.ant.core.AntRunner;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.equinox.app.IApplicationContext;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
-import org.osgi.framework.Bundle;
-
-import sc.ndt.commons.ant.Activator;
-
 
 public class AntLauncher {
 	

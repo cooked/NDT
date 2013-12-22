@@ -113,7 +113,7 @@
 		function setSerieVisibility(name, visibility) {
 			index = g.indexFromSetName(name) - 1;
 			g.setVisibility(parseInt(index), visibility);
-			document.getElementById("name").innerHTML = name + "," + index;
+			document.getElementById("name").innerHTML = name + "," + index + "," + visibility;
 			setStatus();
 		}
 
@@ -122,9 +122,6 @@
 					.toString();
 		}
 
-		function TESTcheckClicked(name) {
-			document.getElementById("clicked").innerHTML = name;
-		}
 	</script>
 	
 	<script type="text/javascript">
@@ -135,10 +132,10 @@
 <body>
 	<div id="graphdiv"></div>
 	<p><span id="browse"></span></p>
-	<!--<p>g.visibility() = <span id="visibility"></span></p>
+	<p>g.visibility() = <span id="visibility"></span></p>
 	<p>clicked = <span id="clicked"></span></p>
 	<p>name,index = <span id="name"></span></p>
-	-->
+
 </body>
 </html>
 
