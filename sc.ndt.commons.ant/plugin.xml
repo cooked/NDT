@@ -40,10 +40,6 @@
             eclipseRuntime="false"
             library="lib/ant-contrib.jar">
       </extraClasspathEntry>
-      <extraClasspathEntry
-            eclipseRuntime="false"
-            library="lib/ant-logger.jar">
-      </extraClasspathEntry>
    </extension>
 
 </plugin>

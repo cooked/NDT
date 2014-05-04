@@ -6,7 +6,6 @@ import org.eclipse.ui.part.FileEditorInput;
 
 public class AntLauncher {
 	
-	
 	//IWorkbenchPage 	page 	= _workbench.getActiveWorkbenchWindow().getActivePage();
 	//IProject 		project	= ResourcesPlugin.getWorkspace().getRoot().getProject(_page1.getProjectName());
 
@@ -19,6 +18,7 @@ public class AntLauncher {
 		//runner.setExecutionTargets(targets);
 		runner.setExecutionTargets(new String[]{"wind"});
 		runner.setMessageOutputLevel(org.apache.tools.ant.Project.MSG_VERBOSE);
+		
 		// see
 		// http://codescale.wordpress.com/2010/04/25/log-the-ant-output-to-the-eclipse-console/
 		runner.addBuildLogger("sc.ndt.commons.ant.log.AntLogger");

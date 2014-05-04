@@ -7,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import sc.ndt.commons.Activator;
+
 public class OutList extends HashMap<String,OutCh> {
 	
 	private static final long serialVersionUID = 1L;
@@ -28,6 +30,14 @@ public class OutList extends HashMap<String,OutCh> {
 
 	}
 
+	// SC see:
+	// http://code.google.com/p/google-gson/
+	// https://sites.google.com/site/gson/gson-user-guide#TOC-Overview
+	// http://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/
+	public String toJson() {
+		return Activator.getGson().toJson(this);
+	}
+		
 	// usato x canali disponibili in FAST.out
 	public void setAvailable(List<String> avail) {
 		

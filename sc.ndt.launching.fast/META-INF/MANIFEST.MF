@@ -17,3 +17,4 @@ Export-Package: sc.nrel.nwtc.fast.debug.ui.launchConfigurations,
  sc.nrel.nwtc.fast.launching
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Stefano Cottafavi

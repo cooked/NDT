@@ -78,16 +78,16 @@ public class HttpUtils {
         resource_handler.setResourceBase(
         	HttpUtils.class.getClassLoader().getResource("http").toExternalForm()
         );
-        resource_handler.setWelcomeFiles(new String[]{"index.html"});
+        resource_handler.setWelcomeFiles(new String[]{"inde.html"});
        
         
-        ResourceHandler resource_handlerF = new ResourceHandler();
+        /*ResourceHandler resource_handlerF = new ResourceHandler();
         resource_handlerF.setDirectoriesListed(true);
         resource_handlerF.setResourceBase(
         	HttpUtils.class.getClassLoader().getResource("http").toExternalForm()
         );
         resource_handlerF.setWelcomeFiles(new String[]{"index_flot.html"});
-        
+        */
         
         /*ResourceHandler resource_handler_2 = new ResourceHandler();
         resource_handler_2.setDirectoriesListed(true);
@@ -114,7 +114,7 @@ public class HttpUtils {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[] { 
         		resource_handler, 
-        		resource_handlerF,
+        		//resource_handlerF,
         		/*
         		resource_handler_2, 
         		resource_handler_3,

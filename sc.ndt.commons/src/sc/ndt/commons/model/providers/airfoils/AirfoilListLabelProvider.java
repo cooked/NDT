@@ -35,7 +35,7 @@ public class AirfoilListLabelProvider extends ColumnLabelProvider implements ISt
 	@Override
 	public String getToolTipText(Object element) {
 		if (element instanceof OutCh)
-			return ((OutCh)element).description;
+			return ((OutCh)element).desc;
 		return super.getToolTipText(null);
 	}
 

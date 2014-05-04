@@ -9,6 +9,8 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
+import com.google.gson.Gson;
+
 import sc.ndt.commons.model.OutListRegistry;
 
 /**
@@ -21,6 +23,8 @@ public class Activator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static Activator plugin;
+	
+	private static Gson gson;
 	
 	/**
 	 * The constructor
@@ -37,8 +41,16 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
+		gson = new Gson();
+		
 	}
 
+	static public Gson getGson() {
+		if(gson==null)
+			gson = new Gson();
+		return gson;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)

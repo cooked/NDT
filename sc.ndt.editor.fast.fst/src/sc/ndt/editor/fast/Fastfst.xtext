@@ -1,3 +1,4 @@
+
 grammar sc.ndt.editor.fast.Fastfst //with sc.ndt.editor.fast.TerminalsFast
 
 generate fastfst "http://www.ndt.sc/editor/fast/Fastfst"

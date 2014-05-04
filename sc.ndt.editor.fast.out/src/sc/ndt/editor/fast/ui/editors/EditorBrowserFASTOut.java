@@ -185,8 +185,7 @@ public class EditorBrowserFASTOut extends FormPage {
 		managedForm.getToolkit().paintBordersFor(browser);
 		*/
 		
-		browser.setUrl("http://localhost:8888/index.html");
-		//browser.setUrl("http://localhost:8888/index_flot.html");
+		browser.setUrl("http://localhost:8888/inde.html");
 		
 		browser.addControlListener(new ControlListener() {
             public void controlResized(ControlEvent e) {

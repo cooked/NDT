@@ -17,4 +17,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-Vendor: Stefano Cottafavi
 Export-Package: sc.ndt.commons.ant,
  sc.ndt.commons.ant.core
-Bundle-ClassPath: lib/ant-contrib.jar
+Bundle-ClassPath: lib/ant-contrib.jar,
+ .

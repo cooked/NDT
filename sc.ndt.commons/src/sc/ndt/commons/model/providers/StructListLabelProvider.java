@@ -33,7 +33,7 @@ public class StructListLabelProvider extends ColumnLabelProvider implements ISty
 	@Override
 	public String getToolTipText(Object element) {
 		if (element instanceof OutCh)
-			return ((OutCh)element).description;
+			return ((OutCh)element).desc;
 		return super.getToolTipText(null);
 	}
 

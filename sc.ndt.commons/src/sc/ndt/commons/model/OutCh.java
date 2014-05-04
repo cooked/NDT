@@ -3,6 +3,7 @@ package sc.ndt.commons.model;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.eclipse.ui.views.properties.IPropertySource;
 
+import sc.ndt.commons.Activator;
 import sc.ndt.commons.model.properties.OutChPropertySource;
 
 public final class OutCh {
@@ -18,7 +19,7 @@ public final class OutCh {
 	
 	public 	String 		name;
 	public 	String[]	other;
-	public 	String 		description;
+	public 	String 		desc;
 	public 	String 		convention;
 	public 	String 		unit;
 	private float[] 	data;
@@ -46,7 +47,7 @@ public final class OutCh {
 			other[i] = other[i].trim();
 			
 		this.other 			= other;
-		this.description 	= description;
+		this.desc 			= description;
 		this.convention 	= convention;
 		this.unit 			= unit;
 		this.available 		= false;
@@ -54,7 +55,16 @@ public final class OutCh {
 		descStats = new DescriptiveStatistics();
 		
 	}
-		
+	
+	// SC see:
+	// http://code.google.com/p/google-gson/
+	// https://sites.google.com/site/gson/gson-user-guide#TOC-Overview
+	// http://www.mkyong.com/java/how-do-convert-java-object-to-from-json-format-gson-api/
+	public String toJson() {
+		return Activator.getGson().toJson(this);
+	}
+	
+	
 	public Object getAdapter(Class adapter) {
 		if (adapter == IPropertySource.class) {
 			return new OutChPropertySource(this);

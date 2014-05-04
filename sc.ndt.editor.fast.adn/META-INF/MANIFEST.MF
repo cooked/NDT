@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: sc.ndt.editor.fast.adn
-Bundle-Vendor: My Company
+Bundle-Vendor: Stefano Cottafavi
 Bundle-Version: 0.5.0.qualifier
 Bundle-SymbolicName: sc.ndt.editor.fast.adn; singleton:=true
 Bundle-ActivationPolicy: lazy

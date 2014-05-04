@@ -42,7 +42,7 @@ public class OutListLabelProvider extends ColumnLabelProvider implements IStyled
 	@Override
 	public String getToolTipText(Object element) {
 		if (element instanceof OutCh)
-			return ((OutCh)element).description;
+			return ((OutCh)element).desc;
 		return super.getToolTipText(null);
 	}
 

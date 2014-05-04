@@ -314,31 +314,32 @@
            project="true">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel.fast"
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.ui.wizard.file.FASTMainWizard"
            finalPerspective="perspective.ndt.fast"
            icon="icons/fan-alt.png"
            id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="FAST File - Time Marching">
+           name="Simple">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel.fast"
-           class="sc.ndt.editor.fast.fst.ui.NewWizard1"
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
+           class="sc.ndt.editor.fast.ui.wizard.file.FASTLinWizard"
            icon="icons/chart_line.png"
-           id="sc.ndt.editor.fast.fst.ui.wizard1"
-           name="FAST File - Linearization">
-     </wizard>
-     <wizard
-           category="sc.ndt.ui.category.nrel.fast"
-           class="sc.ndt.editor.fast.fst.ui.NewWizard2"
            id="sc.ndt.editor.fast.fst.ui.wizard2"
-           name="FAST Campbell Diagram">
+           name="Model Linearization">
      </wizard>
      <wizard
-           category="sc.ndt.ui.category.nrel.fast"
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
+           class="sc.ndt.editor.fast.fst.ui.NewWizard2"
+           icon="icons/chart_organisation.png"
+           id="sc.ndt.editor.fast.fst.ui.wizard2"
+           name="Campbell Diagram">
+     </wizard>
+     <wizard
+           category="sc.ndt.ui.category.nrel/sc.ndt.ui.category.nrel.fast"
            class="sc.ndt.editor.fast.fst.ui.NewWizard3"
-           id="sc.ndt.editor.fast.fst.ui.wizard3"
-           name="FAST IEC 61400-1 DLCs study">
+           id="sc.ndt.editor.fast.fst.ui.wizard4"
+           name="Standard DLCs">
      </wizard>
   </extension>
   <extension
