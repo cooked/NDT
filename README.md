@@ -10,8 +10,8 @@ NDT is an user friendly front-end to the wind turbine simulation codes by NREL.
 
 ## Features
 
-* Specific editors for FAST, AeroDyn and TurbSim input parameters file
-* Chart viewer for the FAST output file.
+* Specific editors for FAST, AeroDyn and TurbSim input files
+* Chart view of the FAST output file.
 * Support for single FAST simulation and batch run with ANT (to be completed)
 
 ## Installation
