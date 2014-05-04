@@ -34,6 +34,8 @@ Create a new FAST project from menu File > New > Project...This will generate a 
 
 ![Image](../master/sc.ndt.commons.assets/image/readme_01.png?raw=true)
 
+![Image](../master/sc.ndt.commons.assets/image/readme_02.png?raw=true)
+
 ### Batch run
 
 TBD
