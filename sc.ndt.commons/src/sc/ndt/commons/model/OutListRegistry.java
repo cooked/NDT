@@ -8,14 +8,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 
 import au.com.bytecode.opencsv.CSVReader;
 
-// this registry is initiali<ed in the plugin Activator class
+// this registry is initialized in the plugin Activator class
 public class OutListRegistry {
 
 	private Bundle commonsBundle;
@@ -23,7 +22,7 @@ public class OutListRegistry {
 	static OutListRegistry 						instance;
 	static HashMap<String,OutCh>  				outList;
 	static HashMap<String,ArrayList<String>>	outBlocksMap;
-	static OutListNames							altNamesMap;
+	static HashMap<String, String>				altNamesMap;
 	
 	public static OutListRegistry getInstance() {
 		if(instance==null) {
@@ -45,14 +44,14 @@ public class OutListRegistry {
 		return outBlocksMap;
 	}
 	
-	public static OutListNames getAltNamesMap() {
+	public static HashMap<String, String> getAltNamesMap() {
 		return altNamesMap;
 	}
 	
 	private void init() {
 		outList		 = new HashMap<String,OutCh>();
 		outBlocksMap = new HashMap<String,ArrayList<String>>();	
-		altNamesMap  = new OutListNames();
+		altNamesMap  = new HashMap<String, String>();
 		readOutListFile();
 	}
 		
@@ -64,15 +63,13 @@ public class OutListRegistry {
 	// actually only the ElastDyn is read here
 	// TODO: also adapt the reading to support legacy versions of FAST
 	
+	// future dev: allow for the method to read the list form the installed fast
+	// then default to the self-contained one if no install is available
 	private void readOutListFile() {
 
 		InputStream inputStream;
 		final CSVReader reader;
-		String[] line;
-		String[] nextLine;
-		
-		//if(outList == null)
-		//	outList = new OutList();
+		String[] line, nextLine;
 		
 		commonsBundle = Platform.getBundle("sc.ndt.commons");
 		URL url = commonsBundle.getEntry("templates/OutListParameters.csv");

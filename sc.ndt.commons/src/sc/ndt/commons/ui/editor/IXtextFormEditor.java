@@ -7,7 +7,7 @@ import com.google.inject.Injector;
 
 public interface IXtextFormEditor {
 
-	public Injector getXtextInjector(String key);
+	//public Injector getXtextInjector(String key);
 	
 	public XtextEditor getXtextEditor(String key);
 	

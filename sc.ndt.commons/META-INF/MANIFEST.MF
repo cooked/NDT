@@ -19,7 +19,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.text,
  org.eclipse.jetty.server,
  org.eclipse.jetty.util,
- org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0"
+ org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0",
+ org.eclipse.e4.ui.css.swt;bundle-version="0.11.101"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.commons.http,
@@ -33,5 +34,5 @@ Export-Package: sc.ndt.commons.http,
 Bundle-Vendor: Stefano Cottafavi
 Bundle-ClassPath: lib/jscience.jar,
  lib/commons-math3-3.2/commons-math3-3.2.jar,
- lib/gson/gson-2.2.4.jar,
+ lib/google-gson-2.2.4/gson-2.2.4.jar,
  .

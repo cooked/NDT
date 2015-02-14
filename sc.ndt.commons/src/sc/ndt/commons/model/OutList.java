@@ -41,8 +41,8 @@ public class OutList extends HashMap<String,OutCh> {
 	// usato x canali disponibili in FAST.out
 	public void setAvailable(List<String> avail) {
 		
-		String nm;
-		String n;
+		String n, nm;
+		
 		// set available channels
 		Iterator<String> it = avail.iterator();
 		while(it.hasNext()) {
