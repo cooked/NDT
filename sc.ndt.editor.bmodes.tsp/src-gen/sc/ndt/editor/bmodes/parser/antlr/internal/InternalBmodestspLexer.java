@@ -13,33 +13,33 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBmodestspLexer extends Lexer {
     public static final int RULE_NEWLINE=4;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int EOF=-1;
-    public static final int RULE_SL_COMMENT=6;
-    public static final int T__30=30;
-    public static final int T__19=19;
     public static final int RULE_STRING=9;
-    public static final int T__16=16;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__18=18;
+    public static final int T__16=16;
     public static final int T__17=17;
-    public static final int T__12=12;
-    public static final int RULE_NUMBER=8;
+    public static final int T__18=18;
     public static final int T__11=11;
-    public static final int T__14=14;
+    public static final int T__12=12;
     public static final int T__13=13;
+    public static final int T__14=14;
+    public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int T__10=10;
-    public static final int RULE_INT=7;
     public static final int RULE_WS=5;
+    public static final int RULE_NUMBER=8;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=7;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -1369,16 +1369,16 @@ public class InternalBmodestspLexer extends Lexer {
     static final String DFA10_maxS =
         "\2\71\1\145\1\uffff\1\71\1\145\3\uffff";
     static final String DFA10_acceptS =
-        "\3\uffff\1\3\2\uffff\1\1\1\2\1\4";
+        "\3\uffff\1\3\2\uffff\1\2\1\1\1\4";
     static final String DFA10_specialS =
         "\11\uffff}>";
     static final String[] DFA10_transitionS = {
             "\1\4\1\uffff\1\1\1\3\1\uffff\12\2",
             "\12\5",
-            "\1\6\1\uffff\12\2\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\2\13\uffff\1\6\37\uffff\1\6",
             "",
             "\12\2",
-            "\1\6\1\uffff\12\5\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\5\13\uffff\1\6\37\uffff\1\6",
             "",
             "",
             ""
@@ -1422,25 +1422,15 @@ public class InternalBmodestspLexer extends Lexer {
     static final String DFA17_eofS =
         "\55\uffff";
     static final String DFA17_minS =
-        "\1\11\1\uffff\2\143\1\uffff\1\154\1\144\2\uffff\1\55\1\56\1\0\12"+
-        "\uffff\1\160\1\147\2\uffff\1\147\1\51\3\uffff\1\137\1\145\1\55\2"+
-        "\uffff\1\151\1\137\4\uffff\1\151\2\uffff";
+        "\1\11\1\uffff\2\143\1\uffff\1\154\1\144\2\uffff\1\55\1\56\1\0\12\uffff\1\160\1\147\2\uffff\1\147\1\51\3\uffff\1\137\1\145\1\55\2\uffff\1\151\1\137\4\uffff\1\151\2\uffff";
     static final String DFA17_maxS =
-        "\1\164\1\uffff\1\164\1\167\1\uffff\1\154\1\144\2\uffff\1\155\1\145"+
-        "\1\uffff\12\uffff\1\160\1\147\2\uffff\1\147\1\155\3\uffff\1\137"+
-        "\1\145\1\57\2\uffff\1\163\1\137\4\uffff\1\163\2\uffff";
+        "\1\164\1\uffff\1\164\1\167\1\uffff\1\154\1\144\2\uffff\1\155\1\145\1\uffff\12\uffff\1\160\1\147\2\uffff\1\147\1\155\3\uffff\1\137\1\145\1\57\2\uffff\1\163\1\137\4\uffff\1\163\2\uffff";
     static final String DFA17_acceptS =
-        "\1\uffff\1\1\2\uffff\1\5\2\uffff\1\13\1\14\3\uffff\1\27\1\30\1\31"+
-        "\1\33\1\2\1\3\1\15\1\4\1\12\1\16\2\uffff\1\17\1\20\2\uffff\1\25"+
-        "\1\26\1\32\3\uffff\1\23\1\24\2\uffff\1\21\1\22\1\6\1\10\1\uffff"+
-        "\1\7\1\11";
+        "\1\uffff\1\1\2\uffff\1\5\2\uffff\1\13\1\14\3\uffff\1\27\1\30\1\31\1\33\1\2\1\3\1\15\1\4\1\12\1\16\2\uffff\1\17\1\20\2\uffff\1\25\1\26\1\32\3\uffff\1\23\1\24\2\uffff\1\21\1\22\1\6\1\10\1\uffff\1\7\1\11";
     static final String DFA17_specialS =
         "\13\uffff\1\0\41\uffff}>";
     static final String[] DFA17_transitionS = {
-            "\1\17\1\16\2\uffff\1\16\22\uffff\1\17\1\uffff\1\15\4\uffff\1"+
-            "\15\1\11\2\uffff\1\14\1\uffff\1\13\1\14\1\uffff\12\12\47\uffff"+
-            "\1\7\1\uffff\1\10\1\uffff\1\6\1\5\6\uffff\1\4\1\1\4\uffff\1"+
-            "\2\1\3",
+            "\1\17\1\16\2\uffff\1\16\22\uffff\1\17\1\uffff\1\15\4\uffff\1\15\1\11\2\uffff\1\14\1\uffff\1\13\1\14\1\uffff\12\12\47\uffff\1\7\1\uffff\1\10\1\uffff\1\6\1\5\6\uffff\1\4\1\1\4\uffff\1\2\1\3",
             "",
             "\1\22\1\uffff\1\20\16\uffff\1\21",
             "\1\25\13\uffff\1\24\7\uffff\1\23",

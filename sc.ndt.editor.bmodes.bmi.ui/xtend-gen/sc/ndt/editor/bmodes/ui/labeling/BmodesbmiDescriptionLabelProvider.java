@@ -12,4 +12,8 @@ import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
  */
 @SuppressWarnings("all")
 public class BmodesbmiDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
+  @Override
+  public Object getImage(final Object arg0) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
 }

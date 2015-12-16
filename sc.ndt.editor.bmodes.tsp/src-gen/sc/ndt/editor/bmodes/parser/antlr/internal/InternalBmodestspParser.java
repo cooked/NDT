@@ -24,33 +24,33 @@ public class InternalBmodestspParser extends AbstractInternalAntlrParser {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NEWLINE", "RULE_WS", "RULE_SL_COMMENT", "RULE_INT", "RULE_NUMBER", "RULE_STRING", "'n_secs'", "'sec_loc'", "'str_tw'", "'tw_iner'", "'mass_den'", "'flp_iner'", "'edge_iner'", "'flp_stff'", "'edge_stff'", "'tor_stff'", "'axial_stff'", "'cg_offst'", "'sc_offst'", "'tc_offst'", "'(-)'", "'(deg)'", "'(kg/m)'", "'(kg-m)'", "'(Nm^2)'", "'(N)'", "'(m)'"
     };
     public static final int RULE_NEWLINE=4;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int T__21=21;
-    public static final int T__20=20;
+    public static final int RULE_STRING=9;
     public static final int RULE_SL_COMMENT=6;
+    public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__11=11;
+    public static final int T__12=12;
+    public static final int T__13=13;
+    public static final int T__14=14;
     public static final int EOF=-1;
     public static final int T__30=30;
-    public static final int T__19=19;
-    public static final int RULE_STRING=9;
-    public static final int T__16=16;
-    public static final int T__15=15;
-    public static final int T__18=18;
-    public static final int T__17=17;
-    public static final int RULE_NUMBER=8;
-    public static final int T__12=12;
-    public static final int T__11=11;
-    public static final int T__14=14;
-    public static final int T__13=13;
     public static final int T__10=10;
-    public static final int RULE_INT=7;
     public static final int RULE_WS=5;
+    public static final int RULE_NUMBER=8;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=7;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators

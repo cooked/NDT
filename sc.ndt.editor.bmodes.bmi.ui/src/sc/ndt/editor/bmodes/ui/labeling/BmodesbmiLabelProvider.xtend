@@ -16,6 +16,10 @@ class BmodesbmiLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLa
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
+	
+	override getImage(Object arg0) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
 
 	// Labels and icons can be computed like this:
 	

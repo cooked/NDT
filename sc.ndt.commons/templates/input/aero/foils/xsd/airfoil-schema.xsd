@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--created by Martin Hepperle (http//www.MH-AeroTools.de) -->
+<!-- This W3C Schema can be used as a standard file format for the    -->
+<!-- exchange of airfoils.                                            -->
+<!-- Airfoils are used mainly in aeronautical, marine and automotive  -->
+<!-- applications to describe the two dimensional cross section of a  -->
+<!-- streamlined body (for example of a wing). It does not describe   -->
+<!-- the planform of the wing.                                        -->
+<!--                                                                  -->
+<!-- The Schema can represent arbitrary multi-element airfoils, which -->
+<!-- are often used to generate higher forces (lift or downforce).    -->
+<!--                                                                  -->
+<!-- Version:       1.2                                               -->
+<!-- Date:          January 2004                                      -->
+<!-- Author:        Martin Hepperle                                   -->
+<!-- Organization:  MH-AeroTools http://www.mh-aerotools.de/          -->
+<!--                                                                  -->
+<!-- Version:       1.1                                               -->
+<!-- Date:          March 2002                                        -->
+<!-- Author:        Martin Hepperle                                   -->
+<!-- Organization:  MH-AeroTools http://www.mh-aerotools.de/          -->
+<!--                                                                  -->
+<!-- Version:       1.0                                               -->
+<!-- Date:          June 2001                                         -->
+<!-- Author:        Martin Hepperle                                   -->
+<!-- Organization:  MH-AeroTools http://www.mh-aerotools.de/          -->
+<!--                                                                  -->
+<xs:schema targetNamespace="http://www.mh-aerotools.de/airfoil-schema" xmlns="http://www.mh-aerotools.de/airfoil-schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="airfoil">
+		<xs:annotation>
+			<xs:documentation>Defines the shape of an airfoil.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element name="elements" type="elementsType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="coordinatesType">
+		<xs:annotation>
+			<xs:documentation>Defines a seqience of point coordinates describing the shape of an airfoil element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="point" type="pointType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="count" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="elementType">
+		<xs:annotation>
+			<xs:documentation>Defines a single airfoil element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="transformation" type="transformationType" minOccurs="0"/>
+			<xs:element name="coordinates" type="coordinatesType"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="elementsType">
+		<xs:annotation>
+			<xs:documentation>Defines a collection of airfoil element objects.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="element" type="elementType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="count" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:element name="name" type="xs:string"/>
+	<xs:complexType name="pointType">
+		<xs:annotation>
+			<xs:documentation>Defines a point or vector in space.</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element ref="x"/>
+			<xs:element ref="y"/>
+			<xs:element ref="z" minOccurs="0"/>
+		</xs:all>
+		<xs:attribute name="id" type="xs:integer" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="transformationType">
+		<xs:annotation>
+			<xs:documentation>Defines a transformation for an element. Transformation order is: 1) scaling, 2) rotation, 3) translation.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="scaling" type="scalingType" minOccurs="0"/>
+			<xs:element name="translation" type="translationType" minOccurs="0"/>
+			<xs:element name="rotation" type="rotationType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="translationType">
+		<xs:annotation>
+			<xs:documentation>Defines a translation in x, y and z direction.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="point" type="pointType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rotationType">
+		<xs:annotation>
+			<xs:documentation>Defines a rotation around x, y and z axis.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="point" type="pointType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="scalingType">
+		<xs:annotation>
+			<xs:documentation>Defines a scaling in x, y and z direction.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="point" type="pointType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="x" type="xs:double"/>
+	<xs:element name="y" type="xs:double"/>
+	<xs:element name="z" type="xs:double"/>
+</xs:schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.ndt.sc/editor/fast/Fastbld" 
+       class = "sc.ndt.editor.fast.fastbld.FastbldPackage"
+       genModel = "sc/ndt/editor/fast/Fastbld.genmodel" /> 
+	
+  </extension>
+
+
+
+</plugin>

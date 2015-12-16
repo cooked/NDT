@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.unit.NonSI;
 import javax.measure.unit.SI;
+
 import org.jscience.physics.amount.Amount;
 
 public final class TowerNodeStruct extends NodeStruct {

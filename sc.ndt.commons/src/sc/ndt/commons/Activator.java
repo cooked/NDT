@@ -11,8 +11,6 @@ import org.osgi.framework.BundleContext;
 
 import com.google.gson.Gson;
 
-import sc.ndt.commons.model.OutListRegistry;
-
 /**
  * The activator class controls the plug-in life cycle
  */

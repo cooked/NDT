@@ -4,7 +4,7 @@
     editorDirectory="/sc.ndt.editor.bmodes.bmi.editor/src" modelPluginID="sc.ndt.editor.bmodes.bmi"
     forceOverwrite="true" modelName="Bmodesbmi" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.bmodes.bmi.edit"
-    editorPluginID="sc.ndt.editor.bmodes.bmi.editor" runtimeVersion="2.9">
+    editorPluginID="sc.ndt.editor.bmodes.bmi.editor" runtimeVersion="2.10">
   <genPackages prefix="Bmodesbmi" basePackage="sc.ndt.editor.bmodes" disposableProviderFactory="true"
       fileExtensions="bmi" ecorePackage="Bmodesbmi.ecore#/">
     <genClasses ecoreClass="Bmodesbmi.ecore#//ModelBmodesbmi">

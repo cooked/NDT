@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<airfoil>
+<elements>
+  <element>
+
+    <transformation>
+      <scaling>
+        <point><x>1.0</x><y>1.0</y><z>1.0</z></point>
+      </scaling>
+      <translation>
+        <point><x>0.0</x><y>0.0</y><z>0.0</z></point>
+      </translation>
+      <rotation>
+        <point><x>0.0</x><y>0.0</y><z>0.0</z></point>
+      </rotation>
+    </transformation>
+
+    <coordinates>
+      <point><x>	1	</x><y>	0.00126	</y><z>	0	</z></point>
+<point><x>	0.989074	</x><y>	0.003505	</y><z>	0	</z></point>
+<point><x>	0.956773	</x><y>	0.009946	</y><z>	0	</z></point>
+<point><x>	0.904508	</x><y>	0.019774	</y><z>	0	</z></point>
+<point><x>	0.834565	</x><y>	0.031831	</y><z>	0	</z></point>
+<point><x>	0.75	</x><y>	0.044798	</y><z>	0	</z></point>
+<point><x>	0.654508	</x><y>	0.057319	</y><z>	0	</z></point>
+<point><x>	0.552264	</x><y>	0.06807	</y><z>	0	</z></point>
+<point><x>	0.447736	</x><y>	0.075796	</y><z>	0	</z></point>
+<point><x>	0.345492	</x><y>	0.079203	</y><z>	0	</z></point>
+<point><x>	0.25	</x><y>	0.0766	</y><z>	0	</z></point>
+<point><x>	0.165435	</x><y>	0.068025	</y><z>	0	</z></point>
+<point><x>	0.095492	</x><y>	0.054458	</y><z>	0	</z></point>
+<point><x>	0.043227	</x><y>	0.037478	</y><z>	0	</z></point>
+<point><x>	0.010926	</x><y>	0.018847	</y><z>	0	</z></point>
+<point><x>	0	</x><y>	0	</y><z>	0	</z></point>
+<point><x>	0.010926	</x><y>	-0.016692	</y><z>	0	</z></point>
+<point><x>	0.043227	</x><y>	-0.0293	</y><z>	0	</z></point>
+<point><x>	0.095492	</x><y>	-0.03764	</y><z>	0	</z></point>
+<point><x>	0.165435	</x><y>	-0.04178	</y><z>	0	</z></point>
+<point><x>	0.25	</x><y>	-0.042225	</y><z>	0	</z></point>
+<point><x>	0.345492	</x><y>	-0.039946	</y><z>	0	</z></point>
+<point><x>	0.447736	</x><y>	-0.036049	</y><z>	0	</z></point>
+<point><x>	0.552264	</x><y>	-0.030646	</y><z>	0	</z></point>
+<point><x>	0.654508	</x><y>	-0.024516	</y><z>	0	</z></point>
+<point><x>	0.75	</x><y>	-0.018409	</y><z>	0	</z></point>
+<point><x>	0.834565	</x><y>	-0.012814	</y><z>	0	</z></point>
+<point><x>	0.904508	</x><y>	-0.008055	</y><z>	0	</z></point>
+<point><x>	0.956773	</x><y>	-0.00439	</y><z>	0	</z></point>
+<point><x>	0.989074	</x><y>	-0.002061	</y><z>	0	</z></point>
+<point><x>	1	</x><y>	-0.00126	</y><z>	0	</z></point>
+
+
+    </coordinates>
+  </element>
+</elements>
+
+</airfoil>

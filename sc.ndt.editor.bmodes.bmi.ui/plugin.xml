@@ -394,5 +394,22 @@
             extensions="bmi">
     </provider>
   </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+     <factory
+           adaptableType="org.eclipse.core.resources.IFile"
+           class="sc.ndt.editor.bmodes.ui.addon.adapter.ModelBmiAdapter">
+        <adapter
+              type="sc.ndt.editor.bmodes.bmodesbmi.ModelBmodesbmi">
+        </adapter>
+     </factory>
+     <factory
+           adaptableType="org.eclipse.ui.IFileEditorInput"
+           class="sc.ndt.editor.bmodes.ui.addon.adapter.ModelBmiAdapter">
+        <adapter
+              type="sc.ndt.editor.bmodes.bmodesbmi.ModelBmodesbmi">
+        </adapter>
+     </factory>
+  </extension>
 
 </plugin>

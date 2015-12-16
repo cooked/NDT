@@ -18,4 +18,9 @@ public class BmodesbmiLabelProvider extends DefaultEObjectLabelProvider {
   public BmodesbmiLabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
   }
+  
+  @Override
+  public Object getImage(final Object arg0) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
 }

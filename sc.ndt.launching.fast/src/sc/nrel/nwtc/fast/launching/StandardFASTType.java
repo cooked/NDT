@@ -55,7 +55,12 @@ public class StandardFASTType extends AbstractFASTInstallType {
 	 * The list of locations in which to look for the FAST executable in candidate
 	 * VM install locations, relative to the VM install location.
 	 */
-	private static final String[] fgCandidateJavaFiles = {"FAST", "FAST.exe"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
+	private static final String[] fgCandidateJavaFiles = {
+		"FAST", 
+		"FAST_glin32", 
+		"FAST_glin64", 
+		"FAST.exe"
+	}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$ //$NON-NLS-8$
 	private static final String[] fgCandidateJavaLocations = {"" + fgSeparator,"bin" + fgSeparator}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	// TODO: aggiungere sopra eventuali sottocartelle di ricerca per FAST custom
 	

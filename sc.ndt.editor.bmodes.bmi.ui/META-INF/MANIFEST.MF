@@ -14,7 +14,8 @@ Require-Bundle: sc.ndt.editor.bmodes.bmi;visibility:=reexport,
  org.eclipse.compare,
  org.eclipse.ui.editors,
  org.eclipse.ui,
- org.antlr.runtime
+ org.antlr.runtime,
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -22,8 +23,5 @@ Export-Package: sc.ndt.editor.bmodes.ui,
  sc.ndt.editor.bmodes.ui.contentassist,
  sc.ndt.editor.bmodes.ui.contentassist.antlr,
  sc.ndt.editor.bmodes.ui.internal,
- sc.ndt.editor.bmodes.ui.quickfix,
- sc.ndt.editor.bmodes.ui.quickfix,
- sc.ndt.editor.bmodes.ui.contentassist,
- sc.ndt.editor.bmodes.ui.contentassist.antlr
+ sc.ndt.editor.bmodes.ui.quickfix
 Bundle-Activator: sc.ndt.editor.bmodes.ui.internal.BmodesbmiActivator

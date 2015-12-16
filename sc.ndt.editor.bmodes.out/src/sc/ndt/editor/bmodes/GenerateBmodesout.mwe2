@@ -4,7 +4,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/sc/ndt/editor/Bmodesout.xtext"
+var grammarURI = "classpath:/sc/ndt/editor/bmodes/Bmodesout.xtext"
 var fileExtensions = "out"
 var projectName = "sc.ndt.editor.bmodes.out"
 var runtimeProject = "../${projectName}"

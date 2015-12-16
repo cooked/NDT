@@ -332,24 +332,36 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private ModelBmodesoutElements pModelBmodesout;
-	private TNUMBERElements pTNUMBER;
-	private TerminalRule tVER;
-	private TerminalRule tDATE;
-	private TerminalRule tTIME;
-	private TerminalRule tINT;
-	private TerminalRule tNUMBER;
-	private TerminalRule tMONTH;
-	private TerminalRule tWS;
-	private TerminalRule tNEWLINE;
-	private HeaderElements pHeader;
-	private ModeElements pMode;
+	private final ModelBmodesoutElements pModelBmodesout;
+	private final TNUMBERElements pTNUMBER;
+	private final TerminalRule tVER;
+	private final TerminalRule tDATE;
+	private final TerminalRule tTIME;
+	private final TerminalRule tINT;
+	private final TerminalRule tNUMBER;
+	private final TerminalRule tMONTH;
+	private final TerminalRule tWS;
+	private final TerminalRule tNEWLINE;
+	private final HeaderElements pHeader;
+	private final ModeElements pMode;
 	
 	private final Grammar grammar;
 
 	@Inject
 	public BmodesoutGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.pModelBmodesout = new ModelBmodesoutElements();
+		this.pTNUMBER = new TNUMBERElements();
+		this.tVER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "VER");
+		this.tDATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DATE");
+		this.tTIME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TIME");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
+		this.tMONTH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MONTH");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
+		this.pHeader = new HeaderElements();
+		this.pMode = new ModeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -379,7 +391,7 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//ModelBmodesout:
 	//	Head=Header Modes+=Mode+;
 	public ModelBmodesoutElements getModelBmodesoutAccess() {
-		return (pModelBmodesout != null) ? pModelBmodesout : (pModelBmodesout = new ModelBmodesoutElements());
+		return pModelBmodesout;
 	}
 	
 	public ParserRule getModelBmodesoutRule() {
@@ -389,7 +401,7 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//tNUMBER returns ecore::EFloat:
 	//	INT | NUMBER;
 	public TNUMBERElements getTNUMBERAccess() {
-		return (pTNUMBER != null) ? pTNUMBER : (pTNUMBER = new TNUMBERElements());
+		return pTNUMBER;
 	}
 	
 	public ParserRule getTNUMBERRule() {
@@ -409,38 +421,38 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal VER:
 	//	"v" INT "." INT "." INT;
 	public TerminalRule getVERRule() {
-		return (tVER != null) ? tVER : (tVER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "VER"));
+		return tVER;
 	} 
 
 	//terminal DATE:
 	//	INT "-" MONTH "-" INT;
 	public TerminalRule getDATERule() {
-		return (tDATE != null) ? tDATE : (tDATE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DATE"));
+		return tDATE;
 	} 
 
 	//terminal TIME:
 	//	INT ":" INT ":" INT;
 	public TerminalRule getTIMERule() {
-		return (tTIME != null) ? tTIME : (tTIME = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TIME"));
+		return tTIME;
 	} 
 
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal NUMBER returns ecore::EFloat:
 	//	("+" | "-")? INT ("." INT?) (("E" | "e") ("+" | "-")? INT)? | ("+" | "-")? INT (("E" | "e") ("+" | "-")? INT) | ("."
 	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
 	public TerminalRule getNUMBERRule() {
-		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+		return tNUMBER;
 	} 
 
 	//terminal MONTH:
 	//	"A".."Z" "a".."z" "a".."z";
 	public TerminalRule getMONTHRule() {
-		return (tMONTH != null) ? tMONTH : (tMONTH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "MONTH"));
+		return tMONTH;
 	} 
 
 	////terminal STRING		: '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
@@ -448,13 +460,13 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal WS:
 	//	(" " | "\t")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//terminal NEWLINE:
 	//	"\r" | "\n" | "\r\n";
 	public TerminalRule getNEWLINERule() {
-		return (tNEWLINE != null) ? tNEWLINE : (tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE"));
+		return tNEWLINE;
 	} 
 
 	////terminal COMM		: !('-'|'\r'|'\n'|'\r\n')*;
@@ -463,7 +475,7 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Sample non-uniform blade" NEWLINE "="+ NEWLINE NEWLINE "rotating blade frequencies & mode shapes" NEWLINE
 	//	"--- only first" n=INT "modes printed" NEWLINE;
 	public HeaderElements getHeaderAccess() {
-		return (pHeader != null) ? pHeader : (pHeader = new HeaderElements());
+		return pHeader;
 	}
 	
 	public ParserRule getHeaderRule() {
@@ -475,7 +487,7 @@ public class BmodesoutGrammarAccess extends AbstractGrammarElementFinder {
 	//	"flap slope" "lag disp" "lag slope" "twist" NEWLINE NEWLINE (span_loc+=tNUMBER flap_disp+=tNUMBER flap_slope+=tNUMBER
 	//	lag_disp+=tNUMBER lag_slope+=tNUMBER twist+=tNUMBER NEWLINE)+ "="* NEWLINE?;
 	public ModeElements getModeAccess() {
-		return (pMode != null) ? pMode : (pMode = new ModeElements());
+		return pMode;
 	}
 	
 	public ParserRule getModeRule() {

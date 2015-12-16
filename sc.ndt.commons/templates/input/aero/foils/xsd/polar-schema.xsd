@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--                                                                  -->
+<!--created by Martin Hepperle (http//www.MH-AeroTools.de)            -->
+<!--                                                                  -->
+<!-- This W3C Schema can be used as a standard file format for the    -->
+<!--  exchange of polars.                                             -->
+<!-- Polars are often used in aeronautics to describe aerodynamic     -->
+<!--  forces and moments.                                             -->
+<!--                                                                  -->
+<!-- Version:       1.0                                               -->
+<!-- Date:          June 2001                                         -->
+<!-- Author:        Martin Hepperle                                   -->
+<!-- Organization:  MH-AeroTools http://www.mh-aerotools.de/          -->
+<!--                                                                  -->
+<xs:schema targetNamespace="http://www.mh-aerotools.de/polar-schema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.mh-aerotools.de/polar-schema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="comment" type="xs:string"/>
+	<xs:element name="configuration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="copyright"/>
+				<xs:element ref="polars"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="configurations">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="configuration" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="copyright" type="xs:string"/>
+	<xs:element name="datapoint">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="value" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="datapoints">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="datapoint" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="machnumber" type="xs:double"/>
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="polar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="reynoldsnumber"/>
+				<xs:element ref="machnumber"/>
+				<xs:element ref="variables"/>
+				<xs:element ref="datapoints"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="polar-exchange-file">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="comment" maxOccurs="unbounded"/>
+				<xs:element ref="configurations"/>
+			</xs:sequence>
+			<xs:attribute name="version" type="xs:decimal" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="polars">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="polar" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="origin" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reynoldsnumber" type="xs:double"/>
+	<xs:element name="value" type="xs:double"/>
+	<xs:element name="variable">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Alpha"/>
+				<xs:enumeration value="Cd"/>
+				<xs:enumeration value="Cl"/>
+				<xs:enumeration value="Cm"/>
+				<xs:enumeration value="SL"/>
+				<xs:enumeration value="SU"/>
+				<xs:enumeration value="TL"/>
+				<xs:enumeration value="TU"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="variables">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variable" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

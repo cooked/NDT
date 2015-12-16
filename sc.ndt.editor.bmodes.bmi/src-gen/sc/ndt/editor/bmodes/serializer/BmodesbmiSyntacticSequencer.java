@@ -570,7 +570,7 @@ public class BmodesbmiSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     (NEWLINE | WS | SL_COMMENT)*
+	 *     (WS | NEWLINE | SL_COMMENT)*
 	 */
 	protected void emit_ModelBmodesbmi___NEWLINETerminalRuleCall_55_1_or_SL_COMMENTTerminalRuleCall_55_2_or_WSTerminalRuleCall_55_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

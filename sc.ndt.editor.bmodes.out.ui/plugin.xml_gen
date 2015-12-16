@@ -250,7 +250,9 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="sc.ndt.editor.bmodes.ui.BmodesoutExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="sc.ndt.editor.bmodes.ui.BmodesoutExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="out"
+            >
       </participant>
    </extension>
    <extension

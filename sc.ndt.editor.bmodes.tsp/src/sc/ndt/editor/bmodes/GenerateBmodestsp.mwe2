@@ -4,7 +4,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
-var grammarURI = "classpath:/sc/ndt/editor/Bmodestsp.xtext"
+var grammarURI = "classpath:/sc/ndt/editor/bmodes/Bmodestsp.xtext"
 var fileExtensions = "tsp"
 var projectName = "sc.ndt.editor.bmodes.tsp"
 var runtimeProject = "../${projectName}"

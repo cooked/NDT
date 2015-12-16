@@ -4,18 +4,15 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.osgi.framework.Bundle;
-
-import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.graphics.ImageData;
-
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.osgi.framework.Bundle;
 
 
 /**

@@ -2590,64 +2590,116 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private ModelBmodesbmiElements pModelBmodesbmi;
-	private TNUMBERElements pTNUMBER;
-	private TBOOLElements pTBOOL;
-	private TerminalRule tINT;
-	private TerminalRule tNUMBER;
-	private TerminalRule tSTRING;
-	private TerminalRule tNEWLINE;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
-	private HeaderElements pHeader;
-	private SectionElements pSection;
-	private BEchoElements pBEcho;
-	private IBeamTypeElements pIBeamType;
-	private NRotRpmElements pNRotRpm;
-	private NRpmMultElements pNRpmMult;
-	private NRadiusElements pNRadius;
-	private NHubRadElements pNHubRad;
-	private NPreconeElements pNPrecone;
-	private NBlThpElements pNBlThp;
-	private IHubConnElements pIHubConn;
-	private IModePrElements pIModePr;
-	private BTabDelimElements pBTabDelim;
-	private BMidNodeTwElements pBMidNodeTw;
-	private NTipMassElements pNTipMass;
-	private NCmLocElements pNCmLoc;
-	private NCmAxialElements pNCmAxial;
-	private NIxxTipElements pNIxxTip;
-	private NIyyTipElements pNIyyTip;
-	private NIzzTipElements pNIzzTip;
-	private NIxyTipElements pNIxyTip;
-	private NIzxTipElements pNIzxTip;
-	private NIyzTipElements pNIyzTip;
-	private IIdMatElements pIIdMat;
-	private ISecFileElements pISecFile;
-	private NSecMasMultElements pNSecMasMult;
-	private NFlpInrMultElements pNFlpInrMult;
-	private NLagInrMultElements pNLagInrMult;
-	private NFlpstfMultElements pNFlpstfMult;
-	private NEdgStfMultElements pNEdgStfMult;
-	private NTorStfMultElements pNTorStfMult;
-	private NAxiStfMultElements pNAxiStfMult;
-	private NCgOffsMultElements pNCgOffsMult;
-	private NScOffsMultElements pNScOffsMult;
-	private NTcOffsMultElements pNTcOffsMult;
-	private INSeltElements pINSelt;
-	private AElLocElements pAElLoc;
-	private ITwrSupportElements pITwrSupport;
-	private ITwrAttachElements pITwrAttach;
-	private ATwrWiresElements pATwrWires;
-	private ANodeAttachElements pANodeAttach;
-	private AWireStiffElements pAWireStiff;
-	private AWireAngleElements pAWireAngle;
+	private final ModelBmodesbmiElements pModelBmodesbmi;
+	private final TNUMBERElements pTNUMBER;
+	private final TBOOLElements pTBOOL;
+	private final TerminalRule tINT;
+	private final TerminalRule tNUMBER;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tNEWLINE;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final HeaderElements pHeader;
+	private final SectionElements pSection;
+	private final BEchoElements pBEcho;
+	private final IBeamTypeElements pIBeamType;
+	private final NRotRpmElements pNRotRpm;
+	private final NRpmMultElements pNRpmMult;
+	private final NRadiusElements pNRadius;
+	private final NHubRadElements pNHubRad;
+	private final NPreconeElements pNPrecone;
+	private final NBlThpElements pNBlThp;
+	private final IHubConnElements pIHubConn;
+	private final IModePrElements pIModePr;
+	private final BTabDelimElements pBTabDelim;
+	private final BMidNodeTwElements pBMidNodeTw;
+	private final NTipMassElements pNTipMass;
+	private final NCmLocElements pNCmLoc;
+	private final NCmAxialElements pNCmAxial;
+	private final NIxxTipElements pNIxxTip;
+	private final NIyyTipElements pNIyyTip;
+	private final NIzzTipElements pNIzzTip;
+	private final NIxyTipElements pNIxyTip;
+	private final NIzxTipElements pNIzxTip;
+	private final NIyzTipElements pNIyzTip;
+	private final IIdMatElements pIIdMat;
+	private final ISecFileElements pISecFile;
+	private final NSecMasMultElements pNSecMasMult;
+	private final NFlpInrMultElements pNFlpInrMult;
+	private final NLagInrMultElements pNLagInrMult;
+	private final NFlpstfMultElements pNFlpstfMult;
+	private final NEdgStfMultElements pNEdgStfMult;
+	private final NTorStfMultElements pNTorStfMult;
+	private final NAxiStfMultElements pNAxiStfMult;
+	private final NCgOffsMultElements pNCgOffsMult;
+	private final NScOffsMultElements pNScOffsMult;
+	private final NTcOffsMultElements pNTcOffsMult;
+	private final INSeltElements pINSelt;
+	private final AElLocElements pAElLoc;
+	private final ITwrSupportElements pITwrSupport;
+	private final ITwrAttachElements pITwrAttach;
+	private final ATwrWiresElements pATwrWires;
+	private final ANodeAttachElements pANodeAttach;
+	private final AWireStiffElements pAWireStiff;
+	private final AWireAngleElements pAWireAngle;
 	
 	private final Grammar grammar;
 
 	@Inject
 	public BmodesbmiGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.pModelBmodesbmi = new ModelBmodesbmiElements();
+		this.pTNUMBER = new TNUMBERElements();
+		this.pTBOOL = new TBOOLElements();
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
+		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.pHeader = new HeaderElements();
+		this.pSection = new SectionElements();
+		this.pBEcho = new BEchoElements();
+		this.pIBeamType = new IBeamTypeElements();
+		this.pNRotRpm = new NRotRpmElements();
+		this.pNRpmMult = new NRpmMultElements();
+		this.pNRadius = new NRadiusElements();
+		this.pNHubRad = new NHubRadElements();
+		this.pNPrecone = new NPreconeElements();
+		this.pNBlThp = new NBlThpElements();
+		this.pIHubConn = new IHubConnElements();
+		this.pIModePr = new IModePrElements();
+		this.pBTabDelim = new BTabDelimElements();
+		this.pBMidNodeTw = new BMidNodeTwElements();
+		this.pNTipMass = new NTipMassElements();
+		this.pNCmLoc = new NCmLocElements();
+		this.pNCmAxial = new NCmAxialElements();
+		this.pNIxxTip = new NIxxTipElements();
+		this.pNIyyTip = new NIyyTipElements();
+		this.pNIzzTip = new NIzzTipElements();
+		this.pNIxyTip = new NIxyTipElements();
+		this.pNIzxTip = new NIzxTipElements();
+		this.pNIyzTip = new NIyzTipElements();
+		this.pIIdMat = new IIdMatElements();
+		this.pISecFile = new ISecFileElements();
+		this.pNSecMasMult = new NSecMasMultElements();
+		this.pNFlpInrMult = new NFlpInrMultElements();
+		this.pNLagInrMult = new NLagInrMultElements();
+		this.pNFlpstfMult = new NFlpstfMultElements();
+		this.pNEdgStfMult = new NEdgStfMultElements();
+		this.pNTorStfMult = new NTorStfMultElements();
+		this.pNAxiStfMult = new NAxiStfMultElements();
+		this.pNCgOffsMult = new NCgOffsMultElements();
+		this.pNScOffsMult = new NScOffsMultElements();
+		this.pNTcOffsMult = new NTcOffsMultElements();
+		this.pINSelt = new INSeltElements();
+		this.pAElLoc = new AElLocElements();
+		this.pITwrSupport = new ITwrSupportElements();
+		this.pITwrAttach = new ITwrAttachElements();
+		this.pATwrWires = new ATwrWiresElements();
+		this.pANodeAttach = new ANodeAttachElements();
+		this.pAWireStiff = new AWireStiffElements();
+		this.pAWireAngle = new AWireAngleElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2684,7 +2736,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//	TwrAttach=iTwrAttach TwrWires=aTwrWires NodeAttach=aNodeAttach WireStiff=aWireStiff WireAngle=aWireAngle (WS | NEWLINE
 	//	| SL_COMMENT)*;
 	public ModelBmodesbmiElements getModelBmodesbmiAccess() {
-		return (pModelBmodesbmi != null) ? pModelBmodesbmi : (pModelBmodesbmi = new ModelBmodesbmiElements());
+		return pModelBmodesbmi;
 	}
 	
 	public ParserRule getModelBmodesbmiRule() {
@@ -2694,7 +2746,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//tNUMBER returns ecore::EFloat:
 	//	INT | NUMBER;
 	public TNUMBERElements getTNUMBERAccess() {
-		return (pTNUMBER != null) ? pTNUMBER : (pTNUMBER = new TNUMBERElements());
+		return pTNUMBER;
 	}
 	
 	public ParserRule getTNUMBERRule() {
@@ -2704,7 +2756,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//tBOOL returns ecore::EBoolean:
 	//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
 	public TBOOLElements getTBOOLAccess() {
-		return (pTBOOL != null) ? pTBOOL : (pTBOOL = new TBOOLElements());
+		return pTBOOL;
 	}
 	
 	public ParserRule getTBOOLRule() {
@@ -2714,45 +2766,45 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal NUMBER returns ecore::EFloat:
 	//	("+" | "-")? INT ("." INT?) (("E" | "e") ("+" | "-")? INT)? | ("+" | "-")? INT (("E" | "e") ("+" | "-")? INT) | ("."
 	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
 	public TerminalRule getNUMBERRule() {
-		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+		return tNUMBER;
 	} 
 
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
-		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
+		return tSTRING;
 	} 
 
 	//terminal NEWLINE:
 	//	"\r" | "\n" | "\r\n";
 	public TerminalRule getNEWLINERule() {
-		return (tNEWLINE != null) ? tNEWLINE : (tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE"));
+		return tNEWLINE;
 	} 
 
 	//terminal SL_COMMENT:
 	//	"-" !"0".."9" !("\r" | "\n" | "\r\n")*;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return tSL_COMMENT;
 	} 
 
 	//terminal WS:
 	//	(" " | "\t")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//Header hidden():
 	//	name=SL_COMMENT NEWLINE desc=SL_COMMENT NEWLINE NEWLINE;
 	public HeaderElements getHeaderAccess() {
-		return (pHeader != null) ? pHeader : (pHeader = new HeaderElements());
+		return pHeader;
 	}
 	
 	public ParserRule getHeaderRule() {
@@ -2762,7 +2814,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//Section hidden():
 	//	name=SL_COMMENT NEWLINE;
 	public SectionElements getSectionAccess() {
-		return (pSection != null) ? pSection : (pSection = new SectionElements());
+		return pSection;
 	}
 	
 	public ParserRule getSectionRule() {
@@ -2772,7 +2824,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//bEcho hidden():
 	//	WS? value=tBOOL WS name="Echo" WS? SL_COMMENT? NEWLINE;
 	public BEchoElements getBEchoAccess() {
-		return (pBEcho != null) ? pBEcho : (pBEcho = new BEchoElements());
+		return pBEcho;
 	}
 	
 	public ParserRule getBEchoRule() {
@@ -2782,7 +2834,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iBeamType hidden():
 	//	WS? value=INT WS name="beam_type" WS? SL_COMMENT? NEWLINE;
 	public IBeamTypeElements getIBeamTypeAccess() {
-		return (pIBeamType != null) ? pIBeamType : (pIBeamType = new IBeamTypeElements());
+		return pIBeamType;
 	}
 	
 	public ParserRule getIBeamTypeRule() {
@@ -2792,7 +2844,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nRotRpm hidden():
 	//	WS? value=tNUMBER WS name="rot_rpm" WS? SL_COMMENT? NEWLINE;
 	public NRotRpmElements getNRotRpmAccess() {
-		return (pNRotRpm != null) ? pNRotRpm : (pNRotRpm = new NRotRpmElements());
+		return pNRotRpm;
 	}
 	
 	public ParserRule getNRotRpmRule() {
@@ -2802,7 +2854,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nRpmMult hidden():
 	//	WS? value=tNUMBER WS name="rpm_mult" WS? SL_COMMENT? NEWLINE;
 	public NRpmMultElements getNRpmMultAccess() {
-		return (pNRpmMult != null) ? pNRpmMult : (pNRpmMult = new NRpmMultElements());
+		return pNRpmMult;
 	}
 	
 	public ParserRule getNRpmMultRule() {
@@ -2812,7 +2864,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nRadius hidden():
 	//	WS? value=tNUMBER WS name="radius" WS? SL_COMMENT? NEWLINE;
 	public NRadiusElements getNRadiusAccess() {
-		return (pNRadius != null) ? pNRadius : (pNRadius = new NRadiusElements());
+		return pNRadius;
 	}
 	
 	public ParserRule getNRadiusRule() {
@@ -2822,7 +2874,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nHubRad hidden():
 	//	WS? value=tNUMBER WS name="hub_rad" WS? SL_COMMENT? NEWLINE;
 	public NHubRadElements getNHubRadAccess() {
-		return (pNHubRad != null) ? pNHubRad : (pNHubRad = new NHubRadElements());
+		return pNHubRad;
 	}
 	
 	public ParserRule getNHubRadRule() {
@@ -2832,7 +2884,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nPrecone hidden():
 	//	WS? value=tNUMBER WS name="precone" WS? SL_COMMENT? NEWLINE;
 	public NPreconeElements getNPreconeAccess() {
-		return (pNPrecone != null) ? pNPrecone : (pNPrecone = new NPreconeElements());
+		return pNPrecone;
 	}
 	
 	public ParserRule getNPreconeRule() {
@@ -2842,7 +2894,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nBlThp hidden():
 	//	WS? value=tNUMBER WS name="bl_thp" WS? SL_COMMENT? NEWLINE;
 	public NBlThpElements getNBlThpAccess() {
-		return (pNBlThp != null) ? pNBlThp : (pNBlThp = new NBlThpElements());
+		return pNBlThp;
 	}
 	
 	public ParserRule getNBlThpRule() {
@@ -2852,7 +2904,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iHubConn hidden():
 	//	WS? value=INT WS name="hub_conn" WS? SL_COMMENT? NEWLINE;
 	public IHubConnElements getIHubConnAccess() {
-		return (pIHubConn != null) ? pIHubConn : (pIHubConn = new IHubConnElements());
+		return pIHubConn;
 	}
 	
 	public ParserRule getIHubConnRule() {
@@ -2862,7 +2914,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iModePr hidden():
 	//	WS? value=INT WS name="modepr" WS? SL_COMMENT? NEWLINE;
 	public IModePrElements getIModePrAccess() {
-		return (pIModePr != null) ? pIModePr : (pIModePr = new IModePrElements());
+		return pIModePr;
 	}
 	
 	public ParserRule getIModePrRule() {
@@ -2872,7 +2924,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//bTabDelim hidden():
 	//	WS? value=tBOOL WS name="TabDelim" WS? SL_COMMENT? NEWLINE;
 	public BTabDelimElements getBTabDelimAccess() {
-		return (pBTabDelim != null) ? pBTabDelim : (pBTabDelim = new BTabDelimElements());
+		return pBTabDelim;
 	}
 	
 	public ParserRule getBTabDelimRule() {
@@ -2882,7 +2934,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//bMidNodeTw hidden():
 	//	WS? value=tBOOL WS name="mid_node_tw" WS? SL_COMMENT? NEWLINE;
 	public BMidNodeTwElements getBMidNodeTwAccess() {
-		return (pBMidNodeTw != null) ? pBMidNodeTw : (pBMidNodeTw = new BMidNodeTwElements());
+		return pBMidNodeTw;
 	}
 	
 	public ParserRule getBMidNodeTwRule() {
@@ -2892,7 +2944,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nTipMass hidden():
 	//	WS? value=tNUMBER WS name="tip_mass" WS? SL_COMMENT? NEWLINE;
 	public NTipMassElements getNTipMassAccess() {
-		return (pNTipMass != null) ? pNTipMass : (pNTipMass = new NTipMassElements());
+		return pNTipMass;
 	}
 	
 	public ParserRule getNTipMassRule() {
@@ -2902,7 +2954,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nCmLoc hidden():
 	//	WS? value=tNUMBER WS name="cm_loc" WS? SL_COMMENT? NEWLINE;
 	public NCmLocElements getNCmLocAccess() {
-		return (pNCmLoc != null) ? pNCmLoc : (pNCmLoc = new NCmLocElements());
+		return pNCmLoc;
 	}
 	
 	public ParserRule getNCmLocRule() {
@@ -2912,7 +2964,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nCmAxial hidden():
 	//	WS? value=tNUMBER WS name="cm_axial" WS? SL_COMMENT? NEWLINE;
 	public NCmAxialElements getNCmAxialAccess() {
-		return (pNCmAxial != null) ? pNCmAxial : (pNCmAxial = new NCmAxialElements());
+		return pNCmAxial;
 	}
 	
 	public ParserRule getNCmAxialRule() {
@@ -2922,7 +2974,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIxxTip hidden():
 	//	WS? value=tNUMBER WS name="ixx_tip" WS? SL_COMMENT? NEWLINE;
 	public NIxxTipElements getNIxxTipAccess() {
-		return (pNIxxTip != null) ? pNIxxTip : (pNIxxTip = new NIxxTipElements());
+		return pNIxxTip;
 	}
 	
 	public ParserRule getNIxxTipRule() {
@@ -2932,7 +2984,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIyyTip hidden():
 	//	WS? value=tNUMBER WS name="iyy_tip" WS? SL_COMMENT? NEWLINE;
 	public NIyyTipElements getNIyyTipAccess() {
-		return (pNIyyTip != null) ? pNIyyTip : (pNIyyTip = new NIyyTipElements());
+		return pNIyyTip;
 	}
 	
 	public ParserRule getNIyyTipRule() {
@@ -2942,7 +2994,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIzzTip hidden():
 	//	WS? value=tNUMBER WS name="izz_tip" WS? SL_COMMENT? NEWLINE;
 	public NIzzTipElements getNIzzTipAccess() {
-		return (pNIzzTip != null) ? pNIzzTip : (pNIzzTip = new NIzzTipElements());
+		return pNIzzTip;
 	}
 	
 	public ParserRule getNIzzTipRule() {
@@ -2952,7 +3004,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIxyTip hidden():
 	//	WS? value=tNUMBER WS name="ixy_tip" WS? SL_COMMENT? NEWLINE;
 	public NIxyTipElements getNIxyTipAccess() {
-		return (pNIxyTip != null) ? pNIxyTip : (pNIxyTip = new NIxyTipElements());
+		return pNIxyTip;
 	}
 	
 	public ParserRule getNIxyTipRule() {
@@ -2962,7 +3014,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIzxTip hidden():
 	//	WS? value=tNUMBER WS name="izx_tip" WS? SL_COMMENT? NEWLINE;
 	public NIzxTipElements getNIzxTipAccess() {
-		return (pNIzxTip != null) ? pNIzxTip : (pNIzxTip = new NIzxTipElements());
+		return pNIzxTip;
 	}
 	
 	public ParserRule getNIzxTipRule() {
@@ -2972,7 +3024,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nIyzTip hidden():
 	//	WS? value=tNUMBER WS name="iyz_tip" WS? SL_COMMENT? NEWLINE;
 	public NIyzTipElements getNIyzTipAccess() {
-		return (pNIyzTip != null) ? pNIyzTip : (pNIyzTip = new NIyzTipElements());
+		return pNIyzTip;
 	}
 	
 	public ParserRule getNIyzTipRule() {
@@ -2982,7 +3034,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iIdMat hidden():
 	//	WS? value=INT WS name="id_mat" WS? SL_COMMENT? NEWLINE;
 	public IIdMatElements getIIdMatAccess() {
-		return (pIIdMat != null) ? pIIdMat : (pIIdMat = new IIdMatElements());
+		return pIIdMat;
 	}
 	
 	public ParserRule getIIdMatRule() {
@@ -2992,7 +3044,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iSecFile hidden():
 	//	WS? value=STRING WS name="sec_props_file" WS? SL_COMMENT? NEWLINE;
 	public ISecFileElements getISecFileAccess() {
-		return (pISecFile != null) ? pISecFile : (pISecFile = new ISecFileElements());
+		return pISecFile;
 	}
 	
 	public ParserRule getISecFileRule() {
@@ -3002,7 +3054,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nSecMasMult hidden():
 	//	WS? value=tNUMBER WS name="sec_mass_mult" WS? SL_COMMENT? NEWLINE;
 	public NSecMasMultElements getNSecMasMultAccess() {
-		return (pNSecMasMult != null) ? pNSecMasMult : (pNSecMasMult = new NSecMasMultElements());
+		return pNSecMasMult;
 	}
 	
 	public ParserRule getNSecMasMultRule() {
@@ -3012,7 +3064,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nFlpInrMult hidden():
 	//	WS? value=tNUMBER WS name="flp_iner_mult" WS? SL_COMMENT? NEWLINE;
 	public NFlpInrMultElements getNFlpInrMultAccess() {
-		return (pNFlpInrMult != null) ? pNFlpInrMult : (pNFlpInrMult = new NFlpInrMultElements());
+		return pNFlpInrMult;
 	}
 	
 	public ParserRule getNFlpInrMultRule() {
@@ -3022,7 +3074,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nLagInrMult hidden():
 	//	WS? value=tNUMBER WS name="lag_iner_mult" WS? SL_COMMENT? NEWLINE;
 	public NLagInrMultElements getNLagInrMultAccess() {
-		return (pNLagInrMult != null) ? pNLagInrMult : (pNLagInrMult = new NLagInrMultElements());
+		return pNLagInrMult;
 	}
 	
 	public ParserRule getNLagInrMultRule() {
@@ -3032,7 +3084,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nFlpstfMult hidden():
 	//	WS? value=tNUMBER WS name="flp_stff_mult" WS? SL_COMMENT? NEWLINE;
 	public NFlpstfMultElements getNFlpstfMultAccess() {
-		return (pNFlpstfMult != null) ? pNFlpstfMult : (pNFlpstfMult = new NFlpstfMultElements());
+		return pNFlpstfMult;
 	}
 	
 	public ParserRule getNFlpstfMultRule() {
@@ -3042,7 +3094,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nEdgStfMult hidden():
 	//	WS? value=tNUMBER WS name="edge_stff_mult" WS? SL_COMMENT? NEWLINE;
 	public NEdgStfMultElements getNEdgStfMultAccess() {
-		return (pNEdgStfMult != null) ? pNEdgStfMult : (pNEdgStfMult = new NEdgStfMultElements());
+		return pNEdgStfMult;
 	}
 	
 	public ParserRule getNEdgStfMultRule() {
@@ -3052,7 +3104,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nTorStfMult hidden():
 	//	WS? value=tNUMBER WS name="tor_stff_mult" WS? SL_COMMENT? NEWLINE;
 	public NTorStfMultElements getNTorStfMultAccess() {
-		return (pNTorStfMult != null) ? pNTorStfMult : (pNTorStfMult = new NTorStfMultElements());
+		return pNTorStfMult;
 	}
 	
 	public ParserRule getNTorStfMultRule() {
@@ -3062,7 +3114,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nAxiStfMult hidden():
 	//	WS? value=tNUMBER WS name="axial_stff_mult" WS? SL_COMMENT? NEWLINE;
 	public NAxiStfMultElements getNAxiStfMultAccess() {
-		return (pNAxiStfMult != null) ? pNAxiStfMult : (pNAxiStfMult = new NAxiStfMultElements());
+		return pNAxiStfMult;
 	}
 	
 	public ParserRule getNAxiStfMultRule() {
@@ -3072,7 +3124,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nCgOffsMult hidden():
 	//	WS? value=tNUMBER WS name="cg_offst_mult" WS? SL_COMMENT? NEWLINE;
 	public NCgOffsMultElements getNCgOffsMultAccess() {
-		return (pNCgOffsMult != null) ? pNCgOffsMult : (pNCgOffsMult = new NCgOffsMultElements());
+		return pNCgOffsMult;
 	}
 	
 	public ParserRule getNCgOffsMultRule() {
@@ -3082,7 +3134,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nScOffsMult hidden():
 	//	WS? value=tNUMBER WS name="sc_offst_mult" WS? SL_COMMENT? NEWLINE;
 	public NScOffsMultElements getNScOffsMultAccess() {
-		return (pNScOffsMult != null) ? pNScOffsMult : (pNScOffsMult = new NScOffsMultElements());
+		return pNScOffsMult;
 	}
 	
 	public ParserRule getNScOffsMultRule() {
@@ -3092,7 +3144,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//nTcOffsMult hidden():
 	//	WS? value=tNUMBER WS name="tc_offst_mult" WS? SL_COMMENT? NEWLINE;
 	public NTcOffsMultElements getNTcOffsMultAccess() {
-		return (pNTcOffsMult != null) ? pNTcOffsMult : (pNTcOffsMult = new NTcOffsMultElements());
+		return pNTcOffsMult;
 	}
 	
 	public ParserRule getNTcOffsMultRule() {
@@ -3102,7 +3154,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iNSelt hidden():
 	//	WS? value=INT WS name="nselt" WS? SL_COMMENT? NEWLINE;
 	public INSeltElements getINSeltAccess() {
-		return (pINSelt != null) ? pINSelt : (pINSelt = new INSeltElements());
+		return pINSelt;
 	}
 	
 	public ParserRule getINSeltRule() {
@@ -3112,7 +3164,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//aElLoc hidden():
 	//	WS? (el_loc+=tNUMBER WS)+ el_loc+=tNUMBER WS? SL_COMMENT? NEWLINE;
 	public AElLocElements getAElLocAccess() {
-		return (pAElLoc != null) ? pAElLoc : (pAElLoc = new AElLocElements());
+		return pAElLoc;
 	}
 	
 	public ParserRule getAElLocRule() {
@@ -3122,7 +3174,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iTwrSupport hidden():
 	//	WS? value=INT WS name="tow_support" WS? SL_COMMENT? NEWLINE;
 	public ITwrSupportElements getITwrSupportAccess() {
-		return (pITwrSupport != null) ? pITwrSupport : (pITwrSupport = new ITwrSupportElements());
+		return pITwrSupport;
 	}
 	
 	public ParserRule getITwrSupportRule() {
@@ -3132,7 +3184,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//iTwrAttach hidden():
 	//	WS? value=INT WS name="n_attachments" WS? SL_COMMENT? NEWLINE;
 	public ITwrAttachElements getITwrAttachAccess() {
-		return (pITwrAttach != null) ? pITwrAttach : (pITwrAttach = new ITwrAttachElements());
+		return pITwrAttach;
 	}
 	
 	public ParserRule getITwrAttachRule() {
@@ -3142,7 +3194,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//aTwrWires hidden():
 	//	WS? (el_loc+=INT WS)+ name="n_wires" WS? SL_COMMENT? NEWLINE;
 	public ATwrWiresElements getATwrWiresAccess() {
-		return (pATwrWires != null) ? pATwrWires : (pATwrWires = new ATwrWiresElements());
+		return pATwrWires;
 	}
 	
 	public ParserRule getATwrWiresRule() {
@@ -3152,7 +3204,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//aNodeAttach hidden():
 	//	WS? (el_loc+=INT WS)+ name="node_attach" WS? SL_COMMENT? NEWLINE;
 	public ANodeAttachElements getANodeAttachAccess() {
-		return (pANodeAttach != null) ? pANodeAttach : (pANodeAttach = new ANodeAttachElements());
+		return pANodeAttach;
 	}
 	
 	public ParserRule getANodeAttachRule() {
@@ -3162,7 +3214,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//aWireStiff hidden():
 	//	WS? (el_loc+=tNUMBER WS)+ name="wire_stfness" WS? SL_COMMENT? NEWLINE;
 	public AWireStiffElements getAWireStiffAccess() {
-		return (pAWireStiff != null) ? pAWireStiff : (pAWireStiff = new AWireStiffElements());
+		return pAWireStiff;
 	}
 	
 	public ParserRule getAWireStiffRule() {
@@ -3172,7 +3224,7 @@ public class BmodesbmiGrammarAccess extends AbstractGrammarElementFinder {
 	//aWireAngle hidden():
 	//	WS? (el_loc+=tNUMBER WS)+ name="th_wire" WS? SL_COMMENT? NEWLINE;
 	public AWireAngleElements getAWireAngleAccess() {
-		return (pAWireAngle != null) ? pAWireAngle : (pAWireAngle = new AWireAngleElements());
+		return pAWireAngle;
 	}
 	
 	public ParserRule getAWireAngleRule() {

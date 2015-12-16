@@ -4,7 +4,7 @@
     editorDirectory="/sc.ndt.editor.bmodes.tsp.editor/src" modelPluginID="sc.ndt.editor.bmodes.tsp"
     forceOverwrite="true" modelName="Bmodestsp" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.bmodes.tsp.edit"
-    editorPluginID="sc.ndt.editor.bmodes.tsp.editor" runtimeVersion="2.9">
+    editorPluginID="sc.ndt.editor.bmodes.tsp.editor" runtimeVersion="2.10">
   <genPackages prefix="Bmodestsp" basePackage="sc.ndt.editor.bmodes" disposableProviderFactory="true"
       fileExtensions="tsp" ecorePackage="Bmodestsp.ecore#/">
     <genClasses ecoreClass="Bmodestsp.ecore#//ModelBmodestsp">

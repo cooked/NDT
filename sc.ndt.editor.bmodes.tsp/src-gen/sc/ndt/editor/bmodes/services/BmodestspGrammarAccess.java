@@ -628,24 +628,36 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private ModelBmodestspElements pModelBmodestsp;
-	private TNUMBERElements pTNUMBER;
-	private TARRAY_STRElements pTARRAY_STR;
-	private TerminalRule tINT;
-	private TerminalRule tNUMBER;
-	private TerminalRule tSTRING;
-	private TerminalRule tNEWLINE;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
-	private HeaderElements pHeader;
-	private INodesElements pINodes;
-	private ASecElements pASec;
+	private final ModelBmodestspElements pModelBmodestsp;
+	private final TNUMBERElements pTNUMBER;
+	private final TARRAY_STRElements pTARRAY_STR;
+	private final TerminalRule tINT;
+	private final TerminalRule tNUMBER;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tNEWLINE;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final HeaderElements pHeader;
+	private final INodesElements pINodes;
+	private final ASecElements pASec;
 	
 	private final Grammar grammar;
 
 	@Inject
 	public BmodestspGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.pModelBmodestsp = new ModelBmodestspElements();
+		this.pTNUMBER = new TNUMBERElements();
+		this.pTARRAY_STR = new TARRAY_STRElements();
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
+		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.pHeader = new HeaderElements();
+		this.pINodes = new INodesElements();
+		this.pASec = new ASecElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -674,7 +686,7 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//ModelBmodestsp:
 	//	Head=Header NNodes=iNodes NEWLINE Sections=aSec (WS | NEWLINE | SL_COMMENT)*;
 	public ModelBmodestspElements getModelBmodestspAccess() {
-		return (pModelBmodestsp != null) ? pModelBmodestsp : (pModelBmodestsp = new ModelBmodestspElements());
+		return pModelBmodestsp;
 	}
 	
 	public ParserRule getModelBmodestspRule() {
@@ -684,7 +696,7 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//tNUMBER returns ecore::EFloat:
 	//	INT | NUMBER;
 	public TNUMBERElements getTNUMBERAccess() {
-		return (pTNUMBER != null) ? pTNUMBER : (pTNUMBER = new TNUMBERElements());
+		return pTNUMBER;
 	}
 	
 	public ParserRule getTNUMBERRule() {
@@ -700,7 +712,7 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//tARRAY_STR returns ecore::EString hidden(SL_COMMENT):
 	//	(WS? STRING WS? NEWLINE)*;
 	public TARRAY_STRElements getTARRAY_STRAccess() {
-		return (pTARRAY_STR != null) ? pTARRAY_STR : (pTARRAY_STR = new TARRAY_STRElements());
+		return pTARRAY_STR;
 	}
 	
 	public ParserRule getTARRAY_STRRule() {
@@ -713,45 +725,45 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal NUMBER returns ecore::EFloat:
 	//	("+" | "-")? INT ("." INT?) (("E" | "e") ("+" | "-")? INT)? | ("+" | "-")? INT (("E" | "e") ("+" | "-")? INT) | ("."
 	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
 	public TerminalRule getNUMBERRule() {
-		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+		return tNUMBER;
 	} 
 
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
-		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
+		return tSTRING;
 	} 
 
 	//terminal NEWLINE:
 	//	"\r" | "\n" | "\r\n";
 	public TerminalRule getNEWLINERule() {
-		return (tNEWLINE != null) ? tNEWLINE : (tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE"));
+		return tNEWLINE;
 	} 
 
 	//terminal SL_COMMENT:
 	//	"-" !"0".."9" !("\r" | "\n" | "\r\n")*;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return tSL_COMMENT;
 	} 
 
 	//terminal WS:
 	//	(" " | "\t")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//Header hidden():
 	//	name=SL_COMMENT NEWLINE;
 	public HeaderElements getHeaderAccess() {
-		return (pHeader != null) ? pHeader : (pHeader = new HeaderElements());
+		return pHeader;
 	}
 	
 	public ParserRule getHeaderRule() {
@@ -761,7 +773,7 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//iNodes hidden():
 	//	WS? value=INT WS name="n_secs" WS? SL_COMMENT? NEWLINE;
 	public INodesElements getINodesAccess() {
-		return (pINodes != null) ? pINodes : (pINodes = new INodesElements());
+		return pINodes;
 	}
 	
 	public ParserRule getINodesRule() {
@@ -776,7 +788,7 @@ public class BmodestspGrammarAccess extends AbstractGrammarElementFinder {
 	//	flp_iner+=tNUMBER WS edge_iner+=tNUMBER WS flp_stff+=tNUMBER WS edge_stff+=tNUMBER WS tor_stff+=tNUMBER WS
 	//	axial_stff+=tNUMBER WS cg_offst+=tNUMBER WS sc_offst+=tNUMBER WS tc_offst+=tNUMBER WS? SL_COMMENT? NEWLINE)+;
 	public ASecElements getASecAccess() {
-		return (pASec != null) ? pASec : (pASec = new ASecElements());
+		return pASec;
 	}
 	
 	public ParserRule getASecRule() {

@@ -250,7 +250,9 @@
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
-            class="sc.ndt.editor.bmodes.ui.BmodestspExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+            class="sc.ndt.editor.bmodes.ui.BmodestspExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+            fileExtensions="tsp"
+            >
       </participant>
    </extension>
    <extension

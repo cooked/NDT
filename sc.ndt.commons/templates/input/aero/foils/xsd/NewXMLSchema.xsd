@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/NewXMLSchema" xmlns:tns="http://www.example.org/NewXMLSchema" elementFormDefault="qualified">
+</schema>
+
+<!-- created by Stefano Cottafavi (http://www.stefanocottafavi.com) -->
+<!-- based on Martin Hepperle work on airfoil and polar XML    schemas    -->
+ 
+<xs:schema
+targetNamespace="http://www.stefanocottafavi.com/airfoil2"
+xmlns="http://www.stefanocottafavi.com/airfoil2"
+xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:ma="http://www.mh-aerotools.de/airfoil-schema"
+xmlns:mp="http://www.mh-aerotools.de/polar-schema"
+elementFormDefault="qualified"
+attributeFormDefault="unqualified">
+ 
+<xs:import namespace="http://www.mh-aerotools.de/airfoil-schema" schemaLocation="http://www.mh-aerotools.de/airfoils/xml-schemas/airfoil-schema.xsd"/>
+<xs:import namespace="http://www.mh-aerotools.de/polar-schema" schemaLocation="http://www.mh-aerotools.de/airfoils/xml-schemas/polar-schema.xsd"/>
+ 
+<xs:element name="airfoil">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="ma:name"/>
+<xs:element name="desc" type="xs:string"/>
+<xs:element name="elements" type="ma:elementsType"/>
+<xs:element ref="mp:configurations"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+ 
+</xs:schema>

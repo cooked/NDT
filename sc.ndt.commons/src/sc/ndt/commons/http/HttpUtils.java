@@ -4,12 +4,11 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.DefaultHandler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
-import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.browser.Browser;
 
 
 public class HttpUtils {
@@ -63,7 +62,9 @@ public class HttpUtils {
 		
 		getInstance();
 		
-		Connector connector=new SelectChannelConnector();
+		server = new Server();
+		
+		ServerConnector connector = new ServerConnector(server);
 		connector.setHost("localhost");
         connector.setPort(8888);
         
@@ -121,7 +122,7 @@ public class HttpUtils {
         		resource_handler_4,*/
         		new DefaultHandler() });
         
-        server = new Server();
+        
         server.setConnectors(new Connector[]{connector});
         server.setHandler(handlers);
         server.start();

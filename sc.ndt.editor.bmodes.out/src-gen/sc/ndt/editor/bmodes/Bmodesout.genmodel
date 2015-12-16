@@ -4,7 +4,7 @@
     editorDirectory="/sc.ndt.editor.bmodes.out.editor/src" modelPluginID="sc.ndt.editor.bmodes.out"
     forceOverwrite="true" modelName="Bmodesout" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.bmodes.out.edit"
-    editorPluginID="sc.ndt.editor.bmodes.out.editor" runtimeVersion="2.9">
+    editorPluginID="sc.ndt.editor.bmodes.out.editor" runtimeVersion="2.10">
   <genPackages prefix="Bmodesout" basePackage="sc.ndt.editor.bmodes" disposableProviderFactory="true"
       fileExtensions="out" ecorePackage="Bmodesout.ecore#/">
     <genClasses ecoreClass="Bmodesout.ecore#//ModelBmodesout">

@@ -11,6 +11,10 @@ package sc.ndt.editor.bmodes.ui.labeling
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
 class BmodesbmiDescriptionLabelProvider extends org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider {
+	
+	override getImage(Object arg0) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
 
 	// Labels and icons can be computed like this:
 	
