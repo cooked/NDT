@@ -399,5 +399,22 @@
             extensions="bld">
     </provider>
   </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+     <factory
+           adaptableType="org.eclipse.core.resources.IFile"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelBldAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fastbld.ModelFastbld">
+        </adapter>
+     </factory>
+     <factory
+           adaptableType="org.eclipse.ui.IFileEditorInput"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelBldAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fastbld.ModelFastbld">
+        </adapter>
+     </factory>
+  </extension>
 
 </plugin>

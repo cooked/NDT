@@ -4,7 +4,7 @@
     editorDirectory="/sc.ndt.editor.fast.bld.editor/src" modelPluginID="sc.ndt.editor.fast.bld"
     forceOverwrite="true" modelName="Fastbld" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="sc.ndt.editor.fast.bld.edit"
-    editorPluginID="sc.ndt.editor.fast.bld.editor" runtimeVersion="2.9">
+    editorPluginID="sc.ndt.editor.fast.bld.editor" runtimeVersion="2.10">
   <genPackages prefix="Fastbld" basePackage="sc.ndt.editor.fast" disposableProviderFactory="true"
       fileExtensions="bld" ecorePackage="Fastbld.ecore#/">
     <genClasses ecoreClass="Fastbld.ecore#//ModelFastbld">

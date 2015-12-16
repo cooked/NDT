@@ -11961,16 +11961,16 @@ rule__NNblInpSt__NameAssignment_3
     }
 :
 (
-{ before(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); }
+{ before(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); }
 (
-{ before(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); }
+{ before(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); }
 
-	'NblInpSt' 
+	'NBlInpSt' 
 
-{ after(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); }
+{ after(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); }
 )
 
-{ after(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); }
+{ after(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); }
 )
 
 ;

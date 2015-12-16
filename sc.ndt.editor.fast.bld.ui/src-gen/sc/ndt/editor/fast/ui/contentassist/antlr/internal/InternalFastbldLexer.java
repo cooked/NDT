@@ -12,68 +12,68 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalFastbldLexer extends Lexer {
-    public static final int T__64=64;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__62=62;
-    public static final int T__26=26;
-    public static final int T__63=63;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int T__61=61;
-    public static final int T__60=60;
-    public static final int EOF=-1;
-    public static final int T__55=55;
-    public static final int T__56=56;
+    public static final int T__50=50;
     public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__59=59;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__11=11;
+    public static final int T__55=55;
+    public static final int T__12=12;
+    public static final int T__56=56;
+    public static final int T__13=13;
     public static final int T__57=57;
+    public static final int T__14=14;
     public static final int T__58=58;
     public static final int T__51=51;
-    public static final int T__16=16;
     public static final int T__52=52;
-    public static final int T__15=15;
     public static final int T__53=53;
-    public static final int T__18=18;
-    public static final int T__54=54;
-    public static final int T__17=17;
-    public static final int RULE_NUMBER=8;
-    public static final int T__12=12;
-    public static final int T__11=11;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int T__59=59;
     public static final int T__10=10;
+    public static final int T__54=54;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=7;
-    public static final int T__50=50;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
-    public static final int T__41=41;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__20=20;
+    public static final int T__64=64;
+    public static final int T__21=21;
     public static final int RULE_NEWLINE=5;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=6;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
     public static final int RULE_STRING=9;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_WS=4;
+    public static final int RULE_NUMBER=8;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -723,10 +723,10 @@ public class InternalFastbldLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:41:7: ( 'NblInpSt' )
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:41:9: 'NblInpSt'
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:41:7: ( 'NBlInpSt' )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:41:9: 'NBlInpSt'
             {
-            match("NblInpSt"); 
+            match("NBlInpSt"); 
 
 
             }
@@ -2355,16 +2355,16 @@ public class InternalFastbldLexer extends Lexer {
     static final String DFA10_maxS =
         "\2\71\1\145\1\uffff\1\71\1\145\3\uffff";
     static final String DFA10_acceptS =
-        "\3\uffff\1\3\2\uffff\1\1\1\2\1\4";
+        "\3\uffff\1\3\2\uffff\1\2\1\1\1\4";
     static final String DFA10_specialS =
         "\11\uffff}>";
     static final String[] DFA10_transitionS = {
             "\1\4\1\uffff\1\1\1\3\1\uffff\12\2",
             "\12\5",
-            "\1\6\1\uffff\12\2\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\2\13\uffff\1\6\37\uffff\1\6",
             "",
             "\12\2",
-            "\1\6\1\uffff\12\5\13\uffff\1\7\37\uffff\1\7",
+            "\1\7\1\uffff\12\5\13\uffff\1\6\37\uffff\1\6",
             "",
             "",
             ""
@@ -2408,34 +2408,15 @@ public class InternalFastbldLexer extends Lexer {
     static final String DFA17_eofS =
         "\157\uffff";
     static final String DFA17_minS =
-        "\1\11\1\122\1\uffff\1\101\1\uffff\1\115\1\144\1\uffff\1\101\1\uffff"+
-        "\1\162\1\55\2\uffff\1\56\1\0\10\uffff\1\123\1\106\3\uffff\1\152"+
-        "\1\147\1\uffff\1\145\2\uffff\1\147\1\51\3\uffff\1\105\1\164\1\uffff"+
-        "\1\105\1\102\1\105\1\143\1\40\6\uffff\1\124\1\154\1\144\13\uffff"+
-        "\1\165\1\61\1\104\1\156\1\155\2\123\1\uffff\1\123\1\162\1\160\3"+
-        "\150\5\50\2\61\3\62\23\uffff";
+        "\1\11\1\122\1\uffff\1\101\1\uffff\1\115\1\144\1\uffff\1\101\1\uffff\1\162\1\55\2\uffff\1\56\1\0\10\uffff\1\123\1\106\3\uffff\1\152\1\147\1\uffff\1\145\2\uffff\1\147\1\51\3\uffff\1\105\1\164\1\uffff\1\105\1\102\1\105\1\143\1\40\6\uffff\1\124\1\154\1\144\13\uffff\1\165\1\61\1\104\1\156\1\155\2\123\1\uffff\1\123\1\162\1\160\3\150\5\50\2\61\3\62\23\uffff";
     static final String DFA17_maxS =
-        "\1\164\1\162\1\uffff\1\154\1\uffff\2\154\1\uffff\1\144\1\uffff\1"+
-        "\162\1\155\2\uffff\1\145\1\uffff\10\uffff\1\160\1\144\3\uffff\1"+
-        "\152\1\147\1\uffff\1\145\2\uffff\1\147\1\155\3\uffff\1\143\1\164"+
-        "\1\uffff\2\106\1\143\1\163\1\57\6\uffff\1\124\1\154\1\144\13\uffff"+
-        "\1\165\1\104\1\147\1\156\1\155\2\123\1\uffff\1\123\1\162\1\160\3"+
-        "\150\5\50\2\62\3\66\23\uffff";
+        "\1\164\1\162\1\uffff\1\154\1\uffff\2\154\1\uffff\1\144\1\uffff\1\162\1\155\2\uffff\1\145\1\uffff\10\uffff\1\160\1\144\3\uffff\1\152\1\147\1\uffff\1\145\2\uffff\1\147\1\155\3\uffff\1\143\1\164\1\uffff\2\106\1\143\1\163\1\57\6\uffff\1\124\1\154\1\144\13\uffff\1\165\1\104\1\147\1\156\1\155\2\123\1\uffff\1\123\1\162\1\160\3\150\5\50\2\62\3\66\23\uffff";
     static final String DFA17_acceptS =
-        "\2\uffff\1\3\1\uffff\1\6\2\uffff\1\11\1\uffff\1\15\2\uffff\1\37"+
-        "\1\40\2\uffff\1\71\1\72\1\73\1\75\1\1\1\2\1\4\1\5\2\uffff\1\12\1"+
-        "\10\1\17\2\uffff\1\16\1\uffff\1\30\1\31\2\uffff\1\36\1\70\1\74\2"+
-        "\uffff\1\7\5\uffff\1\33\1\34\1\13\1\20\1\24\1\26\3\uffff\1\46\1"+
-        "\47\1\50\1\14\1\21\1\25\1\27\1\22\1\23\1\32\1\35\7\uffff\1\43\20"+
-        "\uffff\1\44\1\45\1\41\1\42\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1"+
-        "\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67";
+        "\2\uffff\1\3\1\uffff\1\6\2\uffff\1\11\1\uffff\1\15\2\uffff\1\37\1\40\2\uffff\1\71\1\72\1\73\1\75\1\1\1\2\1\4\1\5\2\uffff\1\12\1\10\1\17\2\uffff\1\16\1\uffff\1\30\1\31\2\uffff\1\36\1\70\1\74\2\uffff\1\7\5\uffff\1\33\1\34\1\13\1\20\1\24\1\26\3\uffff\1\46\1\47\1\50\1\14\1\21\1\25\1\27\1\22\1\23\1\32\1\35\7\uffff\1\43\20\uffff\1\44\1\45\1\41\1\42\1\51\1\52\1\53\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64\1\65\1\66\1\67";
     static final String DFA17_specialS =
         "\17\uffff\1\0\137\uffff}>";
     static final String[] DFA17_transitionS = {
-            "\1\23\1\22\2\uffff\1\22\22\uffff\1\23\1\uffff\1\21\4\uffff\1"+
-            "\21\1\13\2\uffff\1\20\1\uffff\1\17\1\20\1\uffff\12\16\7\uffff"+
-            "\1\6\1\5\1\15\1\uffff\1\10\1\3\1\11\6\uffff\1\14\1\uffff\1\12"+
-            "\2\uffff\1\7\1\1\21\uffff\1\4\15\uffff\1\2",
+            "\1\23\1\22\2\uffff\1\22\22\uffff\1\23\1\uffff\1\21\4\uffff\1\21\1\13\2\uffff\1\20\1\uffff\1\17\1\20\1\uffff\12\16\7\uffff\1\6\1\5\1\15\1\uffff\1\10\1\3\1\11\6\uffff\1\14\1\uffff\1\12\2\uffff\1\7\1\1\21\uffff\1\4\15\uffff\1\2",
             "\1\24\37\uffff\1\25",
             "",
             "\1\26\37\uffff\1\27\12\uffff\1\30",

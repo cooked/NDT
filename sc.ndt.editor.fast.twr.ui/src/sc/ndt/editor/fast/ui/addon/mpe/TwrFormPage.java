@@ -1,9 +1,11 @@
 package sc.ndt.editor.fast.ui.addon.mpe;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.forms.IManagedForm;
@@ -46,7 +48,13 @@ import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.conversion.Converter;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IAdapterManager;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 
@@ -82,6 +90,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.FeaturePath;
+import org.eclipse.emf.ecore.EObject;
 
 import ch.vorburger.xtext.databinding.XtextDataBindingContext;
 import ch.vorburger.xtext.databinding.XtextProperties;
@@ -180,6 +189,11 @@ public class TwrFormPage extends FormPage {
 
 	private aSec asc;
 	
+	IAdapterManager am = Platform.getAdapterManager();
+	
+	private HashMap<String,XtextEditor>	xtextEditors 		= new HashMap<String,XtextEditor>();
+	private HashMap<String,EObject>		xtextEditorsModel 	= new HashMap<String,EObject>();
+	
 	/**
 	 * Create the form page.
 	 * @param id
@@ -200,31 +214,88 @@ public class TwrFormPage extends FormPage {
 	 */
 	public TwrFormPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
+	}
+	
+	
 
-		if(getEditor() instanceof IXtextFormEditor) {
-			IXtextFormEditor 	xfe = (IXtextFormEditor)getEditor();
-			
-			XtextEditor eTwr = xfe.getXtextEditor("twr");
-			mTwr = (ModelFasttwr) xfe.getModelFromXtextEditor(eTwr);
-			docTwr = eTwr.getDocument();
-			
-			XtextEditor eBmi = xfe.getXtextEditor("bmi");
-			docBmi = eBmi.getDocument();
-			
-			XtextEditor eTsp = xfe.getXtextEditor("tsp");
-			mTsp = (ModelBmodestsp) xfe.getModelFromXtextEditor(eTsp);
-			docTsp = eTsp.getDocument();
-			
-			// il file .tsv non lo visualizzo ma viene caricato headless e utilizzato
-			// nel form
-		}
-		
+	@Override
+	public void init(IEditorSite site, IEditorInput input) {
+
+		super.init(site, input);
+
+		IFile file = ((FileEditorInput) input).getFile();
+
+		// form is contained in a pure tower multipage editor
 		if(getEditor() instanceof TwrMultiPageEditor) {
-			tmpe 	= (TwrMultiPageEditor)getEditor();
-			tnslTsv = tmpe.fileTwrTsv.getTower();
+
+			IXtextFormEditor 	xfe = (IXtextFormEditor)getEditor();
+
+			mTwr = (ModelFasttwr) am.getAdapter(file, ModelFasttwr.class);
+			//docTwr = mTwr.getDocument();
+
+			XtextEditor eBmi = xfe.getXtextEditor("bmi");
+			if(eBmi!=null)
+				docBmi = eBmi.getDocument();
+
+			XtextEditor eTsp = xfe.getXtextEditor("tsp");
+			if(eTsp!=null) {
+				mTsp = (ModelBmodestsp) xfe.getModelFromXtextEditor(eTsp);
+				docTsp = eTsp.getDocument();
+				asc = mTsp.getSections();
+
+				for(int i = 0; i < asc.getSec_loc().size(); i++) {
+					tnslTsp.add(new TowerNodeStruct(
+							asc.getSec_loc().get(i),
+							asc.getMass_den().get(i),
+							asc.getFlp_stff().get(i),
+							asc.getEdge_stff().get(i),
+							asc.getTor_stff().get(i),
+							asc.getAxial_stff().get(i),
+							asc.getFlp_iner().get(i),
+							asc.getEdge_iner().get(i),
+							asc.getCg_offst().get(i)
+							));
+				}
+			}
+
+
+		// contained in FAST multi page editor
+		} else if(getEditor() instanceof IXtextFormEditor) {
+
+			IXtextFormEditor xfe = (IXtextFormEditor)getEditor();
+			if(mTwr==null) {
+				mTwr = (ModelFasttwr) am.getAdapter(file, ModelFasttwr.class);
+				XtextEditor eTwr = xfe.getXtextEditor("twr");
+				if(eTwr!=null)
+					docTwr = eTwr.getDocument();
+
+
+				//FileEditorInput input = (FileEditorInput) getEditorInput();
+
+				//mTwr = (ModelFasttwr) am.getAdapter(input.getFile(), ModelFasttwr.class);
+				//docTwr = ((XtextEditor) am.getAdapter(input, ModelFasttwr.class)).getDocument();
+
+				Path path = new Path(file.getFullPath().toOSString());
+				IWorkspaceRoot r = ResourcesPlugin.getWorkspace().getRoot();
+
+
+				///// Bmodes input source
+				IPath p2 = path.removeFileExtension().addFileExtension("bmi");
+				xtextEditorsModel.put("bmi", (ModelBmodesbmi) am.getAdapter(r.getFile(p2), ModelBmodesbmi.class));
+
+				///// Bmodes input source
+				//p2 = path.removeFileExtension().addFileExtension("tsp");
+				//file = r.getFile(p2);
+				//xtextEditorsModel.put("tsp", (ModelBmodesbmi) am.getAdapter(file, ModelBmodesbmi.class));
+
+				// il file .tsv non lo visualizzo ma viene caricato headless e utilizzato
+				// nel form
+			}
 			
 		}
-		
+
+
+
 		ast = mTwr.getTwrStat();
 		for(int i = 0; i < ast.getHtFract().size(); i++) {
 			tnslTwr.add(new TowerNodeStruct(
@@ -240,27 +311,17 @@ public class TwrFormPage extends FormPage {
 					ast.getTwSScgOf().get(i)
 					));
 		}
-		
-		asc = mTsp.getSections();
-		for(int i = 0; i < asc.getSec_loc().size(); i++) {
-			tnslTsp.add(new TowerNodeStruct(
-					asc.getSec_loc().get(i),
-					asc.getMass_den().get(i),
-					asc.getFlp_stff().get(i),
-					asc.getEdge_stff().get(i),
-					asc.getTor_stff().get(i),
-					asc.getAxial_stff().get(i),
-					asc.getFlp_iner().get(i),
-					asc.getEdge_iner().get(i),
-					asc.getCg_offst().get(i)
-					));
+
+
+
+		if(getEditor() instanceof TwrMultiPageEditor) {
+			tmpe 	= (TwrMultiPageEditor)getEditor();
+			tnslTsv = tmpe.fileTwrTsv.getTower();
+
 		}
-		
-		
-		
+
 		// TODO check constistency of node structures
-		
-		
+
 	}
 
 	public void doSave(IProgressMonitor monitor) {
@@ -1198,7 +1259,8 @@ public class TwrFormPage extends FormPage {
 	private void activateBinding() {
 		
 		m_bindingContext = new XtextDataBindingContext();
-		initXDB_BModesbmi		(m_bindingContext);
+		if(docBmi!=null)
+			initXDB_BModesbmi (m_bindingContext);
 		initXDB_TowerParameters	(m_bindingContext); // generate error
 
 		
@@ -1218,7 +1280,6 @@ public class TwrFormPage extends FormPage {
 		IObservableValue mow = XtextProperties.value(
 		FeaturePath.fromList( bindBmodesbmiPackage().getModelBmodesbmi_HubConn(), bindBmodesbmiPackage().getiHubConn_Value())).observe(docBmi);
 		bindingContext.bindValue(ow, mow, null, null);
-				
 				
 				
 		IObservableValue observeTextATolerObserveWidget = WidgetProperties.selection().observe(sec_mass_mult);

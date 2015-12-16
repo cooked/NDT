@@ -3476,7 +3476,7 @@ public class FstFormPage extends FormPage {
 				composite_5.setLayout(gl_composite_5);
 				
 				
-				
+				/*
 						// OutList
 						checkboxTreeViewer = new CheckboxTreeViewer(composite_5, SWT.MULTI);
 						
@@ -3512,6 +3512,7 @@ public class FstFormPage extends FormPage {
 						checkboxTreeViewer.setContentProvider(new OutListContentProvider());
 						checkboxTreeViewer.setCheckStateProvider(new OutListCheckStateProvider());
 						checkboxTreeViewer.setComparator(new OutListViewerComparator());
+						
 						checkboxTreeViewer.setInput(fxe.outList.getAllOutBlocks());
 						OutListToolTipSupport.enableFor(checkboxTreeViewer);
 
@@ -3556,6 +3557,7 @@ public class FstFormPage extends FormPage {
 
 							}
 						});
+		*/
 		//toolkit.decorateFormHeading(form.getForm());
 	
 

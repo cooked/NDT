@@ -174,7 +174,7 @@ public class OutListContentOutline extends Page implements IContentOutlinePage, 
 	}
 
 	public Control getControl() {
-		return pagebook;
+		return checkboxTreeViewer.getControl();
 	}
 
 	public ISelection getSelection() {

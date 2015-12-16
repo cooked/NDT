@@ -90,7 +90,7 @@ Section hidden():
 	name=SL_COMMENT  	NEWLINE
 ;
 
-nNblInpSt 	hidden():	WS? value=INT 		WS	name='NblInpSt' 	WS? SL_COMMENT? NEWLINE;
+nNblInpSt 	hidden():	WS? value=INT 		WS	name='NBlInpSt' 	WS? SL_COMMENT? NEWLINE;
 bCalcBMode 	hidden():	WS? value=tBOOL 	WS	name='CalcBMode' 	WS? SL_COMMENT? NEWLINE;
 nBldFlDmp1 	hidden():	WS? value=tNUMBER 	WS	name='BldFlDmp(1)' 	WS? SL_COMMENT? NEWLINE;
 nBldFlDmp2 	hidden():	WS? value=tNUMBER 	WS	name='BldFlDmp(2)' 	WS? SL_COMMENT? NEWLINE;

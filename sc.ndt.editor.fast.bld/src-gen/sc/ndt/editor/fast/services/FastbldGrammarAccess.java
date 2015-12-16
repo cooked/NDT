@@ -467,16 +467,16 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final Keyword cNameNblInpStKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
+		private final Keyword cNameNBlInpStKeyword_3_0 = (Keyword)cNameAssignment_3.eContents().get(0);
 		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final RuleCall cSL_COMMENTTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		private final RuleCall cNEWLINETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
 		
 		//nNblInpSt hidden():
-		//	WS? value=INT WS name="NblInpSt" WS? SL_COMMENT? NEWLINE;
+		//	WS? value=INT WS name="NBlInpSt" WS? SL_COMMENT? NEWLINE;
 		public ParserRule getRule() { return rule; }
 
-		//WS? value=INT WS name="NblInpSt" WS? SL_COMMENT? NEWLINE
+		//WS? value=INT WS name="NBlInpSt" WS? SL_COMMENT? NEWLINE
 		public Group getGroup() { return cGroup; }
 
 		//WS?
@@ -491,11 +491,11 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 		//WS
 		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
 
-		//name="NblInpSt"
+		//name="NBlInpSt"
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//"NblInpSt"
-		public Keyword getNameNblInpStKeyword_3_0() { return cNameNblInpStKeyword_3_0; }
+		//"NBlInpSt"
+		public Keyword getNameNBlInpStKeyword_3_0() { return cNameNBlInpStKeyword_3_0; }
 
 		//WS?
 		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
@@ -2205,50 +2205,88 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private ModelFastbldElements pModelFastbld;
-	private TNUMBERElements pTNUMBER;
-	private TBOOLElements pTBOOL;
-	private TARRAY_STRElements pTARRAY_STR;
-	private TerminalRule tINT;
-	private TerminalRule tNUMBER;
-	private TerminalRule tSTRING;
-	private TerminalRule tNEWLINE;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
-	private HeaderElements pHeader;
-	private SectionElements pSection;
-	private NNblInpStElements pNNblInpSt;
-	private BCalcBModeElements pBCalcBMode;
-	private NBldFlDmp1Elements pNBldFlDmp1;
-	private NBldFlDmp2Elements pNBldFlDmp2;
-	private NBldEdDmp1Elements pNBldEdDmp1;
-	private NFlStTunr1Elements pNFlStTunr1;
-	private NFlStTunr2Elements pNFlStTunr2;
-	private AdjBlMsElements pAdjBlMs;
-	private AdjFlStElements pAdjFlSt;
-	private AdjEdStElements pAdjEdSt;
-	private NBldFl1Sh2Elements pNBldFl1Sh2;
-	private NBldFl1Sh3Elements pNBldFl1Sh3;
-	private NBldFl1Sh4Elements pNBldFl1Sh4;
-	private NBldFl1Sh5Elements pNBldFl1Sh5;
-	private NBldFl1Sh6Elements pNBldFl1Sh6;
-	private NBldFl2Sh2Elements pNBldFl2Sh2;
-	private NBldFl2Sh3Elements pNBldFl2Sh3;
-	private NBldFl2Sh4Elements pNBldFl2Sh4;
-	private NBldFl2Sh5Elements pNBldFl2Sh5;
-	private NBldFl2Sh6Elements pNBldFl2Sh6;
-	private NBldEdgSh2Elements pNBldEdgSh2;
-	private NBldEdgSh3Elements pNBldEdgSh3;
-	private NBldEdgSh4Elements pNBldEdgSh4;
-	private NBldEdgSh5Elements pNBldEdgSh5;
-	private NBldEdgSh6Elements pNBldEdgSh6;
-	private AAirStatElements pAAirStat;
+	private final ModelFastbldElements pModelFastbld;
+	private final TNUMBERElements pTNUMBER;
+	private final TBOOLElements pTBOOL;
+	private final TARRAY_STRElements pTARRAY_STR;
+	private final TerminalRule tINT;
+	private final TerminalRule tNUMBER;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tNEWLINE;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tWS;
+	private final HeaderElements pHeader;
+	private final SectionElements pSection;
+	private final NNblInpStElements pNNblInpSt;
+	private final BCalcBModeElements pBCalcBMode;
+	private final NBldFlDmp1Elements pNBldFlDmp1;
+	private final NBldFlDmp2Elements pNBldFlDmp2;
+	private final NBldEdDmp1Elements pNBldEdDmp1;
+	private final NFlStTunr1Elements pNFlStTunr1;
+	private final NFlStTunr2Elements pNFlStTunr2;
+	private final AdjBlMsElements pAdjBlMs;
+	private final AdjFlStElements pAdjFlSt;
+	private final AdjEdStElements pAdjEdSt;
+	private final NBldFl1Sh2Elements pNBldFl1Sh2;
+	private final NBldFl1Sh3Elements pNBldFl1Sh3;
+	private final NBldFl1Sh4Elements pNBldFl1Sh4;
+	private final NBldFl1Sh5Elements pNBldFl1Sh5;
+	private final NBldFl1Sh6Elements pNBldFl1Sh6;
+	private final NBldFl2Sh2Elements pNBldFl2Sh2;
+	private final NBldFl2Sh3Elements pNBldFl2Sh3;
+	private final NBldFl2Sh4Elements pNBldFl2Sh4;
+	private final NBldFl2Sh5Elements pNBldFl2Sh5;
+	private final NBldFl2Sh6Elements pNBldFl2Sh6;
+	private final NBldEdgSh2Elements pNBldEdgSh2;
+	private final NBldEdgSh3Elements pNBldEdgSh3;
+	private final NBldEdgSh4Elements pNBldEdgSh4;
+	private final NBldEdgSh5Elements pNBldEdgSh5;
+	private final NBldEdgSh6Elements pNBldEdgSh6;
+	private final AAirStatElements pAAirStat;
 	
 	private final Grammar grammar;
 
 	@Inject
 	public FastbldGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
+		this.pModelFastbld = new ModelFastbldElements();
+		this.pTNUMBER = new TNUMBERElements();
+		this.pTBOOL = new TBOOLElements();
+		this.pTARRAY_STR = new TARRAY_STRElements();
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
+		this.tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		this.pHeader = new HeaderElements();
+		this.pSection = new SectionElements();
+		this.pNNblInpSt = new NNblInpStElements();
+		this.pBCalcBMode = new BCalcBModeElements();
+		this.pNBldFlDmp1 = new NBldFlDmp1Elements();
+		this.pNBldFlDmp2 = new NBldFlDmp2Elements();
+		this.pNBldEdDmp1 = new NBldEdDmp1Elements();
+		this.pNFlStTunr1 = new NFlStTunr1Elements();
+		this.pNFlStTunr2 = new NFlStTunr2Elements();
+		this.pAdjBlMs = new AdjBlMsElements();
+		this.pAdjFlSt = new AdjFlStElements();
+		this.pAdjEdSt = new AdjEdStElements();
+		this.pNBldFl1Sh2 = new NBldFl1Sh2Elements();
+		this.pNBldFl1Sh3 = new NBldFl1Sh3Elements();
+		this.pNBldFl1Sh4 = new NBldFl1Sh4Elements();
+		this.pNBldFl1Sh5 = new NBldFl1Sh5Elements();
+		this.pNBldFl1Sh6 = new NBldFl1Sh6Elements();
+		this.pNBldFl2Sh2 = new NBldFl2Sh2Elements();
+		this.pNBldFl2Sh3 = new NBldFl2Sh3Elements();
+		this.pNBldFl2Sh4 = new NBldFl2Sh4Elements();
+		this.pNBldFl2Sh5 = new NBldFl2Sh5Elements();
+		this.pNBldFl2Sh6 = new NBldFl2Sh6Elements();
+		this.pNBldEdgSh2 = new NBldEdgSh2Elements();
+		this.pNBldEdgSh3 = new NBldEdgSh3Elements();
+		this.pNBldEdgSh4 = new NBldEdgSh4Elements();
+		this.pNBldEdgSh5 = new NBldEdgSh5Elements();
+		this.pNBldEdgSh6 = new NBldEdgSh6Elements();
+		this.pAAirStat = new AAirStatElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2284,7 +2322,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//	BldFl2Sh4=nBldFl2Sh4 BldFl2Sh5=nBldFl2Sh5 BldFl2Sh6=nBldFl2Sh6 BldEdgSh2=nBldEdgSh2 BldEdgSh3=nBldEdgSh3
 	//	BldEdgSh4=nBldEdgSh4 BldEdgSh5=nBldEdgSh5 BldEdgSh6=nBldEdgSh6 (WS | NEWLINE | SL_COMMENT)*;
 	public ModelFastbldElements getModelFastbldAccess() {
-		return (pModelFastbld != null) ? pModelFastbld : (pModelFastbld = new ModelFastbldElements());
+		return pModelFastbld;
 	}
 	
 	public ParserRule getModelFastbldRule() {
@@ -2294,7 +2332,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//tNUMBER returns ecore::EFloat:
 	//	INT | NUMBER;
 	public TNUMBERElements getTNUMBERAccess() {
-		return (pTNUMBER != null) ? pTNUMBER : (pTNUMBER = new TNUMBERElements());
+		return pTNUMBER;
 	}
 	
 	public ParserRule getTNUMBERRule() {
@@ -2304,7 +2342,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//tBOOL returns ecore::EBoolean:
 	//	"TRUE" | "True" | "true" | "FALSE" | "False" | "false";
 	public TBOOLElements getTBOOLAccess() {
-		return (pTBOOL != null) ? pTBOOL : (pTBOOL = new TBOOLElements());
+		return pTBOOL;
 	}
 	
 	public ParserRule getTBOOLRule() {
@@ -2320,7 +2358,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//tARRAY_STR returns ecore::EString hidden(SL_COMMENT):
 	//	(WS? STRING WS? NEWLINE)*;
 	public TARRAY_STRElements getTARRAY_STRAccess() {
-		return (pTARRAY_STR != null) ? pTARRAY_STR : (pTARRAY_STR = new TARRAY_STRElements());
+		return pTARRAY_STR;
 	}
 	
 	public ParserRule getTARRAY_STRRule() {
@@ -2333,45 +2371,45 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//terminal INT returns ecore::EInt:
 	//	"0".."9"+;
 	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
+		return tINT;
 	} 
 
 	//terminal NUMBER returns ecore::EFloat:
 	//	("+" | "-")? INT ("." INT?) (("E" | "e") ("+" | "-")? INT)? | ("+" | "-")? INT (("E" | "e") ("+" | "-")? INT) | ("."
 	//	INT) (("E" | "e") ("+" | "-")? INT)? | "-" INT;
 	public TerminalRule getNUMBERRule() {
-		return (tNUMBER != null) ? tNUMBER : (tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER"));
+		return tNUMBER;
 	} 
 
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
 	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
-		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
+		return tSTRING;
 	} 
 
 	//terminal NEWLINE:
 	//	"\r" | "\n" | "\r\n";
 	public TerminalRule getNEWLINERule() {
-		return (tNEWLINE != null) ? tNEWLINE : (tNEWLINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NEWLINE"));
+		return tNEWLINE;
 	} 
 
 	//terminal SL_COMMENT:
 	//	"-" !"0".."9" !("\r" | "\n" | "\r\n")*;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return tSL_COMMENT;
 	} 
 
 	//terminal WS:
 	//	(" " | "\t")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return tWS;
 	} 
 
 	//Header hidden():
 	//	SL_COMMENT NEWLINE SL_COMMENT NEWLINE name=SL_COMMENT NEWLINE;
 	public HeaderElements getHeaderAccess() {
-		return (pHeader != null) ? pHeader : (pHeader = new HeaderElements());
+		return pHeader;
 	}
 	
 	public ParserRule getHeaderRule() {
@@ -2381,7 +2419,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//Section hidden():
 	//	name=SL_COMMENT NEWLINE;
 	public SectionElements getSectionAccess() {
-		return (pSection != null) ? pSection : (pSection = new SectionElements());
+		return pSection;
 	}
 	
 	public ParserRule getSectionRule() {
@@ -2389,9 +2427,9 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//nNblInpSt hidden():
-	//	WS? value=INT WS name="NblInpSt" WS? SL_COMMENT? NEWLINE;
+	//	WS? value=INT WS name="NBlInpSt" WS? SL_COMMENT? NEWLINE;
 	public NNblInpStElements getNNblInpStAccess() {
-		return (pNNblInpSt != null) ? pNNblInpSt : (pNNblInpSt = new NNblInpStElements());
+		return pNNblInpSt;
 	}
 	
 	public ParserRule getNNblInpStRule() {
@@ -2401,7 +2439,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//bCalcBMode hidden():
 	//	WS? value=tBOOL WS name="CalcBMode" WS? SL_COMMENT? NEWLINE;
 	public BCalcBModeElements getBCalcBModeAccess() {
-		return (pBCalcBMode != null) ? pBCalcBMode : (pBCalcBMode = new BCalcBModeElements());
+		return pBCalcBMode;
 	}
 	
 	public ParserRule getBCalcBModeRule() {
@@ -2411,7 +2449,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFlDmp1 hidden():
 	//	WS? value=tNUMBER WS name="BldFlDmp(1)" WS? SL_COMMENT? NEWLINE;
 	public NBldFlDmp1Elements getNBldFlDmp1Access() {
-		return (pNBldFlDmp1 != null) ? pNBldFlDmp1 : (pNBldFlDmp1 = new NBldFlDmp1Elements());
+		return pNBldFlDmp1;
 	}
 	
 	public ParserRule getNBldFlDmp1Rule() {
@@ -2421,7 +2459,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFlDmp2 hidden():
 	//	WS? value=tNUMBER WS name="BldFlDmp(2)" WS? SL_COMMENT? NEWLINE;
 	public NBldFlDmp2Elements getNBldFlDmp2Access() {
-		return (pNBldFlDmp2 != null) ? pNBldFlDmp2 : (pNBldFlDmp2 = new NBldFlDmp2Elements());
+		return pNBldFlDmp2;
 	}
 	
 	public ParserRule getNBldFlDmp2Rule() {
@@ -2431,7 +2469,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdDmp1 hidden():
 	//	WS? value=tNUMBER WS name="BldEdDmp(1)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdDmp1Elements getNBldEdDmp1Access() {
-		return (pNBldEdDmp1 != null) ? pNBldEdDmp1 : (pNBldEdDmp1 = new NBldEdDmp1Elements());
+		return pNBldEdDmp1;
 	}
 	
 	public ParserRule getNBldEdDmp1Rule() {
@@ -2441,7 +2479,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nFlStTunr1 hidden():
 	//	WS? value=tNUMBER WS name="FlStTunr(1)" WS? SL_COMMENT? NEWLINE;
 	public NFlStTunr1Elements getNFlStTunr1Access() {
-		return (pNFlStTunr1 != null) ? pNFlStTunr1 : (pNFlStTunr1 = new NFlStTunr1Elements());
+		return pNFlStTunr1;
 	}
 	
 	public ParserRule getNFlStTunr1Rule() {
@@ -2451,7 +2489,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nFlStTunr2 hidden():
 	//	WS? value=tNUMBER WS name="FlStTunr(2)" WS? SL_COMMENT? NEWLINE;
 	public NFlStTunr2Elements getNFlStTunr2Access() {
-		return (pNFlStTunr2 != null) ? pNFlStTunr2 : (pNFlStTunr2 = new NFlStTunr2Elements());
+		return pNFlStTunr2;
 	}
 	
 	public ParserRule getNFlStTunr2Rule() {
@@ -2461,7 +2499,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//AdjBlMs hidden():
 	//	WS? value=tNUMBER WS name="AdjBlMs" WS? SL_COMMENT? NEWLINE;
 	public AdjBlMsElements getAdjBlMsAccess() {
-		return (pAdjBlMs != null) ? pAdjBlMs : (pAdjBlMs = new AdjBlMsElements());
+		return pAdjBlMs;
 	}
 	
 	public ParserRule getAdjBlMsRule() {
@@ -2471,7 +2509,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//AdjFlSt hidden():
 	//	WS? value=tNUMBER WS name="AdjFlSt" WS? SL_COMMENT? NEWLINE;
 	public AdjFlStElements getAdjFlStAccess() {
-		return (pAdjFlSt != null) ? pAdjFlSt : (pAdjFlSt = new AdjFlStElements());
+		return pAdjFlSt;
 	}
 	
 	public ParserRule getAdjFlStRule() {
@@ -2481,7 +2519,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//AdjEdSt hidden():
 	//	WS? value=tNUMBER WS name="AdjEdSt" WS? SL_COMMENT? NEWLINE;
 	public AdjEdStElements getAdjEdStAccess() {
-		return (pAdjEdSt != null) ? pAdjEdSt : (pAdjEdSt = new AdjEdStElements());
+		return pAdjEdSt;
 	}
 	
 	public ParserRule getAdjEdStRule() {
@@ -2491,7 +2529,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl1Sh2 hidden():
 	//	WS? value=tNUMBER WS name="BldFl1Sh(2)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl1Sh2Elements getNBldFl1Sh2Access() {
-		return (pNBldFl1Sh2 != null) ? pNBldFl1Sh2 : (pNBldFl1Sh2 = new NBldFl1Sh2Elements());
+		return pNBldFl1Sh2;
 	}
 	
 	public ParserRule getNBldFl1Sh2Rule() {
@@ -2501,7 +2539,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl1Sh3 hidden():
 	//	WS? value=tNUMBER WS name="BldFl1Sh(3)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl1Sh3Elements getNBldFl1Sh3Access() {
-		return (pNBldFl1Sh3 != null) ? pNBldFl1Sh3 : (pNBldFl1Sh3 = new NBldFl1Sh3Elements());
+		return pNBldFl1Sh3;
 	}
 	
 	public ParserRule getNBldFl1Sh3Rule() {
@@ -2511,7 +2549,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl1Sh4 hidden():
 	//	WS? value=tNUMBER WS name="BldFl1Sh(4)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl1Sh4Elements getNBldFl1Sh4Access() {
-		return (pNBldFl1Sh4 != null) ? pNBldFl1Sh4 : (pNBldFl1Sh4 = new NBldFl1Sh4Elements());
+		return pNBldFl1Sh4;
 	}
 	
 	public ParserRule getNBldFl1Sh4Rule() {
@@ -2521,7 +2559,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl1Sh5 hidden():
 	//	WS? value=tNUMBER WS name="BldFl1Sh(5)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl1Sh5Elements getNBldFl1Sh5Access() {
-		return (pNBldFl1Sh5 != null) ? pNBldFl1Sh5 : (pNBldFl1Sh5 = new NBldFl1Sh5Elements());
+		return pNBldFl1Sh5;
 	}
 	
 	public ParserRule getNBldFl1Sh5Rule() {
@@ -2531,7 +2569,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl1Sh6 hidden():
 	//	WS? value=tNUMBER WS name="BldFl1Sh(6)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl1Sh6Elements getNBldFl1Sh6Access() {
-		return (pNBldFl1Sh6 != null) ? pNBldFl1Sh6 : (pNBldFl1Sh6 = new NBldFl1Sh6Elements());
+		return pNBldFl1Sh6;
 	}
 	
 	public ParserRule getNBldFl1Sh6Rule() {
@@ -2541,7 +2579,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl2Sh2 hidden():
 	//	WS? value=tNUMBER WS name="BldFl2Sh(2)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl2Sh2Elements getNBldFl2Sh2Access() {
-		return (pNBldFl2Sh2 != null) ? pNBldFl2Sh2 : (pNBldFl2Sh2 = new NBldFl2Sh2Elements());
+		return pNBldFl2Sh2;
 	}
 	
 	public ParserRule getNBldFl2Sh2Rule() {
@@ -2551,7 +2589,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl2Sh3 hidden():
 	//	WS? value=tNUMBER WS name="BldFl2Sh(3)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl2Sh3Elements getNBldFl2Sh3Access() {
-		return (pNBldFl2Sh3 != null) ? pNBldFl2Sh3 : (pNBldFl2Sh3 = new NBldFl2Sh3Elements());
+		return pNBldFl2Sh3;
 	}
 	
 	public ParserRule getNBldFl2Sh3Rule() {
@@ -2561,7 +2599,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl2Sh4 hidden():
 	//	WS? value=tNUMBER WS name="BldFl2Sh(4)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl2Sh4Elements getNBldFl2Sh4Access() {
-		return (pNBldFl2Sh4 != null) ? pNBldFl2Sh4 : (pNBldFl2Sh4 = new NBldFl2Sh4Elements());
+		return pNBldFl2Sh4;
 	}
 	
 	public ParserRule getNBldFl2Sh4Rule() {
@@ -2571,7 +2609,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl2Sh5 hidden():
 	//	WS? value=tNUMBER WS name="BldFl2Sh(5)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl2Sh5Elements getNBldFl2Sh5Access() {
-		return (pNBldFl2Sh5 != null) ? pNBldFl2Sh5 : (pNBldFl2Sh5 = new NBldFl2Sh5Elements());
+		return pNBldFl2Sh5;
 	}
 	
 	public ParserRule getNBldFl2Sh5Rule() {
@@ -2581,7 +2619,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldFl2Sh6 hidden():
 	//	WS? value=tNUMBER WS name="BldFl2Sh(6)" WS? SL_COMMENT? NEWLINE;
 	public NBldFl2Sh6Elements getNBldFl2Sh6Access() {
-		return (pNBldFl2Sh6 != null) ? pNBldFl2Sh6 : (pNBldFl2Sh6 = new NBldFl2Sh6Elements());
+		return pNBldFl2Sh6;
 	}
 	
 	public ParserRule getNBldFl2Sh6Rule() {
@@ -2591,7 +2629,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdgSh2 hidden():
 	//	WS? value=tNUMBER WS name="BldEdgSh(2)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdgSh2Elements getNBldEdgSh2Access() {
-		return (pNBldEdgSh2 != null) ? pNBldEdgSh2 : (pNBldEdgSh2 = new NBldEdgSh2Elements());
+		return pNBldEdgSh2;
 	}
 	
 	public ParserRule getNBldEdgSh2Rule() {
@@ -2601,7 +2639,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdgSh3 hidden():
 	//	WS? value=tNUMBER WS name="BldEdgSh(3)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdgSh3Elements getNBldEdgSh3Access() {
-		return (pNBldEdgSh3 != null) ? pNBldEdgSh3 : (pNBldEdgSh3 = new NBldEdgSh3Elements());
+		return pNBldEdgSh3;
 	}
 	
 	public ParserRule getNBldEdgSh3Rule() {
@@ -2611,7 +2649,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdgSh4 hidden():
 	//	WS? value=tNUMBER WS name="BldEdgSh(4)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdgSh4Elements getNBldEdgSh4Access() {
-		return (pNBldEdgSh4 != null) ? pNBldEdgSh4 : (pNBldEdgSh4 = new NBldEdgSh4Elements());
+		return pNBldEdgSh4;
 	}
 	
 	public ParserRule getNBldEdgSh4Rule() {
@@ -2621,7 +2659,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdgSh5 hidden():
 	//	WS? value=tNUMBER WS name="BldEdgSh(5)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdgSh5Elements getNBldEdgSh5Access() {
-		return (pNBldEdgSh5 != null) ? pNBldEdgSh5 : (pNBldEdgSh5 = new NBldEdgSh5Elements());
+		return pNBldEdgSh5;
 	}
 	
 	public ParserRule getNBldEdgSh5Rule() {
@@ -2631,7 +2669,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//nBldEdgSh6 hidden():
 	//	WS? value=tNUMBER WS name="BldEdgSh(6)" WS? SL_COMMENT? NEWLINE;
 	public NBldEdgSh6Elements getNBldEdgSh6Access() {
-		return (pNBldEdgSh6 != null) ? pNBldEdgSh6 : (pNBldEdgSh6 = new NBldEdgSh6Elements());
+		return pNBldEdgSh6;
 	}
 	
 	public ParserRule getNBldEdgSh6Rule() {
@@ -2648,7 +2686,7 @@ public class FastbldGrammarAccess extends AbstractGrammarElementFinder {
 	//	PrecrvRef+=tNUMBER WS PreswpRef+=tNUMBER WS FlpcgOf+=tNUMBER WS EdgcgOf+=tNUMBER WS FlpEAOf+=tNUMBER WS
 	//	EdgEAOf+=tNUMBER WS? SL_COMMENT? NEWLINE)+;
 	public AAirStatElements getAAirStatAccess() {
-		return (pAAirStat != null) ? pAAirStat : (pAAirStat = new AAirStatElements());
+		return pAAirStat;
 	}
 	
 	public ParserRule getAAirStatRule() {

@@ -411,5 +411,21 @@
            name="Tower">
      </wizard>
   </extension>
-
+<extension
+        point="org.eclipse.core.runtime.adapters">
+     <factory
+           adaptableType="org.eclipse.core.resources.IFile"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelTwrAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fasttwr.ModelFasttwr">
+        </adapter>
+     </factory>
+     <factory
+           adaptableType="org.eclipse.ui.IFileEditorInput"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelTwrAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fasttwr.ModelFasttwr">
+        </adapter>
+     </factory>
+  </extension>
 </plugin>

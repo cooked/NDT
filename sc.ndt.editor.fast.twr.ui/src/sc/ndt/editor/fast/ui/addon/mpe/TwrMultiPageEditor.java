@@ -127,10 +127,10 @@ public class TwrMultiPageEditor extends FormEditor implements IXtextFormEditor {
 
 	}
 	
-	@Override
+	/*@Override
 	public Injector getXtextInjector(String key) {
 		return xtextInjectors.get(key);
-	}
+	}*/
 	
 	@Override
 	public XtextEditor getXtextEditor(String key) {

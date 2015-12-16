@@ -38,12 +38,20 @@ Require-Bundle: sc.ndt.editor.fast.fst;visibility:=reexport,
  org.eclipse.debug.core,
  org.eclipse.ant.launching;bundle-version="1.0.300",
  org.eclipse.core.externaltools;bundle-version="1.0.200",
- org.eclipse.ui.navigator;bundle-version="3.5.300"
+ org.eclipse.ui.navigator;bundle-version="3.5.300",
+ org.eclipse.emf.ecp.ui.view.swt,
+ org.eclipse.emf.ecp.view.model.provider.xmi,
+ org.eclipse.emf.ecp.view.model.provider.generator,
+ sc.ndt.editor.fast.bld,
+ sc.ndt.editor.fast.bld.ui,
+ sc.ndt.editor.fast.twr,
+ sc.ndt.editor.fast.twr.ui;bundle-version="0.5.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.editor.fast.ui,
  sc.ndt.editor.fast.ui.contentassist,
  sc.ndt.editor.fast.ui.contentassist.antlr,
  sc.ndt.editor.fast.ui.internal,
+ sc.ndt.editor.fast.ui.mpe.ui,
  sc.ndt.editor.fast.ui.quickfix
 Bundle-Activator: sc.ndt.editor.fast.ui.internal.FastfstActivator

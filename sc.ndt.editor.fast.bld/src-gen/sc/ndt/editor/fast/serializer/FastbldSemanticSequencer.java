@@ -789,7 +789,7 @@ public class FastbldSemanticSequencer extends AbstractDelegatingSemanticSequence
 	
 	/**
 	 * Constraint:
-	 *     (value=INT name='NblInpSt')
+	 *     (value=INT name='NBlInpSt')
 	 */
 	protected void sequence_nNblInpSt(EObject context, nNblInpSt semanticObject) {
 		if(errorAcceptor != null) {
@@ -801,7 +801,7 @@ public class FastbldSemanticSequencer extends AbstractDelegatingSemanticSequence
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNNblInpStAccess().getValueINTTerminalRuleCall_1_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0(), semanticObject.getName());
 		feeder.finish();
 	}
 }

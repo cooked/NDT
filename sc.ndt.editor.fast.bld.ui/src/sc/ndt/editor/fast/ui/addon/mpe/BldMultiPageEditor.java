@@ -79,10 +79,10 @@ public class BldMultiPageEditor extends FormEditor implements IXtextFormEditor {
 		xtextEditorBld 	= fBldInjector.getInstance(XtextEditor.class);
 	}
 
-	@Override
+	/*@Override
 	public Injector getXtextInjector(String key) {
 		return fBldInjector;
-	}
+	}*/
 	
 	@Override
 	public XtextEditor getXtextEditor(String key) {
@@ -297,6 +297,12 @@ public class BldMultiPageEditor extends FormEditor implements IXtextFormEditor {
 			
 		// outlinePageFMain.setSourceViewer(xtextEditorFst.getInternalSourceViewer());
 		fContentOutline.setPageActive(outline);
+	}
+
+	@Override
+	public EObject getXtextEditorModel(String key) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

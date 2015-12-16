@@ -29,6 +29,7 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: sc.ndt.editor.fast.ui,
+ sc.ndt.editor.fast.ui.addon.mpe,
  sc.ndt.editor.fast.ui.contentassist,
  sc.ndt.editor.fast.ui.contentassist.antlr,
  sc.ndt.editor.fast.ui.internal,

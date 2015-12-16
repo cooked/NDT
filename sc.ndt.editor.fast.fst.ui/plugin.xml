@@ -522,5 +522,27 @@
         </view>
      </perspectiveExtension>
   </extension>
+  <extension
+        point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="src/sc/ndt/editor/fast/ui/mpe/ui/dev/viewmodels/ModelFast8fst.view"/>
+
+  </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+     <factory
+           adaptableType="org.eclipse.core.resources.IFile"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelFstAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fastfst.ModelFastfst">
+        </adapter>
+     </factory>
+     <factory
+           adaptableType="org.eclipse.ui.IFileEditorInput"
+           class="sc.ndt.editor.fast.ui.addon.adapter.ModelFstAdapter">
+        <adapter
+              type="sc.ndt.editor.fast.fastfst.ModelFastfst">
+        </adapter>
+     </factory>
+  </extension>
 
 </plugin>

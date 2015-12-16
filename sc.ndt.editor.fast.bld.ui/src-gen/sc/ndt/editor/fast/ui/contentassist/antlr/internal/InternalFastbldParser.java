@@ -22,70 +22,70 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFastbldParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_WS", "RULE_NEWLINE", "RULE_SL_COMMENT", "RULE_INT", "RULE_NUMBER", "RULE_STRING", "'TRUE'", "'True'", "'true'", "'FALSE'", "'False'", "'false'", "'BlFract'", "'AeroCent'", "'StrcTwst'", "'BMassDen'", "'FlpStff'", "'EdgStff'", "'GJStff'", "'EAStff'", "'Alpha'", "'FlpIner'", "'EdgIner'", "'PrecrvRef'", "'PreswpRef'", "'FlpcgOf'", "'EdgcgOf'", "'FlpEAOf'", "'EdgEAOf'", "'(-)'", "'(deg)'", "'(kg/m)'", "'(Nm^2)'", "'(N)'", "'(kg m)'", "'(m)'", "'NblInpSt'", "'CalcBMode'", "'BldFlDmp(1)'", "'BldFlDmp(2)'", "'BldEdDmp(1)'", "'FlStTunr(1)'", "'FlStTunr(2)'", "'AdjBlMs'", "'AdjFlSt'", "'AdjEdSt'", "'BldFl1Sh(2)'", "'BldFl1Sh(3)'", "'BldFl1Sh(4)'", "'BldFl1Sh(5)'", "'BldFl1Sh(6)'", "'BldFl2Sh(2)'", "'BldFl2Sh(3)'", "'BldFl2Sh(4)'", "'BldFl2Sh(5)'", "'BldFl2Sh(6)'", "'BldEdgSh(2)'", "'BldEdgSh(3)'", "'BldEdgSh(4)'", "'BldEdgSh(5)'", "'BldEdgSh(6)'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_WS", "RULE_NEWLINE", "RULE_SL_COMMENT", "RULE_INT", "RULE_NUMBER", "RULE_STRING", "'TRUE'", "'True'", "'true'", "'FALSE'", "'False'", "'false'", "'BlFract'", "'AeroCent'", "'StrcTwst'", "'BMassDen'", "'FlpStff'", "'EdgStff'", "'GJStff'", "'EAStff'", "'Alpha'", "'FlpIner'", "'EdgIner'", "'PrecrvRef'", "'PreswpRef'", "'FlpcgOf'", "'EdgcgOf'", "'FlpEAOf'", "'EdgEAOf'", "'(-)'", "'(deg)'", "'(kg/m)'", "'(Nm^2)'", "'(N)'", "'(kg m)'", "'(m)'", "'NBlInpSt'", "'CalcBMode'", "'BldFlDmp(1)'", "'BldFlDmp(2)'", "'BldEdDmp(1)'", "'FlStTunr(1)'", "'FlStTunr(2)'", "'AdjBlMs'", "'AdjFlSt'", "'AdjEdSt'", "'BldFl1Sh(2)'", "'BldFl1Sh(3)'", "'BldFl1Sh(4)'", "'BldFl1Sh(5)'", "'BldFl1Sh(6)'", "'BldFl2Sh(2)'", "'BldFl2Sh(3)'", "'BldFl2Sh(4)'", "'BldFl2Sh(5)'", "'BldFl2Sh(6)'", "'BldEdgSh(2)'", "'BldEdgSh(3)'", "'BldEdgSh(4)'", "'BldEdgSh(5)'", "'BldEdgSh(6)'"
     };
-    public static final int T__64=64;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__62=62;
-    public static final int T__27=27;
-    public static final int T__63=63;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int T__61=61;
-    public static final int T__60=60;
-    public static final int EOF=-1;
-    public static final int T__55=55;
-    public static final int T__56=56;
+    public static final int T__50=50;
     public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__59=59;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__11=11;
+    public static final int T__55=55;
+    public static final int T__12=12;
+    public static final int T__56=56;
+    public static final int T__13=13;
     public static final int T__57=57;
+    public static final int T__14=14;
     public static final int T__58=58;
     public static final int T__51=51;
-    public static final int T__16=16;
     public static final int T__52=52;
-    public static final int T__15=15;
     public static final int T__53=53;
-    public static final int T__18=18;
-    public static final int T__54=54;
-    public static final int T__17=17;
-    public static final int RULE_NUMBER=8;
-    public static final int T__12=12;
-    public static final int T__11=11;
-    public static final int T__14=14;
-    public static final int T__13=13;
-    public static final int T__59=59;
     public static final int T__10=10;
+    public static final int T__54=54;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
     public static final int RULE_INT=7;
-    public static final int T__50=50;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__20=20;
+    public static final int T__64=64;
+    public static final int T__21=21;
     public static final int RULE_NEWLINE=5;
-    public static final int T__41=41;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=6;
-    public static final int T__30=30;
-    public static final int T__31=31;
     public static final int RULE_STRING=9;
-    public static final int T__32=32;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_WS=4;
+    public static final int RULE_NUMBER=8;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -31323,29 +31323,29 @@ public class InternalFastbldParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NNblInpSt__NameAssignment_3"
-    // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11958:1: rule__NNblInpSt__NameAssignment_3 : ( ( 'NblInpSt' ) ) ;
+    // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11958:1: rule__NNblInpSt__NameAssignment_3 : ( ( 'NBlInpSt' ) ) ;
     public final void rule__NNblInpSt__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11962:1: ( ( ( 'NblInpSt' ) ) )
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11963:1: ( ( 'NblInpSt' ) )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11962:1: ( ( ( 'NBlInpSt' ) ) )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11963:1: ( ( 'NBlInpSt' ) )
             {
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11963:1: ( ( 'NblInpSt' ) )
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11964:1: ( 'NblInpSt' )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11963:1: ( ( 'NBlInpSt' ) )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11964:1: ( 'NBlInpSt' )
             {
-             before(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); 
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11965:1: ( 'NblInpSt' )
-            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11966:1: 'NblInpSt'
+             before(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); 
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11965:1: ( 'NBlInpSt' )
+            // ../sc.ndt.editor.fast.bld.ui/src-gen/sc/ndt/editor/fast/ui/contentassist/antlr/internal/InternalFastbld.g:11966:1: 'NBlInpSt'
             {
-             before(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); 
+             before(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); 
             match(input,40,FOLLOW_40_in_rule__NNblInpSt__NameAssignment_323828); 
-             after(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); 
+             after(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); 
 
             }
 
-             after(grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0()); 
+             after(grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0()); 
 
             }
 

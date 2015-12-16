@@ -16,6 +16,7 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig;
  */
 @SuppressWarnings("all")
 public class FastadnFormatter extends AbstractDeclarativeFormatter {
+  @Override
   protected void configureFormatting(final FormattingConfig c) {
   }
 }

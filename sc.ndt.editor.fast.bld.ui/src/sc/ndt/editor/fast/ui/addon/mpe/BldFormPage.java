@@ -141,7 +141,9 @@ public class BldFormPage extends FormPage {
 		list = document.readOnly(new IUnitOfWork<String,XtextResource>() {
 
 			public String exec(XtextResource resource) {
-				/*m = (ModelFastbld)resource.getContents().get(0);
+				m = (ModelFastbld)resource.getContents().get(0);
+				
+				/*
 				uri = m.eResource().getURI();
 				String out = "";
 				EList<String> af = m.getFoilNm().getValue();
@@ -171,9 +173,6 @@ public class BldFormPage extends FormPage {
 
 	}
 
-	private FastbldPackage bindFastadnPackage() {
-		return FastbldPackage.eINSTANCE;
-	}
 
 	/**
 	 * Create contents of the form.

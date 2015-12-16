@@ -927,16 +927,16 @@ rulenNblInpSt returns [EObject current=null]
     }
 (
 (
-		lv_name_3_0=	'NblInpSt' 
+		lv_name_3_0=	'NBlInpSt' 
     {
-        newLeafNode(lv_name_3_0, grammarAccess.getNNblInpStAccess().getNameNblInpStKeyword_3_0());
+        newLeafNode(lv_name_3_0, grammarAccess.getNNblInpStAccess().getNameNBlInpStKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getNNblInpStRule());
 	        }
-       		setWithLastConsumed($current, "name", lv_name_3_0, "NblInpSt");
+       		setWithLastConsumed($current, "name", lv_name_3_0, "NBlInpSt");
 	    }
 
 )

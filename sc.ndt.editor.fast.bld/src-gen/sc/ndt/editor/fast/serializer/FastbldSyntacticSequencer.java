@@ -486,7 +486,7 @@ public class FastbldSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Syntax:
-	 *     (NEWLINE | SL_COMMENT | WS)*
+	 *     (WS | NEWLINE | SL_COMMENT)*
 	 */
 	protected void emit_ModelFastbld___NEWLINETerminalRuleCall_31_1_or_SL_COMMENTTerminalRuleCall_31_2_or_WSTerminalRuleCall_31_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

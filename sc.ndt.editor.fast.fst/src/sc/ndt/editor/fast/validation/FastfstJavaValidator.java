@@ -61,6 +61,10 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 		return m.getADAMSPrep().getValue()>1;
 	}
 	
+	private boolean isVsCtrl0GenModel1() {
+		return m.getVSContrl().getValue()==0 && m.getGenModel().getValue()==1;
+	}
+	
 	// checker
 	private void checkNotUsed(String controller, EAttribute atr, String opt) {
 		info("Not used when " + controller + " " + opt, atr);
@@ -1160,32 +1164,41 @@ public class FastfstJavaValidator extends AbstractFastfstJavaValidator {
 	}
 
 	// SIMPLE INDUCTION GENERATOR
+	
 	@Check
 	public void checkSIG_SlPc(nSIG_SlPc var) {
-		val = var.getValue();
-		ea = fp.getnSIG_SlPc_Value();
-		check0100(val, ea);
+		if(isVsCtrl0GenModel1()) {
+			val = var.getValue();
+			ea = fp.getnSIG_SlPc_Value();
+			check0100(val, ea);
+		}
 	}
 
 	@Check
 	public void checkSIG_SySp(nSIG_SySp var) {
-		val = var.getValue();
-		ea = fp.getnSIG_SySp_Value();
-		checkPos(val, ea);
+		if(isVsCtrl0GenModel1()) {
+			val = var.getValue();
+			ea = fp.getnSIG_SySp_Value();
+			checkPos(val, ea);
+		}
 	}
 
 	@Check
 	public void checkSIG_RtTq(nSIG_RtTq var) {
-		val = var.getValue();
-		ea = fp.getnSIG_RtTq_Value();
-		checkPos(val, ea);
+		if(isVsCtrl0GenModel1()) {
+			val = var.getValue();
+			ea = fp.getnSIG_RtTq_Value();
+			checkPos(val, ea);
+		}
 	}
 
 	@Check
 	public void checkSIG_PORt(nSIG_PORt var) {
-		val = var.getValue();
-		ea = fp.getnSIG_PORt_Value();
-		//
+		if(isVsCtrl0GenModel1()) {
+			val = var.getValue();
+			ea = fp.getnSIG_PORt_Value();
+			//TODO
+		}
 	}
 
 	// THEVENIN-EQUIVALENT, 3-PHASE, INDUCTION GENERATOR
